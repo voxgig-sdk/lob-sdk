@@ -1,0 +1,46 @@
+# Entity: lob_credits_balance
+
+main: kit: entity: lob_credits_balance: {
+
+  alias: field: {}
+
+  fields: {
+    balance: {
+      h: "Balance"
+      n: "balance"
+      r: true
+      sh: "Account's current balance of Lob Credits."
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "lob_credits_balance"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/accounts"
+          s: [
+            {
+              lit: "accounts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

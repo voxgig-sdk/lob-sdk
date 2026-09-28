@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>UsVerification | Lob</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Lob<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/lob-sdk">voxgig-sdk/lob-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Lob</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/address.html">Address</a>
+<a href="../api/bank_account.html">BankAccount</a>
+<a href="../api/bank_deletion.html">BankDeletion</a>
+<a href="../api/billing_group.html">BillingGroup</a>
+<a href="../api/booklet.html">Booklet</a>
+<a href="../api/buckslip.html">Buckslip</a>
+<a href="../api/buckslip_order.html">BuckslipOrder</a>
+<a href="../api/campaign.html">Campaign</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_order.html">CardOrder</a>
+<a href="../api/check.html">Check</a>
+<a href="../api/creative.html">Creative</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/identity_validation.html">IdentityValidation</a>
+<a href="../api/intl_verification.html">IntlVerification</a>
+<a href="../api/letter.html">Letter</a>
+<a href="../api/link.html">Link</a>
+<a href="../api/lob_credits_balance.html">LobCreditsBalance</a>
+<a href="../api/postcard.html">Postcard</a>
+<a href="../api/qr_code.html">QrCode</a>
+<a href="../api/resource_proof.html">ResourceProof</a>
+<a href="../api/response.html">Response</a>
+<a href="../api/reverse_geocode.html">ReverseGeocode</a>
+<a href="../api/self_mailer.html">SelfMailer</a>
+<a href="../api/snap_pack.html">SnapPack</a>
+<a href="../api/template.html">Template</a>
+<a href="../api/template_version.html">TemplateVersion</a>
+<a href="../api/template_version_deletion.html">TemplateVersionDeletion</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/upload_create_export.html">UploadCreateExport</a>
+<a href="../api/us_autocompletion.html">UsAutocompletion</a>
+<a aria-current="page" href="../api/us_verification.html">UsVerification</a><div class="nav-sections"><a class="nav-section" href="#post-bulkus_verifications">POST /bulk/us_verifications</a>
+<a class="nav-section" href="#post-us_verifications">POST /us_verifications</a></div>
+<a href="../api/zip.html">Zip</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="usverification">UsVerification</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-bulkus_verifications"><code>/bulk/us_verifications</code></a></td>
+<td><code>create</code></td>
+<td>Returns a list of US verification objects</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-us_verifications"><code>/us_verifications</code></a></td>
+<td><code>create</code></td>
+<td>Returns a US verification object</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.UsVerification(nil).Create(map[string]any{&quot;addresses&quot;: []any{}, &quot;components&quot;: map[string]any{}, &quot;deliverability_analysis&quot;: map[string]any{}, &quot;errors&quot;: true, &quot;lob_confidence_score&quot;: map[string]any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:UsVerification():create({ addresses = {}, components = {}, deliverability_analysis = {}, errors = true, lob_confidence_score = {} })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;UsVerification()-&gt;create([&quot;addresses&quot; =&gt; [], &quot;components&quot; =&gt; [], &quot;deliverability_analysis&quot; =&gt; [], &quot;errors&quot; =&gt; true, &quot;lob_confidence_score&quot; =&gt; []]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.UsVerification().create({ &quot;addresses&quot;: [], &quot;components&quot;: {}, &quot;deliverability_analysis&quot;: {}, &quot;errors&quot;: True, &quot;lob_confidence_score&quot;: {} })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">created = client.UsVerification.create({ &quot;addresses&quot; =&gt; [], &quot;components&quot; =&gt; {}, &quot;deliverability_analysis&quot; =&gt; {}, &quot;errors&quot; =&gt; true, &quot;lob_confidence_score&quot; =&gt; {} })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.UsVerification().create({ addresses: [], components: {}, deliverability_analysis: {}, errors: true, lob_confidence_score: {} })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addresses</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Addresses</td>
+</tr>
+<tr>
+<td><code>components</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>A nested object containing a breakdown of each component of an address.</td>
+</tr>
+<tr>
+<td><code>deliverability</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Summarizes the deliverability of the <code>us_verification</code> object.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>A nested object containing a breakdown of the deliverability of an address.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether any errors occurred during the verification process.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier prefixed with ``us_ver<code>_</code>.</td>
+</tr>
+<tr>
+<td><code>last_line</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Combination of the following applicable <code>components</code>: * City (<code>city</code>) * State (<code>state</code>) * ZIP code (<code>zip_code</code>) * ZIP+4 (<code>zip_code_plus_4</code>)</td>
+</tr>
+<tr>
+<td><code>lob_confidence_score</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Lob Confidence Score is a nested object that provides a numerical value between 0-100 of the likelihood that an address is deliverable based on Lob’s mail delivery data to over half of US households.</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Value is resource type.</td>
+</tr>
+<tr>
+<td><code>primary_line</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The primary delivery line (usually the street address) of the address.</td>
+</tr>
+<tr>
+<td><code>recipient</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The intended recipient, typically a person's or firm's name.</td>
+</tr>
+<tr>
+<td><code>secondary_line</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The secondary delivery line of the address.</td>
+</tr>
+<tr>
+<td><code>urbanization</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Only present for addresses in Puerto Rico.</td>
+</tr>
+<tr>
+<td><code>valid_address</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This field indicates whether an address was found in a more comprehensive address dataset that includes sources from the USPS, open source mapping data, and our proprietary mail delivery data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-bulkus_verifications" class="operation" data-method="post"><code>POST</code> /bulk/us_verifications</h3>
+<p>Operation ID: <code>bulk_us_verifications</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>case</code> | <code>query</code> | <code>enum: upper, proper</code> | No | Casing of the verified address. Possible values are <code>upper</code> and <code>proper</code> for uppercased (for example &quot;PO BOX&quot;) and proper-cased (for example &quot;PO Box&quot;), respectively. Only affects <code>recipient</code>, <code>primary_line</code>, <code>secondary_line</code>, <code>urbanization</code>, and <code>last_line</code>. Default casing is <code>upper</code>. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addresses</code></td>
+<td><code>array of any or any and object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;addresses&quot;: [
+    {
+      &quot;city&quot;: &quot;San Francisco&quot;,
+      &quot;primary_line&quot;: &quot;210 King Street&quot;,
+      &quot;state&quot;: &quot;CA&quot;,
+      &quot;zip_code&quot;: &quot;94107&quot;
+    },
+    {
+      &quot;city&quot;: &quot;RIO PIEDRAS&quot;,
+      &quot;primary_line&quot;: &quot;Ave Wilson Churchill 123&quot;,
+      &quot;recipient&quot;: &quot;Walgreens&quot;,
+      &quot;secondary_line&quot;: &quot;&quot;,
+      &quot;state&quot;: &quot;PR&quot;,
+      &quot;urbanization&quot;: &quot;URB FAIR OAKS&quot;,
+      &quot;zip_code&quot;: &quot;00926&quot;
+    }
+  ]
+}
+</code></pre>
+<p><code>application/x-www-form-urlencoded</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addresses</code></td>
+<td><code>array of any or any and object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;addresses&quot;: [
+    {
+      &quot;city&quot;: &quot;San Francisco&quot;,
+      &quot;primary_line&quot;: &quot;210 King Street&quot;,
+      &quot;state&quot;: &quot;CA&quot;,
+      &quot;zip_code&quot;: &quot;94107&quot;
+    },
+    {
+      &quot;city&quot;: &quot;RIO PIEDRAS&quot;,
+      &quot;primary_line&quot;: &quot;Ave Wilson Churchill 123&quot;,
+      &quot;recipient&quot;: &quot;Walgreens&quot;,
+      &quot;secondary_line&quot;: &quot;&quot;,
+      &quot;state&quot;: &quot;PR&quot;,
+      &quot;urbanization&quot;: &quot;URB FAIR OAKS&quot;,
+      &quot;zip_code&quot;: &quot;00926&quot;
+    }
+  ]
+}
+</code></pre>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addresses</code></td>
+<td><code>array of any or any and object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;addresses&quot;: [
+    {
+      &quot;city&quot;: &quot;San Francisco&quot;,
+      &quot;primary_line&quot;: &quot;210 King Street&quot;,
+      &quot;state&quot;: &quot;CA&quot;,
+      &quot;zip_code&quot;: &quot;94107&quot;
+    },
+    {
+      &quot;city&quot;: &quot;RIO PIEDRAS&quot;,
+      &quot;primary_line&quot;: &quot;Ave Wilson Churchill 123&quot;,
+      &quot;recipient&quot;: &quot;Walgreens&quot;,
+      &quot;secondary_line&quot;: &quot;&quot;,
+      &quot;state&quot;: &quot;PR&quot;,
+      &quot;urbanization&quot;: &quot;URB FAIR OAKS&quot;,
+      &quot;zip_code&quot;: &quot;00926&quot;
+    }
+  ]
+}
+</code></pre>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-a-list-of-us-verification-objects" class="status" data-status="2xx">200: Returns a list of US verification objects</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addresses</code></td>
+<td><code>array of object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether any errors occurred during the verification process.</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;addresses&quot;: [
+    {
+      &quot;components&quot;: {
+        &quot;address_type&quot;: &quot;commercial&quot;,
+        &quot;carrier_route&quot;: &quot;C032&quot;,
+        &quot;carrier_route_type&quot;: &quot;city_delivery&quot;,
+        &quot;city&quot;: &quot;SAN FRANCISCO&quot;,
+        &quot;county&quot;: &quot;SAN FRANCISCO&quot;,
+        &quot;county_fips&quot;: &quot;06075&quot;,
+        &quot;default_building_address&quot;: false,
+        &quot;delivery_point_barcode&quot;: &quot;941071728506&quot;,
+        &quot;extra_secondary_designator&quot;: &quot;&quot;,
+        &quot;extra_secondary_number&quot;: &quot;&quot;,
+        &quot;latitude&quot;: 37.77597542841264,
+        &quot;longitude&quot;: -122.3929557343685,
+        &quot;pmb_designator&quot;: &quot;&quot;,
+        &quot;pmb_number&quot;: &quot;&quot;,
+        &quot;po_box_only_flag&quot;: &quot;N&quot;,
+        &quot;primary_number&quot;: &quot;210&quot;,
+        &quot;record_type&quot;: &quot;street&quot;,
+        &quot;secondary_designator&quot;: &quot;&quot;,
+        &quot;secondary_number&quot;: &quot;&quot;,
+        &quot;state&quot;: &quot;CA&quot;,
+        &quot;street_name&quot;: &quot;KING&quot;,
+        &quot;street_postdirection&quot;: &quot;&quot;,
+        &quot;street_predirection&quot;: &quot;&quot;,
+        &quot;street_suffix&quot;: &quot;ST&quot;,
+        &quot;zip_code&quot;: &quot;94107&quot;,
+        &quot;zip_code_plus_4&quot;: &quot;1702&quot;,
+        &quot;zip_code_type&quot;: &quot;standard&quot;
+      },
+      &quot;deliverability&quot;: &quot;deliverable&quot;,
+      &quot;deliverability_analysis&quot;: {
+        &quot;dpv_active&quot;: &quot;Y&quot;,
+        &quot;dpv_cmra&quot;: &quot;N&quot;,
+        &quot;dpv_confirmation&quot;: &quot;Y&quot;,
+        &quot;dpv_door_not_accessible&quot;: &quot;N&quot;,
+        &quot;dpv_footnotes&quot;: [
+          &quot;AA&quot;,
+          &quot;BB&quot;
+        ],
+        &quot;dpv_inactive_reason&quot;: &quot;&quot;,
+        &quot;dpv_no_secure_location&quot;: &quot;N&quot;,
+        &quot;dpv_non_delivery_day_flag&quot;: &quot;N&quot;,
+        &quot;dpv_non_delivery_day_values&quot;: &quot;&quot;,
+        &quot;dpv_throwback&quot;: &quot;N&quot;,
+        &quot;dpv_vacant&quot;: &quot;N&quot;,
+        &quot;ews_match&quot;: false,
+        &quot;lacs_indicator&quot;: &quot;&quot;,
+        &quot;lacs_return_code&quot;: &quot;&quot;,
+        &quot;suite_return_code&quot;: &quot;&quot;
+      },
+      &quot;id&quot;: &quot;us_ver_c7cb63d68f8d6&quot;,
+      &quot;last_line&quot;: &quot;SAN FRANCISCO CA 94107-1702&quot;,
+      &quot;lob_confidence_score&quot;: {
+        &quot;level&quot;: &quot;high&quot;,
+        &quot;score&quot;: 100
+      },
+      &quot;object&quot;: &quot;us_verification&quot;,
+      &quot;primary_line&quot;: &quot;210 KING ST&quot;,
+      &quot;recipient&quot;: &quot;LOB.COM&quot;,
+      &quot;secondary_line&quot;: &quot;&quot;,
+      &quot;urbanization&quot;: &quot;&quot;,
+      &quot;valid_address&quot;: true
+    }
+  ],
+  &quot;errors&quot;: false
+}
+</code></pre>
+<h5 id="default-error">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;invalid&quot;,
+    &quot;message&quot;: &quot;primary_line is required or address is required&quot;,
+    &quot;status_code&quot;: 422
+  }
+}
+</code></pre>
+<h3 id="post-us_verifications" class="operation" data-method="post"><code>POST</code> /us_verifications</h3>
+<p>Operation ID: <code>us_verification</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>case</code> | <code>query</code> | <code>enum: upper, proper</code> | No | Casing of the verified address. Possible values are <code>upper</code> and <code>proper</code> for uppercased (for example &quot;PO BOX&quot;) and proper-cased (for example &quot;PO Box&quot;), respectively. Only affects <code>recipient</code>, <code>primary_line</code>, <code>secondary_line</code>, <code>urbanization</code>, and <code>last_line</code>. Default casing is <code>upper</code>. |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>any or any and object or object</code>.</p>
+<p><code>application/x-www-form-urlencoded</code></p>
+<p>The request body is <code>any or any and object or object</code>.</p>
+<p><code>multipart/form-data</code></p>
+<p>The request body is <code>any or any and object or object</code>.</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-returns-a-us-verification-object" class="status" data-status="2xx">200: Returns a US verification object</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>components</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A nested object containing a breakdown of each component of an address.</td>
+</tr>
+<tr>
+<td><code>components.address_type</code></td>
+<td><code>enum: residential, commercial, </code></td>
+<td>Yes</td>
+<td>Uses USPS's &lt;a href=&quot;https://www.usps.com/nationalpremieraccounts/rdi.htm&quot; target=&quot;_blank&quot;&gt;Residential Delivery Indicator (RDI)&lt;/a&gt; to identify whether an address is classified as residential or business. Possible values are: * <code>residential</code> –– The address is residential or a PO Box. * <code>commercial</code> –– The address is commercial. * <code>&amp;#39;&amp;#39;</code> –– Not enough information provided to be determined.</td>
+</tr>
+<tr>
+<td><code>components.carrier_route</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A 4-character code assigned to a mail delivery route within a ZIP code.</td>
+</tr>
+<tr>
+<td><code>components.carrier_route_type</code></td>
+<td><code>enum: city_delivery, rural_route, highway_contract, po_box, general_delivery</code></td>
+<td>Yes</td>
+<td>The type of <code>components[</code>carrier_route<code>]</code>. For more detailed information about each carrier route type, see <a href="#tag/US-Verification-Types">US Verification Details</a>.</td>
+</tr>
+<tr>
+<td><code>components.city</code></td>
+<td><code>string and string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>components.county</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>County name of the address city.</td>
+</tr>
+<tr>
+<td><code>components.county_fips</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A 5-digit &lt;a href=&quot;https://en.wikipedia.org/wiki/<code>FIPS_county_code</code>&quot; target=&quot;_blank&quot;&gt;FIPS county code&lt;/a&gt; which uniquely identifies <code>components[county]</code>. It consists of a 2-digit state code and a 3-digit county code.</td>
+</tr>
+<tr>
+<td><code>components.default_building_address</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Designates whether or not the address is the default address for a building containing multiple delivery points.</td>
+</tr>
+<tr>
+<td><code>components.delivery_point_barcode</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A 12-digit identifier that uniquely identifies a delivery point (location where mail can be sent and received). It consists of the 5-digit ZIP code (<code>zip_code</code>), 4-digit ZIP+4 add-on (<code>zip_code_plus_4</code>), 2-digit delivery point, and 1-digit delivery point check digit.</td>
+</tr>
+<tr>
+<td><code>components.extra_secondary_designator</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An extra (often unnecessary) secondary designator provided with the input address.</td>
+</tr>
+<tr>
+<td><code>components.extra_secondary_number</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An extra (often unnecessary) secondary number provided with the input address.</td>
+</tr>
+<tr>
+<td><code>components.latitude</code></td>
+<td><code>number (float)</code></td>
+<td>No</td>
+<td>A positive or negative decimal indicating the geographic latitude of the address, specifying the north-to-south position of a location. This should be used with <code>longitude</code> to pinpoint locations on a map. Will not be returned for undeliverable addresses or military addresses (state is <code>AA</code>, <code>AE</code>, or <code>AP</code>).</td>
+</tr>
+<tr>
+<td><code>components.longitude</code></td>
+<td><code>number (float)</code></td>
+<td>No</td>
+<td>A positive or negative decimal indicating the geographic longitude of the address, specifying the north-to-south position of a location. This should be used with <code>latitude</code> to pinpoint locations on a map. Will not be returned for undeliverable addresses or military addresses (state is <code>AA</code>, <code>AE</code>, or <code>AP</code>).</td>
+</tr>
+<tr>
+<td><code>components.pmb_designator</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Designator of a &lt;a href=&quot;https://en.wikipedia.org/wiki/<code>Commercial_mail_receiving_agency</code>&quot; target=&quot;_blank&quot;&gt;CMRA-authorized&lt;/a&gt; private mailbox.</td>
+</tr>
+<tr>
+<td><code>components.pmb_number</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Number of a &lt;a href=&quot;https://en.wikipedia.org/wiki/<code>Commercial_mail_receiving_agency</code>&quot; target=&quot;_blank&quot;&gt;CMRA-authorized&lt;/a&gt; private mailbox.</td>
+</tr>
+<tr>
+<td><code>components.po_box_only_flag</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates the mailing facility for an address only supports PO Box deliveries and other forms of mail delivery are not available.</td>
+</tr>
+<tr>
+<td><code>components.primary_number</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The numeric or alphanumeric part of an address preceding the street name. Often the house, building, or PO Box number.</td>
+</tr>
+<tr>
+<td><code>components.record_type</code></td>
+<td><code>enum: street, highrise, firm, po_box, rural_route, general_delivery, ...</code></td>
+<td>Yes</td>
+<td>A description of the type of address. Populated if a DPV match is made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>Y</code>, <code>S</code>, or <code>D</code>). For more detailed information about each record type, see <a href="#tag/US-Verification-Types">US Verification Details</a>.</td>
+</tr>
+<tr>
+<td><code>components.secondary_designator</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The standard USPS abbreviation describing the <code>components[</code>secondary_number<code>]</code> (<code>STE</code>, <code>APT</code>, <code>BLDG</code>, etc).</td>
+</tr>
+<tr>
+<td><code>components.secondary_number</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Number of the apartment/unit/etc.</td>
+</tr>
+<tr>
+<td><code>components.state</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The &lt;a href=&quot;https://en.wikipedia.org/wiki/<code>ISO_3166</code>-2&quot; target=&quot;_blank&quot;&gt;ISO 3166-2&lt;/a&gt; two letter code for the state.</td>
+</tr>
+<tr>
+<td><code>components.street_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the street.</td>
+</tr>
+<tr>
+<td><code>components.street_postdirection</code></td>
+<td><code>enum: N, S, E, W, NE, SW, ...</code></td>
+<td>Yes</td>
+<td>Geographic direction following a street name (<code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>, <code>NE</code>, <code>SW</code>, <code>SE</code>, <code>NW</code>).</td>
+</tr>
+<tr>
+<td><code>components.street_predirection</code></td>
+<td><code>enum: N, S, E, W, NE, SW, ...</code></td>
+<td>Yes</td>
+<td>Geographic direction preceding a street name (<code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>, <code>NE</code>, <code>SW</code>, <code>SE</code>, <code>NW</code>).</td>
+</tr>
+<tr>
+<td><code>components.street_suffix</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The standard USPS abbreviation for the street suffix (<code>ST</code>, <code>AVE</code>, <code>BLVD</code>, etc).</td>
+</tr>
+<tr>
+<td><code>components.zip_code</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The 5-digit ZIP code</td>
+</tr>
+<tr>
+<td><code>components.zip_code_plus_4</code></td>
+<td><code>any and string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>components.zip_code_type</code></td>
+<td><code>enum: standard, po_box, unique, military, </code></td>
+<td>Yes</td>
+<td>A description of the ZIP code type. For more detailed information about each ZIP code type, see <a href="#tag/US-Verification-Types">US Verification Details</a>.</td>
+</tr>
+<tr>
+<td><code>deliverability</code></td>
+<td><code>enum: deliverable, deliverable_unnecessary_unit, deliverable_incorrect_unit, deliverable_missing_unit, undeliverable</code></td>
+<td>No</td>
+<td>Summarizes the deliverability of the <code>us_verification</code> object. For full details, see the <code>deliverability_analysis</code> field. Possible values are: * <code>deliverable</code> – The address is deliverable by the USPS. * <code>deliverable_unnecessary_unit</code> – The address is deliverable, but the secondary unit information is unnecessary. * <code>deliverable_incorrect_unit</code> – The address is deliverable to the building's default address but the secondary unit provided may not exist. There is a chance the mail will not reach the intended recipient. * <code>deliverable_missing_unit</code> – The address is deliverable to the building's default address but is missing secondary unit information. There is a chance the mail will not reach the intended recipient. * <code>undeliverable</code> – The address is not deliverable according to the USPS.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A nested object containing a breakdown of the deliverability of an address.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_active</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Corresponds to the USPS field <code>dpv_no_stat</code>. Indicates that an address has been vacated in the recent past, and is no longer receiving deliveries. If it's been unoccupied for 90+ days, or temporarily vacant, this will be flagged. Possible values are: * <code>Y</code> –– Address is active. * <code>N</code> –– Address is not active. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_cmra</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates whether or not the address is &lt;a href=&quot;https://en.wikipedia.org/wiki/<code>Commercial_mail_receiving_agency</code>&quot; target=&quot;_blank&quot;&gt;CMRA-authorized&lt;/a&gt;. Possible values are: * <code>Y</code> –– Address is CMRA-authorized. * <code>N</code> –– Address is not CMRA-authorized. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_confirmation</code></td>
+<td><code>enum: Y, S, D, N, </code></td>
+<td>Yes</td>
+<td>Result of Delivery Point Validation (DPV), which determines whether or not the address is deliverable by the USPS. Possible values are: * <code>Y</code> –– The address is deliverable by the USPS. * <code>S</code> –– The address is deliverable by removing the provided secondary unit designator. This information may be incorrect or unnecessary. * <code>D</code> –– The address is deliverable to the building's default address but is missing a secondary unit designator and/or number. There is a chance the mail will not reach the intended recipient. * <code>N</code> –– The address is not deliverable according to the USPS, but parts of the address are valid (such as the street and ZIP code). * <code>&amp;#39;&amp;#39;</code> –– This address is not deliverable. No matching street could be found within the city or ZIP code.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_door_not_accessible</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates the door of the address is not accessible for mail delivery. Possible values are: * <code>Y</code> –– Door is not accessible. * <code>N</code> –– Door is accessible. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_footnotes</code></td>
+<td><code>array of enum: AA, A1, BB, CC, N1, F1, ...</code></td>
+<td>Yes</td>
+<td>An array of 2-character strings that gives more insight into how ``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> was determined. Will always include at least 1 string, and can include up to 3. For details, see <a href="#tag/US-Verification-Types">US Verification Details</a>.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_inactive_reason</code></td>
+<td><code>enum: 01, 02, 03, 04, 05, 06, ...</code></td>
+<td>Yes</td>
+<td>Indicates the reason why an address is vacant or no longer receiving deliveries. Possible values are: * <code>01</code> –– Address does not receive mail from the USPS directly, but is serviced by a drop address. * <code>02</code> –– Address not yet deliverable. * <code>03</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string). * <code>04</code> –– Address is a College, Military Zone, or other type. * <code>05</code> –– Address no longer receives deliveries. * <code>06</code> –– Address is missing required secondary information. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made or the address is active.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_no_secure_location</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates packages to this address will not be left due to security concerns. Possible values are: * <code>Y</code> –– Address does not have a secure mailbox. * <code>N</code> –– Address has a secure mailbox. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_non_delivery_day_flag</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates whether deliveries are not performed on one or more days of the week at an address. Possible values are: * <code>Y</code> –– Mail delivery does not occur on some days of the week. * <code>N</code> –– Mail delivery occurs every day of the week. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_non_delivery_day_values</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates days of the week (starting on Sunday) deliveries are not performed at an address. For example: * <code>YNNNNNN</code> –– Mail delivery does not occur on Sunday's. * <code>NYNNNYN</code> –– Mail delivery does not occur on Monday's or Friday's. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (<code>deliverability_analysis`[`dpv_confirmation`]` is `N` or an empty string) or address receives mail every day of the week (</code>deliverability_analysis<code>[</code>dpv_non_delivery_day_flag<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_throwback</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates a street address for which mail is delivered to a PO Box. Possible values are: * <code>Y</code> –– Address is a PO Box throwback delivery point. * <code>N</code> –– Address is not a PO Box throwback delivery point. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.dpv_vacant</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates that an address was once deliverable, but has become vacant and is no longer receiving deliveries. Possible values are: * <code>Y</code> –– Address is vacant. * <code>N</code> –– Address is not vacant. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.ews_match</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether or not an address has been flagged in the &lt;a href=&quot;https://docs.informatica.com/data-engineering/data-engineering-quality/10-4-0/address-validator-port-reference/postal-carrier-certification-data-ports/early-warning-system-return-code.html&quot; target=&quot;_blank&quot;&gt;Early Warning System&lt;/a&gt;, meaning the address is under development and not yet ready to receive mail. However, it should become available in a few months.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.lacs_indicator</code></td>
+<td><code>enum: Y, N, </code></td>
+<td>Yes</td>
+<td>Indicates whether this address has been converted by &lt;a href=&quot;https://postalpro.usps.com/address-quality/lacslink&quot; target=&quot;_blank&quot;&gt;LACS&lt;sup&gt;Link&lt;/sup&gt;&lt;/a&gt;. LACS&lt;sup&gt;Link&lt;/sup&gt; corrects outdated addresses into their modern counterparts. Possible values are: * <code>Y</code> –– New address produced with a matching record in LACS&lt;sup&gt;Link&lt;/sup&gt;. * <code>N</code> –– New address could not be produced with a matching record in LACS&lt;sup&gt;Link&lt;/sup&gt;. * <code>&amp;#39;&amp;#39;</code> –– A DPV match is not made (``deliverability_analysis<code>[</code>dpv_confirmation<code>]</code> is <code>N</code> or an empty string).</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.lacs_return_code</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A code indicating how ``deliverability_analysis<code>[</code>lacs_indicator<code>]</code> was determined. Possible values are: * <code>A</code>, A new address was produced because a match was found in LACS&lt;sup&gt;Link&lt;/sup&gt;. * <code>92</code>, A LACS&lt;sup&gt;Link&lt;/sup&gt; record was matched after dropping secondary information. * <code>14</code>, A match was found in LACS&lt;sup&gt;Link&lt;/sup&gt;, but could not be converted to a deliverable address. * <code>00</code>, A match was not found in LACS&lt;sup&gt;Link&lt;/sup&gt;, and no new address was produced. * <code>&amp;#39;&amp;#39;</code>, LACS&lt;sup&gt;Link&lt;/sup&gt; was not attempted.</td>
+</tr>
+<tr>
+<td><code>deliverability_analysis.suite_return_code</code></td>
+<td><code>enum: A, 00, </code></td>
+<td>Yes</td>
+<td>A return code that indicates whether the address was matched and corrected by &lt;a href=&quot;https://postalpro.usps.com/address-quality-solutions/suitelink&quot; target=&quot;_blank&quot;&gt;Suite&lt;sup&gt;Link&lt;/sup&gt;&lt;/a&gt;. Suite&lt;sup&gt;Link&lt;/sup&gt; attempts to provide secondary information to business addresses. Possible values are: * <code>A</code> –– A Suite&lt;sup&gt;Link&lt;/sup&gt; match was found and secondary information was added. * <code>00</code> –– A Suite&lt;sup&gt;Link&lt;/sup&gt; match could not be found and no secondary information was added. * <code>&amp;#39;&amp;#39;</code> –– Suite&lt;sup&gt;Link&lt;/sup&gt; lookup was not attempted.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier prefixed with ``us_ver<code>_</code>.</td>
+</tr>
+<tr>
+<td><code>last_line</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Combination of the following applicable <code>components</code>: * City (<code>city</code>) * State (<code>state</code>) * ZIP code (<code>zip_code</code>) * ZIP+4 (<code>zip_code_plus_4</code>)</td>
+</tr>
+<tr>
+<td><code>lob_confidence_score</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Lob Confidence Score is a nested object that provides a numerical value between 0-100 of the likelihood that an address is deliverable based on Lob’s mail delivery data to over half of US households.</td>
+</tr>
+<tr>
+<td><code>lob_confidence_score.level</code></td>
+<td><code>enum: high, medium, low, </code></td>
+<td>Yes</td>
+<td>Indicates the likelihood that the address is a valid, mail-receiving address. Possible values are: - <code>high</code>, Over 70% of mailpieces Lob has sent to this address were delivered successfully and recent mailings were also successful. - <code>medium</code>, Between 40% and 70% of mailpieces Lob has sent to this address were delivered successfully. - <code>low</code>, Less than 40% of mailpieces Lob has sent to this address were delivered successfully and recent mailings weren't successful. - <code>&amp;quot;&amp;quot;</code>, No tracking data exists for this address or lob deliverability was unable to find a corresponding level of mail success.</td>
+</tr>
+<tr>
+<td><code>lob_confidence_score.score</code></td>
+<td><code>number (float)</code></td>
+<td>Yes</td>
+<td>A numerical score between 0 and 100 that represents the percentage of mailpieces Lob has sent to this addresses that have been delivered successfully over the past 2 years. Will be <code>null</code> if no tracking data exists for this address.</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>enum: us_verification</code></td>
+<td>No</td>
+<td>Value is resource type.</td>
+</tr>
+<tr>
+<td><code>primary_line</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The primary delivery line (usually the street address) of the address. Combination of the following applicable <code>components</code>: * <code>primary_number</code> * <code>street_predirection</code> * <code>street_name</code> * <code>street_suffix</code> * <code>street_postdirection</code> * <code>secondary_designator</code> * <code>secondary_number</code> * <code>pmb_designator</code> * <code>pmb_number</code></td>
+</tr>
+<tr>
+<td><code>recipient</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The intended recipient, typically a person's or firm's name.</td>
+</tr>
+<tr>
+<td><code>secondary_line</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The secondary delivery line of the address. This field is typically empty but may contain information if <code>primary_line</code> is too long.</td>
+</tr>
+<tr>
+<td><code>urbanization</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Only present for addresses in Puerto Rico. An urbanization refers to an area, sector, or development within a city. See &lt;a href=&quot;https://pe.usps.com/text/pub28/28<code>api_008</code>.htm#:~:text=I51.,-4%20Urbanizations&amp;text=In%20Puerto%20Rico%2C%20identical%20street,placed%20before%20the%20urbanization%20name.&quot; target=&quot;_blank&quot;&gt;USPS documentation&lt;/a&gt; for clarification.</td>
+</tr>
+<tr>
+<td><code>valid_address</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>This field indicates whether an address was found in a more comprehensive address dataset that includes sources from the USPS, open source mapping data, and our proprietary mail delivery data. This field can be interpreted as a representation of whether an address is a real location or not. Additionally a valid address may contradict the deliverability field since an address can be a real valid location but the USPS may not deliver to that address.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-error-1">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;invalid&quot;,
+    &quot;message&quot;: &quot;primary_line is required or address is required&quot;,
+    &quot;status_code&quot;: 422
+  }
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,81 @@
+# BasicPostcardFlow
+
+main: kit: flow: BasicPostcardFlow:
+{
+  entity: "postcard",
+  kind: "basic",
+  name: "BasicPostcardFlow",
+  step: [
+    {
+      i: {
+        ref: "postcard_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "postcard_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "postcard_ref01",
+        srcdatavar: "postcard_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "postcard01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-postcard_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "postcard_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "postcard01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "postcard_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPostcardFlow"
+}

@@ -1,0 +1,87 @@
+{
+  "existing": {
+    "domain": {
+      "DOMAIN00": {
+        "count": 120,
+        "created_at": "s79",
+        "data": [],
+        "domain": "s7b",
+        "error_redirect_link": "s7c",
+        "id": "DOMAIN00",
+        "next_url": "s7e",
+        "object": "s7f",
+        "previous_url": "s80",
+        "status": "s81",
+        "total_count": 130,
+        "updated_at": "s83"
+      },
+      "DOMAIN01": {
+        "count": 240,
+        "created_at": "sf1",
+        "data": [],
+        "domain": "sf3",
+        "error_redirect_link": "sf4",
+        "id": "DOMAIN01",
+        "next_url": "sf6",
+        "object": "sf7",
+        "previous_url": "sf8",
+        "status": "sf9",
+        "total_count": 250,
+        "updated_at": "sfb"
+      },
+      "DOMAIN02": {
+        "count": 360,
+        "created_at": "s169",
+        "data": [],
+        "domain": "s16b",
+        "error_redirect_link": "s16c",
+        "id": "DOMAIN02",
+        "next_url": "s16e",
+        "object": "s16f",
+        "previous_url": "s170",
+        "status": "s171",
+        "total_count": 370,
+        "updated_at": "s173"
+      }
+    }
+  },
+  "new": {
+    "domain": {
+      "domain_ref01": {
+        "count": 480,
+        "created_at": "s1e1",
+        "data": [],
+        "domain": "s1e3",
+        "error_redirect_link": "s1e4",
+        "next_url": "s1e6",
+        "object": "s1e7",
+        "previous_url": "s1e8",
+        "status": "s1e9",
+        "total_count": 490,
+        "updated_at": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

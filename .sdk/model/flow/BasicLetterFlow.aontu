@@ -1,0 +1,81 @@
+# BasicLetterFlow
+
+main: kit: flow: BasicLetterFlow:
+{
+  entity: "letter",
+  kind: "basic",
+  name: "BasicLetterFlow",
+  step: [
+    {
+      i: {
+        ref: "letter_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "letter_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "letter_ref01",
+        srcdatavar: "letter_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "letter01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-letter_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "letter_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "letter01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "letter_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLetterFlow"
+}

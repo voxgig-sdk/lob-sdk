@@ -1,0 +1,492 @@
+# Entity: response
+
+main: kit: entity: response: {
+
+  alias: field: {}
+
+  fields: {
+    account_id: {
+      h: "Account Id"
+      n: "account_id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Your Lob account id."
+      t: "`$STRING`"
+    }
+    brand_name: {
+      h: "Brand Name"
+      n: "brand_name"
+      r: false
+      t: "`$STRING`"
+    }
+    campaign_code: {
+      h: "Campaign Code"
+      n: "campaign_code"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The campaign code associated with the Informed Delivery campaign."
+      t: "`$STRING`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of Informed Delivery campaigns"
+      t: "`$ARRAY`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: true
+      sh: "Whether the resource has been deleted."
+      t: "`$BOOLEAN`"
+    }
+    end_date: {
+      fo: "date-time"
+      h: "End Date"
+      n: "end_date"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the campaign ends."
+      t: "`$STRING`"
+    }
+    end_serial: {
+      h: "End Serial"
+      n: "end_serial"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+        update: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The last serial number in the range of serial numbers for this campaign."
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Unique identifier prefixed with `infd_`."
+      t: "`$STRING`"
+    }
+    lob_campaign_id: {
+      h: "Lob Campaign Id"
+      n: "lob_campaign_id"
+      r: false
+      t: "`$STRING`"
+    }
+    mode: {
+      h: "Mode"
+      n: "mode"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The mode of the Informed Delivery campaign."
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Value is the resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    quantity: {
+      h: "Quantity"
+      n: "quantity"
+      r: false
+      t: "`$INTEGER`"
+    }
+    representative_image_s3_link: {
+      h: "Representative Image S3 Link"
+      n: "representative_image_s3_link"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A URL link to the campaigns representative image."
+      t: "`$STRING`"
+    }
+    ride_along_image_s3_link: {
+      h: "Ride Along Image S3 Link"
+      n: "ride_along_image_s3_link"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A URL link to the campaigns ride along image."
+      t: "`$STRING`"
+    }
+    ride_along_url: {
+      h: "Ride Along Url"
+      n: "ride_along_url"
+      r: false
+      t: "`$STRING`"
+    }
+    service_request_number: {
+      h: "Service Request Number"
+      n: "service_request_number"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The USPS promotion service request number used to create this campaign (if there was one used)."
+      t: "`$STRING`"
+    }
+    start_date: {
+      h: "Start Date"
+      n: "start_date"
+      r: false
+      t: "`$STRING`"
+    }
+    start_serial: {
+      h: "Start Serial"
+      n: "start_serial"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+        update: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The first serial number in the range of serial numbers for this campaign."
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      t: "`$STRING`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    usps_campaign_id: {
+      h: "Usps Campaign Id"
+      n: "usps_campaign_id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A numberical string up to 12 characters long."
+      t: "`$STRING`"
+    }
+    usps_title: {
+      h: "Usps Title"
+      n: "usps_title"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "response"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /informed_delivery_campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/informed_delivery_campaigns"
+          s: [
+            {
+              lit: "informed_delivery_campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /informed_delivery_campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/informed_delivery_campaigns"
+          s: [
+            {
+              lit: "informed_delivery_campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /informed_delivery_campaigns/{usps_campaign_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "1200772869"
+                k: "param"
+                n: "usps_campaign_id"
+                or: "usps_campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/informed_delivery_campaigns/{usps_campaign_id}"
+          q: {
+            exist: [
+              "usps_campaign_id"
+            ]
+          }
+          s: [
+            {
+              lit: "informed_delivery_campaigns"
+            }
+            {
+              var: "usps_campaign_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /informed_delivery_campaigns/{usps_campaign_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "1200772869"
+                k: "param"
+                n: "usps_campaign_id"
+                or: "usps_campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/informed_delivery_campaigns/{usps_campaign_id}"
+          q: {
+            exist: [
+              "usps_campaign_id"
+            ]
+          }
+          s: [
+            {
+              lit: "informed_delivery_campaigns"
+            }
+            {
+              var: "usps_campaign_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

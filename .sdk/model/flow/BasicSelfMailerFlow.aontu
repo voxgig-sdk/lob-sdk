@@ -1,0 +1,81 @@
+# BasicSelfMailerFlow
+
+main: kit: flow: BasicSelfMailerFlow:
+{
+  entity: "self_mailer",
+  kind: "basic",
+  name: "BasicSelfMailerFlow",
+  step: [
+    {
+      i: {
+        ref: "self_mailer_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "self_mailer_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "self_mailer_ref01",
+        srcdatavar: "self_mailer_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "self_mailer01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-self_mailer_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "self_mailer_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "self_mailer01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "self_mailer_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSelfMailerFlow"
+}

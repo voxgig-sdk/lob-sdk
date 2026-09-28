@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "template_version_deletion": {
+      "TEMPLATE_VERSION_DELETION00": {
+        "template_id": "TEMPLATE01",
+        "vrsn_id": "VRSN01",
+        "id": "TEMPLATE_VERSION_DELETION00"
+      },
+      "TEMPLATE_VERSION_DELETION01": {
+        "template_id": "TEMPLATE01",
+        "vrsn_id": "VRSN01",
+        "id": "TEMPLATE_VERSION_DELETION01"
+      },
+      "TEMPLATE_VERSION_DELETION02": {
+        "template_id": "TEMPLATE01",
+        "vrsn_id": "VRSN01",
+        "id": "TEMPLATE_VERSION_DELETION02"
+      }
+    }
+  },
+  "new": {
+    "template_version_deletion": {
+      "template_version_deletion_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /templates/{tmpl_id}/versions/{vrsn_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

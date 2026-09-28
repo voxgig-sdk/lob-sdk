@@ -1,0 +1,196 @@
+# Entity: card_order
+
+main: kit: entity: card_order: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "List of card orders"
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    quantity: {
+      h: "Quantity"
+      n: "quantity"
+      r: true
+      sh: "The quantity of cards in the order (minimum 10,000)."
+      t: "`$INTEGER`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "card_order"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /cards/{card_id}/orders"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "card_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/cards/{card_id}/orders"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              card_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "cards"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "orders"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /cards/{card_id}/orders"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "card_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cards/{card_id}/orders"
+          q: {
+            exist: [
+              "id"
+              "limit"
+              "offset"
+            ]
+          }
+          r: {
+            param: {
+              card_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "cards"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "orders"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

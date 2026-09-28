@@ -1,0 +1,151 @@
+{
+  "existing": {
+    "booklet": {
+      "BOOKLET00": {
+        "carrier": "s118",
+        "count": 281,
+        "data": [],
+        "date_created": "s11b",
+        "date_modified": "s11c",
+        "description": "s11d",
+        "expected_delivery_date": "s11e",
+        "from": {},
+        "fsc": true,
+        "id": "BOOKLET00",
+        "mail_type": "s122",
+        "merge_variables": {},
+        "metadata": {},
+        "next_url": "s125",
+        "object": "s126",
+        "pages": 295,
+        "previous_url": "s128",
+        "send_date": "s129",
+        "size": "s12a",
+        "sla": "s12b",
+        "source_material": "s12c",
+        "thumbnails": [],
+        "to": {},
+        "total_count": 303,
+        "tracking_events": [],
+        "tracking_number": "s131",
+        "url": "s132",
+        "use_type": "s133"
+      },
+      "BOOKLET01": {
+        "carrier": "s230",
+        "count": 561,
+        "data": [],
+        "date_created": "s233",
+        "date_modified": "s234",
+        "description": "s235",
+        "expected_delivery_date": "s236",
+        "from": {},
+        "fsc": true,
+        "id": "BOOKLET01",
+        "mail_type": "s23a",
+        "merge_variables": {},
+        "metadata": {},
+        "next_url": "s23d",
+        "object": "s23e",
+        "pages": 575,
+        "previous_url": "s240",
+        "send_date": "s241",
+        "size": "s242",
+        "sla": "s243",
+        "source_material": "s244",
+        "thumbnails": [],
+        "to": {},
+        "total_count": 583,
+        "tracking_events": [],
+        "tracking_number": "s249",
+        "url": "s24a",
+        "use_type": "s24b"
+      },
+      "BOOKLET02": {
+        "carrier": "s348",
+        "count": 841,
+        "data": [],
+        "date_created": "s34b",
+        "date_modified": "s34c",
+        "description": "s34d",
+        "expected_delivery_date": "s34e",
+        "from": {},
+        "fsc": true,
+        "id": "BOOKLET02",
+        "mail_type": "s352",
+        "merge_variables": {},
+        "metadata": {},
+        "next_url": "s355",
+        "object": "s356",
+        "pages": 855,
+        "previous_url": "s358",
+        "send_date": "s359",
+        "size": "s35a",
+        "sla": "s35b",
+        "source_material": "s35c",
+        "thumbnails": [],
+        "to": {},
+        "total_count": 863,
+        "tracking_events": [],
+        "tracking_number": "s361",
+        "url": "s362",
+        "use_type": "s363"
+      }
+    }
+  },
+  "new": {
+    "booklet": {
+      "booklet_ref01": {
+        "carrier": "s460",
+        "count": 1121,
+        "data": [],
+        "date_created": "s463",
+        "date_modified": "s464",
+        "description": "s465",
+        "expected_delivery_date": "s466",
+        "from": {},
+        "fsc": true,
+        "mail_type": "s46a",
+        "merge_variables": {},
+        "metadata": {},
+        "next_url": "s46d",
+        "object": "s46e",
+        "pages": 1135,
+        "previous_url": "s470",
+        "send_date": "s471",
+        "size": "s472",
+        "sla": "s473",
+        "source_material": "s474",
+        "thumbnails": [],
+        "to": {},
+        "total_count": 1143,
+        "tracking_events": [],
+        "tracking_number": "s479",
+        "url": "s47a",
+        "use_type": "s47b"
+      }
+    }
+  },
+  "requests": {
+    "POST /booklets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /booklets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /booklets/{booklet_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /booklets/{booklet_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

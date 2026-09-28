@@ -1,0 +1,106 @@
+{
+  "existing": {
+    "template_version": {
+      "TEMPLATE_VERSION00": {
+        "count": 160,
+        "data": [],
+        "date_created": "sa2",
+        "date_modified": "sa3",
+        "deleted": true,
+        "description": "sa5",
+        "engine": "sa6",
+        "html": "sa7",
+        "id": "TEMPLATE_VERSION00",
+        "merge_variables": {},
+        "next_url": "saa",
+        "object": "sab",
+        "previous_url": "sac",
+        "required_vars": [],
+        "suggest_json_editor": true,
+        "total_count": 175,
+        "template_id": "TEMPLATE01"
+      },
+      "TEMPLATE_VERSION01": {
+        "count": 320,
+        "data": [],
+        "date_created": "s142",
+        "date_modified": "s143",
+        "deleted": true,
+        "description": "s145",
+        "engine": "s146",
+        "html": "s147",
+        "id": "TEMPLATE_VERSION01",
+        "merge_variables": {},
+        "next_url": "s14a",
+        "object": "s14b",
+        "previous_url": "s14c",
+        "required_vars": [],
+        "suggest_json_editor": true,
+        "total_count": 335,
+        "template_id": "TEMPLATE01"
+      },
+      "TEMPLATE_VERSION02": {
+        "count": 480,
+        "data": [],
+        "date_created": "s1e2",
+        "date_modified": "s1e3",
+        "deleted": true,
+        "description": "s1e5",
+        "engine": "s1e6",
+        "html": "s1e7",
+        "id": "TEMPLATE_VERSION02",
+        "merge_variables": {},
+        "next_url": "s1ea",
+        "object": "s1eb",
+        "previous_url": "s1ec",
+        "required_vars": [],
+        "suggest_json_editor": true,
+        "total_count": 495,
+        "template_id": "TEMPLATE01"
+      }
+    }
+  },
+  "new": {
+    "template_version": {
+      "template_version_ref01": {
+        "count": 640,
+        "data": [],
+        "date_created": "s282",
+        "date_modified": "s283",
+        "deleted": true,
+        "description": "s285",
+        "engine": "s286",
+        "html": "s287",
+        "merge_variables": {},
+        "next_url": "s28a",
+        "object": "s28b",
+        "previous_url": "s28c",
+        "required_vars": [],
+        "suggest_json_editor": true,
+        "total_count": 655
+      }
+    }
+  },
+  "requests": {
+    "POST /templates/{tmpl_id}/versions/{vrsn_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /templates/{tmpl_id}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /templates/{tmpl_id}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /templates/{tmpl_id}/versions/{vrsn_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

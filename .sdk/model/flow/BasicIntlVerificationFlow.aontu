@@ -1,0 +1,18 @@
+# BasicIntlVerificationFlow
+
+main: kit: flow: BasicIntlVerificationFlow:
+{
+  entity: "intl_verification",
+  kind: "basic",
+  name: "BasicIntlVerificationFlow",
+  step: [
+    {
+      i: {
+        ref: "intl_verification_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicIntlVerificationFlow"
+}

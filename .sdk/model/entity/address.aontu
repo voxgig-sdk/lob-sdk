@@ -1,0 +1,341 @@
+# Entity: address
+
+main: kit: entity: address: {
+
+  alias: field: {}
+
+  fields: {
+    address_city: {
+      h: "Address City"
+      n: "address_city"
+      r: false
+      t: "`$STRING`"
+    }
+    address_country: {
+      h: "Address Country"
+      n: "address_country"
+      r: false
+      t: "`$STRING`"
+    }
+    address_line1: {
+      h: "Address Line1"
+      n: "address_line1"
+      r: false
+      t: "`$STRING`"
+    }
+    address_state: {
+      h: "Address State"
+      n: "address_state"
+      r: false
+      t: "`$STRING`"
+    }
+    address_zip: {
+      h: "Address Zip"
+      n: "address_zip"
+      r: false
+      t: "`$STRING`"
+    }
+    company: {
+      h: "Company"
+      n: "company"
+      r: false
+      t: "`$STRING`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of addresses"
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 3
+        depth: 5
+      }
+    }
+    date_created: {
+      h: "Date Created"
+      n: "date_created"
+      r: false
+      t: "`$STRING`"
+    }
+    date_modified: {
+      h: "Date Modified"
+      n: "date_modified"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    email: {
+      h: "Email"
+      n: "email"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      t: "`$OBJECT`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    phone: {
+      h: "Phone"
+      n: "phone"
+      r: false
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "address"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /addresses"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/addresses"
+          s: [
+            {
+              lit: "addresses"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /addresses"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "metadata"
+                or: "metadata"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/addresses"
+          q: {
+            exist: [
+              "before/after"
+              "date_created"
+              "include"
+              "limit"
+              "metadata"
+            ]
+          }
+          s: [
+            {
+              lit: "addresses"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /addresses/{adr_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "adr_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/addresses/{adr_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              adr_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "addresses"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /addresses/{adr_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "adr_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/addresses/{adr_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              adr_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "addresses"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

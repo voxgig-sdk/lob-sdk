@@ -1,0 +1,375 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 33
+  metrics: count: path: 58
+  metrics: count: method: 105
+
+  entity: address: {
+    path: "/addresses": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/addresses/{adr_id}": {
+      rename: param: "adr_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: bank_account: {
+    path: "/bank_accounts": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/bank_accounts/{bank_id}": {
+      rename: param: "bank_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/bank_accounts/{bank_id}/verify": {
+      action: "verify": {}
+      rename: param: "bank_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: bank_deletion: {
+    path: "/bank_accounts/{bank_id}": {
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.id`")|top
+    }
+  }
+
+  entity: billing_group: {
+    path: "/billing_groups": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/billing_groups/{bg_id}": {
+      rename: param: "bg_id": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: booklet: {
+    path: "/booklets": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/booklets/{booklet_id}": {
+      rename: param: "booklet_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: buckslip: {
+    path: "/buckslips": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/buckslips/{buckslip_id}": {
+      rename: param: "buckslip_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: buckslip_order: {
+    path: "/buckslips/{buckslip_id}/orders": {
+      rename: param: "buckslip_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: campaign: {
+    path: "/campaigns": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/campaigns/{cmp_id}": {
+      rename: param: "cmp_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/campaigns/{cmp_id}/send": {
+      action: "send": {}
+      rename: param: "cmp_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: card: {
+    path: "/cards": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/cards/{card_id}": {
+      rename: param: "card_id": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: card_order: {
+    path: "/cards/{card_id}/orders": {
+      rename: param: "card_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: check: {
+    path: "/checks": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/checks/{chk_id}": {
+      rename: param: "chk_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: creative: {
+    path: "/creatives": {
+      op: create: method: *POST
+    }
+    path: "/creatives/{crv_id}": {
+      rename: param: "crv_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: domain: {
+    path: "/domains": {
+      op: create: method: *POST
+      op: create: transform: req: "domain": *("`reqdata`")|top
+      op: list: method: *GET
+    }
+    path: "/domains/{domain_id}": {
+      rename: param: "domain_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: identity_validation: {
+    path: "/identity_validation": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: intl_verification: {
+    path: "/bulk/intl_verifications": {
+      op: create: method: *POST
+    }
+    path: "/intl_verifications": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: letter: {
+    path: "/letters": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/letters/{ltr_id}": {
+      rename: param: "ltr_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: link: {
+    path: "/links": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.metadata`")|top
+      op: list: method: *GET
+    }
+    path: "/links/{link_id}": {
+      rename: param: "link_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.metadata`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.metadata`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: lob_credits_balance: {
+    path: "/accounts": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: postcard: {
+    path: "/postcards": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/postcards/{psc_id}": {
+      rename: param: "psc_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: qr_code: {
+    path: "/qr_code_analytics": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: resource_proof: {
+    path: "/resource_proofs": {
+      op: create: method: *POST
+    }
+    path: "/resource_proofs/{res_prf_id}": {
+      rename: param: "res_prf_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: response: {
+    path: "/informed_delivery_campaigns": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/informed_delivery_campaigns/{usps_campaign_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: reverse_geocode: {
+    path: "/us_reverse_geocode_lookups": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: self_mailer: {
+    path: "/self_mailers": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/self_mailers/{sfm_id}": {
+      rename: param: "sfm_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: snap_pack: {
+    path: "/snap_packs": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/snap_packs/{snap_pack_id}": {
+      rename: param: "snap_pack_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: template: {
+    path: "/templates": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/templates/{tmpl_id}": {
+      rename: param: "tmpl_id": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: template_version: {
+    path: "/templates/{tmpl_id}/versions": {
+      rename: param: "tmpl_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/templates/{tmpl_id}/versions/{vrsn_id}": {
+      rename: param: "tmpl_id": *"template_id"
+      rename: param: "vrsn_id": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: template_version_deletion: {
+    path: "/templates/{tmpl_id}/versions/{vrsn_id}": {
+      rename: param: "tmpl_id": *"template_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: upload: {
+    path: "/uploads": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/uploads/{upl_id}": {
+      rename: param: "upl_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/uploads/{upl_id}/exports/{ex_id}": {
+      rename: param: "upl_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/uploads/{upl_id}/file": {
+      action: "file": {}
+      rename: param: "upl_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/uploads/{upl_id}/report": {
+      action: "report": {}
+      rename: param: "upl_id": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: upload_create_export: {
+    path: "/uploads/{upl_id}/exports": {
+      rename: param: "upl_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: us_autocompletion: {
+    path: "/us_autocompletions": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: us_verification: {
+    path: "/bulk/us_verifications": {
+      op: create: method: *POST
+    }
+    path: "/us_verifications": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: zip: {
+    path: "/us_zip_lookups": {
+      op: create: method: *POST
+    }
+  }
+
+}

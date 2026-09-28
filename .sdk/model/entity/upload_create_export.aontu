@@ -1,0 +1,95 @@
+# Entity: upload_create_export
+
+main: kit: entity: upload_create_export: {
+
+  alias: field: {}
+
+  fields: {
+    exportId: {
+      h: "Export Id"
+      n: "exportId"
+      r: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "upload_create_export"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /uploads/{upl_id}/exports"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "upl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/uploads/{upl_id}/exports"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              upl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "exports"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

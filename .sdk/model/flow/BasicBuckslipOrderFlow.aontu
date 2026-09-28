@@ -1,0 +1,38 @@
+# BasicBuckslipOrderFlow
+
+main: kit: flow: BasicBuckslipOrderFlow:
+{
+  entity: "buckslip_order",
+  kind: "basic",
+  name: "BasicBuckslipOrderFlow",
+  step: [
+    {
+      i: {
+        ref: "buckslip_order_ref01"
+      }
+
+      m: {
+        buckslip_id: "buckslip01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        buckslip_id: "buckslip01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "buckslip_order_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBuckslipOrderFlow"
+}

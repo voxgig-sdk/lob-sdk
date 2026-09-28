@@ -1,0 +1,98 @@
+# Entity: reverse_geocode
+
+main: kit: entity: reverse_geocode: {
+
+  alias: field: {}
+
+  fields: {
+    addresses: {
+      h: "Addresses"
+      n: "addresses"
+      r: false
+      sh: "list of addresses"
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier prefixed with `us_reverse_geocode_`."
+      t: "`$STRING`"
+    }
+    latitude: {
+      fo: "float"
+      h: "Latitude"
+      n: "latitude"
+      r: true
+      sh: "A positive or negative decimal indicating the geographic latitude of the address, specifying the north-to-south position of a location."
+      t: "`$NUMBER`"
+    }
+    longitude: {
+      fo: "float"
+      h: "Longitude"
+      n: "longitude"
+      r: true
+      sh: "A positive or negative decimal indicating the geographic longitude of the address, specifying the north-to-south position of a location."
+      t: "`$NUMBER`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "reverse_geocode"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /us_reverse_geocode_lookups"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/us_reverse_geocode_lookups"
+          q: {
+            exist: [
+              "size"
+            ]
+          }
+          s: [
+            {
+              lit: "us_reverse_geocode_lookups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

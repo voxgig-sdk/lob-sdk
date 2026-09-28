@@ -1,0 +1,92 @@
+{
+  "existing": {
+    "link": {
+      "LINK00": {
+        "count": 120,
+        "data": [],
+        "domain": "s7a",
+        "id": "LINK00",
+        "metadata": {},
+        "next_url": "s7d",
+        "object": "s7e",
+        "previous_url": "s7f",
+        "redirect_link": "s80",
+        "slug": "s81",
+        "title": "s82",
+        "total_count": 131
+      },
+      "LINK01": {
+        "count": 240,
+        "data": [],
+        "domain": "sf2",
+        "id": "LINK01",
+        "metadata": {},
+        "next_url": "sf5",
+        "object": "sf6",
+        "previous_url": "sf7",
+        "redirect_link": "sf8",
+        "slug": "sf9",
+        "title": "sfa",
+        "total_count": 251
+      },
+      "LINK02": {
+        "count": 360,
+        "data": [],
+        "domain": "s16a",
+        "id": "LINK02",
+        "metadata": {},
+        "next_url": "s16d",
+        "object": "s16e",
+        "previous_url": "s16f",
+        "redirect_link": "s170",
+        "slug": "s171",
+        "title": "s172",
+        "total_count": 371
+      }
+    }
+  },
+  "new": {
+    "link": {
+      "link_ref01": {
+        "count": 480,
+        "data": [],
+        "domain": "s1e2",
+        "metadata": {},
+        "next_url": "s1e5",
+        "object": "s1e6",
+        "previous_url": "s1e7",
+        "redirect_link": "s1e8",
+        "slug": "s1e9",
+        "title": "s1ea",
+        "total_count": 491
+      }
+    }
+  },
+  "requests": {
+    "POST /links": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /links": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /links/{link_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /links/{link_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /links/{link_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

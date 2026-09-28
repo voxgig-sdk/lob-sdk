@@ -1,0 +1,151 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const node_path_1 = __importDefault(require("node:path"));
+const Fs = __importStar(require("node:fs"));
+const node_test_1 = require("node:test");
+const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
+const __1 = require("../../..");
+const utility_1 = require("../../utility");
+(0, utility_1.loadEnvLocal)(__dirname + '/../../../.env.local');
+(0, node_test_1.describe)('CardOrderEntity', async () => {
+    // Per-test live pacing. Delay is read from sdk-test-control.json's
+    // `test.live.delayMs`; only sleeps when LOB_TEST_LIVE=TRUE.
+    (0, node_test_1.afterEach)((0, utility_1.liveDelay)('LOB_TEST_LIVE'));
+    (0, node_test_1.test)('instance', async () => {
+        const testsdk = __1.LobSDK.test();
+        const ent = testsdk.CardOrder();
+        (0, node_assert_1.default)(null != ent);
+    });
+    (0, node_test_1.test)('basic', async (t) => {
+        const live = 'TRUE' === process.env.LOB_TEST_LIVE;
+        for (const op of ['create', 'list']) {
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'card_order.' + op, live))
+                return;
+        }
+        const setup = basicSetup();
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "count": { "a": true, "h": "Count", "n": "count", "r": false, "sh": "number of resources in a set", "t": "`$INTEGER`", "key$": "count", "index$": 0 }, "data": { "a": true, "h": "Data", "n": "data", "r": false, "sh": "List of card orders", "t": "`$ARRAY`", "key$": "data", "index$": 1 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 2 }, "next_url": { "a": true, "h": "Next Url", "n": "next_url", "r": false, "sh": "Url of next page of items in list.", "t": "`$STRING`", "key$": "next_url", "index$": 3 }, "object": { "a": true, "h": "Object", "n": "object", "r": false, "sh": "Value is resource type.", "t": "`$STRING`", "key$": "object", "index$": 4 }, "previous_url": { "a": true, "h": "Previous Url", "n": "previous_url", "r": false, "sh": "Url of previous page of items in list.", "t": "`$STRING`", "key$": "previous_url", "index$": 5 }, "quantity": { "a": true, "h": "Quantity", "n": "quantity", "r": true, "sh": "The quantity of cards in the order (minimum 10,000).", "t": "`$INTEGER`", "key$": "quantity", "index$": 6 }, "total_count": { "a": true, "h": "Total Count", "n": "total_count", "r": false, "sh": "Indicates the total number of records.", "t": "`$INTEGER`", "key$": "total_count", "index$": 7 } }, "id": { "field": "id", "name": "id" }, "name": "card_order", "op": { "create": { "input": "data", "name": "create", "points": [{ "a": true, "co": { "id": "POST /cards/{card_id}/orders", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "card_id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "POST", "o": "/cards/{card_id}/orders", "q": { "exist": ["id"] }, "r": { "param": { "card_id": "id" } }, "s": [{ "lit": "cards" }, { "var": "id" }, { "lit": "orders" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "create" }, "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /cards/{card_id}/orders", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "card_id", "r": true, "t": "`$STRING`", "index$": 0 }], "query": [{ "a": true, "ex": 10, "k": "query", "n": "limit", "or": "limit", "r": false, "t": "`$INTEGER`", "index$": 0 }, { "a": true, "ex": 0, "k": "query", "n": "offset", "or": "offset", "r": false, "t": "`$INTEGER`", "index$": 1 }] }, "k": "http", "m": "GET", "o": "/cards/{card_id}/orders", "q": { "exist": ["id", "limit", "offset"] }, "r": { "param": { "card_id": "id" } }, "s": [{ "lit": "cards" }, { "var": "id" }, { "lit": "orders" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "card_order", "name__orig": "card_order", "Name": "CardOrder", "name_": "card_order", "name-": "card-order", "NAME": "CARD_ORDER", "index$": 9 }, { "active": true, "entity": "card_order", "key$": "BasicCardOrderFlow", "kind": "basic", "name": "BasicCardOrderFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "card_order_ref01" }, "m": { "card_id": "card01" }, "o": "create", "s": [], "v": [], "index$": 0 }, { "a": true, "d": {}, "i": {}, "m": { "card_id": "card01" }, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "card_order_ref01" } }], "index$": 1 }] }, 'CardOrder', { "POST /cards/{card_id}/orders": { "protocol": "http", "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "required": ["quantity"], "properties": { "quantity": { "type": "integer", "description": "The quantity of cards in the order (minimum 10,000).", "minimum": 10000, "maximum": 10000000, "key$": "quantity" } }, "x-ref": "#/components/schemas/card_order_editable", "index$": 1 }, "example": { "quantity": 10000 } }, "application/x-www-form-urlencoded": { "schema": { "type": "object", "required": ["quantity"], "properties": { "quantity": { "type": "integer", "description": "The quantity of cards in the order (minimum 10,000).", "minimum": 10000, "maximum": 10000000, "key$": "quantity" } }, "x-ref": "#/components/schemas/card_order_editable" }, "example": { "quantity": 10000 } }, "multipart/form-data": { "schema": { "type": "object", "required": ["quantity"], "properties": { "quantity": { "type": "integer", "description": "The quantity of cards in the order (minimum 10,000).", "minimum": 10000, "maximum": 10000000, "key$": "quantity" } }, "x-ref": "#/components/schemas/card_order_editable" }, "example": { "quantity": 10000 } } } }, "parameters": [{ "in": "path", "name": "card_id", "description": "The ID of the card to which the card orders belong.", "required": true, "schema": { "type": "string", "description": "Unique identifier prefixed with `card_`.", "pattern": "^card_[a-zA-Z0-9]+$", "x-ref": "#/components/schemas/card_id" }, "index$": 0 }] }, "GET /cards/{card_id}/orders": { "protocol": "http", "parameters": [{ "in": "path", "name": "card_id", "description": "The ID of the card to which the card orders belong.", "required": true, "schema": { "type": "string", "description": "Unique identifier prefixed with `card_`.", "pattern": "^card_[a-zA-Z0-9]+$", "x-ref": "#/components/schemas/card_id" }, "index$": 0 }, { "in": "query", "name": "limit", "required": false, "description": "How many results to return.", "schema": { "type": "integer", "minimum": 1, "default": 10, "maximum": 100, "example": 10 }, "x-ref": "#/components/parameters/limit", "index$": 1 }, { "in": "query", "name": "offset", "required": false, "description": "An integer that designates the offset at which to begin returning results. Defaults to 0.", "schema": { "type": "integer", "default": 0 }, "x-ref": "#/components/parameters/offset", "index$": 2 }] } });
+        }
+        const client = setup.client;
+        const struct = setup.struct;
+        const isempty = struct.isempty;
+        const select = struct.select;
+        // CREATE
+        const card_order_ref01_ent = client.CardOrder();
+        let card_order_ref01_data = setup.data.new.card_order['card_order_ref01'];
+        card_order_ref01_data['card_id'] = setup.idmap['card01'];
+        card_order_ref01_data = (await card_order_ref01_ent.create(card_order_ref01_data)).data();
+        (0, node_assert_1.default)(null != card_order_ref01_data.id);
+        // LIST
+        const card_order_ref01_match = {};
+        card_order_ref01_match['card_id'] = setup.idmap['card01'];
+        const card_order_ref01_list = (await card_order_ref01_ent.list(card_order_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(card_order_ref01_list, { id: card_order_ref01_data.id })));
+    });
+});
+function basicSetup(extra) {
+    // TODO: fix test def options
+    const options = {}; // null
+    // TODO: needs test utility to resolve path
+    const entityDataFile = node_path_1.default.resolve(__dirname, '../../../../.sdk/test/entity/card_order/CardOrderTestData.json');
+    // TODO: file ready util needed?
+    const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8');
+    // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+    const entityData = JSON.parse(entityDataSource);
+    options.entity = entityData.existing;
+    let client = __1.LobSDK.test(options, extra);
+    const struct = client.utility().struct;
+    const merge = struct.merge;
+    const transform = struct.transform;
+    let idmap = transform(['card_order01', 'card_order02', 'card_order03', 'card01'], {
+        '`$PACK`': ['', {
+                '`$KEY`': '`$COPY`',
+                '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+            }]
+    });
+    const env = (0, utility_1.envOverride)({
+        'LOB_TEST_CARD_ORDER_ENTID': idmap,
+        'LOB_TEST_LIVE': 'FALSE',
+        'LOB_TEST_EXPLAIN': 'FALSE',
+        'LOB_APIKEY': '',
+        'LOB_SECRET': '',
+    });
+    idmap = env['LOB_TEST_CARD_ORDER_ENTID'];
+    const live = 'TRUE' === env.LOB_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
+    if (live) {
+        const rawIds = process.env['LOB_TEST_CARD_ORDER_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
+        client = new __1.LobSDK(merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            (0, utility_1.liveClientOptions)(),
+            {
+                apikey: env.LOB_APIKEY,
+                secret: env.LOB_SECRET,
+            },
+            // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+            // last entry is undefined, and basicSetup is normally called with no
+            // argument at all - so a bare 'extra' silently discarded the apikey
+            // and server values above and handed the SDK undefined. Harmless
+            // while there was nothing in that object; not harmless now.
+            extra || {},
+            { system: { fetch: transport.fetch } }
+        ]));
+    }
+    const setup = {
+        idmap,
+        env,
+        options,
+        client,
+        struct,
+        data: entityData,
+        explain: 'TRUE' === env.LOB_TEST_EXPLAIN,
+        live,
+        transport,
+        now: Date.now(),
+    };
+    return setup;
+}
+//# sourceMappingURL=CardOrderEntity.test.js.map

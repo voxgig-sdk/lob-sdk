@@ -1,0 +1,169 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { LobSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('BuckslipOrderEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when LOB_TEST_LIVE=TRUE.
+  afterEach(liveDelay('LOB_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = LobSDK.test()
+    const ent = testsdk.BuckslipOrder()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.LOB_TEST_LIVE
+    for (const op of ['create', 'list']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'buckslip_order.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"count":{"a":true,"h":"Count","n":"count","r":false,"sh":"number of resources in a set","t":"`$INTEGER`","key$":"count","index$":0},"data":{"a":true,"h":"Data","n":"data","r":false,"sh":"List of buckslip orders","t":"`$ARRAY`","key$":"data","index$":1},"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":2},"next_url":{"a":true,"h":"Next Url","n":"next_url","r":false,"sh":"Url of next page of items in list.","t":"`$STRING`","key$":"next_url","index$":3},"object":{"a":true,"h":"Object","n":"object","r":false,"sh":"Value is resource type.","t":"`$STRING`","key$":"object","index$":4},"previous_url":{"a":true,"h":"Previous Url","n":"previous_url","r":false,"sh":"Url of previous page of items in list.","t":"`$STRING`","key$":"previous_url","index$":5},"quantity":{"a":true,"h":"Quantity","n":"quantity","r":true,"sh":"The quantity of buckslips in the order (minimum 5,000).","t":"`$INTEGER`","key$":"quantity","index$":6},"total_count":{"a":true,"h":"Total Count","n":"total_count","r":false,"sh":"Indicates the total number of records.","t":"`$INTEGER`","key$":"total_count","index$":7}},"id":{"field":"id","name":"id"},"name":"buckslip_order","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /buckslips/{buckslip_id}/orders","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"buckslip_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/buckslips/{buckslip_id}/orders","q":{"exist":["id"]},"r":{"param":{"buckslip_id":"id"}},"s":[{"lit":"buckslips"},{"var":"id"},{"lit":"orders"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /buckslips/{buckslip_id}/orders","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"buckslip_id","r":true,"t":"`$STRING`","index$":0}],"query":[{"a":true,"ex":10,"k":"query","n":"limit","or":"limit","r":false,"t":"`$INTEGER`","index$":0},{"a":true,"ex":0,"k":"query","n":"offset","or":"offset","r":false,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"GET","o":"/buckslips/{buckslip_id}/orders","q":{"exist":["id","limit","offset"]},"r":{"param":{"buckslip_id":"id"}},"s":[{"lit":"buckslips"},{"var":"id"},{"lit":"orders"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"buckslip_order","name__orig":"buckslip_order","Name":"BuckslipOrder","name_":"buckslip_order","name-":"buckslip-order","NAME":"BUCKSLIP_ORDER","index$":6}, {"active":true,"entity":"buckslip_order","key$":"BasicBuckslipOrderFlow","kind":"basic","name":"BasicBuckslipOrderFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"buckslip_order_ref01"},"m":{"buckslip_id":"buckslip01"},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{"buckslip_id":"buckslip01"},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"buckslip_order_ref01"}}],"index$":1}]}, 'BuckslipOrder', {"POST /buckslips/{buckslip_id}/orders":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["quantity"],"properties":{"quantity":{"type":"integer","description":"The quantity of buckslips in the order (minimum 5,000).","minimum":5000,"maximum":10000000,"key$":"quantity"}},"x-ref":"#/components/schemas/buckslip_order_editable","index$":1},"example":{"quantity":10000}},"application/x-www-form-urlencoded":{"schema":{"type":"object","required":["quantity"],"properties":{"quantity":{"type":"integer","description":"The quantity of buckslips in the order (minimum 5,000).","minimum":5000,"maximum":10000000,"key$":"quantity"}},"x-ref":"#/components/schemas/buckslip_order_editable"},"example":{"quantity":10000}},"multipart/form-data":{"schema":{"type":"object","required":["quantity"],"properties":{"quantity":{"type":"integer","description":"The quantity of buckslips in the order (minimum 5,000).","minimum":5000,"maximum":10000000,"key$":"quantity"}},"x-ref":"#/components/schemas/buckslip_order_editable"},"example":{"quantity":10000}}}},"parameters":[{"in":"path","name":"buckslip_id","description":"The ID of the buckslip to which the buckslip orders belong.","required":true,"schema":{"type":"string","description":"Unique identifier prefixed with `bck_`.","pattern":"^bck_[a-zA-Z0-9]+$","x-ref":"#/components/schemas/buckslip_id"},"index$":0}]},"GET /buckslips/{buckslip_id}/orders":{"protocol":"http","parameters":[{"in":"path","name":"buckslip_id","description":"The ID of the buckslip to which the buckslip orders belong.","required":true,"schema":{"type":"string","description":"Unique identifier prefixed with `bck_`.","pattern":"^bck_[a-zA-Z0-9]+$","x-ref":"#/components/schemas/buckslip_id"},"index$":0},{"in":"query","name":"limit","required":false,"description":"How many results to return.","schema":{"type":"integer","minimum":1,"default":10,"maximum":100,"example":10},"x-ref":"#/components/parameters/limit","index$":1},{"in":"query","name":"offset","required":false,"description":"An integer that designates the offset at which to begin returning results. Defaults to 0.","schema":{"type":"integer","default":0},"x-ref":"#/components/parameters/offset","index$":2}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const buckslip_order_ref01_ent = client.BuckslipOrder()
+    let buckslip_order_ref01_data = setup.data.new.buckslip_order['buckslip_order_ref01']
+    buckslip_order_ref01_data['buckslip_id'] = setup.idmap['buckslip01']
+
+    buckslip_order_ref01_data = (await buckslip_order_ref01_ent.create(buckslip_order_ref01_data)).data()
+    assert(null != buckslip_order_ref01_data.id)
+
+
+    // LIST
+    const buckslip_order_ref01_match: any = {}
+    buckslip_order_ref01_match['buckslip_id'] = setup.idmap['buckslip01']
+
+    const buckslip_order_ref01_list = (await buckslip_order_ref01_ent.list(buckslip_order_ref01_match)).map((e: any) => e.data())
+
+    assert(!isempty(select(buckslip_order_ref01_list, { id: buckslip_order_ref01_data.id })))
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/buckslip_order/BuckslipOrderTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = LobSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['buckslip_order01','buckslip_order02','buckslip_order03','buckslip01'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'LOB_TEST_BUCKSLIP_ORDER_ENTID': idmap,
+    'LOB_TEST_LIVE': 'FALSE',
+    'LOB_TEST_EXPLAIN': 'FALSE',
+    'LOB_APIKEY': '',
+    'LOB_SECRET': '',
+  })
+
+  idmap = env['LOB_TEST_BUCKSLIP_ORDER_ENTID']
+
+  const live = 'TRUE' === env.LOB_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['LOB_TEST_BUCKSLIP_ORDER_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new LobSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.LOB_APIKEY,
+        secret: env.LOB_SECRET,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.LOB_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

@@ -1,0 +1,39 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "lob-openapi@lob.com"
+        name: "Lob Developer Experience"
+        url: "https://support.lob.com/"
+      }
+      description: `The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p>
+`
+      license: {
+        name: "MIT"
+        url: "https://mit-license.org/"
+      }
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Basic"
+        scheme: "basicAuth"
+        type: "http"
+      }
+      servers: [
+        {
+          description: "production"
+          url: "https://api.lob.com/v1"
+        }
+      ]
+      summary: "The Lob API is organized around REST."
+      termsOfService: "https://www.lob.com/legal"
+      title: "Lob"
+      version: "1.22.0"
+      website: "https://lob.com"
+    }
+  }
+}
+

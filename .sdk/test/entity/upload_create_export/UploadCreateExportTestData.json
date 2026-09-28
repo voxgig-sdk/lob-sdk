@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "upload_create_export": {
+      "UPLOAD_CREATE_EXPORT00": {
+        "exportId": "s28",
+        "id": "UPLOAD_CREATE_EXPORT00",
+        "message": "s2a",
+        "type": "s2b"
+      },
+      "UPLOAD_CREATE_EXPORT01": {
+        "exportId": "s50",
+        "id": "UPLOAD_CREATE_EXPORT01",
+        "message": "s52",
+        "type": "s53"
+      },
+      "UPLOAD_CREATE_EXPORT02": {
+        "exportId": "s78",
+        "id": "UPLOAD_CREATE_EXPORT02",
+        "message": "s7a",
+        "type": "s7b"
+      }
+    }
+  },
+  "new": {
+    "upload_create_export": {
+      "upload_create_export_ref01": {
+        "exportId": "sa0",
+        "message": "sa2",
+        "type": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /uploads/{upl_id}/exports": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+# Entity: template_version_deletion
+
+main: kit: entity: template_version_deletion: {
+
+  alias: field: {}
+
+  name: "template_version_deletion"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /templates/{tmpl_id}/versions/{vrsn_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "template_id"
+                or: "tmpl_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "vrsn_id"
+                or: "vrsn_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/templates/{tmpl_id}/versions/{vrsn_id}"
+          q: {
+            exist: [
+              "template_id"
+              "vrsn_id"
+            ]
+          }
+          r: {
+            param: {
+              tmpl_id: "template_id"
+            }
+          }
+          s: [
+            {
+              lit: "templates"
+            }
+            {
+              var: "template_id"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "vrsn_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.template")]
+  ]
+
+}

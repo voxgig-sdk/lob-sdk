@@ -1,0 +1,146 @@
+{
+  "existing": {
+    "upload": {
+      "UPLOAD00": {
+        "accountId": "sd2",
+        "bytesProcessed": 211,
+        "campaignId": "sd4",
+        "dateCreated": "sd5",
+        "dateModified": "sd6",
+        "deleted": false,
+        "failedMailpieces": 216,
+        "failuresUrl": "sd9",
+        "id": "UPLOAD00",
+        "mergeVariableColumnMapping": {},
+        "metadata": {},
+        "mode": "sdd",
+        "optionalAddressColumnMapping": {},
+        "originalFilename": "sdf",
+        "requiredAddressColumnMapping": {},
+        "s3Url": "se1",
+        "state": "se2",
+        "totalMailpieces": 227,
+        "type": "se4",
+        "uploadId": "se5",
+        "validatedMailpieces": 230,
+        "ex_id": "EX01"
+      },
+      "UPLOAD01": {
+        "accountId": "s1a4",
+        "bytesProcessed": 421,
+        "campaignId": "s1a6",
+        "dateCreated": "s1a7",
+        "dateModified": "s1a8",
+        "deleted": false,
+        "failedMailpieces": 426,
+        "failuresUrl": "s1ab",
+        "id": "UPLOAD01",
+        "mergeVariableColumnMapping": {},
+        "metadata": {},
+        "mode": "s1af",
+        "optionalAddressColumnMapping": {},
+        "originalFilename": "s1b1",
+        "requiredAddressColumnMapping": {},
+        "s3Url": "s1b3",
+        "state": "s1b4",
+        "totalMailpieces": 437,
+        "type": "s1b6",
+        "uploadId": "s1b7",
+        "validatedMailpieces": 440,
+        "ex_id": "EX01"
+      },
+      "UPLOAD02": {
+        "accountId": "s276",
+        "bytesProcessed": 631,
+        "campaignId": "s278",
+        "dateCreated": "s279",
+        "dateModified": "s27a",
+        "deleted": false,
+        "failedMailpieces": 636,
+        "failuresUrl": "s27d",
+        "id": "UPLOAD02",
+        "mergeVariableColumnMapping": {},
+        "metadata": {},
+        "mode": "s281",
+        "optionalAddressColumnMapping": {},
+        "originalFilename": "s283",
+        "requiredAddressColumnMapping": {},
+        "s3Url": "s285",
+        "state": "s286",
+        "totalMailpieces": 647,
+        "type": "s288",
+        "uploadId": "s289",
+        "validatedMailpieces": 650,
+        "ex_id": "EX01"
+      }
+    }
+  },
+  "new": {
+    "upload": {
+      "upload_ref01": {
+        "accountId": "s348",
+        "bytesProcessed": 841,
+        "campaignId": "s34a",
+        "dateCreated": "s34b",
+        "dateModified": "s34c",
+        "deleted": false,
+        "failedMailpieces": 846,
+        "failuresUrl": "s34f",
+        "mergeVariableColumnMapping": {},
+        "metadata": {},
+        "mode": "s353",
+        "optionalAddressColumnMapping": {},
+        "originalFilename": "s355",
+        "requiredAddressColumnMapping": {},
+        "s3Url": "s357",
+        "state": "s358",
+        "totalMailpieces": 857,
+        "type": "s35a",
+        "uploadId": "s35b",
+        "validatedMailpieces": 860
+      }
+    }
+  },
+  "requests": {
+    "POST /uploads/{upl_id}/file": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /uploads": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /uploads/{upl_id}/report": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /uploads": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /uploads/{upl_id}/exports/{ex_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /uploads/{upl_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /uploads/{upl_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /uploads/{upl_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

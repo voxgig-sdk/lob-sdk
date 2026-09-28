@@ -1,0 +1,86 @@
+{
+  "existing": {
+    "creative": {
+      "CREATIVE00": {
+        "campaigns": [],
+        "date_created": "s83",
+        "date_modified": "s84",
+        "deleted": false,
+        "description": "s86",
+        "details": {},
+        "from": "s88",
+        "id": "CREATIVE00",
+        "metadata": {},
+        "object": "s8b",
+        "resource_type": "s8c",
+        "template_preview_urls": {},
+        "template_previews": []
+      },
+      "CREATIVE01": {
+        "campaigns": [],
+        "date_created": "s105",
+        "date_modified": "s106",
+        "deleted": false,
+        "description": "s108",
+        "details": {},
+        "from": "s10a",
+        "id": "CREATIVE01",
+        "metadata": {},
+        "object": "s10d",
+        "resource_type": "s10e",
+        "template_preview_urls": {},
+        "template_previews": []
+      },
+      "CREATIVE02": {
+        "campaigns": [],
+        "date_created": "s187",
+        "date_modified": "s188",
+        "deleted": false,
+        "description": "s18a",
+        "details": {},
+        "from": "s18c",
+        "id": "CREATIVE02",
+        "metadata": {},
+        "object": "s18f",
+        "resource_type": "s190",
+        "template_preview_urls": {},
+        "template_previews": []
+      }
+    }
+  },
+  "new": {
+    "creative": {
+      "creative_ref01": {
+        "campaigns": [],
+        "date_created": "s209",
+        "date_modified": "s20a",
+        "deleted": false,
+        "description": "s20c",
+        "details": {},
+        "from": "s20e",
+        "metadata": {},
+        "object": "s211",
+        "resource_type": "s212",
+        "template_preview_urls": {},
+        "template_previews": []
+      }
+    }
+  },
+  "requests": {
+    "POST /creatives": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /creatives/{crv_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /creatives/{crv_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

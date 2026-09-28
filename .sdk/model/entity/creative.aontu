@@ -1,0 +1,295 @@
+# Entity: creative
+
+main: kit: entity: creative: {
+
+  alias: field: {}
+
+  fields: {
+    campaigns: {
+      h: "Campaigns"
+      n: "campaigns"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Array of campaigns associated with the creative ID"
+      t: "`$ARRAY`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      op: {
+        load: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "An internal description that identifies this resource."
+      t: "`$STRING`"
+    }
+    details: {
+      h: "Details"
+      n: "details"
+      r: false
+      t: "`$OBJECT`"
+    }
+    from: {
+      h: "From"
+      n: "from"
+      r: false
+      sh: "Must either be an address ID or an inline object with correct address parameters."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Unique identifier prefixed with `crv_`."
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Use metadata to store custom information for tagging and labeling back to your internal systems."
+      t: "`$OBJECT`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    resource_type: {
+      h: "Resource Type"
+      n: "resource_type"
+      r: false
+      t: "`$STRING`"
+    }
+    template_preview_urls: {
+      h: "Template Preview Urls"
+      n: "template_preview_urls"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      sh: "Preview URLs associated with a creative's artwork asset(s) if the creative uses HTML templates as assets."
+      t: "`$OBJECT`"
+    }
+    template_previews: {
+      h: "Template Previews"
+      n: "template_previews"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "A list of template preview objects if the creative uses HTML template(s) as artwork asset(s)."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "creative"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /creatives"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "x_lang_output"
+                or: "x_lang_output"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/creatives"
+          q: {
+            exist: [
+              "x_lang_output"
+            ]
+          }
+          s: [
+            {
+              lit: "creatives"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /creatives/{crv_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "crv_2a3b096c409b32c"
+                k: "param"
+                n: "id"
+                or: "crv_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/creatives/{crv_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              crv_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "creatives"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /creatives/{crv_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "crv_2a3b096c409b32c"
+                k: "param"
+                n: "id"
+                or: "crv_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/creatives/{crv_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              crv_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "creatives"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

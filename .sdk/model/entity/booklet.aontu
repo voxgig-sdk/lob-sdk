@@ -1,0 +1,468 @@
+# Entity: booklet
+
+main: kit: entity: booklet: {
+
+  alias: field: {}
+
+  fields: {
+    carrier: {
+      h: "Carrier"
+      n: "carrier"
+      r: false
+      t: "`$STRING`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of booklets"
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 7
+        depth: 11
+      }
+    }
+    date_created: {
+      h: "Date Created"
+      n: "date_created"
+      r: false
+      t: "`$STRING`"
+    }
+    date_modified: {
+      h: "Date Modified"
+      n: "date_modified"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "An internal description that identifies this resource."
+      t: "`$STRING`"
+    }
+    expected_delivery_date: {
+      h: "Expected Delivery Date"
+      n: "expected_delivery_date"
+      r: false
+      t: "`$STRING`"
+    }
+    from: {
+      h: "From"
+      n: "from"
+      r: false
+      t: "`$OBJECT`"
+    }
+    fsc: {
+      h: "Fsc"
+      n: "fsc"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    mail_type: {
+      h: "Mail Type"
+      n: "mail_type"
+      r: false
+      sh: "A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a <a href=\"https://lob.com/pricing/print-mail#compare\" target=\"_blank\">cheaper option</a> which is less predictable and takes longer to delive…"
+      t: "`$STRING`"
+    }
+    merge_variables: {
+      h: "Merge Variables"
+      n: "merge_variables"
+      r: false
+      sh: "You can input a merge variable payload object to your template or QR code redirect URLs to render dynamic content."
+      t: "`$OBJECT`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Use metadata to store custom information for tagging and labeling back to your internal systems."
+      t: "`$OBJECT`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    pages: {
+      h: "Pages"
+      n: "pages"
+      r: false
+      t: "`$INTEGER`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    send_date: {
+      h: "Send Date"
+      n: "send_date"
+      r: false
+      sh: "A timestamp in ISO 8601 format which specifies a date after the current time and up to 180 days in the future to send the letter off for production."
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    size: {
+      h: "Size"
+      n: "size"
+      r: false
+      t: "`$STRING`"
+    }
+    sla: {
+      h: "Sla"
+      n: "sla"
+      r: false
+      t: "`$STRING`"
+    }
+    source_material: {
+      h: "Source Material"
+      n: "source_material"
+      r: false
+      t: "`$STRING`"
+    }
+    thumbnails: {
+      h: "Thumbnails"
+      n: "thumbnails"
+      r: false
+      t: "`$ARRAY`"
+    }
+    to: {
+      h: "To"
+      n: "to"
+      r: false
+      t: "`$OBJECT`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    tracking_events: {
+      h: "Tracking Events"
+      n: "tracking_events"
+      r: false
+      sh: "An array of tracking events ordered by ascending `time`."
+      t: "`$ARRAY`"
+    }
+    tracking_number: {
+      h: "Tracking Number"
+      n: "tracking_number"
+      r: false
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      t: "`$STRING`"
+    }
+    use_type: {
+      h: "Use Type"
+      n: "use_type"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "booklet"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /booklets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
+                k: "header"
+                n: "idempotency_key"
+                or: "idempotency_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
+                k: "query"
+                n: "idempotency_key"
+                or: "idempotency_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/booklets"
+          q: {
+            exist: [
+              "idempotency_key"
+            ]
+          }
+          s: [
+            {
+              lit: "booklets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /booklets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "usps_first_class"
+                k: "query"
+                n: "mail_type"
+                or: "mail_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metadata"
+                or: "metadata"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "send_date"
+                or: "send_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/booklets"
+          q: {
+            exist: [
+              "before/after"
+              "campaign_id"
+              "date_created"
+              "include"
+              "limit"
+              "mail_type"
+              "metadata"
+              "send_date"
+              "sort_by"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "booklets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /booklets/{booklet_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "booklet_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/booklets/{booklet_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              booklet_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "booklets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /booklets/{booklet_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "booklet_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/booklets/{booklet_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              booklet_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "booklets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,18 @@
+# BasicIdentityValidationFlow
+
+main: kit: flow: BasicIdentityValidationFlow:
+{
+  entity: "identity_validation",
+  kind: "basic",
+  name: "BasicIdentityValidationFlow",
+  step: [
+    {
+      i: {
+        ref: "identity_validation_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicIdentityValidationFlow"
+}

@@ -1,0 +1,397 @@
+# Entity: bank_account
+
+main: kit: entity: bank_account: {
+
+  alias: field: {}
+
+  fields: {
+    account_number: {
+      h: "Account Number"
+      n: "account_number"
+      r: true
+      t: "`$STRING`"
+    }
+    account_type: {
+      h: "Account Type"
+      n: "account_type"
+      r: true
+      sh: "The type of entity that holds the account."
+      t: "`$STRING`"
+    }
+    bank_name: {
+      h: "Bank Name"
+      n: "bank_name"
+      r: false
+      sh: "The name of the bank based on the provided routing number, e.g."
+      t: "`$STRING`"
+    }
+    check_template: {
+      h: "Check Template"
+      n: "check_template"
+      r: false
+      sh: "The check template used for printing."
+      t: "`$STRING`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "The city associated with your home bank account."
+      t: "`$STRING`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of bank_accounts"
+      t: "`$ARRAY`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "An internal description that identifies this resource."
+      t: "`$STRING`"
+    }
+    fractional_routing_number: {
+      h: "Fractional Routing Number"
+      n: "fractional_routing_number"
+      r: false
+      sh: "The fractional routing number for your home bank account."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Use metadata to store custom information for tagging and labeling back to your internal systems."
+      t: "`$OBJECT`"
+    }
+    microdeposit_type: {
+      h: "Microdeposit Type"
+      n: "microdeposit_type"
+      r: false
+      sh: "The type of microdeposit verification required for this bank account."
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        load: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    routing_number: {
+      h: "Routing Number"
+      n: "routing_number"
+      r: true
+      sh: "Must be a <a href=\"https://www.frbservices.org/index.html\" target=\"_blank\">valid US routing number</a>."
+      t: "`$STRING`"
+    }
+    signatory: {
+      h: "Signatory"
+      n: "signatory"
+      r: true
+      sh: "The signatory associated with your account."
+      t: "`$STRING`"
+    }
+    signature_url: {
+      h: "Signature Url"
+      n: "signature_url"
+      r: false
+      t: "`$ANY`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      sh: "The state associated with your home bank account."
+      t: "`$STRING`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    verified: {
+      h: "Verified"
+      n: "verified"
+      r: false
+      sh: "A bank account must be verified before a check can be created."
+      t: "`$BOOLEAN`"
+    }
+    zipcode: {
+      h: "Zipcode"
+      n: "zipcode"
+      r: false
+      sh: "The zipcode associated with your home bank account."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "bank_account"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /bank_accounts/{bank_id}/verify"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "bank_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/bank_accounts/{bank_id}/verify"
+          q: {
+            "$action": "verify"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              bank_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "bank_accounts"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "verify"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /bank_accounts"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/bank_accounts"
+          s: [
+            {
+              lit: "bank_accounts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /bank_accounts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "metadata"
+                or: "metadata"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/bank_accounts"
+          q: {
+            exist: [
+              "before/after"
+              "date_created"
+              "include"
+              "limit"
+              "metadata"
+            ]
+          }
+          s: [
+            {
+              lit: "bank_accounts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /bank_accounts/{bank_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "bank_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/bank_accounts/{bank_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              bank_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "bank_accounts"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,234 @@
+# Entity: resource_proof
+
+main: kit: entity: resource_proof: {
+
+  alias: field: {}
+
+  fields: {
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: false
+      sh: "Errors encountered during processing."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Unique identifier prefixed with `res_prf_`."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    resource_type: {
+      h: "Resource Type"
+      n: "resource_type"
+      r: false
+      sh: "The type of resource to generate a proof for."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "The processing status of the resource proof."
+      t: "`$STRING`"
+    }
+    template_id: {
+      h: "Template Id"
+      n: "template_id"
+      r: false
+      sh: "The template ID associated with the resource proof, if any."
+      t: "`$STRING`"
+    }
+    thumbnails: {
+      h: "Thumbnails"
+      n: "thumbnails"
+      r: false
+      sh: "Thumbnail images of the resource proof."
+      t: "`$ARRAY`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      sh: "A URL to the resource proof PDF."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "resource_proof"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /resource_proofs"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/resource_proofs"
+          s: [
+            {
+              lit: "resource_proofs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /resource_proofs/{res_prf_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "res_prf_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/resource_proofs/{res_prf_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              res_prf_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "resource_proofs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /resource_proofs/{res_prf_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "res_prf_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/resource_proofs/{res_prf_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              res_prf_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "resource_proofs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,293 @@
+# Entity: billing_group
+
+main: kit: entity: billing_group: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of billing_groups"
+      t: "`$ARRAY`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      r: false
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      r: false
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Description of the billing group."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier prefixed with `bg_`."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the billing group."
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "billing_group"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /billing_groups/{bg_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "bg_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/billing_groups/{bg_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              bg_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "billing_groups"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /billing_groups"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/billing_groups"
+          s: [
+            {
+              lit: "billing_groups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /billing_groups"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "date_modified"
+                or: "date_modified"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/billing_groups"
+          q: {
+            exist: [
+              "date_created"
+              "date_modified"
+              "include"
+              "limit"
+              "offset"
+              "sort_by"
+            ]
+          }
+          s: [
+            {
+              lit: "billing_groups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /billing_groups/{bg_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "bg_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/billing_groups/{bg_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              bg_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "billing_groups"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,201 @@
+# Entity: us_verification
+
+main: kit: entity: us_verification: {
+
+  alias: field: {}
+
+  fields: {
+    addresses: {
+      h: "Addresses"
+      n: "addresses"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 1
+      }
+    }
+    components: {
+      h: "Components"
+      n: "components"
+      r: true
+      sh: "A nested object containing a breakdown of each component of an address."
+      t: "`$OBJECT`"
+    }
+    deliverability: {
+      h: "Deliverability"
+      n: "deliverability"
+      r: false
+      sh: "Summarizes the deliverability of the `us_verification` object."
+      t: "`$STRING`"
+    }
+    deliverability_analysis: {
+      h: "Deliverability Analysis"
+      n: "deliverability_analysis"
+      r: true
+      sh: "A nested object containing a breakdown of the deliverability of an address."
+      t: "`$OBJECT`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      sh: "Indicates whether any errors occurred during the verification process."
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier prefixed with `us_ver_`."
+      t: "`$STRING`"
+    }
+    last_line: {
+      h: "Last Line"
+      n: "last_line"
+      r: false
+      sh: "Combination of the following applicable `components`: * City (`city`) * State (`state`) * ZIP code (`zip_code`) * ZIP+4 (`zip_code_plus_4`)"
+      t: "`$STRING`"
+    }
+    lob_confidence_score: {
+      h: "Lob Confidence Score"
+      n: "lob_confidence_score"
+      r: true
+      sh: "Lob Confidence Score is a nested object that provides a numerical value between 0-100 of the likelihood that an address is deliverable based on Lob’s mail delivery data to over half of US households."
+      t: "`$OBJECT`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    primary_line: {
+      h: "Primary Line"
+      n: "primary_line"
+      r: false
+      sh: "The primary delivery line (usually the street address) of the address."
+      t: "`$STRING`"
+    }
+    recipient: {
+      h: "Recipient"
+      n: "recipient"
+      r: false
+      sh: "The intended recipient, typically a person's or firm's name."
+      t: "`$STRING`"
+    }
+    secondary_line: {
+      h: "Secondary Line"
+      n: "secondary_line"
+      r: false
+      sh: "The secondary delivery line of the address."
+      t: "`$STRING`"
+    }
+    urbanization: {
+      h: "Urbanization"
+      n: "urbanization"
+      r: false
+      sh: "Only present for addresses in Puerto Rico."
+      t: "`$STRING`"
+    }
+    valid_address: {
+      h: "Valid Address"
+      n: "valid_address"
+      r: false
+      sh: "This field indicates whether an address was found in a more comprehensive address dataset that includes sources from the USPS, open source mapping data, and our proprietary mail delivery data."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "us_verification"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /bulk/us_verifications"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "upper"
+                k: "query"
+                n: "case"
+                or: "case"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/bulk/us_verifications"
+          q: {
+            exist: [
+              "case"
+            ]
+          }
+          s: [
+            {
+              lit: "bulk"
+            }
+            {
+              lit: "us_verifications"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /us_verifications"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "upper"
+                k: "query"
+                n: "case"
+                or: "case"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/us_verifications"
+          q: {
+            exist: [
+              "case"
+            ]
+          }
+          s: [
+            {
+              lit: "us_verifications"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

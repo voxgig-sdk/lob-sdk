@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>UsAutocompletion | Lob</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Lob<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/lob-sdk">voxgig-sdk/lob-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Lob</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/address.html">Address</a>
+<a href="../api/bank_account.html">BankAccount</a>
+<a href="../api/bank_deletion.html">BankDeletion</a>
+<a href="../api/billing_group.html">BillingGroup</a>
+<a href="../api/booklet.html">Booklet</a>
+<a href="../api/buckslip.html">Buckslip</a>
+<a href="../api/buckslip_order.html">BuckslipOrder</a>
+<a href="../api/campaign.html">Campaign</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_order.html">CardOrder</a>
+<a href="../api/check.html">Check</a>
+<a href="../api/creative.html">Creative</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/identity_validation.html">IdentityValidation</a>
+<a href="../api/intl_verification.html">IntlVerification</a>
+<a href="../api/letter.html">Letter</a>
+<a href="../api/link.html">Link</a>
+<a href="../api/lob_credits_balance.html">LobCreditsBalance</a>
+<a href="../api/postcard.html">Postcard</a>
+<a href="../api/qr_code.html">QrCode</a>
+<a href="../api/resource_proof.html">ResourceProof</a>
+<a href="../api/response.html">Response</a>
+<a href="../api/reverse_geocode.html">ReverseGeocode</a>
+<a href="../api/self_mailer.html">SelfMailer</a>
+<a href="../api/snap_pack.html">SnapPack</a>
+<a href="../api/template.html">Template</a>
+<a href="../api/template_version.html">TemplateVersion</a>
+<a href="../api/template_version_deletion.html">TemplateVersionDeletion</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/upload_create_export.html">UploadCreateExport</a>
+<a aria-current="page" href="../api/us_autocompletion.html">UsAutocompletion</a><div class="nav-sections"><a class="nav-section" href="#post-us_autocompletions">POST /us_autocompletions</a></div>
+<a href="../api/us_verification.html">UsVerification</a>
+<a href="../api/zip.html">Zip</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="usautocompletion">UsAutocompletion</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-us_autocompletions"><code>/us_autocompletions</code></a></td>
+<td><code>create</code></td>
+<td>Returns a US autocompletion object</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.UsAutocompletion(nil).Create(map[string]any{&quot;address_prefix&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:UsAutocompletion():create({ address_prefix = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;UsAutocompletion()-&gt;create([&quot;address_prefix&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.UsAutocompletion().create({ &quot;address_prefix&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">created = client.UsAutocompletion.create({ &quot;address_prefix&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.UsAutocompletion().create({ address_prefix: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>address_prefix</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Only accepts numbers and street names in an alphanumeric format.</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional city input used to filter suggestions.</td>
+</tr>
+<tr>
+<td><code>geo_ip_sort</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If <code>true</code>, sort suggestions by proximity to the IP set in the <code>X-Forwarded-For</code> header.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier prefixed with ``us_auto<code>_</code>.</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Value is resource type.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional state input used to filter suggestions.</td>
+</tr>
+<tr>
+<td><code>suggestions</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>An array of objects representing suggested addresses.</td>
+</tr>
+<tr>
+<td><code>zip_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional ZIP Code input used to filter suggestions.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-us_autocompletions" class="operation" data-method="post"><code>POST</code> /us_autocompletions</h3>
+<p>Operation ID: <code>autocompletion</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>case</code> | <code>query</code> | <code>enum: upper, proper</code> | No | Casing of the verified address. Possible values are <code>upper</code> and <code>proper</code> for uppercased (for example &quot;PO BOX&quot;) and proper-cased (for example &quot;PO Box&quot;), respectively. Only affects <code>primary_line</code>, <code>city</code>, and <code>state</code>. Default casing is <code>upper</code>. |
+| <code>valid_addresses</code> | <code>query</code> | <code>enum: true, false</code> | No | Possible values are <code>true</code> and <code>false</code>. If false, not all of the suggestions in the response will be valid addresses; they'll need to be verified in order to determine the deliverability. The <code>valid_addresses</code> flag will greatly reduce the number of keystrokes needed before reaching an intended address. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>address_prefix</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Only accepts numbers and street names in an alphanumeric format.</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional city input used to filter suggestions. Case insensitive and does not match partial abbreviations.</td>
+</tr>
+<tr>
+<td><code>geo_ip_sort</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If <code>true</code>, sort suggestions by proximity to the IP set in the <code>X-Forwarded-For</code> header.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional state input used to filter suggestions. Case insensitive and does not match partial abbreviations.</td>
+</tr>
+<tr>
+<td><code>zip_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional ZIP Code input used to filter suggestions. Matches partial entries.</td>
+</tr>
+</tbody>
+</table>
+<p><code>application/x-www-form-urlencoded</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>address_prefix</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Only accepts numbers and street names in an alphanumeric format.</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional city input used to filter suggestions. Case insensitive and does not match partial abbreviations.</td>
+</tr>
+<tr>
+<td><code>geo_ip_sort</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If <code>true</code>, sort suggestions by proximity to the IP set in the <code>X-Forwarded-For</code> header.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional state input used to filter suggestions. Case insensitive and does not match partial abbreviations.</td>
+</tr>
+<tr>
+<td><code>zip_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional ZIP Code input used to filter suggestions. Matches partial entries.</td>
+</tr>
+</tbody>
+</table>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>address_prefix</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Only accepts numbers and street names in an alphanumeric format.</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional city input used to filter suggestions. Case insensitive and does not match partial abbreviations.</td>
+</tr>
+<tr>
+<td><code>geo_ip_sort</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>If <code>true</code>, sort suggestions by proximity to the IP set in the <code>X-Forwarded-For</code> header.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional state input used to filter suggestions. Case insensitive and does not match partial abbreviations.</td>
+</tr>
+<tr>
+<td><code>zip_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>An optional ZIP Code input used to filter suggestions. Matches partial entries.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-a-us-autocompletion-object" class="status" data-status="2xx">200: Returns a US autocompletion object</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier prefixed with ``us_auto<code>_</code>.</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>enum: us_autocompletion</code></td>
+<td>No</td>
+<td>Value is resource type.</td>
+</tr>
+<tr>
+<td><code>suggestions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of objects representing suggested addresses.</td>
+</tr>
+<tr>
+<td><code>suggestions[].city</code></td>
+<td><code>string and string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>suggestions[].object</code></td>
+<td><code>enum: us_autocompletion</code></td>
+<td>No</td>
+<td>Value is resource type.</td>
+</tr>
+<tr>
+<td><code>suggestions[].primary_line</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The primary delivery line (usually the street address) of the address. Combination of the following applicable <code>components</code> (primary number &amp; secondary information may be missing or inaccurate): * <code>primary_number</code> * <code>street_predirection</code> * <code>street_name</code> * <code>street_suffix</code> * <code>street_postdirection</code> * <code>secondary_designator</code> * <code>secondary_number</code> * <code>pmb_designator</code> * <code>pmb_number</code></td>
+</tr>
+<tr>
+<td><code>suggestions[].state</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The &lt;a href=&quot;https://en.wikipedia.org/wiki/<code>ISO_3166</code>-2&quot; target=&quot;_blank&quot;&gt;ISO 3166-2&lt;/a&gt; two letter code for the state.</td>
+</tr>
+<tr>
+<td><code>suggestions[].zip_code</code></td>
+<td><code>any and string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-error">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;invalid&quot;,
+    &quot;message&quot;: &quot;address_prefix is required&quot;,
+    &quot;status_code&quot;: 422
+  }
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,74 @@
+{
+  "existing": {
+    "resource_proof": {
+      "RESOURCE_PROOF00": {
+        "date_created": "s64",
+        "date_modified": "s65",
+        "errors": [],
+        "id": "RESOURCE_PROOF00",
+        "object": "s68",
+        "resource_type": "s69",
+        "status": "s6a",
+        "template_id": "TEMPLATE01",
+        "thumbnails": [],
+        "url": "s6d"
+      },
+      "RESOURCE_PROOF01": {
+        "date_created": "sc8",
+        "date_modified": "sc9",
+        "errors": [],
+        "id": "RESOURCE_PROOF01",
+        "object": "scc",
+        "resource_type": "scd",
+        "status": "sce",
+        "template_id": "TEMPLATE01",
+        "thumbnails": [],
+        "url": "sd1"
+      },
+      "RESOURCE_PROOF02": {
+        "date_created": "s12c",
+        "date_modified": "s12d",
+        "errors": [],
+        "id": "RESOURCE_PROOF02",
+        "object": "s130",
+        "resource_type": "s131",
+        "status": "s132",
+        "template_id": "TEMPLATE01",
+        "thumbnails": [],
+        "url": "s135"
+      }
+    }
+  },
+  "new": {
+    "resource_proof": {
+      "resource_proof_ref01": {
+        "date_created": "s190",
+        "date_modified": "s191",
+        "errors": [],
+        "object": "s194",
+        "resource_type": "s195",
+        "status": "s196",
+        "template_id": "TEMPLATE01",
+        "thumbnails": [],
+        "url": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /resource_proofs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /resource_proofs/{res_prf_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /resource_proofs/{res_prf_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# BasicBankDeletionFlow
+
+main: kit: flow: BasicBankDeletionFlow:
+{
+  entity: "bank_deletion",
+  kind: "basic",
+  name: "BasicBankDeletionFlow",
+  "key$": "BasicBankDeletionFlow"
+}

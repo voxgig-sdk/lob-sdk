@@ -1,0 +1,548 @@
+# Entity: upload
+
+main: kit: entity: upload: {
+
+  alias: field: {}
+
+  fields: {
+    accountId: {
+      h: "Account Id"
+      n: "accountId"
+      r: true
+      sh: "Account ID that made the request"
+      t: "`$STRING`"
+    }
+    bytesProcessed: {
+      h: "Bytes Processed"
+      n: "bytesProcessed"
+      r: true
+      sh: "Number of bytes processed in your CSV"
+      t: "`$INTEGER`"
+    }
+    campaignId: {
+      h: "Campaign Id"
+      n: "campaignId"
+      r: true
+      t: "`$ANY`"
+    }
+    dateCreated: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "dateCreated"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the export was created"
+      t: "`$STRING`"
+    }
+    dateModified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "dateModified"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the export was last modified"
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: true
+      sh: "Returns as `true` if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    failedMailpieces: {
+      h: "Failed Mailpieces"
+      n: "failedMailpieces"
+      r: true
+      sh: "Number of mailpieces that failed to create"
+      t: "`$INTEGER`"
+    }
+    failuresUrl: {
+      h: "Failures Url"
+      n: "failuresUrl"
+      r: false
+      sh: "Url where your campaign mailpiece failures can be retrieved"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier prefixed with `ex_`."
+      t: "`$STRING`"
+    }
+    mergeVariableColumnMapping: {
+      h: "Merge Variable Column Mapping"
+      n: "mergeVariableColumnMapping"
+      r: false
+      sh: "test"
+      t: "`$OBJECT`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: true
+      sh: "The list of column headers in your file as an array that you want as metadata associated with each mailpiece."
+      t: "`$OBJECT`"
+    }
+    mode: {
+      h: "Mode"
+      n: "mode"
+      r: true
+      sh: "The environment in which the mailpieces were created."
+      t: "`$STRING`"
+    }
+    optionalAddressColumnMapping: {
+      h: "Optional Address Column Mapping"
+      n: "optionalAddressColumnMapping"
+      r: true
+      sh: "The mapping of column headers in your file to Lob-optional fields for the resource created."
+      t: "`$OBJECT`"
+    }
+    originalFilename: {
+      h: "Original Filename"
+      n: "originalFilename"
+      r: false
+      sh: "Filename of the upload"
+      t: "`$STRING`"
+    }
+    requiredAddressColumnMapping: {
+      h: "Required Address Column Mapping"
+      n: "requiredAddressColumnMapping"
+      r: true
+      sh: "The mapping of column headers in your file to Lob-required fields for the resource created."
+      t: "`$OBJECT`"
+    }
+    s3Url: {
+      h: "S3 Url"
+      n: "s3Url"
+      r: true
+      sh: "The URL for the generated export file."
+      t: "`$STRING`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "The state of the export file, which can be `in_progress`, `failed` or `succeeded`."
+      t: "`$STRING`"
+    }
+    totalMailpieces: {
+      h: "Total Mailpieces"
+      n: "totalMailpieces"
+      r: true
+      sh: "Total number of recipients for the campaign"
+      t: "`$INTEGER`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "The export file type, which can be `all`, `failures` or `successes`."
+      t: "`$STRING`"
+    }
+    uploadId: {
+      h: "Upload Id"
+      n: "uploadId"
+      r: true
+      sh: "Unique identifier prefixed with `upl_`."
+      t: "`$STRING`"
+    }
+    validatedMailpieces: {
+      h: "Validated Mailpieces"
+      n: "validatedMailpieces"
+      r: true
+      sh: "Number of mailpieces that were successfully created"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "upload"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /uploads/{upl_id}/file"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "upl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/uploads/{upl_id}/file"
+          q: {
+            "$action": "file"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              upl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "file"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /uploads"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/uploads"
+          s: [
+            {
+              lit: "uploads"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /uploads/{upl_id}/report"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "upl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/uploads/{upl_id}/report"
+          q: {
+            "$action": "report"
+            exist: [
+              "id"
+              "limit"
+              "offset"
+              "status"
+            ]
+          }
+          r: {
+            param: {
+              upl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "report"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /uploads"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/uploads"
+          q: {
+            exist: [
+              "campaign_id"
+            ]
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /uploads/{upl_id}/exports/{ex_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "ex_id"
+                or: "ex_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "upl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/uploads/{upl_id}/exports/{ex_id}"
+          q: {
+            exist: [
+              "ex_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              upl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "exports"
+            }
+            {
+              var: "ex_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /uploads/{upl_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "upl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/uploads/{upl_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              upl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /uploads/{upl_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "upl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/uploads/{upl_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              upl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /uploads/{upl_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "upl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/uploads/{upl_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              upl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

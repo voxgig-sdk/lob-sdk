@@ -1,0 +1,46 @@
+# Entity: zip
+
+main: kit: entity: zip: {
+
+  alias: field: {}
+
+  fields: {
+    zip_code: {
+      h: "Zip Code"
+      n: "zip_code"
+      r: true
+      sh: "A 5-digit ZIP code."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "zip"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /us_zip_lookups"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/us_zip_lookups"
+          s: [
+            {
+              lit: "us_zip_lookups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

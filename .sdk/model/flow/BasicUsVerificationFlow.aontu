@@ -1,0 +1,18 @@
+# BasicUsVerificationFlow
+
+main: kit: flow: BasicUsVerificationFlow:
+{
+  entity: "us_verification",
+  kind: "basic",
+  name: "BasicUsVerificationFlow",
+  step: [
+    {
+      i: {
+        ref: "us_verification_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicUsVerificationFlow"
+}

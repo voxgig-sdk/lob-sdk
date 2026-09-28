@@ -1,0 +1,112 @@
+{
+  "existing": {
+    "template": {
+      "TEMPLATE00": {
+        "count": 170,
+        "data": [],
+        "date_created": "sac",
+        "date_modified": "sad",
+        "deleted": true,
+        "description": "saf",
+        "engine": "sb0",
+        "html": "sb1",
+        "id": "TEMPLATE00",
+        "metadata": {},
+        "next_url": "sb4",
+        "object": "sb5",
+        "previous_url": "sb6",
+        "published_version": "sb7",
+        "required_vars": [],
+        "total_count": 185,
+        "versions": []
+      },
+      "TEMPLATE01": {
+        "count": 340,
+        "data": [],
+        "date_created": "s156",
+        "date_modified": "s157",
+        "deleted": true,
+        "description": "s159",
+        "engine": "s15a",
+        "html": "s15b",
+        "id": "TEMPLATE01",
+        "metadata": {},
+        "next_url": "s15e",
+        "object": "s15f",
+        "previous_url": "s160",
+        "published_version": "s161",
+        "required_vars": [],
+        "total_count": 355,
+        "versions": []
+      },
+      "TEMPLATE02": {
+        "count": 510,
+        "data": [],
+        "date_created": "s200",
+        "date_modified": "s201",
+        "deleted": true,
+        "description": "s203",
+        "engine": "s204",
+        "html": "s205",
+        "id": "TEMPLATE02",
+        "metadata": {},
+        "next_url": "s208",
+        "object": "s209",
+        "previous_url": "s20a",
+        "published_version": "s20b",
+        "required_vars": [],
+        "total_count": 525,
+        "versions": []
+      }
+    }
+  },
+  "new": {
+    "template": {
+      "template_ref01": {
+        "count": 680,
+        "data": [],
+        "date_created": "s2aa",
+        "date_modified": "s2ab",
+        "deleted": true,
+        "description": "s2ad",
+        "engine": "s2ae",
+        "html": "s2af",
+        "metadata": {},
+        "next_url": "s2b2",
+        "object": "s2b3",
+        "previous_url": "s2b4",
+        "published_version": "s2b5",
+        "required_vars": [],
+        "total_count": 695,
+        "versions": []
+      }
+    }
+  },
+  "requests": {
+    "POST /templates/{tmpl_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /templates": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /templates": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /templates/{tmpl_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /templates/{tmpl_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

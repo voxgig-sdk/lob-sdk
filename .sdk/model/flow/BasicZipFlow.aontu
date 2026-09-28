@@ -1,0 +1,18 @@
+# BasicZipFlow
+
+main: kit: flow: BasicZipFlow:
+{
+  entity: "zip",
+  kind: "basic",
+  name: "BasicZipFlow",
+  step: [
+    {
+      i: {
+        ref: "zip_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicZipFlow"
+}

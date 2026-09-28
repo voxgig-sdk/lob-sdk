@@ -1,0 +1,22 @@
+# BasicQrCodeFlow
+
+main: kit: flow: BasicQrCodeFlow:
+{
+  entity: "qr_code",
+  kind: "basic",
+  name: "BasicQrCodeFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "qr_code_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicQrCodeFlow"
+}

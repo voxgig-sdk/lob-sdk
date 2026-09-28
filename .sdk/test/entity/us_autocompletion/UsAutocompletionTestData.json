@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "us_autocompletion": {
+      "US_AUTOCOMPLETION00": {
+        "address_prefix": "s50",
+        "city": "s51",
+        "geo_ip_sort": true,
+        "id": "US_AUTOCOMPLETION00",
+        "object": "s54",
+        "state": "s55",
+        "suggestions": [],
+        "zip_code": "s57"
+      },
+      "US_AUTOCOMPLETION01": {
+        "address_prefix": "sa0",
+        "city": "sa1",
+        "geo_ip_sort": true,
+        "id": "US_AUTOCOMPLETION01",
+        "object": "sa4",
+        "state": "sa5",
+        "suggestions": [],
+        "zip_code": "sa7"
+      },
+      "US_AUTOCOMPLETION02": {
+        "address_prefix": "sf0",
+        "city": "sf1",
+        "geo_ip_sort": true,
+        "id": "US_AUTOCOMPLETION02",
+        "object": "sf4",
+        "state": "sf5",
+        "suggestions": [],
+        "zip_code": "sf7"
+      }
+    }
+  },
+  "new": {
+    "us_autocompletion": {
+      "us_autocompletion_ref01": {
+        "address_prefix": "s140",
+        "city": "s141",
+        "geo_ip_sort": true,
+        "object": "s144",
+        "state": "s145",
+        "suggestions": [],
+        "zip_code": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /us_autocompletions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

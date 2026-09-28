@@ -1,0 +1,100 @@
+# BasicUploadFlow
+
+main: kit: flow: BasicUploadFlow:
+{
+  entity: "upload",
+  kind: "basic",
+  name: "BasicUploadFlow",
+  step: [
+    {
+      i: {
+        ref: "upload_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "upload_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "upload_ref01",
+        srcdatavar: "upload_ref01_data",
+        suffix: "_up0",
+        textfield: "accountId"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-upload_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "upload_ref01",
+        srcdatavar: "upload_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "upload01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-upload_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "upload_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "upload01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "upload_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUploadFlow"
+}

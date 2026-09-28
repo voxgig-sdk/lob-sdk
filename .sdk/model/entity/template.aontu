@@ -1,0 +1,378 @@
+# Entity: template
+
+main: kit: entity: template: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of templates"
+      t: "`$ARRAY`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      r: false
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      r: false
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "An internal description that identifies this resource."
+      t: "`$STRING`"
+    }
+    engine: {
+      h: "Engine"
+      n: "engine"
+      r: false
+      sh: "The engine used to combine HTML template with merge variables."
+      t: "`$STRING`"
+    }
+    html: {
+      h: "Html"
+      n: "html"
+      r: true
+      sh: "An HTML string of less than 100,000 characters to be used as the `published_version` of this template."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier prefixed with `tmpl_`."
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Use metadata to store custom information for tagging and labeling back to your internal systems."
+      t: "`$OBJECT`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    published_version: {
+      h: "Published Version"
+      n: "published_version"
+      op: {
+        create: {
+          req: false
+          type: "`$ANY`"
+        }
+      }
+      r: true
+      t: "`$ANY`"
+    }
+    required_vars: {
+      h: "Required Vars"
+      n: "required_vars"
+      r: false
+      sh: "An array of required variables to be used in a template."
+      t: "`$ARRAY`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    versions: {
+      h: "Versions"
+      n: "versions"
+      r: true
+      sh: "An array of all non-deleted [version objects](#tag/Template-Versions) associated with the template."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "template"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /templates/{tmpl_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "tmpl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/templates/{tmpl_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              tmpl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "templates"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /templates"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/templates"
+          s: [
+            {
+              lit: "templates"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /templates"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "metadata"
+                or: "metadata"
+                r: false
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/templates"
+          q: {
+            exist: [
+              "before/after"
+              "date_created"
+              "include"
+              "limit"
+              "metadata"
+            ]
+          }
+          s: [
+            {
+              lit: "templates"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /templates/{tmpl_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "tmpl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/templates/{tmpl_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              tmpl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "templates"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /templates/{tmpl_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "tmpl_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/templates/{tmpl_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              tmpl_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "templates"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

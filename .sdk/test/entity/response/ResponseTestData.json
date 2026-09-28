@@ -1,0 +1,147 @@
+{
+  "existing": {
+    "response": {
+      "RESPONSE00": {
+        "account_id": "ACCOUNT01",
+        "brand_name": "s10f",
+        "campaign_code": "s110",
+        "count": 273,
+        "data": [],
+        "date_created": "s113",
+        "date_modified": "s114",
+        "deleted": false,
+        "end_date": "s116",
+        "end_serial": 279,
+        "id": "RESPONSE00",
+        "lob_campaign_id": "LOB_CAMPAIGN01",
+        "mode": "s11a",
+        "next_url": "s11b",
+        "object": "s11c",
+        "previous_url": "s11d",
+        "quantity": 286,
+        "representative_image_s3_link": "s11f",
+        "ride_along_image_s3_link": "s120",
+        "ride_along_url": "s121",
+        "service_request_number": "s122",
+        "start_date": "s123",
+        "start_serial": 292,
+        "status": "s125",
+        "total_count": 294,
+        "usps_campaign_id": "USPS_CAMPAIGN01",
+        "usps_title": "s128"
+      },
+      "RESPONSE01": {
+        "account_id": "ACCOUNT01",
+        "brand_name": "s21d",
+        "campaign_code": "s21e",
+        "count": 543,
+        "data": [],
+        "date_created": "s221",
+        "date_modified": "s222",
+        "deleted": false,
+        "end_date": "s224",
+        "end_serial": 549,
+        "id": "RESPONSE01",
+        "lob_campaign_id": "LOB_CAMPAIGN01",
+        "mode": "s228",
+        "next_url": "s229",
+        "object": "s22a",
+        "previous_url": "s22b",
+        "quantity": 556,
+        "representative_image_s3_link": "s22d",
+        "ride_along_image_s3_link": "s22e",
+        "ride_along_url": "s22f",
+        "service_request_number": "s230",
+        "start_date": "s231",
+        "start_serial": 562,
+        "status": "s233",
+        "total_count": 564,
+        "usps_campaign_id": "USPS_CAMPAIGN01",
+        "usps_title": "s236"
+      },
+      "RESPONSE02": {
+        "account_id": "ACCOUNT01",
+        "brand_name": "s32b",
+        "campaign_code": "s32c",
+        "count": 813,
+        "data": [],
+        "date_created": "s32f",
+        "date_modified": "s330",
+        "deleted": false,
+        "end_date": "s332",
+        "end_serial": 819,
+        "id": "RESPONSE02",
+        "lob_campaign_id": "LOB_CAMPAIGN01",
+        "mode": "s336",
+        "next_url": "s337",
+        "object": "s338",
+        "previous_url": "s339",
+        "quantity": 826,
+        "representative_image_s3_link": "s33b",
+        "ride_along_image_s3_link": "s33c",
+        "ride_along_url": "s33d",
+        "service_request_number": "s33e",
+        "start_date": "s33f",
+        "start_serial": 832,
+        "status": "s341",
+        "total_count": 834,
+        "usps_campaign_id": "USPS_CAMPAIGN01",
+        "usps_title": "s344"
+      }
+    }
+  },
+  "new": {
+    "response": {
+      "response_ref01": {
+        "account_id": "ACCOUNT01",
+        "brand_name": "s439",
+        "campaign_code": "s43a",
+        "count": 1083,
+        "data": [],
+        "date_created": "s43d",
+        "date_modified": "s43e",
+        "deleted": false,
+        "end_date": "s440",
+        "end_serial": 1089,
+        "lob_campaign_id": "LOB_CAMPAIGN01",
+        "mode": "s444",
+        "next_url": "s445",
+        "object": "s446",
+        "previous_url": "s447",
+        "quantity": 1096,
+        "representative_image_s3_link": "s449",
+        "ride_along_image_s3_link": "s44a",
+        "ride_along_url": "s44b",
+        "service_request_number": "s44c",
+        "start_date": "s44d",
+        "start_serial": 1102,
+        "status": "s44f",
+        "total_count": 1104,
+        "usps_campaign_id": "USPS_CAMPAIGN01",
+        "usps_title": "s452"
+      }
+    }
+  },
+  "requests": {
+    "POST /informed_delivery_campaigns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /informed_delivery_campaigns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /informed_delivery_campaigns/{usps_campaign_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /informed_delivery_campaigns/{usps_campaign_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

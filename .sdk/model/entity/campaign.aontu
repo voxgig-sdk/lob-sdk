@@ -1,0 +1,515 @@
+# Entity: campaign
+
+main: kit: entity: campaign: {
+
+  alias: field: {}
+
+  fields: {
+    auto_cancel_if_ncoa: {
+      h: "Auto Cancel If Ncoa"
+      n: "auto_cancel_if_ncoa"
+      r: false
+      sh: "Whether or not a mail piece should be automatically canceled and not sent if the address is updated via NCOA."
+      t: "`$BOOLEAN`"
+    }
+    billing_group_id: {
+      h: "Billing Group Id"
+      n: "billing_group_id"
+      r: false
+      sh: "Unique identifier prefixed with `bg_`."
+      t: "`$STRING`"
+    }
+    cancel_window_campaign_minutes: {
+      h: "Cancel Window Campaign Minutes"
+      n: "cancel_window_campaign_minutes"
+      r: false
+      sh: "A window, in minutes, within which the campaign can be canceled."
+      t: "`$INTEGER`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    creatives: {
+      h: "Creatives"
+      n: "creatives"
+      r: true
+      sh: "An array of creatives that have been associated with this campaign."
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 6
+        depth: 15
+      }
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of campaigns"
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 6
+        depth: 20
+      }
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "An internal description that identifies this resource."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier prefixed with `cmp_`."
+      t: "`$STRING`"
+    }
+    is_draft: {
+      h: "Is Draft"
+      n: "is_draft"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: true
+      sh: "Whether or not the campaign is still a draft."
+      t: "`$BOOLEAN`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Use metadata to store custom information for tagging and labeling back to your internal systems."
+      t: "`$OBJECT`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Name of the campaign."
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    print_speed: {
+      h: "Print Speed"
+      n: "print_speed"
+      r: false
+      sh: "A string designating the mail speed type: * `core` - 2 production business days"
+      t: "`$STRING`"
+    }
+    schedule_type: {
+      h: "Schedule Type"
+      n: "schedule_type"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "How the campaign should be scheduled."
+      t: "`$STRING`"
+    }
+    send_date: {
+      fo: "date-time"
+      h: "Send Date"
+      n: "send_date"
+      r: false
+      sh: "If `schedule_type` is `scheduled_send_date`, provide a date to send this campaign."
+      t: "`$STRING`"
+    }
+    target_delivery_date: {
+      fo: "date-time"
+      h: "Target Delivery Date"
+      n: "target_delivery_date"
+      r: false
+      sh: "If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign."
+      t: "`$STRING`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    uploads: {
+      h: "Uploads"
+      n: "uploads"
+      r: true
+      sh: "A single-element array containing the upload object that is assocated with this campaign."
+      t: "`$ARRAY`"
+    }
+    use_type: {
+      h: "Use Type"
+      n: "use_type"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The use type for each mailpiece."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "campaign"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /campaigns/{cmp_id}/send"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "cmp_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/campaigns/{cmp_id}/send"
+          q: {
+            "$action": "send"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              cmp_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "send"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "x_lang_output"
+                or: "x_lang_output"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/campaigns"
+          q: {
+            exist: [
+              "x_lang_output"
+            ]
+          }
+          s: [
+            {
+              lit: "campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/campaigns"
+          q: {
+            exist: [
+              "before/after"
+              "include"
+              "limit"
+            ]
+          }
+          s: [
+            {
+              lit: "campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /campaigns/{cmp_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "cmp_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/campaigns/{cmp_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              cmp_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /campaigns/{cmp_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "cmp_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/campaigns/{cmp_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              cmp_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /campaigns/{cmp_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "cmp_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/campaigns/{cmp_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              cmp_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

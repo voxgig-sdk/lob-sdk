@@ -1,0 +1,18 @@
+# BasicReverseGeocodeFlow
+
+main: kit: flow: BasicReverseGeocodeFlow:
+{
+  entity: "reverse_geocode",
+  kind: "basic",
+  name: "BasicReverseGeocodeFlow",
+  step: [
+    {
+      i: {
+        ref: "reverse_geocode_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicReverseGeocodeFlow"
+}

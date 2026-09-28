@@ -1,0 +1,38 @@
+# BasicCardOrderFlow
+
+main: kit: flow: BasicCardOrderFlow:
+{
+  entity: "card_order",
+  kind: "basic",
+  name: "BasicCardOrderFlow",
+  step: [
+    {
+      i: {
+        ref: "card_order_ref01"
+      }
+
+      m: {
+        card_id: "card01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        card_id: "card01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "card_order_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCardOrderFlow"
+}

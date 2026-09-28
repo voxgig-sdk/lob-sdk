@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "qr_code": {
+      "QR_CODE00": {
+        "count": 50,
+        "data": [],
+        "object": "s34",
+        "scanned_count": 53,
+        "total_count": 54
+      },
+      "QR_CODE01": {
+        "count": 100,
+        "data": [],
+        "object": "s66",
+        "scanned_count": 103,
+        "total_count": 104
+      },
+      "QR_CODE02": {
+        "count": 150,
+        "data": [],
+        "object": "s98",
+        "scanned_count": 153,
+        "total_count": 154
+      }
+    }
+  },
+  "new": {
+    "qr_code": {
+      "qr_code_ref01": {
+        "count": 200,
+        "data": [],
+        "object": "sca",
+        "scanned_count": 203,
+        "total_count": 204
+      }
+    }
+  },
+  "requests": {
+    "GET /qr_code_analytics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

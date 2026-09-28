@@ -1,0 +1,18 @@
+# BasicUsAutocompletionFlow
+
+main: kit: flow: BasicUsAutocompletionFlow:
+{
+  entity: "us_autocompletion",
+  kind: "basic",
+  name: "BasicUsAutocompletionFlow",
+  step: [
+    {
+      i: {
+        ref: "us_autocompletion_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicUsAutocompletionFlow"
+}

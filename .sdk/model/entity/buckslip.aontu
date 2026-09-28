@@ -1,0 +1,614 @@
+# Entity: buckslip
+
+main: kit: entity: buckslip: {
+
+  alias: field: {}
+
+  fields: {
+    account_id: {
+      h: "Account Id"
+      n: "account_id"
+      r: false
+      t: "`$STRING`"
+    }
+    allocated_quantity: {
+      h: "Allocated Quantity"
+      n: "allocated_quantity"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The allocated quantity of buckslips."
+      t: "`$NUMBER`"
+    }
+    auto_reorder: {
+      h: "Auto Reorder"
+      n: "auto_reorder"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: true
+      sh: "True if the buckslips should be auto-reordered."
+      t: "`$BOOLEAN`"
+    }
+    available_quantity: {
+      h: "Available Quantity"
+      n: "available_quantity"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The available quantity of buckslips."
+      t: "`$NUMBER`"
+    }
+    back_original_url: {
+      fo: "uri"
+      h: "Back Original Url"
+      n: "back_original_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The original URL of the back template."
+      t: "`$STRING`"
+    }
+    buckslip_orders: {
+      h: "Buckslip Orders"
+      n: "buckslip_orders"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "An array of buckslip orders that are associated with the buckslip."
+      t: "`$ARRAY`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of buckslips"
+      t: "`$ARRAY`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Description of the buckslip."
+      t: "`$STRING`"
+    }
+    finish: {
+      h: "Finish"
+      n: "finish"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    front_original_url: {
+      fo: "uri"
+      h: "Front Original Url"
+      n: "front_original_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The original URL of the front template."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Unique identifier prefixed with `bck_`."
+      t: "`$STRING`"
+    }
+    mode: {
+      h: "Mode"
+      n: "mode"
+      r: false
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    onhand_quantity: {
+      h: "Onhand Quantity"
+      n: "onhand_quantity"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The onhand quantity of buckslips."
+      t: "`$NUMBER`"
+    }
+    pending_quantity: {
+      h: "Pending Quantity"
+      n: "pending_quantity"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The pending quantity of buckslips."
+      t: "`$NUMBER`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    projected_quantity: {
+      h: "Projected Quantity"
+      n: "projected_quantity"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The sum of pending and onhand quantities of buckslips."
+      t: "`$NUMBER`"
+    }
+    raw_url: {
+      fo: "uri"
+      h: "Raw Url"
+      n: "raw_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The raw URL of the buckslip."
+      t: "`$STRING`"
+    }
+    reorder_quantity: {
+      h: "Reorder Quantity"
+      n: "reorder_quantity"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$NUMBER`"
+        }
+      }
+      r: true
+      sh: "The number of buckslips to be reordered."
+      t: "`$INTEGER`"
+    }
+    send_date: {
+      h: "Send Date"
+      n: "send_date"
+      r: false
+      t: "`$STRING`"
+    }
+    size: {
+      h: "Size"
+      n: "size"
+      r: false
+      sh: "The size of the buckslip"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    stock: {
+      h: "Stock"
+      n: "stock"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    threshold_amount: {
+      h: "Threshold Amount"
+      n: "threshold_amount"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The threshold amount of the buckslip"
+      t: "`$INTEGER`"
+    }
+    thumbnails: {
+      h: "Thumbnails"
+      n: "thumbnails"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      t: "`$ARRAY`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The signed link for the buckslip."
+      t: "`$STRING`"
+    }
+    weight: {
+      h: "Weight"
+      n: "weight"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "buckslip"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /buckslips"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/buckslips"
+          s: [
+            {
+              lit: "buckslips"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /buckslips"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/buckslips"
+          q: {
+            exist: [
+              "before/after"
+              "include"
+              "limit"
+            ]
+          }
+          s: [
+            {
+              lit: "buckslips"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /buckslips/{buckslip_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "buckslip_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/buckslips/{buckslip_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              buckslip_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "buckslips"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /buckslips/{buckslip_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "buckslip_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/buckslips/{buckslip_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              buckslip_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "buckslips"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /buckslips/{buckslip_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "buckslip_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/buckslips/{buckslip_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              buckslip_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "buckslips"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

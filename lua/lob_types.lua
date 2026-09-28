@@ -1,0 +1,1672 @@
+-- Typed models for the Lob SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class Address
+---@field address_city? string
+---@field address_country? string
+---@field address_line1? string
+---@field address_state? string
+---@field address_zip? string
+---@field company? string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field email? string
+---@field id? string
+---@field metadata? table
+---@field name? string
+---@field next_url? string
+---@field object? string
+---@field phone? string
+---@field previous_url? string
+---@field total_count? number
+
+---@class AddressLoadMatch
+---@field id string
+
+---@class AddressListMatch
+---@field ["before/after"]? any
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field metadata? table
+
+---@class AddressCreateData
+---@field address_city? string
+---@field address_country? string
+---@field address_line1? string
+---@field address_state? string
+---@field address_zip? string
+---@field company? string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field email? string
+---@field id? string
+---@field metadata? table
+---@field name? string
+---@field next_url? string
+---@field object? string
+---@field phone? string
+---@field previous_url? string
+---@field total_count? number
+
+---@class AddressRemoveMatch
+---@field id string
+
+---@class BankAccount
+---@field account_number string
+---@field account_type string
+---@field bank_name? string
+---@field check_template? string
+---@field city? string
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field fractional_routing_number? string
+---@field id string
+---@field metadata? table
+---@field microdeposit_type? string
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field routing_number string
+---@field signatory string
+---@field signature_url? any
+---@field state? string
+---@field total_count? number
+---@field verified? boolean
+---@field zipcode? string
+
+---@class BankAccountLoadMatch
+---@field id string
+
+---@class BankAccountListMatch
+---@field ["before/after"]? any
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field metadata? table
+
+---@class BankAccountCreateData
+---@field account_number string
+---@field account_type string
+---@field bank_name? string
+---@field check_template? string
+---@field city? string
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field fractional_routing_number? string
+---@field id string
+---@field metadata? table
+---@field microdeposit_type? string
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field routing_number string
+---@field signatory string
+---@field signature_url? any
+---@field state? string
+---@field total_count? number
+---@field verified? boolean
+---@field zipcode? string
+
+---@class BankDeletion
+
+---@class BankDeletionRemoveMatch
+---@field bank_id string
+
+---@class BillingGroup
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field id? string
+---@field name? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field total_count? number
+
+---@class BillingGroupLoadMatch
+---@field id string
+
+---@class BillingGroupListMatch
+---@field date_created? table
+---@field date_modified? table
+---@field include? table
+---@field limit? number
+---@field offset? number
+---@field sort_by? any
+
+---@class BillingGroupCreateData
+---@field id string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field name? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field total_count? number
+
+---@class Booklet
+---@field carrier? string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field expected_delivery_date? string
+---@field from? table
+---@field fsc? boolean
+---@field id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field pages? number
+---@field previous_url? string
+---@field send_date? string
+---@field size? string
+---@field sla? string
+---@field source_material? string
+---@field thumbnails? table
+---@field to? table
+---@field total_count? number
+---@field tracking_events? table
+---@field tracking_number? string
+---@field url? string
+---@field use_type? string
+
+---@class BookletLoadMatch
+---@field id string
+
+---@class BookletListMatch
+---@field ["before/after"]? any
+---@field campaign_id? string
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field mail_type? string
+---@field metadata? table
+---@field send_date? string
+---@field sort_by? any
+---@field status? string
+
+---@class BookletCreateData
+---@field idempotency_key? string
+---@field carrier? string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field expected_delivery_date? string
+---@field from? table
+---@field fsc? boolean
+---@field id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field pages? number
+---@field previous_url? string
+---@field send_date? string
+---@field size? string
+---@field sla? string
+---@field source_material? string
+---@field thumbnails? table
+---@field to? table
+---@field total_count? number
+---@field tracking_events? table
+---@field tracking_number? string
+---@field url? string
+---@field use_type? string
+
+---@class BookletRemoveMatch
+---@field id string
+
+---@class Buckslip
+---@field account_id? string
+---@field allocated_quantity number
+---@field auto_reorder boolean
+---@field available_quantity number
+---@field back_original_url string
+---@field buckslip_orders table
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field finish string
+---@field front_original_url string
+---@field id string
+---@field mode? string
+---@field next_url? string
+---@field object string
+---@field onhand_quantity number
+---@field pending_quantity number
+---@field previous_url? string
+---@field projected_quantity number
+---@field raw_url string
+---@field reorder_quantity number
+---@field send_date? string
+---@field size? string
+---@field status string
+---@field stock string
+---@field threshold_amount number
+---@field thumbnails table
+---@field total_count? number
+---@field url string
+---@field weight string
+
+---@class BuckslipLoadMatch
+---@field id string
+
+---@class BuckslipListMatch
+---@field ["before/after"]? any
+---@field include? table
+---@field limit? number
+
+---@class BuckslipCreateData
+---@field account_id? string
+---@field allocated_quantity number
+---@field auto_reorder boolean
+---@field available_quantity number
+---@field back_original_url string
+---@field buckslip_orders table
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field finish string
+---@field front_original_url string
+---@field id string
+---@field mode? string
+---@field next_url? string
+---@field object string
+---@field onhand_quantity number
+---@field pending_quantity number
+---@field previous_url? string
+---@field projected_quantity number
+---@field raw_url string
+---@field reorder_quantity number
+---@field send_date? string
+---@field size? string
+---@field status string
+---@field stock string
+---@field threshold_amount number
+---@field thumbnails table
+---@field total_count? number
+---@field url string
+---@field weight string
+
+---@class BuckslipUpdateData
+---@field id string
+---@field account_id? string
+---@field allocated_quantity? number
+---@field auto_reorder? boolean
+---@field available_quantity? number
+---@field back_original_url? string
+---@field buckslip_orders? table
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field finish? string
+---@field front_original_url? string
+---@field mode? string
+---@field next_url? string
+---@field object? string
+---@field onhand_quantity? number
+---@field pending_quantity? number
+---@field previous_url? string
+---@field projected_quantity? number
+---@field raw_url? string
+---@field reorder_quantity? number
+---@field send_date? string
+---@field size? string
+---@field status? string
+---@field stock? string
+---@field threshold_amount? number
+---@field thumbnails? table
+---@field total_count? number
+---@field url? string
+---@field weight? string
+
+---@class BuckslipRemoveMatch
+---@field id string
+
+---@class BuckslipOrder
+---@field count? number
+---@field data? table
+---@field id? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field quantity number
+---@field total_count? number
+
+---@class BuckslipOrderListMatch
+---@field id string
+---@field limit? number
+---@field offset? number
+
+---@class BuckslipOrderCreateData
+---@field id string
+---@field count? number
+---@field data? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field quantity number
+---@field total_count? number
+
+---@class Campaign
+---@field auto_cancel_if_ncoa? boolean
+---@field billing_group_id? string
+---@field cancel_window_campaign_minutes? number
+---@field count? number
+---@field creatives table
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field id string
+---@field is_draft boolean
+---@field metadata? table
+---@field name string
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field print_speed? string
+---@field schedule_type string
+---@field send_date? string
+---@field target_delivery_date? string
+---@field total_count? number
+---@field uploads table
+---@field use_type string
+
+---@class CampaignLoadMatch
+---@field id string
+
+---@class CampaignListMatch
+---@field ["before/after"]? any
+---@field include? table
+---@field limit? number
+
+---@class CampaignCreateData
+---@field auto_cancel_if_ncoa? boolean
+---@field billing_group_id? string
+---@field cancel_window_campaign_minutes? number
+---@field count? number
+---@field creatives table
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field id string
+---@field is_draft boolean
+---@field metadata? table
+---@field name string
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field print_speed? string
+---@field schedule_type string
+---@field send_date? string
+---@field target_delivery_date? string
+---@field total_count? number
+---@field uploads table
+---@field use_type string
+
+---@class CampaignUpdateData
+---@field id string
+---@field auto_cancel_if_ncoa? boolean
+---@field billing_group_id? string
+---@field cancel_window_campaign_minutes? number
+---@field count? number
+---@field creatives? table
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field is_draft? boolean
+---@field metadata? table
+---@field name? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field print_speed? string
+---@field schedule_type? string
+---@field send_date? string
+---@field target_delivery_date? string
+---@field total_count? number
+---@field uploads? table
+---@field use_type? string
+
+---@class CampaignRemoveMatch
+---@field id string
+
+---@class Card
+---@field account_id? string
+---@field auto_reorder boolean
+---@field available_quantity number
+---@field back_original_url string
+---@field count? number
+---@field countries? string
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field front_original_url string
+---@field id string
+---@field mode? string
+---@field next_url? string
+---@field object string
+---@field orientation string
+---@field pending_quantity number
+---@field previous_url? string
+---@field raw_url string
+---@field reorder_quantity number
+---@field send_date? string
+---@field size? string
+---@field status string
+---@field threshold_amount number
+---@field thumbnails table
+---@field total_count? number
+---@field url string
+
+---@class CardLoadMatch
+---@field id string
+
+---@class CardListMatch
+---@field ["before/after"]? any
+---@field include? table
+---@field limit? number
+
+---@class CardCreateData
+---@field id string
+---@field account_id? string
+---@field auto_reorder boolean
+---@field available_quantity number
+---@field back_original_url string
+---@field count? number
+---@field countries? string
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field front_original_url string
+---@field mode? string
+---@field next_url? string
+---@field object string
+---@field orientation string
+---@field pending_quantity number
+---@field previous_url? string
+---@field raw_url string
+---@field reorder_quantity number
+---@field send_date? string
+---@field size? string
+---@field status string
+---@field threshold_amount number
+---@field thumbnails table
+---@field total_count? number
+---@field url string
+
+---@class CardRemoveMatch
+---@field id string
+
+---@class CardOrder
+---@field count? number
+---@field data? table
+---@field id? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field quantity number
+---@field total_count? number
+
+---@class CardOrderListMatch
+---@field id string
+---@field limit? number
+---@field offset? number
+
+---@class CardOrderCreateData
+---@field id string
+---@field count? number
+---@field data? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field quantity number
+---@field total_count? number
+
+---@class Check
+---@field amount number
+---@field attachment_template_id? string
+---@field attachment_template_version_id? string
+---@field bank_account any
+---@field carrier string
+---@field check_bottom_template_id? string
+---@field check_bottom_template_version_id? string
+---@field check_number? number
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field id string
+---@field mail_type? string
+---@field memo? string
+---@field merge_variables? table
+---@field message? string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field send_date? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type string
+
+---@class CheckLoadMatch
+---@field id string
+
+---@class CheckListMatch
+---@field ["before/after"]? any
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field mail_type? string
+---@field metadata? table
+---@field scheduled? boolean
+---@field send_date? string
+---@field sort_by? any
+---@field status? string
+
+---@class CheckCreateData
+---@field idempotency_key? string
+---@field amount number
+---@field attachment_template_id? string
+---@field attachment_template_version_id? string
+---@field bank_account any
+---@field carrier string
+---@field check_bottom_template_id? string
+---@field check_bottom_template_version_id? string
+---@field check_number? number
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field id string
+---@field mail_type? string
+---@field memo? string
+---@field merge_variables? table
+---@field message? string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field send_date? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type string
+
+---@class CheckRemoveMatch
+---@field id string
+
+---@class Creative
+---@field campaigns table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field details? table
+---@field from? string
+---@field id string
+---@field metadata? table
+---@field object string
+---@field resource_type? string
+---@field template_preview_urls table
+---@field template_previews table
+
+---@class CreativeLoadMatch
+---@field id string
+
+---@class CreativeCreateData
+---@field campaigns table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field details? table
+---@field from? string
+---@field id string
+---@field metadata? table
+---@field object string
+---@field resource_type? string
+---@field template_preview_urls table
+---@field template_previews table
+
+---@class CreativeUpdateData
+---@field id string
+---@field campaigns? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field details? table
+---@field from? string
+---@field metadata? table
+---@field object? string
+---@field resource_type? string
+---@field template_preview_urls? table
+---@field template_previews? table
+
+---@class Domain
+---@field count? number
+---@field created_at? string
+---@field data? table
+---@field domain? string
+---@field error_redirect_link? string
+---@field id? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field status? string
+---@field total_count? number
+---@field updated_at? string
+
+---@class DomainLoadMatch
+---@field id string
+
+---@class DomainListMatch
+---@field ["before/after"]? any
+---@field limit? number
+---@field status? string
+
+---@class DomainCreateData
+---@field count? number
+---@field created_at? string
+---@field data? table
+---@field domain? string
+---@field error_redirect_link? string
+---@field id? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field status? string
+---@field total_count? number
+---@field updated_at? string
+
+---@class DomainRemoveMatch
+---@field id string
+
+---@class IdentityValidation
+---@field confidence? string
+---@field id? string
+---@field last_line? string
+---@field object? string
+---@field primary_line? string
+---@field recipient? string
+---@field score? number
+---@field secondary_line? string
+---@field urbanization? string
+
+---@class IdentityValidationCreateData
+---@field confidence? string
+---@field id? string
+---@field last_line? string
+---@field object? string
+---@field primary_line? string
+---@field recipient? string
+---@field score? number
+---@field secondary_line? string
+---@field urbanization? string
+
+---@class IntlVerification
+---@field addresses table
+---@field components? table
+---@field country? string
+---@field coverage? string
+---@field deliverability? string
+---@field errors boolean
+---@field id? string
+---@field last_line? string
+---@field object? string
+---@field primary_line? string
+---@field recipient? string
+---@field secondary_line? string
+---@field status? string
+
+---@class IntlVerificationCreateData
+---@field addresses table
+---@field components? table
+---@field country? string
+---@field coverage? string
+---@field deliverability? string
+---@field errors boolean
+---@field id? string
+---@field last_line? string
+---@field object? string
+---@field primary_line? string
+---@field recipient? string
+---@field secondary_line? string
+---@field status? string
+
+---@class Letter
+---@field address_placement? string
+---@field cards? table
+---@field carrier? string
+---@field color? boolean
+---@field count? number
+---@field custom_envelope? string
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field double_sided? boolean
+---@field expected_delivery_date? string
+---@field extra_service? string
+---@field from? table
+---@field fsc? boolean
+---@field id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field perforated_page? string
+---@field previous_url? string
+---@field return_envelope? boolean
+---@field send_date? string
+---@field sla? string
+---@field thumbnails? table
+---@field to? table
+---@field total_count? number
+---@field tracking_events? table
+---@field tracking_number? string
+---@field url? string
+---@field use_type? string
+
+---@class LetterLoadMatch
+---@field id string
+
+---@class LetterListMatch
+---@field ["before/after"]? any
+---@field campaign_id? string
+---@field color? boolean
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field mail_type? string
+---@field metadata? table
+---@field scheduled? boolean
+---@field send_date? string
+---@field sort_by? any
+---@field status? string
+
+---@class LetterCreateData
+---@field idempotency_key? string
+---@field address_placement? string
+---@field cards? table
+---@field carrier? string
+---@field color? boolean
+---@field count? number
+---@field custom_envelope? string
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field description? string
+---@field double_sided? boolean
+---@field expected_delivery_date? string
+---@field extra_service? string
+---@field from? table
+---@field fsc? boolean
+---@field id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field perforated_page? string
+---@field previous_url? string
+---@field return_envelope? boolean
+---@field send_date? string
+---@field sla? string
+---@field thumbnails? table
+---@field to? table
+---@field total_count? number
+---@field tracking_events? table
+---@field tracking_number? string
+---@field url? string
+---@field use_type? string
+
+---@class LetterRemoveMatch
+---@field id string
+
+---@class Link
+---@field count? number
+---@field data? table
+---@field domain? string
+---@field id? string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field redirect_link string
+---@field slug? string
+---@field title? string
+---@field total_count? number
+
+---@class LinkLoadMatch
+---@field id string
+
+---@class LinkListMatch
+---@field ["before/after"]? any
+---@field campaign_id? string
+---@field domain_id? string
+---@field limit? number
+
+---@class LinkCreateData
+---@field count? number
+---@field data? table
+---@field domain? string
+---@field id? string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field redirect_link string
+---@field slug? string
+---@field title? string
+---@field total_count? number
+
+---@class LinkUpdateData
+---@field id string
+---@field count? number
+---@field data? table
+---@field domain? string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field redirect_link? string
+---@field slug? string
+---@field title? string
+---@field total_count? number
+
+---@class LinkRemoveMatch
+---@field id string
+
+---@class LobCreditsBalance
+---@field balance number
+
+---@class LobCreditsBalanceLoadMatch
+---@field balance? number
+
+---@class Postcard
+---@field back_template_id string
+---@field back_template_version_id? string
+---@field campaign_id? string
+---@field carrier string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field front_template_id string
+---@field front_template_version_id? string
+---@field fsc? boolean
+---@field id string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field send_date? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type? string
+
+---@class PostcardLoadMatch
+---@field id string
+
+---@class PostcardListMatch
+---@field ["before/after"]? any
+---@field campaign_id? string
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field mail_type? string
+---@field metadata? table
+---@field scheduled? boolean
+---@field send_date? string
+---@field size? table
+---@field sort_by? any
+---@field status? string
+
+---@class PostcardCreateData
+---@field idempotency_key? string
+---@field back_template_id string
+---@field back_template_version_id? string
+---@field campaign_id? string
+---@field carrier string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field front_template_id string
+---@field front_template_version_id? string
+---@field fsc? boolean
+---@field id string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field send_date? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type? string
+
+---@class PostcardRemoveMatch
+---@field id string
+
+---@class QrCode
+---@field count? number
+---@field data? table
+---@field object? string
+---@field scanned_count? number
+---@field total_count? number
+
+---@class QrCodeListMatch
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field offset? number
+---@field resource_id? table
+---@field scanned? boolean
+
+---@class ResourceProof
+---@field date_created string
+---@field date_modified string
+---@field errors? table
+---@field id string
+---@field object string
+---@field resource_type? string
+---@field status? string
+---@field template_id? string
+---@field thumbnails? table
+---@field url? string
+
+---@class ResourceProofLoadMatch
+---@field id string
+
+---@class ResourceProofCreateData
+---@field date_created string
+---@field date_modified string
+---@field errors? table
+---@field id string
+---@field object string
+---@field resource_type? string
+---@field status? string
+---@field template_id? string
+---@field thumbnails? table
+---@field url? string
+
+---@class ResourceProofUpdateData
+---@field id string
+---@field date_created? string
+---@field date_modified? string
+---@field errors? table
+---@field object? string
+---@field resource_type? string
+---@field status? string
+---@field template_id? string
+---@field thumbnails? table
+---@field url? string
+
+---@class Response
+---@field account_id string
+---@field brand_name? string
+---@field campaign_code string
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted boolean
+---@field end_date string
+---@field end_serial number
+---@field id string
+---@field lob_campaign_id? string
+---@field mode string
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field quantity? number
+---@field representative_image_s3_link string
+---@field ride_along_image_s3_link string
+---@field ride_along_url? string
+---@field service_request_number string
+---@field start_date? string
+---@field start_serial number
+---@field status? string
+---@field total_count? number
+---@field usps_campaign_id string
+---@field usps_title? string
+
+---@class ResponseLoadMatch
+---@field usps_campaign_id string
+
+---@class ResponseListMatch
+---@field account_id? string
+---@field brand_name? string
+---@field campaign_code? string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field end_date? string
+---@field end_serial? number
+---@field id? string
+---@field lob_campaign_id? string
+---@field mode? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field quantity? number
+---@field representative_image_s3_link? string
+---@field ride_along_image_s3_link? string
+---@field ride_along_url? string
+---@field service_request_number? string
+---@field start_date? string
+---@field start_serial? number
+---@field status? string
+---@field total_count? number
+---@field usps_campaign_id? string
+---@field usps_title? string
+
+---@class ResponseCreateData
+---@field account_id string
+---@field brand_name? string
+---@field campaign_code string
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted boolean
+---@field end_date string
+---@field end_serial number
+---@field id string
+---@field lob_campaign_id? string
+---@field mode string
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field quantity? number
+---@field representative_image_s3_link string
+---@field ride_along_image_s3_link string
+---@field ride_along_url? string
+---@field service_request_number string
+---@field start_date? string
+---@field start_serial number
+---@field status? string
+---@field total_count? number
+---@field usps_campaign_id string
+---@field usps_title? string
+
+---@class ResponseUpdateData
+---@field usps_campaign_id string
+---@field account_id? string
+---@field brand_name? string
+---@field campaign_code? string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field end_date? string
+---@field end_serial? number
+---@field id? string
+---@field lob_campaign_id? string
+---@field mode? string
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field quantity? number
+---@field representative_image_s3_link? string
+---@field ride_along_image_s3_link? string
+---@field ride_along_url? string
+---@field service_request_number? string
+---@field start_date? string
+---@field start_serial? number
+---@field status? string
+---@field total_count? number
+---@field usps_title? string
+
+---@class ReverseGeocode
+---@field addresses? table
+---@field id? string
+---@field latitude number
+---@field longitude number
+---@field object? string
+
+---@class ReverseGeocodeCreateData
+---@field size? number
+---@field addresses? table
+---@field id? string
+---@field latitude number
+---@field longitude number
+---@field object? string
+
+---@class SelfMailer
+---@field campaign_id? string
+---@field carrier string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field fsc? boolean
+---@field id string
+---@field inside_template_id? string
+---@field inside_template_version_id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field outside_template_id? string
+---@field outside_template_version_id? string
+---@field previous_url? string
+---@field send_date? string
+---@field size? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type string
+
+---@class SelfMailerLoadMatch
+---@field id string
+
+---@class SelfMailerListMatch
+---@field ["before/after"]? any
+---@field campaign_id? string
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field mail_type? string
+---@field metadata? table
+---@field scheduled? boolean
+---@field send_date? string
+---@field size? table
+---@field sort_by? any
+---@field status? string
+
+---@class SelfMailerCreateData
+---@field idempotency_key? string
+---@field campaign_id? string
+---@field carrier string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field fsc? boolean
+---@field id string
+---@field inside_template_id? string
+---@field inside_template_version_id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field outside_template_id? string
+---@field outside_template_version_id? string
+---@field previous_url? string
+---@field send_date? string
+---@field size? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type string
+
+---@class SelfMailerRemoveMatch
+---@field id string
+
+---@class SnapPack
+---@field campaign_id? string
+---@field carrier string
+---@field color? boolean
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field fsc? boolean
+---@field id string
+---@field inside_template_id? string
+---@field inside_template_version_id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field next_url? string
+---@field object? string
+---@field outside_template_id? string
+---@field outside_template_version_id? string
+---@field previous_url? string
+---@field send_date? string
+---@field size? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type string
+
+---@class SnapPackLoadMatch
+---@field id string
+
+---@class SnapPackListMatch
+---@field ["before/after"]? any
+---@field campaign_id? string
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field mail_type? string
+---@field metadata? table
+---@field send_date? string
+---@field sort_by? any
+---@field status? string
+
+---@class SnapPackCreateData
+---@field idempotency_key? string
+---@field campaign_id? string
+---@field carrier string
+---@field color? boolean
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field expected_delivery_date? string
+---@field failure_reason? table
+---@field from? any
+---@field fsc? boolean
+---@field id string
+---@field inside_template_id? string
+---@field inside_template_version_id? string
+---@field mail_type? string
+---@field merge_variables? table
+---@field next_url? string
+---@field object? string
+---@field outside_template_id? string
+---@field outside_template_version_id? string
+---@field previous_url? string
+---@field send_date? string
+---@field size? string
+---@field sla? string
+---@field status? string
+---@field thumbnails? table
+---@field to any
+---@field total_count? number
+---@field tracking_events? table
+---@field url string
+---@field use_type string
+
+---@class SnapPackRemoveMatch
+---@field id string
+
+---@class Template
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field engine? string
+---@field html string
+---@field id string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field published_version any
+---@field required_vars? table
+---@field total_count? number
+---@field versions table
+
+---@class TemplateLoadMatch
+---@field id string
+
+---@class TemplateListMatch
+---@field ["before/after"]? any
+---@field date_created? table
+---@field include? table
+---@field limit? number
+---@field metadata? table
+
+---@class TemplateCreateData
+---@field id string
+---@field count? number
+---@field data? table
+---@field date_created? string
+---@field date_modified? string
+---@field deleted? boolean
+---@field description? string
+---@field engine? string
+---@field html string
+---@field metadata? table
+---@field next_url? string
+---@field object? string
+---@field previous_url? string
+---@field published_version any
+---@field required_vars? table
+---@field total_count? number
+---@field versions table
+
+---@class TemplateRemoveMatch
+---@field id string
+
+---@class TemplateVersion
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field engine? string
+---@field html string
+---@field id string
+---@field merge_variables? table
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field required_vars? table
+---@field suggest_json_editor? boolean
+---@field total_count? number
+
+---@class TemplateVersionLoadMatch
+---@field id string
+---@field template_id string
+
+---@class TemplateVersionListMatch
+---@field id string
+---@field ["before/after"]? any
+---@field date_created? table
+---@field include? table
+---@field limit? number
+
+---@class TemplateVersionCreateData
+---@field id string
+---@field template_id? string
+---@field count? number
+---@field data? table
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field description? string
+---@field engine? string
+---@field html string
+---@field merge_variables? table
+---@field next_url? string
+---@field object string
+---@field previous_url? string
+---@field required_vars? table
+---@field suggest_json_editor? boolean
+---@field total_count? number
+
+---@class TemplateVersionDeletion
+
+---@class TemplateVersionDeletionRemoveMatch
+---@field template_id string
+---@field vrsn_id string
+
+---@class Upload
+---@field accountId string
+---@field bytesProcessed number
+---@field campaignId any
+---@field dateCreated string
+---@field dateModified string
+---@field deleted boolean
+---@field failedMailpieces number
+---@field failuresUrl? string
+---@field id string
+---@field mergeVariableColumnMapping? table
+---@field metadata table
+---@field mode string
+---@field optionalAddressColumnMapping table
+---@field originalFilename? string
+---@field requiredAddressColumnMapping table
+---@field s3Url string
+---@field state string
+---@field totalMailpieces number
+---@field type string
+---@field uploadId string
+---@field validatedMailpieces number
+
+---@class UploadLoadMatch
+---@field ex_id? string
+---@field id string
+
+---@class UploadListMatch
+---@field campaign_id? string
+
+---@class UploadCreateData
+---@field accountId string
+---@field bytesProcessed number
+---@field campaignId any
+---@field dateCreated string
+---@field dateModified string
+---@field deleted boolean
+---@field failedMailpieces number
+---@field failuresUrl? string
+---@field id string
+---@field mergeVariableColumnMapping? table
+---@field metadata table
+---@field mode string
+---@field optionalAddressColumnMapping table
+---@field originalFilename? string
+---@field requiredAddressColumnMapping table
+---@field s3Url string
+---@field state string
+---@field totalMailpieces number
+---@field type string
+---@field uploadId string
+---@field validatedMailpieces number
+
+---@class UploadUpdateData
+---@field id string
+---@field accountId? string
+---@field bytesProcessed? number
+---@field campaignId? any
+---@field dateCreated? string
+---@field dateModified? string
+---@field deleted? boolean
+---@field failedMailpieces? number
+---@field failuresUrl? string
+---@field mergeVariableColumnMapping? table
+---@field metadata? table
+---@field mode? string
+---@field optionalAddressColumnMapping? table
+---@field originalFilename? string
+---@field requiredAddressColumnMapping? table
+---@field s3Url? string
+---@field state? string
+---@field totalMailpieces? number
+---@field type? string
+---@field uploadId? string
+---@field validatedMailpieces? number
+
+---@class UploadRemoveMatch
+---@field id string
+
+---@class UploadCreateExport
+---@field exportId string
+---@field id? string
+---@field message string
+---@field type? string
+
+---@class UploadCreateExportCreateData
+---@field id string
+---@field exportId string
+---@field message string
+---@field type? string
+
+---@class UsAutocompletion
+---@field address_prefix string
+---@field city? string
+---@field geo_ip_sort? boolean
+---@field id? string
+---@field object? string
+---@field state? string
+---@field suggestions? table
+---@field zip_code? string
+
+---@class UsAutocompletionCreateData
+---@field case? string
+---@field valid_address? boolean
+---@field address_prefix string
+---@field city? string
+---@field geo_ip_sort? boolean
+---@field id? string
+---@field object? string
+---@field state? string
+---@field suggestions? table
+---@field zip_code? string
+
+---@class UsVerification
+---@field addresses table
+---@field components table
+---@field deliverability? string
+---@field deliverability_analysis table
+---@field errors boolean
+---@field id? string
+---@field last_line? string
+---@field lob_confidence_score table
+---@field object? string
+---@field primary_line? string
+---@field recipient? string
+---@field secondary_line? string
+---@field urbanization? string
+---@field valid_address? boolean
+
+---@class UsVerificationCreateData
+---@field case? string
+---@field addresses table
+---@field components table
+---@field deliverability? string
+---@field deliverability_analysis table
+---@field errors boolean
+---@field id? string
+---@field last_line? string
+---@field lob_confidence_score table
+---@field object? string
+---@field primary_line? string
+---@field recipient? string
+---@field secondary_line? string
+---@field urbanization? string
+---@field valid_address? boolean
+
+---@class Zip
+---@field zip_code string
+
+---@class ZipCreateData
+---@field zip_code string
+
+local M = {}
+
+return M

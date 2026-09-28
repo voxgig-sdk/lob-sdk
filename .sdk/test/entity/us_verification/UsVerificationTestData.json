@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "us_verification": {
+      "US_VERIFICATION00": {
+        "addresses": [],
+        "components": {},
+        "deliverability": "s8e",
+        "deliverability_analysis": {},
+        "errors": true,
+        "id": "US_VERIFICATION00",
+        "last_line": "s92",
+        "lob_confidence_score": {},
+        "object": "s94",
+        "primary_line": "s95",
+        "recipient": "s96",
+        "secondary_line": "s97",
+        "urbanization": "s98",
+        "valid_address": false
+      },
+      "US_VERIFICATION01": {
+        "addresses": [],
+        "components": {},
+        "deliverability": "s11a",
+        "deliverability_analysis": {},
+        "errors": true,
+        "id": "US_VERIFICATION01",
+        "last_line": "s11e",
+        "lob_confidence_score": {},
+        "object": "s120",
+        "primary_line": "s121",
+        "recipient": "s122",
+        "secondary_line": "s123",
+        "urbanization": "s124",
+        "valid_address": false
+      },
+      "US_VERIFICATION02": {
+        "addresses": [],
+        "components": {},
+        "deliverability": "s1a6",
+        "deliverability_analysis": {},
+        "errors": true,
+        "id": "US_VERIFICATION02",
+        "last_line": "s1aa",
+        "lob_confidence_score": {},
+        "object": "s1ac",
+        "primary_line": "s1ad",
+        "recipient": "s1ae",
+        "secondary_line": "s1af",
+        "urbanization": "s1b0",
+        "valid_address": false
+      }
+    }
+  },
+  "new": {
+    "us_verification": {
+      "us_verification_ref01": {
+        "addresses": [],
+        "components": {},
+        "deliverability": "s232",
+        "deliverability_analysis": {},
+        "errors": true,
+        "last_line": "s236",
+        "lob_confidence_score": {},
+        "object": "s238",
+        "primary_line": "s239",
+        "recipient": "s23a",
+        "secondary_line": "s23b",
+        "urbanization": "s23c",
+        "valid_address": false
+      }
+    }
+  },
+  "requests": {
+    "POST /bulk/us_verifications": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /us_verifications": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

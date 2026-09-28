@@ -1,0 +1,52 @@
+# BasicBillingGroupFlow
+
+main: kit: flow: BasicBillingGroupFlow:
+{
+  entity: "billing_group",
+  kind: "basic",
+  name: "BasicBillingGroupFlow",
+  step: [
+    {
+      i: {
+        ref: "billing_group_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "billing_group_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "billing_group_ref01",
+        srcdatavar: "billing_group_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "billing_group01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-billing_group_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillingGroupFlow"
+}

@@ -1,0 +1,98 @@
+# Entity: identity_validation
+
+main: kit: entity: identity_validation: {
+
+  alias: field: {}
+
+  fields: {
+    confidence: {
+      h: "Confidence"
+      n: "confidence"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    last_line: {
+      h: "Last Line"
+      n: "last_line"
+      r: false
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      t: "`$STRING`"
+    }
+    primary_line: {
+      h: "Primary Line"
+      n: "primary_line"
+      r: false
+      t: "`$STRING`"
+    }
+    recipient: {
+      h: "Recipient"
+      n: "recipient"
+      r: false
+      t: "`$STRING`"
+    }
+    score: {
+      h: "Score"
+      n: "score"
+      r: false
+      t: "`$INTEGER`"
+    }
+    secondary_line: {
+      h: "Secondary Line"
+      n: "secondary_line"
+      r: false
+      t: "`$STRING`"
+    }
+    urbanization: {
+      h: "Urbanization"
+      n: "urbanization"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "identity_validation"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /identity_validation"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/identity_validation"
+          s: [
+            {
+              lit: "identity_validation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "card_order": {
+      "CARD_ORDER00": {
+        "count": 80,
+        "data": [],
+        "id": "CARD_ORDER00",
+        "next_url": "s53",
+        "object": "s54",
+        "previous_url": "s55",
+        "quantity": 86,
+        "total_count": 87
+      },
+      "CARD_ORDER01": {
+        "count": 160,
+        "data": [],
+        "id": "CARD_ORDER01",
+        "next_url": "sa3",
+        "object": "sa4",
+        "previous_url": "sa5",
+        "quantity": 166,
+        "total_count": 167
+      },
+      "CARD_ORDER02": {
+        "count": 240,
+        "data": [],
+        "id": "CARD_ORDER02",
+        "next_url": "sf3",
+        "object": "sf4",
+        "previous_url": "sf5",
+        "quantity": 246,
+        "total_count": 247
+      }
+    }
+  },
+  "new": {
+    "card_order": {
+      "card_order_ref01": {
+        "count": 320,
+        "data": [],
+        "next_url": "s143",
+        "object": "s144",
+        "previous_url": "s145",
+        "quantity": 326,
+        "total_count": 327
+      }
+    }
+  },
+  "requests": {
+    "POST /cards/{card_id}/orders": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /cards/{card_id}/orders": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# BasicTemplateVersionDeletionFlow
+
+main: kit: flow: BasicTemplateVersionDeletionFlow:
+{
+  entity: "template_version_deletion",
+  kind: "basic",
+  name: "BasicTemplateVersionDeletionFlow",
+  "key$": "BasicTemplateVersionDeletionFlow"
+}

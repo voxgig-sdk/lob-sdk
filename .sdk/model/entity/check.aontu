@@ -1,0 +1,577 @@
+# Entity: check
+
+main: kit: entity: check: {
+
+  alias: field: {}
+
+  fields: {
+    amount: {
+      fo: "float"
+      h: "Amount"
+      n: "amount"
+      op: {
+        create: {
+          req: false
+          type: "`$NUMBER`"
+        }
+      }
+      r: true
+      sh: "The payment amount to be sent in US dollars."
+      t: "`$NUMBER`"
+    }
+    attachment_template_id: {
+      h: "Attachment Template Id"
+      n: "attachment_template_id"
+      r: false
+      t: "`$STRING`"
+    }
+    attachment_template_version_id: {
+      h: "Attachment Template Version Id"
+      n: "attachment_template_version_id"
+      r: false
+      t: "`$STRING`"
+    }
+    bank_account: {
+      h: "Bank Account"
+      n: "bank_account"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      t: "`$ANY`"
+    }
+    carrier: {
+      h: "Carrier"
+      n: "carrier"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    check_bottom_template_id: {
+      h: "Check Bottom Template Id"
+      n: "check_bottom_template_id"
+      r: false
+      t: "`$STRING`"
+    }
+    check_bottom_template_version_id: {
+      h: "Check Bottom Template Version Id"
+      n: "check_bottom_template_version_id"
+      r: false
+      t: "`$STRING`"
+    }
+    check_number: {
+      h: "Check Number"
+      n: "check_number"
+      r: false
+      t: "`$INTEGER`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of checks"
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 3
+        depth: 7
+      }
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    expected_delivery_date: {
+      fo: "date"
+      h: "Expected Delivery Date"
+      n: "expected_delivery_date"
+      r: false
+      sh: "A date in YYYY-MM-DD format of the mailpiece's expected delivery date based on its `send_date`."
+      t: "`$STRING`"
+    }
+    failure_reason: {
+      h: "Failure Reason"
+      n: "failure_reason"
+      r: false
+      t: "`$OBJECT`"
+    }
+    from: {
+      h: "From"
+      n: "from"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Unique identifier prefixed with `chk_`."
+      t: "`$STRING`"
+    }
+    mail_type: {
+      h: "Mail Type"
+      n: "mail_type"
+      r: false
+      t: "`$STRING`"
+    }
+    memo: {
+      h: "Memo"
+      n: "memo"
+      r: false
+      t: "`$STRING`"
+    }
+    merge_variables: {
+      h: "Merge Variables"
+      n: "merge_variables"
+      r: false
+      t: "`$OBJECT`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: false
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      t: "`$OBJECT`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    send_date: {
+      h: "Send Date"
+      n: "send_date"
+      r: false
+      t: "`$STRING`"
+    }
+    sla: {
+      h: "Sla"
+      n: "sla"
+      r: false
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "A string describing the PDF render status: * `processed` - the rendering process is currently in progress."
+      t: "`$STRING`"
+    }
+    thumbnails: {
+      h: "Thumbnails"
+      n: "thumbnails"
+      r: false
+      t: "`$ARRAY`"
+    }
+    to: {
+      h: "To"
+      n: "to"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    tracking_events: {
+      h: "Tracking Events"
+      n: "tracking_events"
+      r: false
+      sh: "An array of tracking_event objects ordered by ascending `time`."
+      t: "`$ARRAY`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A [signed link](#section/Asset-URLs) served over HTTPS."
+      t: "`$STRING`"
+    }
+    use_type: {
+      h: "Use Type"
+      n: "use_type"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "TThe use type for each mailpiece."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "check"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /checks"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
+                k: "header"
+                n: "idempotency_key"
+                or: "idempotency_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
+                k: "query"
+                n: "idempotency_key"
+                or: "idempotency_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/checks"
+          q: {
+            exist: [
+              "idempotency_key"
+            ]
+          }
+          s: [
+            {
+              lit: "checks"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /checks"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "usps_first_class"
+                k: "query"
+                n: "mail_type"
+                or: "mail_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metadata"
+                or: "metadata"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "scheduled"
+                or: "scheduled"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "send_date"
+                or: "send_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/checks"
+          q: {
+            exist: [
+              "before/after"
+              "date_created"
+              "include"
+              "limit"
+              "mail_type"
+              "metadata"
+              "scheduled"
+              "send_date"
+              "sort_by"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "checks"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /checks/{chk_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "chk_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/checks/{chk_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              chk_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "checks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /checks/{chk_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "chk_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/checks/{chk_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              chk_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "checks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

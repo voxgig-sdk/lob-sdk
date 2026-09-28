@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "lob_credits_balance": {
+      "LOB_CREDITS_BALANCE00": {
+        "balance": 10,
+        "id": "LOB_CREDITS_BALANCE00"
+      },
+      "LOB_CREDITS_BALANCE01": {
+        "balance": 20,
+        "id": "LOB_CREDITS_BALANCE01"
+      },
+      "LOB_CREDITS_BALANCE02": {
+        "balance": 30,
+        "id": "LOB_CREDITS_BALANCE02"
+      }
+    }
+  },
+  "new": {
+    "lob_credits_balance": {
+      "lob_credits_balance_ref01": {
+        "balance": 40
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

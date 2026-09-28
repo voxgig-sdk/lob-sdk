@@ -1,0 +1,156 @@
+{
+  "existing": {
+    "card": {
+      "CARD00": {
+        "account_id": "ACCOUNT01",
+        "auto_reorder": false,
+        "available_quantity": 282,
+        "back_original_url": "s11b",
+        "count": 284,
+        "countries": "s11d",
+        "data": [],
+        "date_created": "s11f",
+        "date_modified": "s120",
+        "deleted": false,
+        "description": "s122",
+        "front_original_url": "s123",
+        "id": "CARD00",
+        "mode": "s125",
+        "next_url": "s126",
+        "object": "s127",
+        "orientation": "s128",
+        "pending_quantity": 297,
+        "previous_url": "s12a",
+        "raw_url": "s12b",
+        "reorder_quantity": 300,
+        "send_date": "s12d",
+        "size": "s12e",
+        "status": "s12f",
+        "threshold_amount": 304,
+        "thumbnails": [],
+        "total_count": 306,
+        "url": "s133"
+      },
+      "CARD01": {
+        "account_id": "ACCOUNT01",
+        "auto_reorder": false,
+        "available_quantity": 562,
+        "back_original_url": "s233",
+        "count": 564,
+        "countries": "s235",
+        "data": [],
+        "date_created": "s237",
+        "date_modified": "s238",
+        "deleted": false,
+        "description": "s23a",
+        "front_original_url": "s23b",
+        "id": "CARD01",
+        "mode": "s23d",
+        "next_url": "s23e",
+        "object": "s23f",
+        "orientation": "s240",
+        "pending_quantity": 577,
+        "previous_url": "s242",
+        "raw_url": "s243",
+        "reorder_quantity": 580,
+        "send_date": "s245",
+        "size": "s246",
+        "status": "s247",
+        "threshold_amount": 584,
+        "thumbnails": [],
+        "total_count": 586,
+        "url": "s24b"
+      },
+      "CARD02": {
+        "account_id": "ACCOUNT01",
+        "auto_reorder": false,
+        "available_quantity": 842,
+        "back_original_url": "s34b",
+        "count": 844,
+        "countries": "s34d",
+        "data": [],
+        "date_created": "s34f",
+        "date_modified": "s350",
+        "deleted": false,
+        "description": "s352",
+        "front_original_url": "s353",
+        "id": "CARD02",
+        "mode": "s355",
+        "next_url": "s356",
+        "object": "s357",
+        "orientation": "s358",
+        "pending_quantity": 857,
+        "previous_url": "s35a",
+        "raw_url": "s35b",
+        "reorder_quantity": 860,
+        "send_date": "s35d",
+        "size": "s35e",
+        "status": "s35f",
+        "threshold_amount": 864,
+        "thumbnails": [],
+        "total_count": 866,
+        "url": "s363"
+      }
+    }
+  },
+  "new": {
+    "card": {
+      "card_ref01": {
+        "account_id": "ACCOUNT01",
+        "auto_reorder": false,
+        "available_quantity": 1122,
+        "back_original_url": "s463",
+        "count": 1124,
+        "countries": "s465",
+        "data": [],
+        "date_created": "s467",
+        "date_modified": "s468",
+        "deleted": false,
+        "description": "s46a",
+        "front_original_url": "s46b",
+        "mode": "s46d",
+        "next_url": "s46e",
+        "object": "s46f",
+        "orientation": "s470",
+        "pending_quantity": 1137,
+        "previous_url": "s472",
+        "raw_url": "s473",
+        "reorder_quantity": 1140,
+        "send_date": "s475",
+        "size": "s476",
+        "status": "s477",
+        "threshold_amount": 1144,
+        "thumbnails": [],
+        "total_count": 1146,
+        "url": "s47b"
+      }
+    }
+  },
+  "requests": {
+    "POST /cards/{card_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /cards": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /cards": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /cards/{card_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /cards/{card_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "identity_validation": {
+      "IDENTITY_VALIDATION00": {
+        "confidence": "s5a",
+        "id": "IDENTITY_VALIDATION00",
+        "last_line": "s5c",
+        "object": "s5d",
+        "primary_line": "s5e",
+        "recipient": "s5f",
+        "score": 96,
+        "secondary_line": "s61",
+        "urbanization": "s62"
+      },
+      "IDENTITY_VALIDATION01": {
+        "confidence": "sb4",
+        "id": "IDENTITY_VALIDATION01",
+        "last_line": "sb6",
+        "object": "sb7",
+        "primary_line": "sb8",
+        "recipient": "sb9",
+        "score": 186,
+        "secondary_line": "sbb",
+        "urbanization": "sbc"
+      },
+      "IDENTITY_VALIDATION02": {
+        "confidence": "s10e",
+        "id": "IDENTITY_VALIDATION02",
+        "last_line": "s110",
+        "object": "s111",
+        "primary_line": "s112",
+        "recipient": "s113",
+        "score": 276,
+        "secondary_line": "s115",
+        "urbanization": "s116"
+      }
+    }
+  },
+  "new": {
+    "identity_validation": {
+      "identity_validation_ref01": {
+        "confidence": "s168",
+        "last_line": "s16a",
+        "object": "s16b",
+        "primary_line": "s16c",
+        "recipient": "s16d",
+        "score": 366,
+        "secondary_line": "s16f",
+        "urbanization": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /identity_validation": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

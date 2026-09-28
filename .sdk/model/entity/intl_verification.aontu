@@ -1,0 +1,165 @@
+# Entity: intl_verification
+
+main: kit: entity: intl_verification: {
+
+  alias: field: {}
+
+  fields: {
+    addresses: {
+      h: "Addresses"
+      n: "addresses"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 1
+      }
+    }
+    components: {
+      h: "Components"
+      n: "components"
+      r: false
+      t: "`$OBJECT`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      t: "`$STRING`"
+    }
+    coverage: {
+      h: "Coverage"
+      n: "coverage"
+      r: false
+      t: "`$STRING`"
+    }
+    deliverability: {
+      h: "Deliverability"
+      n: "deliverability"
+      r: false
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      sh: "Indicates whether any errors occurred during the verification process."
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    last_line: {
+      h: "Last Line"
+      n: "last_line"
+      r: false
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      t: "`$STRING`"
+    }
+    primary_line: {
+      h: "Primary Line"
+      n: "primary_line"
+      r: false
+      t: "`$STRING`"
+    }
+    recipient: {
+      h: "Recipient"
+      n: "recipient"
+      r: false
+      t: "`$STRING`"
+    }
+    secondary_line: {
+      h: "Secondary Line"
+      n: "secondary_line"
+      r: false
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "intl_verification"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /intl_verifications"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "x_lang_output"
+                or: "x_lang_output"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/intl_verifications"
+          q: {
+            exist: [
+              "x_lang_output"
+            ]
+          }
+          s: [
+            {
+              lit: "intl_verifications"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /bulk/intl_verifications"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/bulk/intl_verifications"
+          s: [
+            {
+              lit: "bulk"
+            }
+            {
+              lit: "intl_verifications"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

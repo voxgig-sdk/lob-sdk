@@ -1,0 +1,1212 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Letter | Lob</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Lob<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/lob-sdk">voxgig-sdk/lob-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Lob</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/address.html">Address</a>
+<a href="../api/bank_account.html">BankAccount</a>
+<a href="../api/bank_deletion.html">BankDeletion</a>
+<a href="../api/billing_group.html">BillingGroup</a>
+<a href="../api/booklet.html">Booklet</a>
+<a href="../api/buckslip.html">Buckslip</a>
+<a href="../api/buckslip_order.html">BuckslipOrder</a>
+<a href="../api/campaign.html">Campaign</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_order.html">CardOrder</a>
+<a href="../api/check.html">Check</a>
+<a href="../api/creative.html">Creative</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/identity_validation.html">IdentityValidation</a>
+<a href="../api/intl_verification.html">IntlVerification</a>
+<a aria-current="page" href="../api/letter.html">Letter</a><div class="nav-sections"><a class="nav-section" href="#post-letters">POST /letters</a>
+<a class="nav-section" href="#get-letters">GET /letters</a>
+<a class="nav-section" href="#get-lettersltr_id">GET /letters/{ltr_id}</a>
+<a class="nav-section" href="#delete-lettersltr_id">DELETE /letters/{ltr_id}</a></div>
+<a href="../api/link.html">Link</a>
+<a href="../api/lob_credits_balance.html">LobCreditsBalance</a>
+<a href="../api/postcard.html">Postcard</a>
+<a href="../api/qr_code.html">QrCode</a>
+<a href="../api/resource_proof.html">ResourceProof</a>
+<a href="../api/response.html">Response</a>
+<a href="../api/reverse_geocode.html">ReverseGeocode</a>
+<a href="../api/self_mailer.html">SelfMailer</a>
+<a href="../api/snap_pack.html">SnapPack</a>
+<a href="../api/template.html">Template</a>
+<a href="../api/template_version.html">TemplateVersion</a>
+<a href="../api/template_version_deletion.html">TemplateVersionDeletion</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/upload_create_export.html">UploadCreateExport</a>
+<a href="../api/us_autocompletion.html">UsAutocompletion</a>
+<a href="../api/us_verification.html">UsVerification</a>
+<a href="../api/zip.html">Zip</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="letter">Letter</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-letters"><code>/letters</code></a></td>
+<td><code>create</code></td>
+<td>Returns a letter object</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-letters"><code>/letters</code></a></td>
+<td><code>list</code></td>
+<td>A dictionary with a data property that contains an array of up to <code>limit</code> letters. Each entry in the array is a separate letter. The previous and next page of letters can be retrieved by calling the endpoint contained in the <code>previous_url</code> and <code>next_url</code> fields in the API response respectively. If no more letters are available beyond the current set of returned results, the <code>next_url</code> field will be empty</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-lettersltr_id"><code>/letters/{ltr_id}</code></a></td>
+<td><code>load</code></td>
+<td>Returns a letter object</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-lettersltr_id"><code>/letters/{ltr_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">letters, err := client.Letter(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(letters)
+letter, err := client.Letter(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(letter)
+created, err := client.Letter(nil).Create(map[string]any{&quot;idempotency_key&quot;: &quot;example&quot;, &quot;address_placement&quot;: &quot;example&quot;, &quot;cards&quot;: []any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+removed, err := client.Letter(nil).Remove(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local letters, err = client:Letter():list()
+local letter, err = client:Letter():load({ id = &quot;example_id&quot; })
+local created, err = client:Letter():create({ idempotency_key = &quot;example&quot;, address_placement = &quot;example&quot;, cards = {} })
+local removed, err = client:Letter():remove({ id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$letters = $client-&gt;Letter()-&gt;list();
+$letter = $client-&gt;Letter()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;Letter()-&gt;create([&quot;idempotency_key&quot; =&gt; &quot;example&quot;, &quot;address_placement&quot; =&gt; &quot;example&quot;, &quot;cards&quot; =&gt; []]);
+$client-&gt;Letter()-&gt;remove([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">letters = client.Letter().list()
+letter = client.Letter().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.Letter().create({ &quot;idempotency_key&quot;: &quot;example&quot;, &quot;address_placement&quot;: &quot;example&quot;, &quot;cards&quot;: [] })
+client.Letter().remove({&quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">letters = client.Letter.list()
+letter = client.Letter.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.Letter.create({ &quot;idempotency_key&quot; =&gt; &quot;example&quot;, &quot;address_placement&quot; =&gt; &quot;example&quot;, &quot;cards&quot; =&gt; [] })
+client.Letter.remove({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const letters = await client.Letter().list()
+const letter = await client.Letter().load({ id: &quot;example_id&quot; })
+const created = await client.Letter().create({ idempotency_key: &quot;example&quot;, address_placement: &quot;example&quot;, cards: [] })
+await client.Letter().remove({ id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>address_placement</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Address Placement</td>
+</tr>
+<tr>
+<td><code>cards</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Cards</td>
+</tr>
+<tr>
+<td><code>carrier</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Carrier</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Color</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>number of resources in a set</td>
+</tr>
+<tr>
+<td><code>custom_envelope</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Custom Envelope</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>list of letters</td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Date Created</td>
+</tr>
+<tr>
+<td><code>date_modified</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Date Modified</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>double_sided</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Double Sided</td>
+</tr>
+<tr>
+<td><code>expected_delivery_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Expected Delivery Date</td>
+</tr>
+<tr>
+<td><code>extra_service</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Extra Service</td>
+</tr>
+<tr>
+<td><code>from</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>From</td>
+</tr>
+<tr>
+<td><code>fsc</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Fsc</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>mail_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Mail Type</td>
+</tr>
+<tr>
+<td><code>merge_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Merge Variables</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Metadata</td>
+</tr>
+<tr>
+<td><code>next_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Url of next page of items in list.</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Value is resource type.</td>
+</tr>
+<tr>
+<td><code>perforated_page</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Perforated Page</td>
+</tr>
+<tr>
+<td><code>previous_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Url of previous page of items in list.</td>
+</tr>
+<tr>
+<td><code>return_envelope</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Return Envelope</td>
+</tr>
+<tr>
+<td><code>send_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Send Date</td>
+</tr>
+<tr>
+<td><code>sla</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Sla</td>
+</tr>
+<tr>
+<td><code>thumbnails</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Thumbnails</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>To</td>
+</tr>
+<tr>
+<td><code>total_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Indicates the total number of records.</td>
+</tr>
+<tr>
+<td><code>tracking_events</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Tracking Events</td>
+</tr>
+<tr>
+<td><code>tracking_number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Tracking Number</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Url</td>
+</tr>
+<tr>
+<td><code>use_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Use Type</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-letters" class="operation" data-method="post"><code>POST</code> /letters</h3>
+<p>Operation ID: <code>letter_create</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>Idempotency-Key</code> | <code>header</code> | <code>string</code> | No | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our &lt;a href=&quot;https://help.lob.com/print-and-mail/building-a-mail-strategy/managing-mail-settings#idempotent-requests-12&quot; target=&quot;_blank&quot;&gt;implementation guide&lt;/a&gt;. |
+| <code>idempotency_key</code> | <code>query</code> | <code>string</code> | No | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our &lt;a href=&quot;https://help.lob.com/print-and-mail/building-a-mail-strategy/managing-mail-settings#idempotent-requests-12&quot; target=&quot;_blank&quot;&gt;implementation guide&lt;/a&gt;. |
+| <code>Lob-Version</code> | <code>header</code> | <code>string</code> | No | A string representing the version of the API being used. Specifically for letters, if this header is set to <code>2024-01-01</code> and above, the <code>size</code> property is automatically included with the default value of <code>us_letter</code>. Refer to <code>size</code> for all possible values. For more information on versioning, refer to our <a href="#tag/Versioning-and-Changelog">Versioning and Changelog</a> documentation. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and object and object and object</code>.</p>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;address_placement&quot;: &quot;bottom_first_page&quot;,
+  &quot;cards&quot;: [
+    &quot;card_c51ae96f5cebf3e&quot;
+  ],
+  &quot;color&quot;: true,
+  &quot;custom_envelope&quot;: null,
+  &quot;description&quot;: &quot;demo&quot;,
+  &quot;double_sided&quot;: false,
+  &quot;extra_service&quot;: &quot;registered&quot;,
+  &quot;file&quot;: &quot;&lt;html style='padding-top: 3in; margin: .5in;'&gt;HTML Letter for {{name}}&lt;/html&gt;&quot;,
+  &quot;from&quot;: {
+    &quot;address_city&quot;: &quot;San Francisco&quot;,
+    &quot;address_line1&quot;: &quot;210 King St&quot;,
+    &quot;address_line2&quot;: &quot;# 6100&quot;,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107&quot;,
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;fsc&quot;: true,
+  &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;spiffy&quot;: &quot;true&quot;
+  },
+  &quot;perforated_page&quot;: 1,
+  &quot;print_speed&quot;: &quot;core&quot;,
+  &quot;qr_code&quot;: {
+    &quot;pages&quot;: &quot;1-2,4-5&quot;,
+    &quot;position&quot;: &quot;relative&quot;,
+    &quot;redirect_url&quot;: &quot;https://www.lob.com&quot;,
+    &quot;right&quot;: &quot;2&quot;,
+    &quot;top&quot;: &quot;2&quot;,
+    &quot;width&quot;: &quot;2&quot;
+  },
+  &quot;return_envelope&quot;: true,
+  &quot;send_date&quot;: &quot;2017-11-01T00:00:00.000Z&quot;,
+  &quot;to&quot;: {
+    &quot;address_city&quot;: &quot;San Francisco&quot;,
+    &quot;address_country&quot;: &quot;US&quot;,
+    &quot;address_line1&quot;: &quot;210 King St&quot;,
+    &quot;address_line2&quot;: &quot;# 6100&quot;,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107&quot;,
+    &quot;company&quot;: &quot;Lob&quot;,
+    &quot;description&quot;: &quot;Harry - Office&quot;,
+    &quot;email&quot;: &quot;harry@lob.com&quot;,
+    &quot;name&quot;: &quot;Harry Zhang&quot;,
+    &quot;phone&quot;: &quot;5555555555&quot;
+  },
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>application/x-www-form-urlencoded</code></p>
+<p>The request body is <code>object and object and object and object</code>.</p>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;address_placement&quot;: &quot;top_first_page&quot;,
+  &quot;cards&quot;: [
+    &quot;card_c51ae96f5cebf3e&quot;
+  ],
+  &quot;color&quot;: true,
+  &quot;custom_envelope&quot;: null,
+  &quot;description&quot;: &quot;demo&quot;,
+  &quot;double_sided&quot;: false,
+  &quot;extra_service&quot;: &quot;registered&quot;,
+  &quot;file&quot;: &quot;&lt;html style='padding-top: 3in; margin: .5in;'&gt;HTML Letter for {{name}}&lt;/html&gt;&quot;,
+  &quot;from&quot;: {
+    &quot;address_city&quot;: &quot;San Francisco&quot;,
+    &quot;address_line1&quot;: &quot;210 King St&quot;,
+    &quot;address_line2&quot;: &quot;# 6100&quot;,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107&quot;,
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;fsc&quot;: true,
+  &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;spiffy&quot;: &quot;true&quot;
+  },
+  &quot;perforated_page&quot;: 1,
+  &quot;print_speed&quot;: &quot;core&quot;,
+  &quot;qr_code&quot;: {
+    &quot;bottom&quot;: &quot;2&quot;,
+    &quot;pages&quot;: &quot;1,4&quot;,
+    &quot;position&quot;: &quot;relative&quot;,
+    &quot;redirect_url&quot;: &quot;https://www.lob.com&quot;,
+    &quot;right&quot;: &quot;2&quot;,
+    &quot;width&quot;: &quot;2&quot;
+  },
+  &quot;return_envelope&quot;: true,
+  &quot;send_date&quot;: &quot;2017-11-01T00:00:00.000Z&quot;,
+  &quot;to&quot;: {
+    &quot;address_city&quot;: &quot;San Francisco&quot;,
+    &quot;address_country&quot;: &quot;US&quot;,
+    &quot;address_line1&quot;: &quot;210 King St&quot;,
+    &quot;address_line2&quot;: &quot;# 6100&quot;,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107&quot;,
+    &quot;company&quot;: &quot;Lob&quot;,
+    &quot;description&quot;: &quot;Harry - Office&quot;,
+    &quot;email&quot;: &quot;harry@lob.com&quot;,
+    &quot;name&quot;: &quot;Harry Zhang&quot;,
+    &quot;phone&quot;: &quot;5555555555&quot;
+  },
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>multipart/form-data</code></p>
+<p>The request body is <code>object and object and object and object</code>.</p>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;address_placement&quot;: &quot;top_first_page&quot;,
+  &quot;cards&quot;: [
+    &quot;card_c51ae96f5cebf3e&quot;
+  ],
+  &quot;color&quot;: true,
+  &quot;custom_envelope&quot;: null,
+  &quot;description&quot;: &quot;demo&quot;,
+  &quot;double_sided&quot;: false,
+  &quot;extra_service&quot;: &quot;registered&quot;,
+  &quot;file&quot;: &quot;&lt;html style='padding-top: 3in; margin: .5in;'&gt;HTML Letter for {{name}}&lt;/html&gt;&quot;,
+  &quot;from&quot;: {
+    &quot;address_city&quot;: &quot;San Francisco&quot;,
+    &quot;address_line1&quot;: &quot;210 King St&quot;,
+    &quot;address_line2&quot;: &quot;# 6100&quot;,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107&quot;,
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;fsc&quot;: &quot;true,&quot;,
+  &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;spiffy&quot;: &quot;true&quot;
+  },
+  &quot;perforated_page&quot;: 1,
+  &quot;print_speed&quot;: &quot;core&quot;,
+  &quot;qr_code&quot;: {
+    &quot;bottom&quot;: &quot;2&quot;,
+    &quot;left&quot;: &quot;2&quot;,
+    &quot;pages&quot;: &quot;1,3-5&quot;,
+    &quot;position&quot;: &quot;relative&quot;,
+    &quot;redirect_url&quot;: &quot;https://www.lob.com&quot;,
+    &quot;width&quot;: &quot;2&quot;
+  },
+  &quot;return_envelope&quot;: true,
+  &quot;send_date&quot;: &quot;2017-11-01T00:00:00.000Z&quot;,
+  &quot;to&quot;: {
+    &quot;address_city&quot;: &quot;San Francisco&quot;,
+    &quot;address_country&quot;: &quot;US&quot;,
+    &quot;address_line1&quot;: &quot;210 King St&quot;,
+    &quot;address_line2&quot;: &quot;# 6100&quot;,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107&quot;,
+    &quot;company&quot;: &quot;Lob&quot;,
+    &quot;description&quot;: &quot;Harry - Office&quot;,
+    &quot;email&quot;: &quot;harry@lob.com&quot;,
+    &quot;name&quot;: &quot;Harry Zhang&quot;,
+    &quot;phone&quot;: &quot;5555555555&quot;
+  },
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-a-letter-object" class="status" data-status="2xx">200: Returns a letter object</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>any and object and object and object and object or any and object and object and object and object or any and object and object and object and object</code>.</p>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;address_placement&quot;: &quot;top_first_page&quot;,
+  &quot;cards&quot;: [
+    {
+      &quot;account_id&quot;: &quot;fa9ea650fc7b31a89f92&quot;,
+      &quot;auto_reorder&quot;: false,
+      &quot;available_quantity&quot;: 10000,
+      &quot;back_original_url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_raw.pdf?version=v1&amp;expires=1636910992&amp;signature=-bZo31FMAp2vmNaZKyXn_Qa4APqwtNinw76FrQ7uyQejFZw6VBQQYfoiQ642iXh0H2K5i2aOo8_BAkt3UJdVDw&quot;,
+      &quot;countries&quot;: null,
+      &quot;date_created&quot;: &quot;2017-08-05T15:54:53.346Z&quot;,
+      &quot;date_modified&quot;: &quot;2017-08-05T15:54:53.346Z&quot;,
+      &quot;description&quot;: null,
+      &quot;front_original_url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_raw.pdf?version=v1&amp;expires=1636910992&amp;signature=-bZo31FMAp2vmNaZKyXn_Qa4APqwtNinw76FrQ7uyQejFZw6VBQQYfoiQ642iXh0H2K5i2aOo8_BAkt3UJdVDw&quot;,
+      &quot;id&quot;: &quot;card_c51ae96f5cebf3e&quot;,
+      &quot;mode&quot;: &quot;test&quot;,
+      &quot;object&quot;: &quot;card&quot;,
+      &quot;orientation&quot;: &quot;horizontal&quot;,
+      &quot;pending_quantity&quot;: 0,
+      &quot;raw_url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_raw.pdf?version=v1&amp;expires=1636910992&amp;signature=-bZo31FMAp2vmNaZKyXn_Qa4APqwtNinw76FrQ7uyQejFZw6VBQQYfoiQ642iXh0H2K5i2aOo8_BAkt3UJdVDw&quot;,
+      &quot;reorder_quantity&quot;: null,
+      &quot;size&quot;: &quot;2.125x3.375&quot;,
+      &quot;status&quot;: &quot;rendered&quot;,
+      &quot;threshold_amount&quot;: 0,
+      &quot;thumbnails&quot;: [
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_large_1.png?version=v1&amp;expires=1636910992&amp;signature=FKSzymA13j-CQ0uk20cGHZTzT3vimzNBYrgp-xifLFg4mMdo1BZALR5O0aF_jVhsX614hKP35ONdYl47TQxXAw&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_medium_1.png?version=v1&amp;expires=1636910992&amp;signature=VgL_2Ckm_kxKiWGgWtdNoy9HHOn8dGYSVOn7UqyCbwdbVlUtx28TRN4Bo8Iru3n0keKp9He0YhKT1ILotznMDA&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_small_1.png?version=v1&amp;expires=1636910992&amp;signature=mrv8JDvpZK4I8WUGH0tPdtK-My5oes0Ltj_gL7BDw96SpCTTeZFHkz81SzclyFP9dQRtlsvAsjcuGcTBvCvOCg&quot;
+        },
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_large_2.png?version=v1&amp;expires=1636910992&amp;signature=r0OFUhh315ZwN0raMZdIwJd2oCIEYsz0BABaMxIuO1PKTD0ckGWrhcGdzk2dlWQ6vSvp0CUQ5k1RXGqkIIqkDw&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_medium_2.png?version=v1&amp;expires=1636910992&amp;signature=zxK7VKGiTvz5Ywrkaydd0v3GcYf58R7A08J4tNfI7-aiNODDcTF3l0MqY13n9Pyc8RXSdD0XVBY-OpbA1VM-Ag&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_small_2.png?version=v1&amp;expires=1636910992&amp;signature=IWsmPa_ULlv2yyqjX564d_YfHHY_M7i9YxDnw-WXDr2jtOFcArmRZQbnHeE9g_rYxnddJbgosuv8-c2utiu7Cg&quot;
+        }
+      ],
+      &quot;url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e.pdf?version=v1&amp;expires=1636910992&amp;signature=mnsDH2DAxdkN9VibdlLMxJC86sME5WYDqkNtmvGwdNsAaUWfbnv0rJhJ1mR8Ol4uxQq61j5wYZ0r3s-lBkQfDA&quot;
+    }
+  ],
+  &quot;carrier&quot;: &quot;USPS&quot;,
+  &quot;color&quot;: true,
+  &quot;custom_envelope&quot;: null,
+  &quot;date_created&quot;: &quot;2017-09-05T15:54:53.346Z&quot;,
+  &quot;date_modified&quot;: &quot;2017-09-05T15:54:53.346Z&quot;,
+  &quot;description&quot;: &quot;Demo Letter&quot;,
+  &quot;double_sided&quot;: true,
+  &quot;expected_delivery_date&quot;: &quot;2017-09-12&quot;,
+  &quot;extra_service&quot;: null,
+  &quot;from&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_b8fb5acf3a2b55db&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;LEORE AVIDAR&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;fsc&quot;: false,
+  &quot;id&quot;: &quot;ltr_4868c3b754655f90&quot;,
+  &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {},
+  &quot;object&quot;: &quot;letter&quot;,
+  &quot;perforated_page&quot;: null,
+  &quot;return_envelope&quot;: false,
+  &quot;send_date&quot;: &quot;2017-09-05T15:54:53.346Z&quot;,
+  &quot;sla&quot;: &quot;2&quot;,
+  &quot;thumbnails&quot;: [
+    {
+      &quot;large&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90_thumb_large_1.png?expires=1540372221&amp;signature=gsKvxXgrm4v4iZD3bOibK7jApNkEMdW&quot;,
+      &quot;medium&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90_thumb_medium_1.png?expires=1540372221&amp;signature=bAzL8sv935PY09FWSkpDpWKkyvGSWYF&quot;,
+      &quot;small&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90_thumb_small_1.png?expires=1540372221&amp;signature=a5fRBJ22ZA78Vgpg34M9UfmHWTS3eha&quot;
+    }
+  ],
+  &quot;to&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_d3489cd64c791ab5&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;HARRY ZHANG&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;tracking_events&quot;: [],
+  &quot;tracking_number&quot;: null,
+  &quot;url&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90.pdf?expires=1540372221&amp;signature=8r94fse8uam7wGWmW5baxXulU88X2CA&quot;,
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>x-ref</code></p>
+<h5 id="default-error">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+<h2 id="list">list</h2>
+<h3 id="get-letters" class="operation" data-method="get"><code>GET</code> /letters</h3>
+<p>Operation ID: <code>letters_list</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>limit</code> | <code>query</code> | <code>integer</code> | No | How many results to return. |
+| <code>before/after</code> | <code>query</code> | <code>object and any or any</code> | No | <code>before</code> and <code>after</code> are both optional but only one of them can be in the query at a time. |
+| <code>include</code> | <code>query</code> | <code>array of string</code> | No | Request that the response include the total count by specifying <code>include=[&amp;quot;</code>total_count<code>&amp;quot;]</code>. |
+| <code>date_created</code> | <code>query</code> | <code>object</code> | No | Filter by date created. Accepted formats are ISO-8601 date or datetime, for example <code>&amp;#123; &amp;quot;gt&amp;quot;: &amp;quot;2012-01-01&amp;quot;, &amp;quot;lt&amp;quot;: &amp;quot;2012-01-31T12:34:56Z&amp;quot; &amp;#125;</code> where <code>gt</code> is &gt;, <code>lt</code> is &lt;, <code>gte</code> is ≥, and <code>lte</code> is ≤. |
+| <code>metadata</code> | <code>query</code> | <code>object</code> | No | Filter by metadata key-value pair<code>. | | </code>campaign_id<code>|</code>query<code>|</code>string<code>| No | Filters resources created by the provided campaign id, prefixed with</code>cmp_<code>. In the case of snap packs, booklets, and letters with size ``us_legal``, however, the campaign id is prefixed with </code>camp_<code>instead of</code>cmp_<code>. | | </code>status<code>|</code>query<code>|</code>enum: processed, rendered, failed<code>| No | A string describing the render status: *</code>processed<code>- the rendering process is currently underway. *</code>rendered<code>- the rendering process has completed successfully. *</code>failed<code>- the rendering process has failed. | |</code>color<code>|</code>query<code>|</code>boolean<code>| No | Set to</code>true<code>to return only color letters. Set to</code>false<code>to return only black &amp;amp; white letters. | |</code>scheduled<code>|</code>query<code>|</code>boolean<code>| No | *</code>true<code>- only return orders (past or future) where ``send_date`` is greater than ``date_created`` *</code>false<code>- only return orders where ``send_date`` is equal to ``date_created`` | |</code>send_date<code>|</code>query<code>|</code>any or any<code>| No | Filter by ISO-8601 date or datetime, for example</code>{ &quot;gt&quot;: &quot;2012-01-01&quot;, &quot;lt&quot;: &quot;2012-01-31T12:34:56Z&quot; }<code>where</code>gt<code>is &amp;gt;,</code>lt<code>is &amp;lt;,</code>gte<code>is ≥, and</code>lte<code>is ≤. | |</code>mail_type<code>|</code>query<code>|</code>enum: usps_first_class, usps_standard<code>| No | A string designating the mail postage type: * ``usps_first_class`` - (default) * ``usps_standard`` - a &amp;lt;a href=&amp;quot;https://lob.com/pricing/print-mail#compare&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;cheaper option&amp;lt;/a&amp;gt; which is less predictable and takes longer to deliver. ``usps_standard`` cannot be used with</code>4x6<code>postcards or for any postcards sent outside of the United States. | |</code>sort_by<code>|</code>query<code>|</code>object and any or any` | No | Sorts items by ascending or descending dates. Use either <code>date_created</code> or <code>send_date</code>, not both. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-a-dictionary-with-a-data-property-that-contains-an-array-of-up-to-limit-letters-each-entry-in-the-array-is-a-separate-letter-the-previous-and-next-page-of-letters-can-be-retrieved-by-calling-the-endpoint-contained-in-the-previous_url-and-next_url-fields-in-the-api-response-respectively-if-no-more-letters-are-available-beyond-the-current-set-of-returned-results-the-next_url-field-will-be-empty" class="status" data-status="2xx">200: A dictionary with a data property that contains an array of up to <code>limit</code> letters. Each entry in the array is a separate letter. The previous and next page of letters can be retrieved by calling the endpoint contained in the <code>previous_url</code> and <code>next_url</code> fields in the API response respectively. If no more letters are available beyond the current set of returned results, the <code>next_url</code> field will be empty</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;count&quot;: 2,
+  &quot;data&quot;: [
+    {
+      &quot;address_placement&quot;: &quot;top_first_page&quot;,
+      &quot;carrier&quot;: &quot;USPS&quot;,
+      &quot;color&quot;: true,
+      &quot;custom_envelope&quot;: null,
+      &quot;date_created&quot;: &quot;2019-08-08T17:09:14.514Z&quot;,
+      &quot;date_modified&quot;: &quot;2019-08-08T17:09:16.850Z&quot;,
+      &quot;description&quot;: &quot;Demo Letter&quot;,
+      &quot;double_sided&quot;: false,
+      &quot;expected_delivery_date&quot;: &quot;2019-08-16&quot;,
+      &quot;extra_service&quot;: &quot;certified&quot;,
+      &quot;from&quot;: {
+        &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+        &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+        &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+        &quot;address_line2&quot;: null,
+        &quot;address_state&quot;: &quot;CA&quot;,
+        &quot;address_zip&quot;: &quot;94107-1741&quot;,
+        &quot;company&quot;: null,
+        &quot;date_created&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;date_modified&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;description&quot;: null,
+        &quot;email&quot;: null,
+        &quot;id&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: &quot;LEORE AVIDAR&quot;,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: null
+      },
+      &quot;fsc&quot;: false,
+      &quot;id&quot;: &quot;ltr_5ba44b462c79f07c&quot;,
+      &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+      &quot;merge_variables&quot;: null,
+      &quot;metadata&quot;: {},
+      &quot;object&quot;: &quot;letter&quot;,
+      &quot;perforated_page&quot;: null,
+      &quot;return_envelope&quot;: false,
+      &quot;send_date&quot;: &quot;2019-08-08&quot;,
+      &quot;template_id&quot;: &quot;tmpl_a&quot;,
+      &quot;template_version_id&quot;: &quot;vrsn_a&quot;,
+      &quot;thumbnails&quot;: [
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/letters/ltr_5ba44b462c79f07c_thumb_large_1.png?version=v1&amp;expires=1568239830&amp;signature=54LUIDKZyItA9pnC87d1pJVAuw8bhKLCsMpNWkB3LgdVWxPxxb_c1IyIWAbSR-dyOYEOlDBCc40J4Kns-O_mAg&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/letters/ltr_5ba44b462c79f07c_thumb_medium_1.png?version=v1&amp;expires=1568239830&amp;signature=H7354Qpcm9S4aXbrMsBe6QJ6lSNi9IWPgMJtLWLi4Kyx9tHF8Mp9YEc_IL9x89Jfw4-yRzKDXA410X4W0PssBQ&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/letters/ltr_5ba44b462c79f07c_thumb_small_1.png?version=v1&amp;expires=1568239830&amp;signature=xZUmE8rq8wSECHPEb9c37cUDZBzGUO3XK5LsIPZhI6dOXgm6zJEn8_7tKuZ3JWBmvNJNXdTl_ufkNu4avjQUDw&quot;
+        }
+      ],
+      &quot;to&quot;: {
+        &quot;address_city&quot;: &quot;SUMMERSIDE&quot;,
+        &quot;address_country&quot;: &quot;CANADA&quot;,
+        &quot;address_line1&quot;: &quot;370 WATER ST&quot;,
+        &quot;address_line2&quot;: &quot;&quot;,
+        &quot;address_state&quot;: &quot;PRINCE EDWARD ISLAND&quot;,
+        &quot;address_zip&quot;: &quot;C1N 1C4&quot;,
+        &quot;company&quot;: &quot;Lob&quot;,
+        &quot;date_created&quot;: &quot;2019-09-20T00:14:00.361Z&quot;,
+        &quot;date_modified&quot;: &quot;2019-09-20T00:14:00.361Z&quot;,
+        &quot;description&quot;: &quot;Harry - Office&quot;,
+        &quot;email&quot;: &quot;harry@lob.com&quot;,
+        &quot;id&quot;: &quot;adr_asdi2y3riuasasoi&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: &quot;Harry Zhang&quot;,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: &quot;5555555555&quot;,
+        &quot;recipient_moved&quot;: false
+      },
+      &quot;tracking_events&quot;: [
+        {
+          &quot;date_created&quot;: &quot;2019-10-08T19:41:00Z&quot;,
+          &quot;date_modified&quot;: &quot;2019-10-08T19:41:00Z&quot;,
+          &quot;details&quot;: {
+            &quot;action_required&quot;: false,
+            &quot;description&quot;: &quot;Package has been delivered.&quot;,
+            &quot;event&quot;: &quot;delivered&quot;,
+            &quot;notes&quot;: &quot;Delivered, Front Desk/Reception/Mail Room&quot;
+          },
+          &quot;id&quot;: &quot;evnt_9e84094c9368cfb&quot;,
+          &quot;location&quot;: &quot;33408&quot;,
+          &quot;name&quot;: &quot;Delivered&quot;,
+          &quot;object&quot;: &quot;tracking_event&quot;,
+          &quot;time&quot;: &quot;2019-10-08T19:41:00Z&quot;,
+          &quot;type&quot;: &quot;certified&quot;
+        }
+      ],
+      &quot;tracking_number&quot;: &quot;92071902358909000011275538&quot;,
+      &quot;url&quot;: &quot;https://lob-assets.com/letters/ltr_5ba44b462c79f07c.pdf?version=v1&amp;expires=1568239830&amp;signature=Ob-DUPLJLM4scWQeCDNadPJ4j33MZw16pykOxwv2us-bA7utTYi6oZ8WrEtBYDBBo09XkapR3gdJf0NEr90xAA&quot;,
+      &quot;use_type&quot;: &quot;marketing&quot;
+    },
+    {
+      &quot;address_placement&quot;: &quot;top_first_page&quot;,
+      &quot;cards&quot;: null,
+      &quot;carrier&quot;: &quot;USPS&quot;,
+      &quot;color&quot;: true,
+      &quot;custom_envelope&quot;: null,
+      &quot;date_created&quot;: &quot;2019-08-08T17:08:12.224Z&quot;,
+      &quot;date_modified&quot;: &quot;2019-08-08T17:08:13.990Z&quot;,
+      &quot;description&quot;: &quot;Demo Letter&quot;,
+      &quot;double_sided&quot;: false,
+      &quot;expected_delivery_date&quot;: &quot;2019-08-16&quot;,
+      &quot;extra_service&quot;: null,
+      &quot;from&quot;: {
+        &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+        &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+        &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+        &quot;address_line2&quot;: null,
+        &quot;address_state&quot;: &quot;CA&quot;,
+        &quot;address_zip&quot;: &quot;94107-1741&quot;,
+        &quot;company&quot;: null,
+        &quot;date_created&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;date_modified&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;description&quot;: null,
+        &quot;email&quot;: null,
+        &quot;id&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: &quot;LEORE AVIDAR&quot;,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: null
+      },
+      &quot;fsc&quot;: true,
+      &quot;id&quot;: &quot;ltr_da8267c6a6545cd6&quot;,
+      &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+      &quot;merge_variables&quot;: null,
+      &quot;metadata&quot;: {},
+      &quot;object&quot;: &quot;letter&quot;,
+      &quot;perforated_page&quot;: null,
+      &quot;return_envelope&quot;: false,
+      &quot;send_date&quot;: &quot;2019-08-08T17:08:12.224Z&quot;,
+      &quot;thumbnails&quot;: [
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/letters/ltr_da8267c6a6545cd6_thumb_large_1.png?version=v1&amp;expires=1568239830&amp;signature=4Y1OIymaWkSO3aBIHCeshFAVnF-pDcF2FFqkx_jovaUFuk4FT1SI24L7_POwTRXQHlETMGlzkP_CGgqselRUAA&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/letters/ltr_da8267c6a6545cd6_thumb_medium_1.png?version=v1&amp;expires=1568239830&amp;signature=gz63l0yi3sK_sXjYfIVdLSvkknJFr_O5TWRulo_iKIgS-PosIl6J0tDR6bx_Tv5Ab_w7DABg3qdKZ846MZ7TCw&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/letters/ltr_da8267c6a6545cd6_thumb_small_1.png?version=v1&amp;expires=1568239830&amp;signature=C1Rs83187HpWGhsg_pJIOhDIKlDtC_IgBBxHiocCEzJ8CncJwqrq5yHke-p97Dv7o81G_pfhFmirai589O6DCw&quot;
+        }
+      ],
+      &quot;to&quot;: {
+        &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+        &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+        &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+        &quot;address_line2&quot;: null,
+        &quot;address_state&quot;: &quot;CA&quot;,
+        &quot;address_zip&quot;: &quot;94107-1741&quot;,
+        &quot;company&quot;: null,
+        &quot;date_created&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;date_modified&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;description&quot;: null,
+        &quot;email&quot;: null,
+        &quot;id&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: &quot;LEORE AVIDAR&quot;,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: null
+      },
+      &quot;tracking_events&quot;: [],
+      &quot;tracking_number&quot;: null,
+      &quot;url&quot;: &quot;https://lob-assets.com/letters/ltr_da8267c6a6545cd6.pdf?version=v1&amp;expires=1568239830&amp;signature=HH-5RnbD4x0eJcnEC9HhqKSvQGsbkjovzvqSKgBijUHKIXwEKQJ4CbYhKs_U2q2A1k20Xefcaw7bfdPKozuqCQ&quot;,
+      &quot;use_type&quot;: &quot;marketing&quot;
+    }
+  ],
+  &quot;next_url&quot;: &quot;https://api.lob.com/v1/letters?limit=2&amp;after=eyJkYXRlT2Zmc2V0IjoiMjAxOS0wOC0wOFQxNzowODoxMi4yMjRaIiwiaWRPZmZzZXQiOiJsdHJfZGE4MjY3YzZhNjU0NWNkNiJ9&quot;,
+  &quot;object&quot;: &quot;list&quot;,
+  &quot;previous_url&quot;: null
+}
+</code></pre>
+<h5 id="default-error-1">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+<h2 id="load">load</h2>
+<h3 id="get-lettersltr_id" class="operation" data-method="get"><code>GET</code> /letters/{ltr_id}</h3>
+<p>Operation ID: <code>letter_retrieve</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>ltr_id</code> | <code>path</code> | <code>string</code> | Yes | id of the letter |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-returns-a-letter-object-1" class="status" data-status="2xx">200: Returns a letter object</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>any and object and object and object and object or any and object and object and object and object or any and object and object and object and object</code>.</p>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;address_placement&quot;: &quot;top_first_page&quot;,
+  &quot;cards&quot;: [
+    {
+      &quot;account_id&quot;: &quot;fa9ea650fc7b31a89f92&quot;,
+      &quot;auto_reorder&quot;: false,
+      &quot;available_quantity&quot;: 10000,
+      &quot;back_original_url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_raw.pdf?version=v1&amp;expires=1636910992&amp;signature=-bZo31FMAp2vmNaZKyXn_Qa4APqwtNinw76FrQ7uyQejFZw6VBQQYfoiQ642iXh0H2K5i2aOo8_BAkt3UJdVDw&quot;,
+      &quot;countries&quot;: null,
+      &quot;date_created&quot;: &quot;2017-08-05T15:54:53.346Z&quot;,
+      &quot;date_modified&quot;: &quot;2017-08-05T15:54:53.346Z&quot;,
+      &quot;description&quot;: null,
+      &quot;front_original_url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_raw.pdf?version=v1&amp;expires=1636910992&amp;signature=-bZo31FMAp2vmNaZKyXn_Qa4APqwtNinw76FrQ7uyQejFZw6VBQQYfoiQ642iXh0H2K5i2aOo8_BAkt3UJdVDw&quot;,
+      &quot;id&quot;: &quot;card_c51ae96f5cebf3e&quot;,
+      &quot;mode&quot;: &quot;test&quot;,
+      &quot;object&quot;: &quot;card&quot;,
+      &quot;orientation&quot;: &quot;horizontal&quot;,
+      &quot;pending_quantity&quot;: 0,
+      &quot;raw_url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_raw.pdf?version=v1&amp;expires=1636910992&amp;signature=-bZo31FMAp2vmNaZKyXn_Qa4APqwtNinw76FrQ7uyQejFZw6VBQQYfoiQ642iXh0H2K5i2aOo8_BAkt3UJdVDw&quot;,
+      &quot;reorder_quantity&quot;: null,
+      &quot;size&quot;: &quot;2.125x3.375&quot;,
+      &quot;status&quot;: &quot;rendered&quot;,
+      &quot;threshold_amount&quot;: 0,
+      &quot;thumbnails&quot;: [
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_large_1.png?version=v1&amp;expires=1636910992&amp;signature=FKSzymA13j-CQ0uk20cGHZTzT3vimzNBYrgp-xifLFg4mMdo1BZALR5O0aF_jVhsX614hKP35ONdYl47TQxXAw&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_medium_1.png?version=v1&amp;expires=1636910992&amp;signature=VgL_2Ckm_kxKiWGgWtdNoy9HHOn8dGYSVOn7UqyCbwdbVlUtx28TRN4Bo8Iru3n0keKp9He0YhKT1ILotznMDA&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_small_1.png?version=v1&amp;expires=1636910992&amp;signature=mrv8JDvpZK4I8WUGH0tPdtK-My5oes0Ltj_gL7BDw96SpCTTeZFHkz81SzclyFP9dQRtlsvAsjcuGcTBvCvOCg&quot;
+        },
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_large_2.png?version=v1&amp;expires=1636910992&amp;signature=r0OFUhh315ZwN0raMZdIwJd2oCIEYsz0BABaMxIuO1PKTD0ckGWrhcGdzk2dlWQ6vSvp0CUQ5k1RXGqkIIqkDw&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_medium_2.png?version=v1&amp;expires=1636910992&amp;signature=zxK7VKGiTvz5Ywrkaydd0v3GcYf58R7A08J4tNfI7-aiNODDcTF3l0MqY13n9Pyc8RXSdD0XVBY-OpbA1VM-Ag&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e_thumb_small_2.png?version=v1&amp;expires=1636910992&amp;signature=IWsmPa_ULlv2yyqjX564d_YfHHY_M7i9YxDnw-WXDr2jtOFcArmRZQbnHeE9g_rYxnddJbgosuv8-c2utiu7Cg&quot;
+        }
+      ],
+      &quot;url&quot;: &quot;https://lob-assets.com/cards/card_c51ae96f5cebf3e.pdf?version=v1&amp;expires=1636910992&amp;signature=mnsDH2DAxdkN9VibdlLMxJC86sME5WYDqkNtmvGwdNsAaUWfbnv0rJhJ1mR8Ol4uxQq61j5wYZ0r3s-lBkQfDA&quot;
+    }
+  ],
+  &quot;carrier&quot;: &quot;USPS&quot;,
+  &quot;color&quot;: true,
+  &quot;custom_envelope&quot;: null,
+  &quot;date_created&quot;: &quot;2017-09-05T15:54:53.346Z&quot;,
+  &quot;date_modified&quot;: &quot;2017-09-05T15:54:53.346Z&quot;,
+  &quot;description&quot;: &quot;Demo Letter&quot;,
+  &quot;double_sided&quot;: true,
+  &quot;expected_delivery_date&quot;: &quot;2017-09-12&quot;,
+  &quot;extra_service&quot;: null,
+  &quot;from&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_b8fb5acf3a2b55db&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;LEORE AVIDAR&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;fsc&quot;: false,
+  &quot;id&quot;: &quot;ltr_4868c3b754655f90&quot;,
+  &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {},
+  &quot;object&quot;: &quot;letter&quot;,
+  &quot;perforated_page&quot;: null,
+  &quot;return_envelope&quot;: false,
+  &quot;send_date&quot;: &quot;2017-09-05T15:54:53.346Z&quot;,
+  &quot;sla&quot;: &quot;2&quot;,
+  &quot;thumbnails&quot;: [
+    {
+      &quot;large&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90_thumb_large_1.png?expires=1540372221&amp;signature=gsKvxXgrm4v4iZD3bOibK7jApNkEMdW&quot;,
+      &quot;medium&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90_thumb_medium_1.png?expires=1540372221&amp;signature=bAzL8sv935PY09FWSkpDpWKkyvGSWYF&quot;,
+      &quot;small&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90_thumb_small_1.png?expires=1540372221&amp;signature=a5fRBJ22ZA78Vgpg34M9UfmHWTS3eha&quot;
+    }
+  ],
+  &quot;to&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T15:54:53.264Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_d3489cd64c791ab5&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;HARRY ZHANG&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;tracking_events&quot;: [],
+  &quot;tracking_number&quot;: null,
+  &quot;url&quot;: &quot;https://lob-assets.com/letters/ltr_4868c3b754655f90.pdf?expires=1540372221&amp;signature=8r94fse8uam7wGWmW5baxXulU88X2CA&quot;,
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>x-ref</code></p>
+<h5 id="default-error-2">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+<h2 id="remove">remove</h2>
+<h3 id="delete-lettersltr_id" class="operation" data-method="delete"><code>DELETE</code> /letters/{ltr_id}</h3>
+<p>Operation ID: <code>letter_cancel</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>ltr_id</code> | <code>path</code> | <code>string</code> | Yes | id of the letter |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-deleted" class="status" data-status="2xx">200: Deleted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deleted</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Only returned if the resource has been successfully deleted.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier prefixed with <code>ltr_</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;deleted&quot;: true,
+  &quot;id&quot;: &quot;ltr_123456789&quot;
+}
+</code></pre>
+<h5 id="default-error-3">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

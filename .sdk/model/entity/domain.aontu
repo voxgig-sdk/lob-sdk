@@ -1,0 +1,286 @@
+# Entity: domain
+
+main: kit: entity: domain: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    created_at: {
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "The date and time the domain was created."
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "List of domains."
+      t: "`$ARRAY`"
+    }
+    domain: {
+      h: "Domain"
+      n: "domain"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "The registered domain/hostname."
+      t: "`$STRING`"
+    }
+    error_redirect_link: {
+      h: "Error Redirect Link"
+      n: "error_redirect_link"
+      r: false
+      sh: "URL to redirect customers if a short link is broken or inactive."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for a domain."
+      t: "`$STRING`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "The configuration status of the domain."
+      t: "`$STRING`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    updated_at: {
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      sh: "The date and time the domain was last updated."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "domain"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /domains"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/domains"
+          s: [
+            {
+              lit: "domains"
+            }
+          ]
+          t: {
+            req: {
+              domain: "`reqdata`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/domains"
+          q: {
+            exist: [
+              "before/after"
+              "limit"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /domains/{domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/domains/{domain_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              domain_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "domains"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /domains/{domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/domains/{domain_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              domain_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "domains"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "zip": {
+      "ZIP00": {
+        "zip_code": "sa",
+        "id": "ZIP00"
+      },
+      "ZIP01": {
+        "zip_code": "s14",
+        "id": "ZIP01"
+      },
+      "ZIP02": {
+        "zip_code": "s1e",
+        "id": "ZIP02"
+      }
+    }
+  },
+  "new": {
+    "zip": {
+      "zip_ref01": {
+        "zip_code": "s28"
+      }
+    }
+  },
+  "requests": {
+    "POST /us_zip_lookups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

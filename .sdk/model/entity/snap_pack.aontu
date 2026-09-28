@@ -1,0 +1,546 @@
+# Entity: snap_pack
+
+main: kit: entity: snap_pack: {
+
+  alias: field: {}
+
+  fields: {
+    campaign_id: {
+      h: "Campaign Id"
+      n: "campaign_id"
+      r: false
+      sh: "Denotes resources created by the provided campaign id, prefixed with `cmp_`."
+      t: "`$STRING`"
+    }
+    carrier: {
+      h: "Carrier"
+      n: "carrier"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    color: {
+      h: "Color"
+      n: "color"
+      r: false
+      sh: "Set this key to `true` if you would like to print in color."
+      t: "`$BOOLEAN`"
+    }
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "list of snap_packs"
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 5
+        depth: 9
+      }
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      r: false
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      r: false
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    expected_delivery_date: {
+      fo: "date"
+      h: "Expected Delivery Date"
+      n: "expected_delivery_date"
+      r: false
+      sh: "A date in YYYY-MM-DD format of the mailpiece's expected delivery date based on its `send_date`."
+      t: "`$STRING`"
+    }
+    failure_reason: {
+      h: "Failure Reason"
+      n: "failure_reason"
+      r: false
+      t: "`$OBJECT`"
+    }
+    from: {
+      h: "From"
+      n: "from"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    fsc: {
+      h: "Fsc"
+      n: "fsc"
+      r: false
+      sh: "Contact support@lob.com or your account contact to learn more."
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Unique identifier prefixed with `ord_`."
+      t: "`$STRING`"
+    }
+    inside_template_id: {
+      h: "Inside Template Id"
+      n: "inside_template_id"
+      r: false
+      sh: "The unique ID of the HTML template used for the inside of the snap pack."
+      t: "`$STRING`"
+    }
+    inside_template_version_id: {
+      h: "Inside Template Version Id"
+      n: "inside_template_version_id"
+      r: false
+      sh: "The unique ID of the specific version of the HTML template used for the inside of the snap pack."
+      t: "`$STRING`"
+    }
+    mail_type: {
+      h: "Mail Type"
+      n: "mail_type"
+      r: false
+      t: "`$STRING`"
+    }
+    merge_variables: {
+      h: "Merge Variables"
+      n: "merge_variables"
+      r: false
+      t: "`$OBJECT`"
+    }
+    next_url: {
+      h: "Next Url"
+      n: "next_url"
+      r: false
+      sh: "Url of next page of items in list."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    outside_template_id: {
+      h: "Outside Template Id"
+      n: "outside_template_id"
+      r: false
+      sh: "The unique ID of the HTML template used for the outside of the snap pack."
+      t: "`$STRING`"
+    }
+    outside_template_version_id: {
+      h: "Outside Template Version Id"
+      n: "outside_template_version_id"
+      r: false
+      sh: "The unique ID of the specific version of the HTML template used for the outside of the snap pack."
+      t: "`$STRING`"
+    }
+    previous_url: {
+      h: "Previous Url"
+      n: "previous_url"
+      r: false
+      sh: "Url of previous page of items in list."
+      t: "`$STRING`"
+    }
+    send_date: {
+      h: "Send Date"
+      n: "send_date"
+      r: false
+      t: "`$STRING`"
+    }
+    size: {
+      h: "Size"
+      n: "size"
+      r: false
+      t: "`$STRING`"
+    }
+    sla: {
+      h: "Sla"
+      n: "sla"
+      r: false
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "A string describing the PDF render status: * `processed` - the rendering process is currently in progress."
+      t: "`$STRING`"
+    }
+    thumbnails: {
+      h: "Thumbnails"
+      n: "thumbnails"
+      r: false
+      t: "`$ARRAY`"
+    }
+    to: {
+      h: "To"
+      n: "to"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 3
+        depth: 4
+      }
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+    tracking_events: {
+      h: "Tracking Events"
+      n: "tracking_events"
+      r: false
+      sh: "An array of tracking events ordered by ascending `time`."
+      t: "`$ARRAY`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "A [signed link](#section/Asset-URLs) served over HTTPS."
+      t: "`$STRING`"
+    }
+    use_type: {
+      h: "Use Type"
+      n: "use_type"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The use type for each mailpiece."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "snap_pack"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /snap_packs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
+                k: "header"
+                n: "idempotency_key"
+                or: "idempotency_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
+                k: "query"
+                n: "idempotency_key"
+                or: "idempotency_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/snap_packs"
+          q: {
+            exist: [
+              "idempotency_key"
+            ]
+          }
+          s: [
+            {
+              lit: "snap_packs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /snap_packs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "before/after"
+                or: "before/after"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "usps_first_class"
+                k: "query"
+                n: "mail_type"
+                or: "mail_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metadata"
+                or: "metadata"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "send_date"
+                or: "send_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/snap_packs"
+          q: {
+            exist: [
+              "before/after"
+              "campaign_id"
+              "date_created"
+              "include"
+              "limit"
+              "mail_type"
+              "metadata"
+              "send_date"
+              "sort_by"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "snap_packs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /snap_packs/{snap_pack_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "snap_pack_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/snap_packs/{snap_pack_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              snap_pack_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "snap_packs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /snap_packs/{snap_pack_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "snap_pack_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/snap_packs/{snap_pack_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              snap_pack_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "snap_packs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

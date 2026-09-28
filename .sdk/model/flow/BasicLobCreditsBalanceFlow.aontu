@@ -1,0 +1,28 @@
+# BasicLobCreditsBalanceFlow
+
+main: kit: flow: BasicLobCreditsBalanceFlow:
+{
+  entity: "lob_credits_balance",
+  kind: "basic",
+  name: "BasicLobCreditsBalanceFlow",
+  step: [
+    {
+      i: {
+        ref: "lob_credits_balance_ref01",
+        srcdatavar: "lob_credits_balance_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-lob_credits_balance_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLobCreditsBalanceFlow"
+}

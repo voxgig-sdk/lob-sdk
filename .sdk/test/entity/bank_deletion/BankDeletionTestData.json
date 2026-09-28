@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "bank_deletion": {
+      "BANK_DELETION00": {
+        "bank_id": "BANK01",
+        "id": "BANK_DELETION00"
+      },
+      "BANK_DELETION01": {
+        "bank_id": "BANK01",
+        "id": "BANK_DELETION01"
+      },
+      "BANK_DELETION02": {
+        "bank_id": "BANK01",
+        "id": "BANK_DELETION02"
+      }
+    }
+  },
+  "new": {
+    "bank_deletion": {
+      "bank_deletion_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /bank_accounts/{bank_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

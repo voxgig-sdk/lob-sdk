@@ -1,0 +1,61 @@
+# Entity: bank_deletion
+
+main: kit: entity: bank_deletion: {
+
+  alias: field: {}
+
+  name: "bank_deletion"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /bank_accounts/{bank_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "bank_id"
+                or: "bank_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/bank_accounts/{bank_id}"
+          q: {
+            exist: [
+              "bank_id"
+            ]
+          }
+          s: [
+            {
+              lit: "bank_accounts"
+            }
+            {
+              var: "bank_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.id`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.bank_account")]
+  ]
+
+}

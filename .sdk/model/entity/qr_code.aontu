@@ -1,0 +1,132 @@
+# Entity: qr_code
+
+main: kit: entity: qr_code: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      sh: "number of resources in a set"
+      t: "`$INTEGER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "List of QR code analytics"
+      t: "`$ARRAY`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Value is resource type."
+      t: "`$STRING`"
+    }
+    scanned_count: {
+      h: "Scanned Count"
+      n: "scanned_count"
+      r: false
+      sh: "Indicates the number of QR Codes out of `count` that were scanned atleast once."
+      t: "`$INTEGER`"
+    }
+    total_count: {
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      sh: "Indicates the total number of records."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "qr_code"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /qr_code_analytics"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "date_created"
+                or: "date_created"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "resource_id"
+                or: "resource_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "scanned"
+                or: "scanned"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/qr_code_analytics"
+          q: {
+            exist: [
+              "date_created"
+              "include"
+              "limit"
+              "offset"
+              "resource_id"
+              "scanned"
+            ]
+          }
+          s: [
+            {
+              lit: "qr_code_analytics"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

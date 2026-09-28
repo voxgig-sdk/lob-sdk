@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SelfMailer | Lob</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Lob<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/lob-sdk">voxgig-sdk/lob-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Lob</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/address.html">Address</a>
+<a href="../api/bank_account.html">BankAccount</a>
+<a href="../api/bank_deletion.html">BankDeletion</a>
+<a href="../api/billing_group.html">BillingGroup</a>
+<a href="../api/booklet.html">Booklet</a>
+<a href="../api/buckslip.html">Buckslip</a>
+<a href="../api/buckslip_order.html">BuckslipOrder</a>
+<a href="../api/campaign.html">Campaign</a>
+<a href="../api/card.html">Card</a>
+<a href="../api/card_order.html">CardOrder</a>
+<a href="../api/check.html">Check</a>
+<a href="../api/creative.html">Creative</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/identity_validation.html">IdentityValidation</a>
+<a href="../api/intl_verification.html">IntlVerification</a>
+<a href="../api/letter.html">Letter</a>
+<a href="../api/link.html">Link</a>
+<a href="../api/lob_credits_balance.html">LobCreditsBalance</a>
+<a href="../api/postcard.html">Postcard</a>
+<a href="../api/qr_code.html">QrCode</a>
+<a href="../api/resource_proof.html">ResourceProof</a>
+<a href="../api/response.html">Response</a>
+<a href="../api/reverse_geocode.html">ReverseGeocode</a>
+<a aria-current="page" href="../api/self_mailer.html">SelfMailer</a><div class="nav-sections"><a class="nav-section" href="#post-self_mailers">POST /self_mailers</a>
+<a class="nav-section" href="#get-self_mailers">GET /self_mailers</a>
+<a class="nav-section" href="#get-self_mailerssfm_id">GET /self_mailers/{sfm_id}</a>
+<a class="nav-section" href="#delete-self_mailerssfm_id">DELETE /self_mailers/{sfm_id}</a></div>
+<a href="../api/snap_pack.html">SnapPack</a>
+<a href="../api/template.html">Template</a>
+<a href="../api/template_version.html">TemplateVersion</a>
+<a href="../api/template_version_deletion.html">TemplateVersionDeletion</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/upload_create_export.html">UploadCreateExport</a>
+<a href="../api/us_autocompletion.html">UsAutocompletion</a>
+<a href="../api/us_verification.html">UsVerification</a>
+<a href="../api/zip.html">Zip</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="selfmailer">SelfMailer</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-self_mailers"><code>/self_mailers</code></a></td>
+<td><code>create</code></td>
+<td>Returns a <code>self_mailer</code> object</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-self_mailers"><code>/self_mailers</code></a></td>
+<td><code>list</code></td>
+<td>A dictionary with a data property that contains an array of up to <code>limit</code> <code>self_mailers</code>. Each entry in the array is a separate <code>self_mailer</code>. The previous and next page of <code>self_mailers</code> can be retrieved by calling the endpoint contained in the <code>previous_url</code> and <code>next_url</code> fields in the API response respectively. If no more <code>self_mailers</code> are available beyond the current set of returned results, the <code>next_url</code> field will be empty</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-self_mailerssfm_id"><code>/self_mailers/{sfm_id}</code></a></td>
+<td><code>load</code></td>
+<td>Returns a <code>self_mailer</code> object</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-self_mailerssfm_id"><code>/self_mailers/{sfm_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">self_mailers, err := client.SelfMailer(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(self_mailers)
+self_mailer, err := client.SelfMailer(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(self_mailer)
+created, err := client.SelfMailer(nil).Create(map[string]any{&quot;carrier&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;to&quot;: &quot;example&quot;, &quot;url&quot;: &quot;example&quot;, &quot;use_type&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+removed, err := client.SelfMailer(nil).Remove(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local self_mailers, err = client:SelfMailer():list()
+local self_mailer, err = client:SelfMailer():load({ id = &quot;example_id&quot; })
+local created, err = client:SelfMailer():create({ carrier = &quot;example&quot;, id = &quot;example&quot;, to = &quot;example&quot;, url = &quot;example&quot;, use_type = &quot;example&quot; })
+local removed, err = client:SelfMailer():remove({ id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$self_mailers = $client-&gt;SelfMailer()-&gt;list();
+$self_mailer = $client-&gt;SelfMailer()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;SelfMailer()-&gt;create([&quot;carrier&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;to&quot; =&gt; &quot;example&quot;, &quot;url&quot; =&gt; &quot;example&quot;, &quot;use_type&quot; =&gt; &quot;example&quot;]);
+$client-&gt;SelfMailer()-&gt;remove([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">self_mailers = client.SelfMailer().list()
+self_mailer = client.SelfMailer().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.SelfMailer().create({ &quot;carrier&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;to&quot;: &quot;example&quot;, &quot;url&quot;: &quot;example&quot;, &quot;use_type&quot;: &quot;example&quot; })
+client.SelfMailer().remove({&quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">self_mailers = client.SelfMailer.list()
+self_mailer = client.SelfMailer.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.SelfMailer.create({ &quot;carrier&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;to&quot; =&gt; &quot;example&quot;, &quot;url&quot; =&gt; &quot;example&quot;, &quot;use_type&quot; =&gt; &quot;example&quot; })
+client.SelfMailer.remove({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const self_mailers = await client.SelfMailer().list()
+const self_mailer = await client.SelfMailer().load({ id: &quot;example_id&quot; })
+const created = await client.SelfMailer().create({ carrier: &quot;example&quot;, id: &quot;example&quot;, to: &quot;example&quot;, url: &quot;example&quot;, use_type: &quot;example&quot; })
+await client.SelfMailer().remove({ id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>campaign_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Denotes resources created by the provided campaign id, prefixed with <code>cmp_</code>.</td>
+</tr>
+<tr>
+<td><code>carrier</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Carrier</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>number of resources in a set</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>list of <code>self_mailers</code></td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A timestamp in ISO 8601 format of the date the resource was created.</td>
+</tr>
+<tr>
+<td><code>date_modified</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A timestamp in ISO 8601 format of the date the resource was last modified.</td>
+</tr>
+<tr>
+<td><code>deleted</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Only returned if the resource has been successfully deleted.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>expected_delivery_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A date in YYYY-MM-DD format of the mailpiece's expected delivery date based on its <code>send_date</code>.</td>
+</tr>
+<tr>
+<td><code>failure_reason</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Failure Reason</td>
+</tr>
+<tr>
+<td><code>from</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>From</td>
+</tr>
+<tr>
+<td><code>fsc</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is in beta.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier prefixed with <code>sfm_</code>.</td>
+</tr>
+<tr>
+<td><code>inside_template_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique ID of the HTML template used for the inside of the self mailer.</td>
+</tr>
+<tr>
+<td><code>inside_template_version_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique ID of the specific version of the HTML template used for the inside of the self mailer.</td>
+</tr>
+<tr>
+<td><code>mail_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Mail Type</td>
+</tr>
+<tr>
+<td><code>merge_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Merge Variables</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Metadata</td>
+</tr>
+<tr>
+<td><code>next_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Url of next page of items in list.</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Value is resource type.</td>
+</tr>
+<tr>
+<td><code>outside_template_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique ID of the HTML template used for the outside of the self mailer.</td>
+</tr>
+<tr>
+<td><code>outside_template_version_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique ID of the specific version of the HTML template used for the outside of the self mailer.</td>
+</tr>
+<tr>
+<td><code>previous_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Url of previous page of items in list.</td>
+</tr>
+<tr>
+<td><code>send_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Send Date</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Size</td>
+</tr>
+<tr>
+<td><code>sla</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Sla</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string describing the PDF render status: * <code>processed</code> - the rendering process is currently in progress.</td>
+</tr>
+<tr>
+<td><code>thumbnails</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Thumbnails</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td>To</td>
+</tr>
+<tr>
+<td><code>total_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Indicates the total number of records.</td>
+</tr>
+<tr>
+<td><code>tracking_events</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>An array of certified tracking events ordered by ascending <code>time</code>.</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A <a href="#section/Asset-URLs">signed link</a> served over HTTPS.</td>
+</tr>
+<tr>
+<td><code>use_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The use type for each mailpiece.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-self_mailers" class="operation" data-method="post"><code>POST</code> /self_mailers</h3>
+<p>Operation ID: <code>self_mailer_create</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>Idempotency-Key</code> | <code>header</code> | <code>string</code> | No | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our &lt;a href=&quot;https://help.lob.com/print-and-mail/building-a-mail-strategy/managing-mail-settings#idempotent-requests-12&quot; target=&quot;_blank&quot;&gt;implementation guide&lt;/a&gt;. |
+| <code>idempotency_key</code> | <code>query</code> | <code>string</code> | No | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our &lt;a href=&quot;https://help.lob.com/print-and-mail/building-a-mail-strategy/managing-mail-settings#idempotent-requests-12&quot; target=&quot;_blank&quot;&gt;implementation guide&lt;/a&gt;. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and object and object and object and object</code>.</p>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;description&quot;: &quot;Demo Self Mailer job&quot;,
+  &quot;from&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+  &quot;fsc&quot;: true,
+  &quot;inside&quot;: &quot;https://lob.com/selfmailerinside.pdf&quot;,
+  &quot;mail_type&quot;: &quot;usps_standard&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;spiffy&quot;: &quot;true&quot;
+  },
+  &quot;outside&quot;: &quot;https://lob.com/selfmaileroutside.pdf&quot;,
+  &quot;print_speed&quot;: &quot;core&quot;,
+  &quot;qr_code&quot;: {
+    &quot;pages&quot;: &quot;inside,outside&quot;,
+    &quot;position&quot;: &quot;relative&quot;,
+    &quot;redirect_url&quot;: &quot;https://www.lob.com&quot;,
+    &quot;right&quot;: &quot;2.5&quot;,
+    &quot;top&quot;: &quot;2.5&quot;,
+    &quot;width&quot;: &quot;2.5&quot;
+  },
+  &quot;send_date&quot;: &quot;2017-11-01T00:00:00.000Z&quot;,
+  &quot;size&quot;: &quot;12x9_bifold&quot;,
+  &quot;to&quot;: &quot;adr_bae820679f3f536b&quot;,
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>application/x-www-form-urlencoded</code></p>
+<p>The request body is <code>object and object and object and object and object</code>.</p>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;description&quot;: &quot;Demo Self Mailer job&quot;,
+  &quot;from&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+  &quot;fsc&quot;: true,
+  &quot;inside&quot;: &quot;https://lob.com/selfmailerinside.pdf&quot;,
+  &quot;mail_type&quot;: &quot;usps_standard&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;spiffy&quot;: &quot;true&quot;
+  },
+  &quot;outside&quot;: &quot;https://lob.com/selfmaileroutside.pdf&quot;,
+  &quot;print_speed&quot;: &quot;core&quot;,
+  &quot;qr_code&quot;: {
+    &quot;pages&quot;: &quot;inside,outside&quot;,
+    &quot;position&quot;: &quot;relative&quot;,
+    &quot;redirect_url&quot;: &quot;https://www.lob.com&quot;,
+    &quot;right&quot;: &quot;2.5&quot;,
+    &quot;top&quot;: &quot;2.5&quot;,
+    &quot;width&quot;: &quot;2.5&quot;
+  },
+  &quot;send_date&quot;: &quot;2017-11-01T00:00:00.000Z&quot;,
+  &quot;size&quot;: &quot;12x9_bifold&quot;,
+  &quot;to&quot;: &quot;adr_bae820679f3f536b&quot;,
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>multipart/form-data</code></p>
+<p>The request body is <code>object and object and object and object and object</code>.</p>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;description&quot;: &quot;Demo Self Mailer job&quot;,
+  &quot;from&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+  &quot;fsc&quot;: true,
+  &quot;inside&quot;: &quot;https://lob.com/selfmailerinside.pdf&quot;,
+  &quot;mail_type&quot;: &quot;usps_standard&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: &quot;Harry&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;spiffy&quot;: &quot;true&quot;
+  },
+  &quot;outside&quot;: &quot;https://lob.com/selfmaileroutside.pdf&quot;,
+  &quot;print_speed&quot;: &quot;core&quot;,
+  &quot;qr_code&quot;: {
+    &quot;pages&quot;: &quot;inside,outside&quot;,
+    &quot;position&quot;: &quot;relative&quot;,
+    &quot;redirect_url&quot;: &quot;https://www.lob.com&quot;,
+    &quot;right&quot;: &quot;2.5&quot;,
+    &quot;top&quot;: &quot;2.5&quot;,
+    &quot;width&quot;: &quot;2.5&quot;
+  },
+  &quot;send_date&quot;: &quot;2017-11-01T00:00:00.000Z&quot;,
+  &quot;size&quot;: &quot;12x9_bifold&quot;,
+  &quot;to&quot;: &quot;adr_bae820679f3f536b&quot;,
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-a-self_mailer-object" class="status" data-status="2xx">200: Returns a self_mailer object</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object and object</code>.</p>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;carrier&quot;: &quot;USPS&quot;,
+  &quot;date_created&quot;: &quot;2021-03-16T18:40:40.504Z&quot;,
+  &quot;date_modified&quot;: &quot;2021-03-16T18:40:40.504Z&quot;,
+  &quot;description&quot;: &quot;April Campaign&quot;,
+  &quot;expected_delivery_date&quot;: &quot;2021-03-24&quot;,
+  &quot;from&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;LEORE AVIDAR&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;fsc&quot;: false,
+  &quot;id&quot;: &quot;sfm_8ffbe811dea49dcf&quot;,
+  &quot;inside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+  &quot;inside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+  &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: null
+  },
+  &quot;metadata&quot;: {},
+  &quot;object&quot;: &quot;self_mailer&quot;,
+  &quot;outside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+  &quot;outside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+  &quot;send_date&quot;: &quot;2021-03-16T18:45:40.493Z&quot;,
+  &quot;size&quot;: &quot;6x18_bifold&quot;,
+  &quot;sla&quot;: &quot;2&quot;,
+  &quot;thumbnails&quot;: [
+    {
+      &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_1.png?version=v1&amp;expires=1618512040&amp;signature=kBrm00xkyCkJNJRHxH8HshFaebtOxnzjVWOs1VVmGMuw8H6OBNcMAMxt9s49K0jlpHoh3Nr9uSncEZMQaaNjAg&quot;,
+      &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_1.png?version=v1&amp;expires=1618512040&amp;signature=ryxN7bsXGtw_GRFSP3Cs3A3IYjxZi3cW9BHDCNgMt6p3nobVmsc_iFHt2e-S7ndAXhhN7nP-MQVov3bt3r37BQ&quot;,
+      &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_1.png?version=v1&amp;expires=1618512040&amp;signature=-bipeUHP-hAMcCBSrWM0ZH1VwRdSPNVGGZN9hAZKr6Lh4ly6uxvratVd5LXJCK_zOEMYk_mTWASt0ge7OY6SDA&quot;
+    },
+    {
+      &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_2.png?version=v1&amp;expires=1618512040&amp;signature=cICc7HEm1xG_eyM4a_wtvPk2FqoLRmtgGa29kJisWnMIYBL0OkyzG4ZCYGMhp-5cZpJlSpXfTgGKh_Qmeo1TDw&quot;,
+      &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_2.png?version=v1&amp;expires=1618512040&amp;signature=Ue1lw5CMj7KRx6cMQL8xPeazaHCdJzWcACd1w3acuYPnWkVIpSt62OIO7hAtpAQK9xm1dhhlFj0rqRZMdRMMBA&quot;,
+      &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_2.png?version=v1&amp;expires=1618512040&amp;signature=3gTgU7Fd3KoT_vNlQnTGptRps5ZgnkhSnPrAwk7L98higIzSwfKoLvuu_DIpMM48dHbxckKT9waR8euJ4KSDBQ&quot;
+    }
+  ],
+  &quot;to&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_bae820679f3f536b&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;HARRY ZHANG&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;tracking_events&quot;: [],
+  &quot;url&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf.pdf?version=v1&amp;expires=1618512040&amp;signature=qvyCqXI1ndBvc4AjvG8FlirqLXEcfmYo4sDrRtabaXMOsX88to9G3K49uIk_aqevvZXe8HoRYD_nWydbQHqaCA&quot;,
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>x-ref</code></p>
+<h5 id="default-error">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+<h2 id="list">list</h2>
+<h3 id="get-self_mailers" class="operation" data-method="get"><code>GET</code> /self_mailers</h3>
+<p>Operation ID: <code>self_mailers_list</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>limit</code> | <code>query</code> | <code>integer</code> | No | How many results to return. |
+| <code>before/after</code> | <code>query</code> | <code>object and any or any</code> | No | <code>before</code> and <code>after</code> are both optional but only one of them can be in the query at a time. |
+| <code>include</code> | <code>query</code> | <code>array of string</code> | No | Request that the response include the total count by specifying <code>include=[&amp;quot;</code>total_count<code>&amp;quot;]</code>. |
+| <code>date_created</code> | <code>query</code> | <code>object</code> | No | Filter by date created. Accepted formats are ISO-8601 date or datetime, for example <code>&amp;#123; &amp;quot;gt&amp;quot;: &amp;quot;2012-01-01&amp;quot;, &amp;quot;lt&amp;quot;: &amp;quot;2012-01-31T12:34:56Z&amp;quot; &amp;#125;</code> where <code>gt</code> is &gt;, <code>lt</code> is &lt;, <code>gte</code> is ≥, and <code>lte</code> is ≤. |
+| <code>metadata</code> | <code>query</code> | <code>object</code> | No | Filter by metadata key-value pair<code>. | | </code>size<code>|</code>query<code>|</code>array of enum: 6x18_bifold, 11x9_bifold, 12x9_bifold, 17.75x9_trifold<code>| No | The self mailer sizes to be returned. | |</code>scheduled<code>|</code>query<code>|</code>boolean<code>| No | *</code>true<code>- only return orders (past or future) where ``send_date`` is greater than ``date_created`` *</code>false<code>- only return orders where ``send_date`` is equal to ``date_created`` | |</code>send_date<code>|</code>query<code>|</code>any or any<code>| No | Filter by ISO-8601 date or datetime, for example</code>{ &quot;gt&quot;: &quot;2012-01-01&quot;, &quot;lt&quot;: &quot;2012-01-31T12:34:56Z&quot; }<code>where</code>gt<code>is &amp;gt;,</code>lt<code>is &amp;lt;,</code>gte<code>is ≥, and</code>lte<code>is ≤. | |</code>mail_type<code>|</code>query<code>|</code>enum: usps_first_class, usps_standard<code>| No | A string designating the mail postage type: * ``usps_first_class`` - (default) * ``usps_standard`` - a &amp;lt;a href=&amp;quot;https://lob.com/pricing/print-mail#compare&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;cheaper option&amp;lt;/a&amp;gt; which is less predictable and takes longer to deliver. ``usps_standard`` cannot be used with</code>4x6<code>postcards or for any postcards sent outside of the United States. | |</code>sort_by<code>|</code>query<code>|</code>object and any or any<code>| No | Sorts items by ascending or descending dates. Use either ``date_created`` or ``send_date``, not both. | |</code>campaign_id<code>|</code>query<code>|</code>string<code>| No | Filters resources created by the provided campaign id, prefixed with</code>cmp_<code>. In the case of snap packs, booklets, and letters with size ``us_legal``, however, the campaign id is prefixed with </code>camp_<code>instead of</code>cmp_<code>. | | </code>status<code>|</code>query<code>|</code>enum: processed, rendered, failed<code>| No | A string describing the render status: *</code>processed<code>- the rendering process is currently underway. *</code>rendered<code>- the rendering process has completed successfully. *</code>failed` - the rendering process has failed. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-a-dictionary-with-a-data-property-that-contains-an-array-of-up-to-limit-self_mailers-each-entry-in-the-array-is-a-separate-self_mailer-the-previous-and-next-page-of-self_mailers-can-be-retrieved-by-calling-the-endpoint-contained-in-the-previous_url-and-next_url-fields-in-the-api-response-respectively-if-no-more-self_mailers-are-available-beyond-the-current-set-of-returned-results-the-next_url-field-will-be-empty" class="status" data-status="2xx">200: A dictionary with a data property that contains an array of up to <code>limit</code> self_mailers. Each entry in the array is a separate self_mailer. The previous and next page of self_mailers can be retrieved by calling the endpoint contained in the <code>previous_url</code> and <code>next_url</code> fields in the API response respectively. If no more self_mailers are available beyond the current set of returned results, the <code>next_url</code> field will be empty</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;count&quot;: 2,
+  &quot;data&quot;: [
+    {
+      &quot;carrier&quot;: &quot;USPS&quot;,
+      &quot;date_created&quot;: &quot;2021-03-16T18:40:40.504Z&quot;,
+      &quot;date_modified&quot;: &quot;2021-03-16T18:41:06.691Z&quot;,
+      &quot;deleted&quot;: true,
+      &quot;description&quot;: &quot;April Campaign&quot;,
+      &quot;expected_delivery_date&quot;: &quot;2021-03-24&quot;,
+      &quot;from&quot;: {
+        &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+        &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+        &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+        &quot;address_line2&quot;: null,
+        &quot;address_state&quot;: &quot;CA&quot;,
+        &quot;address_zip&quot;: &quot;94107-1741&quot;,
+        &quot;company&quot;: &quot;LOB&quot;,
+        &quot;date_created&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;date_modified&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;description&quot;: null,
+        &quot;email&quot;: null,
+        &quot;id&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: null,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: null
+      },
+      &quot;fsc&quot;: false,
+      &quot;id&quot;: &quot;sfm_7239rhwqkrfaskas&quot;,
+      &quot;inside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+      &quot;inside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+      &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+      &quot;merge_variables&quot;: {
+        &quot;name&quot;: null
+      },
+      &quot;metadata&quot;: {},
+      &quot;object&quot;: &quot;self_mailer&quot;,
+      &quot;outside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+      &quot;outside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+      &quot;send_date&quot;: &quot;2021-03-16T18:45:40.493Z&quot;,
+      &quot;size&quot;: &quot;6x18_bifold&quot;,
+      &quot;thumbnails&quot;: [
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_1.png?version=v1&amp;expires=1618781264&amp;signature=g2jifhCselPqIj8au6lsbJMNFN8ZX3aM6GkLoAXiHBCS8X5mF9nhVbmO0odpnmwNlV1CWIp-MXVsZkC3NmxqBQ&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_1.png?version=v1&amp;expires=1618781264&amp;signature=b9pynuawVpU_vrhnT_mTpksdE-FLF_ZjdIBOFR_ltIzEGlx-VKD4VvZrqP98lG2D8V7UKQ7SdRr2nUAk4LxvCg&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_1.png?version=v1&amp;expires=1618781264&amp;signature=A7q5HbRO53sUYYnwGlmP5mTS6ylLE7kS2mYhfcEOdexjyqG7UseK0MD26DppE4Q0aE4u2msDVMxd5ukjMerYCg&quot;
+        },
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_2.png?version=v1&amp;expires=1618781264&amp;signature=NieHDnoQ7STZUvofHrFt7S987CzIkUJWpaSgpVQPZw-C3_wwTPsIrvxYdXEuFrr6ciTUcxRBFPlE0lurmMkyCA&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_2.png?version=v1&amp;expires=1618781264&amp;signature=xEAX7bURyc8fSphacuo5yb7iVIpT8Xvq05KgMaNQS4r3aCpx0z1p42wbPmW758B5Ae0li1YDYvVyzS7qJIoWAw&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_2.png?version=v1&amp;expires=1618781264&amp;signature=biJY4-ZbNNRydPYg3cZkq7wxjILbPBK_nIVyoyQsg5X5q4jlsa-2fzeMa48V9jprUetsC6WEuYvasHosRfG_DQ&quot;
+        }
+      ],
+      &quot;to&quot;: {
+        &quot;address_city&quot;: &quot;SUMMERSIDE&quot;,
+        &quot;address_country&quot;: &quot;CANADA&quot;,
+        &quot;address_line1&quot;: &quot;370 WATER ST&quot;,
+        &quot;address_line2&quot;: &quot;&quot;,
+        &quot;address_state&quot;: &quot;PRINCE EDWARD ISLAND&quot;,
+        &quot;address_zip&quot;: &quot;C1N 1C4&quot;,
+        &quot;company&quot;: &quot;Lob&quot;,
+        &quot;date_created&quot;: &quot;2019-09-20T00:14:00.361Z&quot;,
+        &quot;date_modified&quot;: &quot;2019-09-20T00:14:00.361Z&quot;,
+        &quot;description&quot;: &quot;Harry - Office&quot;,
+        &quot;email&quot;: &quot;harry@lob.com&quot;,
+        &quot;id&quot;: &quot;adr_asdi2y3riuasasoi&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: &quot;Harry Zhang&quot;,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: &quot;5555555555&quot;,
+        &quot;recipient_moved&quot;: false
+      },
+      &quot;tracking_events&quot;: [],
+      &quot;url&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf.pdf?version=v1&amp;expires=1618781264&amp;signature=YP_bCwrgVA2lz1Gr1YVCJN1f-WspUGsH0aJp2ihjfLXU7lDUV12_xRv4uPch0mfWeOOxEqpyP8hGpgvjmQKNAw&quot;,
+      &quot;use_type&quot;: &quot;marketing&quot;
+    },
+    {
+      &quot;carrier&quot;: &quot;USPS&quot;,
+      &quot;date_created&quot;: &quot;2021-03-16T18:40:40.504Z&quot;,
+      &quot;date_modified&quot;: &quot;2021-03-16T18:41:06.691Z&quot;,
+      &quot;deleted&quot;: true,
+      &quot;description&quot;: &quot;April Campaign&quot;,
+      &quot;expected_delivery_date&quot;: &quot;2021-03-24&quot;,
+      &quot;from&quot;: {
+        &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+        &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+        &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+        &quot;address_line2&quot;: null,
+        &quot;address_state&quot;: &quot;CA&quot;,
+        &quot;address_zip&quot;: &quot;94107-1741&quot;,
+        &quot;company&quot;: &quot;LOB&quot;,
+        &quot;date_created&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;date_modified&quot;: &quot;2018-12-08T03:01:07.651Z&quot;,
+        &quot;description&quot;: null,
+        &quot;email&quot;: null,
+        &quot;id&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: null,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: null
+      },
+      &quot;fsc&quot;: true,
+      &quot;id&quot;: &quot;sfm_8ffbe811dea49dcf&quot;,
+      &quot;inside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+      &quot;inside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+      &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+      &quot;merge_variables&quot;: {
+        &quot;name&quot;: null
+      },
+      &quot;metadata&quot;: {},
+      &quot;object&quot;: &quot;self_mailer&quot;,
+      &quot;outside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+      &quot;outside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+      &quot;send_date&quot;: &quot;2021-03-16T18:45:40.493Z&quot;,
+      &quot;size&quot;: &quot;6x18_bifold&quot;,
+      &quot;thumbnails&quot;: [
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_1.png?version=v1&amp;expires=1618781264&amp;signature=g2jifhCselPqIj8au6lsbJMNFN8ZX3aM6GkLoAXiHBCS8X5mF9nhVbmO0odpnmwNlV1CWIp-MXVsZkC3NmxqBQ&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_1.png?version=v1&amp;expires=1618781264&amp;signature=b9pynuawVpU_vrhnT_mTpksdE-FLF_ZjdIBOFR_ltIzEGlx-VKD4VvZrqP98lG2D8V7UKQ7SdRr2nUAk4LxvCg&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_1.png?version=v1&amp;expires=1618781264&amp;signature=A7q5HbRO53sUYYnwGlmP5mTS6ylLE7kS2mYhfcEOdexjyqG7UseK0MD26DppE4Q0aE4u2msDVMxd5ukjMerYCg&quot;
+        },
+        {
+          &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_2.png?version=v1&amp;expires=1618781264&amp;signature=NieHDnoQ7STZUvofHrFt7S987CzIkUJWpaSgpVQPZw-C3_wwTPsIrvxYdXEuFrr6ciTUcxRBFPlE0lurmMkyCA&quot;,
+          &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_2.png?version=v1&amp;expires=1618781264&amp;signature=xEAX7bURyc8fSphacuo5yb7iVIpT8Xvq05KgMaNQS4r3aCpx0z1p42wbPmW758B5Ae0li1YDYvVyzS7qJIoWAw&quot;,
+          &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_2.png?version=v1&amp;expires=1618781264&amp;signature=biJY4-ZbNNRydPYg3cZkq7wxjILbPBK_nIVyoyQsg5X5q4jlsa-2fzeMa48V9jprUetsC6WEuYvasHosRfG_DQ&quot;
+        }
+      ],
+      &quot;to&quot;: {
+        &quot;address_city&quot;: &quot;CHARLOTTE&quot;,
+        &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+        &quot;address_line1&quot;: &quot;2812 PARK RD&quot;,
+        &quot;address_line2&quot;: null,
+        &quot;address_state&quot;: &quot;NC&quot;,
+        &quot;address_zip&quot;: &quot;28209-1314&quot;,
+        &quot;company&quot;: null,
+        &quot;date_created&quot;: &quot;2021-03-16T18:40:40.410Z&quot;,
+        &quot;date_modified&quot;: &quot;2021-03-16T18:40:40.410Z&quot;,
+        &quot;deleted&quot;: true,
+        &quot;description&quot;: null,
+        &quot;email&quot;: null,
+        &quot;id&quot;: &quot;adr_f9228b743884ff98&quot;,
+        &quot;metadata&quot;: {},
+        &quot;name&quot;: &quot;AYA&quot;,
+        &quot;object&quot;: &quot;address&quot;,
+        &quot;phone&quot;: null
+      },
+      &quot;tracking_events&quot;: [],
+      &quot;url&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf.pdf?version=v1&amp;expires=1618781264&amp;signature=YP_bCwrgVA2lz1Gr1YVCJN1f-WspUGsH0aJp2ihjfLXU7lDUV12_xRv4uPch0mfWeOOxEqpyP8hGpgvjmQKNAw&quot;,
+      &quot;use_type&quot;: &quot;marketing&quot;
+    }
+  ],
+  &quot;next_url&quot;: null,
+  &quot;object&quot;: &quot;list&quot;,
+  &quot;previous_url&quot;: null
+}
+</code></pre>
+<h5 id="default-error-1">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+<h2 id="load">load</h2>
+<h3 id="get-self_mailerssfm_id" class="operation" data-method="get"><code>GET</code> /self_mailers/{sfm_id}</h3>
+<p>Operation ID: <code>self_mailer_retrieve</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>sfm_id</code> | <code>path</code> | <code>string</code> | Yes | id of the <code>self_mailer</code> |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-returns-a-self_mailer-object-1" class="status" data-status="2xx">200: Returns a self_mailer object</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object and object</code>.</p>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;carrier&quot;: &quot;USPS&quot;,
+  &quot;date_created&quot;: &quot;2021-03-16T18:40:40.504Z&quot;,
+  &quot;date_modified&quot;: &quot;2021-03-16T18:40:40.504Z&quot;,
+  &quot;description&quot;: &quot;April Campaign&quot;,
+  &quot;expected_delivery_date&quot;: &quot;2021-03-24&quot;,
+  &quot;from&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_210a8d4b0b76d77b&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;LEORE AVIDAR&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;fsc&quot;: false,
+  &quot;id&quot;: &quot;sfm_8ffbe811dea49dcf&quot;,
+  &quot;inside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+  &quot;inside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+  &quot;mail_type&quot;: &quot;usps_first_class&quot;,
+  &quot;merge_variables&quot;: {
+    &quot;name&quot;: null
+  },
+  &quot;metadata&quot;: {},
+  &quot;object&quot;: &quot;self_mailer&quot;,
+  &quot;outside_template_id&quot;: &quot;tmpl_a3cb937f26d7eec&quot;,
+  &quot;outside_template_version_id&quot;: &quot;vrsn_bfdf70893b00a85&quot;,
+  &quot;send_date&quot;: &quot;2021-03-16T18:45:40.493Z&quot;,
+  &quot;size&quot;: &quot;6x18_bifold&quot;,
+  &quot;sla&quot;: &quot;2&quot;,
+  &quot;thumbnails&quot;: [
+    {
+      &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_1.png?version=v1&amp;expires=1618512040&amp;signature=kBrm00xkyCkJNJRHxH8HshFaebtOxnzjVWOs1VVmGMuw8H6OBNcMAMxt9s49K0jlpHoh3Nr9uSncEZMQaaNjAg&quot;,
+      &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_1.png?version=v1&amp;expires=1618512040&amp;signature=ryxN7bsXGtw_GRFSP3Cs3A3IYjxZi3cW9BHDCNgMt6p3nobVmsc_iFHt2e-S7ndAXhhN7nP-MQVov3bt3r37BQ&quot;,
+      &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_1.png?version=v1&amp;expires=1618512040&amp;signature=-bipeUHP-hAMcCBSrWM0ZH1VwRdSPNVGGZN9hAZKr6Lh4ly6uxvratVd5LXJCK_zOEMYk_mTWASt0ge7OY6SDA&quot;
+    },
+    {
+      &quot;large&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_large_2.png?version=v1&amp;expires=1618512040&amp;signature=cICc7HEm1xG_eyM4a_wtvPk2FqoLRmtgGa29kJisWnMIYBL0OkyzG4ZCYGMhp-5cZpJlSpXfTgGKh_Qmeo1TDw&quot;,
+      &quot;medium&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_medium_2.png?version=v1&amp;expires=1618512040&amp;signature=Ue1lw5CMj7KRx6cMQL8xPeazaHCdJzWcACd1w3acuYPnWkVIpSt62OIO7hAtpAQK9xm1dhhlFj0rqRZMdRMMBA&quot;,
+      &quot;small&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf_thumb_small_2.png?version=v1&amp;expires=1618512040&amp;signature=3gTgU7Fd3KoT_vNlQnTGptRps5ZgnkhSnPrAwk7L98higIzSwfKoLvuu_DIpMM48dHbxckKT9waR8euJ4KSDBQ&quot;
+    }
+  ],
+  &quot;to&quot;: {
+    &quot;address_city&quot;: &quot;SAN FRANCISCO&quot;,
+    &quot;address_country&quot;: &quot;UNITED STATES&quot;,
+    &quot;address_line1&quot;: &quot;210 KING ST STE 6100&quot;,
+    &quot;address_line2&quot;: null,
+    &quot;address_state&quot;: &quot;CA&quot;,
+    &quot;address_zip&quot;: &quot;94107-1741&quot;,
+    &quot;company&quot;: null,
+    &quot;date_created&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;date_modified&quot;: &quot;2017-09-05T17:47:53.767Z&quot;,
+    &quot;deleted&quot;: true,
+    &quot;description&quot;: null,
+    &quot;email&quot;: null,
+    &quot;id&quot;: &quot;adr_bae820679f3f536b&quot;,
+    &quot;metadata&quot;: {},
+    &quot;name&quot;: &quot;HARRY ZHANG&quot;,
+    &quot;object&quot;: &quot;address&quot;,
+    &quot;phone&quot;: null
+  },
+  &quot;tracking_events&quot;: [],
+  &quot;url&quot;: &quot;https://lob-assets.com/self-mailers/sfm_8ffbe811dea49dcf.pdf?version=v1&amp;expires=1618512040&amp;signature=qvyCqXI1ndBvc4AjvG8FlirqLXEcfmYo4sDrRtabaXMOsX88to9G3K49uIk_aqevvZXe8HoRYD_nWydbQHqaCA&quot;,
+  &quot;use_type&quot;: &quot;marketing&quot;
+}
+</code></pre>
+<p><code>x-ref</code></p>
+<h5 id="default-error-2">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+<h2 id="remove">remove</h2>
+<h3 id="delete-self_mailerssfm_id" class="operation" data-method="delete"><code>DELETE</code> /self_mailers/{sfm_id}</h3>
+<p>Operation ID: <code>self_mailer_delete</code>.</p>
+<p>Authentication: basic token (<code>basicAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>sfm_id</code> | <code>path</code> | <code>string</code> | Yes | id of the <code>self_mailer</code> |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-deleted" class="status" data-status="2xx">200: Deleted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deleted</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Only returned if the resource has been successfully deleted.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier prefixed with <code>sfm_</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;deleted&quot;: true,
+  &quot;id&quot;: &quot;sfm_123456789&quot;
+}
+</code></pre>
+<h5 id="default-error-3">default: Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>enum: bad_request, conflict, feature_limit_reached, internal_server_error, invalid, not_deletable, ...</code></td>
+<td>Yes</td>
+<td>A pre-defined string identifying an error. Error codes fall into three categories: <strong>GENERIC</strong> * <code>bad_request</code> - 422: an invalid request was made. See error message for details. * <code>conflict</code> - 409/422: this operation would leave data in a conflicted state. * <code>feature_limit_reached</code> - 403: the account has reached its resource limit and requires upgrading to add more. * <code>internal_server_error</code> - 500: an error has occured on Lob's servers. Please try request again. * <code>invalid</code> - 422: an invalid request was made. See error message for details. * <code>not_deletable</code> - 422: an attempt was made to delete a resource, but the resource cannot be deleted. * <code>not_found</code> - 404: the requested resource was not found. * <code>request_timeout</code> - 408: the request took too long. Please try again. * <code>service_unavailable</code> - 503: the Lob servers are temporarily unavailable. Please try agian. * <code>unrecognized_endpoint</code> - 404: the requested endpoint doesn't exist. * <code>unsupported_lob_version</code> - 422: an unsupported Lob API version was requested. <strong>ADVANCED</strong> * <code>address_length_exceeds_limit</code> - 422: the sum of to.<code>address_line1</code> and to.<code>address_line2</code> cannot surpass 50 characters. * <code>bank_account_already_verified</code> - 422: the bank account has already been verified. * <code>bank_error</code> - 422: there's an issue with the bank account. * <code>billing_address_required</code> - 403: in order to create a live mail piece, your account needs to set up a billing address. * <code>custom_envelope_inventory_depleted</code> - 422: custom envelope inventory is depleted, and more will need to be ordered. * <code>deleted_bank_account</code> - 404: checks cannot be created with a deleted bank account. * <code>failed_deliverability_strictness</code> - 422: the <code>to</code> address doesn't meet strictness requirements. See &lt;a href=&quot;https://dashboard.lob.com/#/settings/account&quot; target=&quot;_blank&quot;&gt;Account Settings&lt;/a&gt; to configure strictness. * <code>file_pages_below_min</code> - 422: not enough pages. * <code>file_pages_exceed_max</code> - 422: too many pages. * <code>file_size_exceeds_limit</code> - 422: the file size is too large. See description for details. * <code>foreign_return_address</code> - 422: the <code>from</code> address must be a US address. * <code>inconsistent_page_dimensions</code> - 422: all pages of the input file must have the same dimensions. * <code>invalid_bank_account</code> - 422: the provided bank routing number is invalid. * <code>invalid_bank_account_verification</code> - 422: verification amounts do not match. * <code>invalid_check_international</code> - 422: checks cannot be sent internationally. * <code>invalid_country_covid</code> - 422: the postal service in the specified country is currently unable to process the request due to COVID-19 restrictions. * <code>invalid_file</code> - 422: the file is invalid. * <code>invalid_file_dimensions</code> - 422: file dimensions are incorrect for the selected mail type. * <code>invalid_file_download_time</code> - 422: file download from remote server took too long. * <code>invalid_file_url</code> - 422: the file URL when creating a resource is invalid. * <code>invalid_image_dpi</code> - 422: DPI must be at least 300. * <code>invalid_international_feature</code> - 422: the specified product cannot be sent to the destination. * <code>invalid_perforation_return_envelope</code> - 422: both <code>return_envelope</code> and <code>perforation</code> must be used together. * <code>invalid_template_html</code> - 422: the provided HTML is invalid. * <code>mail_use_type_can_not_be_null</code> - 422: <code>use_type</code> must be one of &quot;marketing&quot; or &quot;operational&quot;. Alternatively, an admin can set the account default use type in Account Settings. * <code>merge_variable_required</code> - 422: a required merge variable is missing. * <code>merge_variable_whitespace</code> - 422: merge variable names cannot contain whitespace. * <code>payment_method_unverified</code> - 401: you must have a verified bank account or credit card to submit live requests. * <code>pdf_encrypted</code> - 422: an encrypted PDF was provided. * <code>special_characters_restricted</code> - 422: cannot use special characters for merge variable names. * <code>unembedded_fonts</code> - 422: the provided PDF contains non-standard unembedded fonts. See description for details. <strong>AUTHENTICATION</strong> * <code>email_required</code> - 401: account must have a verified email address before creating live resources. * <code>invalid_api_key</code> - 401/403: the API key is invalid. * <code>publishable_key_not_allowed</code> - 403: the requested operation needs a secret key, not a publishable key. See <a href="#section/API-Keys">API Keys</a> for more information. * <code>rate_limit_exceeded</code> - 429: requests were sent too quickly and must be slowed down. * <code>unauthorized</code> - 401: the request isn't authorized. * <code>unauthorized_token</code> - 401: token isn't authorized.</td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human-readable message with more details about the error</td>
+</tr>
+<tr>
+<td><code>error.status_code</code></td>
+<td><code>enum: 401, 403, 404, 413, 422, 429, ...</code></td>
+<td>Yes</td>
+<td>A conventional HTTP status code: * <code>401</code> - Authorization error with your API key or account * <code>403</code> - Forbidden error with your API key or account * <code>404</code> - The requested item does not exist * <code>413</code> - Payload too large * <code>422</code> - The query or body parameters did not pass validation * <code>429</code> - Too many requests have been sent with an API key in a given amount of time * <code>500</code> - An internal server error occurred, please contact support@lob.com</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_found&quot;,
+    &quot;message&quot;: &quot;to address not found&quot;,
+    &quot;status_code&quot;: 404
+  }
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

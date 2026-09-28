@@ -1,0 +1,22 @@
+# BasicUploadCreateExportFlow
+
+main: kit: flow: BasicUploadCreateExportFlow:
+{
+  entity: "upload_create_export",
+  kind: "basic",
+  name: "BasicUploadCreateExportFlow",
+  step: [
+    {
+      i: {
+        ref: "upload_create_export_ref01"
+      }
+
+      m: {
+        upl_id: "upl01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicUploadCreateExportFlow"
+}

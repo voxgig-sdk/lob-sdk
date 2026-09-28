@@ -1,0 +1,62 @@
+# BasicTemplateVersionFlow
+
+main: kit: flow: BasicTemplateVersionFlow:
+{
+  entity: "template_version",
+  kind: "basic",
+  name: "BasicTemplateVersionFlow",
+  step: [
+    {
+      i: {
+        ref: "template_version_ref01"
+      }
+
+      m: {
+        template_id: "template01",
+        tmpl_id: "tmpl01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        tmpl_id: "tmpl01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "template_version_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "template_version_ref01",
+        srcdatavar: "template_version_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "template_version01",
+        template_id: "template01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-template_version_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTemplateVersionFlow"
+}
