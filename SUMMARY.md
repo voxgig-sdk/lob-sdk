@@ -12,7 +12,7 @@ An entity groups related API operations. An operation can have several routes wi
 
 ## What the API provides
 
-### [Address](docs/api/address.html)
+### Address
 
 Results: Echos the writable fields of a newly created address object.; A dictionary with a data property that contains an array of up to `limit` addresses. Each entry in the array is a separate address object. The previous and next page of address entries can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more addresses are available beyond the current set of returned results, the `next_url` field will be empty.; Returns an address object if a valid identifier was provided.; Deleted.
 
@@ -26,7 +26,7 @@ Key fields to recognise:
 - `address_zip`: Must follow the ZIP format of `12345` or ZIP+4 format of `12345-1234`.
 - `company`: Either `name` or `company` is required, you may also add both. Must be no longer than 40 characters. If both `name` and `company` are provided, they will be printed on two separate lines above the rest of the address. This field can be used for any secondary recipient information which is not part of the actual mailing address (Company Name, Department, Attention Line, etc).
 
-### [BankAccount](docs/api/bank_account.html)
+### BankAccount
 
 Results: Returns a bank_account object; A dictionary with a data property that contains an array of up to `limit` bank_accounts. Each entry in the array is a separate bank_account. The previous and next page of bank_accounts can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more bank_accounts are available beyond the current set of returned results, the `next_url` field will be empty.; Returns a bank account object.
 
@@ -40,13 +40,13 @@ Key fields to recognise:
 - `city`: The city associated with your home bank account. Required for the `jpm` check template only. Please contact a bank representative if you do not know the city associated with your home bank institution.
 - `count`: number of resources in a set
 
-### [BankDeletion](docs/api/bank_deletion.html)
+### BankDeletion
 
 Results: Deleted.
 
 SDK operations: `remove`.
 
-### [BillingGroup](docs/api/billing_group.html)
+### BillingGroup
 
 Results: Returns a billing group object; Returns a list of billing_groups.; Returns a billing_group object.
 
@@ -60,7 +60,7 @@ Key fields to recognise:
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `description`: Description of the billing group.
 
-### [Booklet](docs/api/booklet.html)
+### Booklet
 
 Results: Returns a booklet object; A dictionary with a data property that contains an array of up to `limit` booklets. Each entry in the array is a separate booklet. The previous and next page of booklets can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more booklets are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted.
 
@@ -74,7 +74,7 @@ Key fields to recognise:
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `description`: An internal description that identifies this resource. Must be no longer than 255 characters.
 
-### [Buckslip](docs/api/buckslip.html)
+### Buckslip
 
 Results: Buckslip created successfully; Returns a list of buckslip objects; Returns a buckslip object; Deleted the buckslip.
 
@@ -88,7 +88,7 @@ Key fields to recognise:
 - `back_original_url`: The original URL of the back template.
 - `buckslip_orders`: An array of buckslip orders that are associated with the buckslip.
 
-### [BuckslipOrder](docs/api/buckslip_order.html)
+### BuckslipOrder
 
 Results: Buckslip order created successfully; Returns the buckslip orders associated with the given buckslip id.
 
@@ -102,7 +102,7 @@ Key fields to recognise:
 - `next_url`: Url of next page of items in list.
 - `object`: Value is resource type.
 
-### [Campaign](docs/api/campaign.html)
+### Campaign
 
 Results: Returns a campaign object; Campaign created successfully; A dictionary with a data property that contains an array of up to `limit` campaigns. Each entry in the array is a separate campaign. The previous and next page of campaigns can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more campaigns are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted the campaign.
 
@@ -116,7 +116,7 @@ Key fields to recognise:
 - `count`: number of resources in a set
 - `creatives`: An array of creatives that have been associated with this campaign.
 
-### [Card](docs/api/card.html)
+### Card
 
 Results: Returns a card object; Card created successfully; Returns a list of card objects; Deleted the card.
 
@@ -130,7 +130,7 @@ Key fields to recognise:
 - `count`: number of resources in a set
 - `data`: list of cards
 
-### [CardOrder](docs/api/card_order.html)
+### CardOrder
 
 Results: Card order created successfully; Returns the card orders associated with the given card id.
 
@@ -144,7 +144,7 @@ Key fields to recognise:
 - `next_url`: Url of next page of items in list.
 - `object`: Value is resource type.
 
-### [Check](docs/api/check.html)
+### Check
 
 Results: Returns a check object; A dictionary with a data property that contains an array of up to `limit` checks. Each entry in the array is a separate check. The previous and next page of checks can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more checks are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted.
 
@@ -158,7 +158,7 @@ Key fields to recognise:
 - `data`: list of checks
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 
-### [Creative](docs/api/creative.html)
+### Creative
 
 Results: Creative created successfully; Returns a creative object.
 
@@ -172,7 +172,7 @@ Key fields to recognise:
 - `deleted`: Only returned if the resource has been successfully deleted.
 - `description`: An internal description that identifies this resource. Must be no longer than 255 characters.
 
-### [Domain](docs/api/domain.html)
+### Domain
 
 Results: Returns a domain object with details.; Returns a list of all domains.; Returns domain related details.; Returns the deleted link object.
 
@@ -186,7 +186,7 @@ Key fields to recognise:
 - `domain`: The registered domain/hostname.
 - `error_redirect_link`: URL to redirect customers if a short link is broken or inactive.
 
-### [IdentityValidation](docs/api/identity_validation.html)
+### IdentityValidation
 
 Results: Returns the likelihood a given name is associated with an address.
 
@@ -200,7 +200,7 @@ Key fields to recognise:
 - `object`: Value is resource type.
 - `primary_line`: The primary delivery line (usually the street address) of the address. Combination of the following applicable `components`: * `primary_number` * `street_predirection` * `street_name` * `street_suffix` * `street_postdirection` * `secondary_designator` * `secondary_number` * `pmb_designator` * `pmb_number`
 
-### [IntlVerification](docs/api/intl_verification.html)
+### IntlVerification
 
 Results: Returns an international verification object.; Returns an array of international verification objects.
 
@@ -214,7 +214,7 @@ Key fields to recognise:
 - `deliverability`: Summarizes the deliverability of the `intl_verification` object. Possible values are: * `deliverable`, The address is deliverable. * `deliverable_missing_info`, The address is missing some information, but is most likely deliverable. * `undeliverable`, The address is most likely not deliverable. Some components of the address (such as city or postal code) may have been found. * `no_match`, This address is not deliverable. No matching street could be found within the city or postal code.
 - `errors`: Indicates whether any errors occurred during the verification process.
 
-### [Letter](docs/api/letter.html)
+### Letter
 
 Results: Returns a letter object; A dictionary with a data property that contains an array of up to `limit` letters. Each entry in the array is a separate letter. The previous and next page of letters can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more letters are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted.
 
@@ -228,7 +228,7 @@ Key fields to recognise:
 - `count`: number of resources in a set
 - `custom_envelope`: A nested custom envelope object containing more information about the custom envelope used or `null` if a custom envelope was not used.
 
-### [Link](docs/api/link.html)
+### Link
 
 Results: Returns a successfully created link.; Returns the deleted link object.; Returns a single link.; Returns the deleted short link object; Returns the updated link.
 
@@ -242,7 +242,7 @@ Key fields to recognise:
 - `id`: Unique identifier prefixed with `lnk_`.
 - `metadata`: Use metadata to store custom information for tagging and labeling back to your internal systems. Must be an object with up to 20 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters `&quot;` and `\`. that is &#39;&#123;&quot;customer_id&quot; : &quot;NEWYORK2015&quot;&#125;&#39; Nested objects are not supported. See [Metadata](#section/Metadata) for more information.
 
-### [LobCreditsBalance](docs/api/lob_credits_balance.html)
+### LobCreditsBalance
 
 Results: Returns a lob_credits_balance object.
 
@@ -252,7 +252,7 @@ Key fields to recognise:
 
 - `balance`: Account&#39;s current balance of Lob Credits. Can be positive, negative, or zero.
 
-### [Postcard](docs/api/postcard.html)
+### Postcard
 
 Results: Returns a postcard object; A dictionary with a data property that contains an array of up to `limit` postcards. Each entry in the array is a separate postcard. The previous and next page of postcards can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more postcards are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted.
 
@@ -266,7 +266,7 @@ Key fields to recognise:
 - `count`: number of resources in a set
 - `data`: list of postcards
 
-### [QrCode](docs/api/qr_code.html)
+### QrCode
 
 Results: Returns a list of QR Codes and their analytics.
 
@@ -280,7 +280,7 @@ Key fields to recognise:
 - `scanned_count`: Indicates the number of QR Codes out of `count` that were scanned atleast once.
 - `total_count`: Indicates the total number of records. Provided when the request specifies an &quot;include&quot; query parameter
 
-### [ResourceProof](docs/api/resource_proof.html)
+### ResourceProof
 
 Results: Returns a resource proof object; Returns an updated resource proof object.
 
@@ -294,7 +294,7 @@ Key fields to recognise:
 - `id`: Unique identifier prefixed with `res_prf_`.
 - `object`: Value is resource type.
 
-### [Response](docs/api/response.html)
+### Response
 
 Results: Creative created successfully; A dictionary with a data property that contains an array of up to `limit` Informed Delivery campaigns. Each entry in the array is a separate campaign. The previous and next page of campaigns can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more campaigns are available beyond the current set of returned results, the `next_url` field will be empty.; Returns a informed delivery campaign object; Returns an Informed Delivery campaign object.
 
@@ -308,7 +308,7 @@ Key fields to recognise:
 - `count`: number of resources in a set
 - `data`: list of Informed Delivery campaigns
 
-### [ReverseGeocode](docs/api/reverse_geocode.html)
+### ReverseGeocode
 
 Results: Returns a zip lookup object if a valid zip was provided.
 
@@ -322,7 +322,7 @@ Key fields to recognise:
 - `longitude`: A positive or negative decimal indicating the geographic longitude of the address, specifying the north-to-south position of a location. This should be used with `latitude` to pinpoint locations on a map. Will not be returned for undeliverable addresses or military addresses (state is `AA`, `AE`, or `AP`).
 - `object`: Value is resource type.
 
-### [SelfMailer](docs/api/self_mailer.html)
+### SelfMailer
 
 Results: Returns a self_mailer object; A dictionary with a data property that contains an array of up to `limit` self_mailers. Each entry in the array is a separate self_mailer. The previous and next page of self_mailers can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more self_mailers are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted.
 
@@ -336,7 +336,7 @@ Key fields to recognise:
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 
-### [SnapPack](docs/api/snap_pack.html)
+### SnapPack
 
 Results: Returns a snap_pack object; A dictionary with a data property that contains an array of up to `limit` snap_packs. Each entry in the array is a separate self_mailer. The previous and next page of snap_packs can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more snap_packs are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted.
 
@@ -350,7 +350,7 @@ Key fields to recognise:
 - `data`: list of snap_packs
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 
-### [Template](docs/api/template.html)
+### Template
 
 Results: Returns the updated template object; Returns a template object; A dictionary with a data property that contains an array of up to `limit` templates. Each entry in the array is a separate template. The previous and next page of templates can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more templates are available beyond the current set of returned results, the `next_url` field will be empty.; Deleted.
 
@@ -364,7 +364,7 @@ Key fields to recognise:
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `deleted`: Only returned if the resource has been successfully deleted.
 
-### [TemplateVersion](docs/api/template_version.html)
+### TemplateVersion
 
 Results: Returns the template version with the given template and version ids.; A dictionary with a data property that contains an array of up to `limit` template versions. Each entry in the array is a separate template version object. The previous and next page of template versions can be retrieved by calling the endpoint contained in the `previous_url` and `next_url` fields in the API response respectively. If no more template versions are available beyond the current set of returned results, the `next_url` field will be empty.
 
@@ -378,13 +378,13 @@ Key fields to recognise:
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `deleted`: Only returned if the resource has been successfully deleted.
 
-### [TemplateVersionDeletion](docs/api/template_version_deletion.html)
+### TemplateVersionDeletion
 
 Results: Deleted.
 
 SDK operations: `remove`.
 
-### [Upload](docs/api/upload.html)
+### Upload
 
 Results: Successful Response; Upload created successfully; Returns an report object; An array of matching uploads. Each entry in the array is a separate upload.; Returns an export object; Returns an upload object.
 
@@ -398,7 +398,7 @@ Key fields to recognise:
 - `dateModified`: A timestamp in ISO 8601 format of the date the upload was last modified
 - `deleted`: Returns as `true` if the resource has been successfully deleted.
 
-### [UploadCreateExport](docs/api/upload_create_export.html)
+### UploadCreateExport
 
 Results: Successful Response.
 
@@ -408,7 +408,7 @@ Key fields to recognise:
 
 - `message`: A human-readable message with more details about the error
 
-### [UsAutocompletion](docs/api/us_autocompletion.html)
+### UsAutocompletion
 
 Results: Returns a US autocompletion object.
 
@@ -422,7 +422,7 @@ Key fields to recognise:
 - `id`: Unique identifier prefixed with `us_auto_`.
 - `object`: Value is resource type.
 
-### [UsVerification](docs/api/us_verification.html)
+### UsVerification
 
 Results: Returns a list of US verification objects.; Returns a US verification object.
 
@@ -436,7 +436,7 @@ Key fields to recognise:
 - `errors`: Indicates whether any errors occurred during the verification process.
 - `id`: Unique identifier prefixed with `us_ver_`.
 
-### [Zip](docs/api/zip.html)
+### Zip
 
 Results: Returns a zip lookup object if a valid zip was provided.
 
@@ -452,111 +452,111 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
-| [Address](docs/api/address.html) | `create` | `POST /addresses` | Required |
-| [Address](docs/api/address.html) | `list` | `GET /addresses` | Required |
-| [Address](docs/api/address.html) | `load` | `GET /addresses/{adr_id}` | Required |
-| [Address](docs/api/address.html) | `remove` | `DELETE /addresses/{adr_id}` | Required |
-| [BankAccount](docs/api/bank_account.html) | `create` | `POST /bank_accounts/{bank_id}/verify` | Required |
-| [BankAccount](docs/api/bank_account.html) | `create` | `POST /bank_accounts` | Required |
-| [BankAccount](docs/api/bank_account.html) | `list` | `GET /bank_accounts` | Required |
-| [BankAccount](docs/api/bank_account.html) | `load` | `GET /bank_accounts/{bank_id}` | Required |
-| [BankDeletion](docs/api/bank_deletion.html) | `remove` | `DELETE /bank_accounts/{bank_id}` | Required |
-| [BillingGroup](docs/api/billing_group.html) | `create` | `POST /billing_groups/{bg_id}` | Required |
-| [BillingGroup](docs/api/billing_group.html) | `create` | `POST /billing_groups` | Required |
-| [BillingGroup](docs/api/billing_group.html) | `list` | `GET /billing_groups` | Required |
-| [BillingGroup](docs/api/billing_group.html) | `load` | `GET /billing_groups/{bg_id}` | Required |
-| [Booklet](docs/api/booklet.html) | `create` | `POST /booklets` | Required |
-| [Booklet](docs/api/booklet.html) | `list` | `GET /booklets` | Required |
-| [Booklet](docs/api/booklet.html) | `load` | `GET /booklets/{booklet_id}` | Required |
-| [Booklet](docs/api/booklet.html) | `remove` | `DELETE /booklets/{booklet_id}` | Required |
-| [Buckslip](docs/api/buckslip.html) | `create` | `POST /buckslips` | Required |
-| [Buckslip](docs/api/buckslip.html) | `list` | `GET /buckslips` | Required |
-| [Buckslip](docs/api/buckslip.html) | `load` | `GET /buckslips/{buckslip_id}` | Required |
-| [Buckslip](docs/api/buckslip.html) | `remove` | `DELETE /buckslips/{buckslip_id}` | Required |
-| [Buckslip](docs/api/buckslip.html) | `update` | `PATCH /buckslips/{buckslip_id}` | Required |
-| [BuckslipOrder](docs/api/buckslip_order.html) | `create` | `POST /buckslips/{buckslip_id}/orders` | Required |
-| [BuckslipOrder](docs/api/buckslip_order.html) | `list` | `GET /buckslips/{buckslip_id}/orders` | Required |
-| [Campaign](docs/api/campaign.html) | `create` | `POST /campaigns/{cmp_id}/send` | Required |
-| [Campaign](docs/api/campaign.html) | `create` | `POST /campaigns` | Required |
-| [Campaign](docs/api/campaign.html) | `list` | `GET /campaigns` | Required |
-| [Campaign](docs/api/campaign.html) | `load` | `GET /campaigns/{cmp_id}` | Required |
-| [Campaign](docs/api/campaign.html) | `remove` | `DELETE /campaigns/{cmp_id}` | Required |
-| [Campaign](docs/api/campaign.html) | `update` | `PATCH /campaigns/{cmp_id}` | Required |
-| [Card](docs/api/card.html) | `create` | `POST /cards/{card_id}` | Required |
-| [Card](docs/api/card.html) | `create` | `POST /cards` | Required |
-| [Card](docs/api/card.html) | `list` | `GET /cards` | Required |
-| [Card](docs/api/card.html) | `load` | `GET /cards/{card_id}` | Required |
-| [Card](docs/api/card.html) | `remove` | `DELETE /cards/{card_id}` | Required |
-| [CardOrder](docs/api/card_order.html) | `create` | `POST /cards/{card_id}/orders` | Required |
-| [CardOrder](docs/api/card_order.html) | `list` | `GET /cards/{card_id}/orders` | Required |
-| [Check](docs/api/check.html) | `create` | `POST /checks` | Required |
-| [Check](docs/api/check.html) | `list` | `GET /checks` | Required |
-| [Check](docs/api/check.html) | `load` | `GET /checks/{chk_id}` | Required |
-| [Check](docs/api/check.html) | `remove` | `DELETE /checks/{chk_id}` | Required |
-| [Creative](docs/api/creative.html) | `create` | `POST /creatives` | Required |
-| [Creative](docs/api/creative.html) | `load` | `GET /creatives/{crv_id}` | Required |
-| [Creative](docs/api/creative.html) | `update` | `PATCH /creatives/{crv_id}` | Required |
-| [Domain](docs/api/domain.html) | `create` | `POST /domains` | Required |
-| [Domain](docs/api/domain.html) | `list` | `GET /domains` | Required |
-| [Domain](docs/api/domain.html) | `load` | `GET /domains/{domain_id}` | Required |
-| [Domain](docs/api/domain.html) | `remove` | `DELETE /domains/{domain_id}` | Required |
-| [IdentityValidation](docs/api/identity_validation.html) | `create` | `POST /identity_validation` | Required |
-| [IntlVerification](docs/api/intl_verification.html) | `create` | `POST /intl_verifications` | Required |
-| [IntlVerification](docs/api/intl_verification.html) | `create` | `POST /bulk/intl_verifications` | Required |
-| [Letter](docs/api/letter.html) | `create` | `POST /letters` | Required |
-| [Letter](docs/api/letter.html) | `list` | `GET /letters` | Required |
-| [Letter](docs/api/letter.html) | `load` | `GET /letters/{ltr_id}` | Required |
-| [Letter](docs/api/letter.html) | `remove` | `DELETE /letters/{ltr_id}` | Required |
-| [Link](docs/api/link.html) | `create` | `POST /links` | Required |
-| [Link](docs/api/link.html) | `list` | `GET /links` | Required |
-| [Link](docs/api/link.html) | `load` | `GET /links/{link_id}` | Required |
-| [Link](docs/api/link.html) | `remove` | `DELETE /links/{link_id}` | Required |
-| [Link](docs/api/link.html) | `update` | `PATCH /links/{link_id}` | Required |
-| [LobCreditsBalance](docs/api/lob_credits_balance.html) | `load` | `GET /accounts` | Required |
-| [Postcard](docs/api/postcard.html) | `create` | `POST /postcards` | Required |
-| [Postcard](docs/api/postcard.html) | `list` | `GET /postcards` | Required |
-| [Postcard](docs/api/postcard.html) | `load` | `GET /postcards/{psc_id}` | Required |
-| [Postcard](docs/api/postcard.html) | `remove` | `DELETE /postcards/{psc_id}` | Required |
-| [QrCode](docs/api/qr_code.html) | `list` | `GET /qr_code_analytics` | Required |
-| [ResourceProof](docs/api/resource_proof.html) | `create` | `POST /resource_proofs` | Required |
-| [ResourceProof](docs/api/resource_proof.html) | `load` | `GET /resource_proofs/{res_prf_id}` | Required |
-| [ResourceProof](docs/api/resource_proof.html) | `update` | `PATCH /resource_proofs/{res_prf_id}` | Required |
-| [Response](docs/api/response.html) | `create` | `POST /informed_delivery_campaigns` | Required |
-| [Response](docs/api/response.html) | `list` | `GET /informed_delivery_campaigns` | Required |
-| [Response](docs/api/response.html) | `load` | `GET /informed_delivery_campaigns/{usps_campaign_id}` | Required |
-| [Response](docs/api/response.html) | `update` | `PATCH /informed_delivery_campaigns/{usps_campaign_id}` | Required |
-| [ReverseGeocode](docs/api/reverse_geocode.html) | `create` | `POST /us_reverse_geocode_lookups` | Required |
-| [SelfMailer](docs/api/self_mailer.html) | `create` | `POST /self_mailers` | Required |
-| [SelfMailer](docs/api/self_mailer.html) | `list` | `GET /self_mailers` | Required |
-| [SelfMailer](docs/api/self_mailer.html) | `load` | `GET /self_mailers/{sfm_id}` | Required |
-| [SelfMailer](docs/api/self_mailer.html) | `remove` | `DELETE /self_mailers/{sfm_id}` | Required |
-| [SnapPack](docs/api/snap_pack.html) | `create` | `POST /snap_packs` | Required |
-| [SnapPack](docs/api/snap_pack.html) | `list` | `GET /snap_packs` | Required |
-| [SnapPack](docs/api/snap_pack.html) | `load` | `GET /snap_packs/{snap_pack_id}` | Required |
-| [SnapPack](docs/api/snap_pack.html) | `remove` | `DELETE /snap_packs/{snap_pack_id}` | Required |
-| [Template](docs/api/template.html) | `create` | `POST /templates/{tmpl_id}` | Required |
-| [Template](docs/api/template.html) | `create` | `POST /templates` | Required |
-| [Template](docs/api/template.html) | `list` | `GET /templates` | Required |
-| [Template](docs/api/template.html) | `load` | `GET /templates/{tmpl_id}` | Required |
-| [Template](docs/api/template.html) | `remove` | `DELETE /templates/{tmpl_id}` | Required |
-| [TemplateVersion](docs/api/template_version.html) | `create` | `POST /templates/{tmpl_id}/versions/{vrsn_id}` | Required |
-| [TemplateVersion](docs/api/template_version.html) | `create` | `POST /templates/{tmpl_id}/versions` | Required |
-| [TemplateVersion](docs/api/template_version.html) | `list` | `GET /templates/{tmpl_id}/versions` | Required |
-| [TemplateVersion](docs/api/template_version.html) | `load` | `GET /templates/{tmpl_id}/versions/{vrsn_id}` | Required |
-| [TemplateVersionDeletion](docs/api/template_version_deletion.html) | `remove` | `DELETE /templates/{tmpl_id}/versions/{vrsn_id}` | Required |
-| [Upload](docs/api/upload.html) | `create` | `POST /uploads/{upl_id}/file` | Required |
-| [Upload](docs/api/upload.html) | `create` | `POST /uploads` | Required |
-| [Upload](docs/api/upload.html) | `list` | `GET /uploads/{upl_id}/report` | Required |
-| [Upload](docs/api/upload.html) | `list` | `GET /uploads` | Required |
-| [Upload](docs/api/upload.html) | `load` | `GET /uploads/{upl_id}/exports/{ex_id}` | Required |
-| [Upload](docs/api/upload.html) | `load` | `GET /uploads/{upl_id}` | Required |
-| [Upload](docs/api/upload.html) | `remove` | `DELETE /uploads/{upl_id}` | Required |
-| [Upload](docs/api/upload.html) | `update` | `PATCH /uploads/{upl_id}` | Required |
-| [UploadCreateExport](docs/api/upload_create_export.html) | `create` | `POST /uploads/{upl_id}/exports` | Required |
-| [UsAutocompletion](docs/api/us_autocompletion.html) | `create` | `POST /us_autocompletions` | Required |
-| [UsVerification](docs/api/us_verification.html) | `create` | `POST /bulk/us_verifications` | Required |
-| [UsVerification](docs/api/us_verification.html) | `create` | `POST /us_verifications` | Required |
-| [Zip](docs/api/zip.html) | `create` | `POST /us_zip_lookups` | Required |
+| Address | `create` | `POST /addresses` | Required |
+| Address | `list` | `GET /addresses` | Required |
+| Address | `load` | `GET /addresses/{adr_id}` | Required |
+| Address | `remove` | `DELETE /addresses/{adr_id}` | Required |
+| BankAccount | `create` | `POST /bank_accounts/{bank_id}/verify` | Required |
+| BankAccount | `create` | `POST /bank_accounts` | Required |
+| BankAccount | `list` | `GET /bank_accounts` | Required |
+| BankAccount | `load` | `GET /bank_accounts/{bank_id}` | Required |
+| BankDeletion | `remove` | `DELETE /bank_accounts/{bank_id}` | Required |
+| BillingGroup | `create` | `POST /billing_groups/{bg_id}` | Required |
+| BillingGroup | `create` | `POST /billing_groups` | Required |
+| BillingGroup | `list` | `GET /billing_groups` | Required |
+| BillingGroup | `load` | `GET /billing_groups/{bg_id}` | Required |
+| Booklet | `create` | `POST /booklets` | Required |
+| Booklet | `list` | `GET /booklets` | Required |
+| Booklet | `load` | `GET /booklets/{booklet_id}` | Required |
+| Booklet | `remove` | `DELETE /booklets/{booklet_id}` | Required |
+| Buckslip | `create` | `POST /buckslips` | Required |
+| Buckslip | `list` | `GET /buckslips` | Required |
+| Buckslip | `load` | `GET /buckslips/{buckslip_id}` | Required |
+| Buckslip | `remove` | `DELETE /buckslips/{buckslip_id}` | Required |
+| Buckslip | `update` | `PATCH /buckslips/{buckslip_id}` | Required |
+| BuckslipOrder | `create` | `POST /buckslips/{buckslip_id}/orders` | Required |
+| BuckslipOrder | `list` | `GET /buckslips/{buckslip_id}/orders` | Required |
+| Campaign | `create` | `POST /campaigns/{cmp_id}/send` | Required |
+| Campaign | `create` | `POST /campaigns` | Required |
+| Campaign | `list` | `GET /campaigns` | Required |
+| Campaign | `load` | `GET /campaigns/{cmp_id}` | Required |
+| Campaign | `remove` | `DELETE /campaigns/{cmp_id}` | Required |
+| Campaign | `update` | `PATCH /campaigns/{cmp_id}` | Required |
+| Card | `create` | `POST /cards/{card_id}` | Required |
+| Card | `create` | `POST /cards` | Required |
+| Card | `list` | `GET /cards` | Required |
+| Card | `load` | `GET /cards/{card_id}` | Required |
+| Card | `remove` | `DELETE /cards/{card_id}` | Required |
+| CardOrder | `create` | `POST /cards/{card_id}/orders` | Required |
+| CardOrder | `list` | `GET /cards/{card_id}/orders` | Required |
+| Check | `create` | `POST /checks` | Required |
+| Check | `list` | `GET /checks` | Required |
+| Check | `load` | `GET /checks/{chk_id}` | Required |
+| Check | `remove` | `DELETE /checks/{chk_id}` | Required |
+| Creative | `create` | `POST /creatives` | Required |
+| Creative | `load` | `GET /creatives/{crv_id}` | Required |
+| Creative | `update` | `PATCH /creatives/{crv_id}` | Required |
+| Domain | `create` | `POST /domains` | Required |
+| Domain | `list` | `GET /domains` | Required |
+| Domain | `load` | `GET /domains/{domain_id}` | Required |
+| Domain | `remove` | `DELETE /domains/{domain_id}` | Required |
+| IdentityValidation | `create` | `POST /identity_validation` | Required |
+| IntlVerification | `create` | `POST /intl_verifications` | Required |
+| IntlVerification | `create` | `POST /bulk/intl_verifications` | Required |
+| Letter | `create` | `POST /letters` | Required |
+| Letter | `list` | `GET /letters` | Required |
+| Letter | `load` | `GET /letters/{ltr_id}` | Required |
+| Letter | `remove` | `DELETE /letters/{ltr_id}` | Required |
+| Link | `create` | `POST /links` | Required |
+| Link | `list` | `GET /links` | Required |
+| Link | `load` | `GET /links/{link_id}` | Required |
+| Link | `remove` | `DELETE /links/{link_id}` | Required |
+| Link | `update` | `PATCH /links/{link_id}` | Required |
+| LobCreditsBalance | `load` | `GET /accounts` | Required |
+| Postcard | `create` | `POST /postcards` | Required |
+| Postcard | `list` | `GET /postcards` | Required |
+| Postcard | `load` | `GET /postcards/{psc_id}` | Required |
+| Postcard | `remove` | `DELETE /postcards/{psc_id}` | Required |
+| QrCode | `list` | `GET /qr_code_analytics` | Required |
+| ResourceProof | `create` | `POST /resource_proofs` | Required |
+| ResourceProof | `load` | `GET /resource_proofs/{res_prf_id}` | Required |
+| ResourceProof | `update` | `PATCH /resource_proofs/{res_prf_id}` | Required |
+| Response | `create` | `POST /informed_delivery_campaigns` | Required |
+| Response | `list` | `GET /informed_delivery_campaigns` | Required |
+| Response | `load` | `GET /informed_delivery_campaigns/{usps_campaign_id}` | Required |
+| Response | `update` | `PATCH /informed_delivery_campaigns/{usps_campaign_id}` | Required |
+| ReverseGeocode | `create` | `POST /us_reverse_geocode_lookups` | Required |
+| SelfMailer | `create` | `POST /self_mailers` | Required |
+| SelfMailer | `list` | `GET /self_mailers` | Required |
+| SelfMailer | `load` | `GET /self_mailers/{sfm_id}` | Required |
+| SelfMailer | `remove` | `DELETE /self_mailers/{sfm_id}` | Required |
+| SnapPack | `create` | `POST /snap_packs` | Required |
+| SnapPack | `list` | `GET /snap_packs` | Required |
+| SnapPack | `load` | `GET /snap_packs/{snap_pack_id}` | Required |
+| SnapPack | `remove` | `DELETE /snap_packs/{snap_pack_id}` | Required |
+| Template | `create` | `POST /templates/{tmpl_id}` | Required |
+| Template | `create` | `POST /templates` | Required |
+| Template | `list` | `GET /templates` | Required |
+| Template | `load` | `GET /templates/{tmpl_id}` | Required |
+| Template | `remove` | `DELETE /templates/{tmpl_id}` | Required |
+| TemplateVersion | `create` | `POST /templates/{tmpl_id}/versions/{vrsn_id}` | Required |
+| TemplateVersion | `create` | `POST /templates/{tmpl_id}/versions` | Required |
+| TemplateVersion | `list` | `GET /templates/{tmpl_id}/versions` | Required |
+| TemplateVersion | `load` | `GET /templates/{tmpl_id}/versions/{vrsn_id}` | Required |
+| TemplateVersionDeletion | `remove` | `DELETE /templates/{tmpl_id}/versions/{vrsn_id}` | Required |
+| Upload | `create` | `POST /uploads/{upl_id}/file` | Required |
+| Upload | `create` | `POST /uploads` | Required |
+| Upload | `list` | `GET /uploads/{upl_id}/report` | Required |
+| Upload | `list` | `GET /uploads` | Required |
+| Upload | `load` | `GET /uploads/{upl_id}/exports/{ex_id}` | Required |
+| Upload | `load` | `GET /uploads/{upl_id}` | Required |
+| Upload | `remove` | `DELETE /uploads/{upl_id}` | Required |
+| Upload | `update` | `PATCH /uploads/{upl_id}` | Required |
+| UploadCreateExport | `create` | `POST /uploads/{upl_id}/exports` | Required |
+| UsAutocompletion | `create` | `POST /us_autocompletions` | Required |
+| UsVerification | `create` | `POST /bulk/us_verifications` | Required |
+| UsVerification | `create` | `POST /us_verifications` | Required |
+| Zip | `create` | `POST /us_zip_lookups` | Required |
 
 ## Connect to the API
 
@@ -580,12 +580,12 @@ Choose the language already used by your application or service. The clients rep
 
 | Client | Repository directory | Distribution |
 | --- | --- | --- |
-| [Golang](docs/sdks/go.html) | `go/` | Build from source |
-| [Lua](docs/sdks/lua.html) | `lua/` | Build from source |
-| [PHP](docs/sdks/php.html) | `php/` | Build from source |
-| [Python](docs/sdks/py.html) | `py/` | Build from source |
-| [Ruby](docs/sdks/rb.html) | `rb/` | Build from source |
-| [TypeScript](docs/sdks/ts.html) | `ts/` | Build from source |
+| Golang | `go/` | Build from source |
+| Lua | `lua/` | Build from source |
+| PHP | `php/` | Build from source |
+| Python | `py/` | Build from source |
+| Ruby | `rb/` | Build from source |
+| TypeScript | `ts/` | Build from source |
 
 Build-from-source entries are not marked as published in the project model. Follow the build instructions in that target’s README, then consume the resulting package using your language’s local dependency mechanism. Published entries give the installation command recorded for that client.
 
@@ -593,14 +593,14 @@ Build-from-source entries are not marked as published in the project model. Foll
 
 These targets provide another way to use the API. Their available commands or tools can cover a smaller set of operations than the client libraries.
 
-### [Go CLI](docs/tools/go-cli.html)
+### Go CLI
 
 Use the command-line interface for shell-based tasks and scripts.
 
 Repository directory: `go-cli/`. Not published. Build from the go-cli directory.
 
 
-### [Go MCP server](docs/tools/go-mcp.html)
+### Go MCP server
 
 Use the MCP server to expose supported API operations to an MCP client.
 
@@ -613,21 +613,21 @@ Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
 Features supply behaviour around API calls, such as request handling, diagnostics, or local testing. Inclusion in this project does not mean a feature is enabled at runtime. Check the selected SDK’s supported features and configuration defaults, then enable the behaviour your application needs.
 
-- [`debug`](docs/features/debug.html): Request/response capture ring buffer for debugging
-- [`idempotency`](docs/features/idempotency.html): Idempotency keys for safe retries of mutating operations
-- [`metrics`](docs/features/metrics.html): Statistics capture: per-operation counters and latency
-- [`paging`](docs/features/paging.html): Pagination signals for list operations
-- [`ratelimit`](docs/features/ratelimit.html): Client-side rate limiting via a token bucket
-- [`retry`](docs/features/retry.html): Automatic retry of transient failures with exponential backoff
-- [`test`](docs/features/test.html): In-memory mock transport for testing without a live server
-- [`timeout`](docs/features/timeout.html): Per-request timeout with transport abort
+- `debug`: Request/response capture ring buffer for debugging
+- `idempotency`: Idempotency keys for safe retries of mutating operations
+- `metrics`: Statistics capture: per-operation counters and latency
+- `paging`: Pagination signals for list operations
+- `ratelimit`: Client-side rate limiting via a token bucket
+- `retry`: Automatic retry of transient failures with exponential backoff
+- `test`: In-memory mock transport for testing without a live server
+- `timeout`: Per-request timeout with transport abort
 
 Start with the default client configuration. Add request limits and diagnostics as needed, test error paths, and review retry behaviour before using operations that change data. A retry can repeat an operation unless the API provides a suitable guarantee.
 
 ## Continue with the documentation
 
-- Follow the [first-call guide](docs/guides/first-call.html) for the setup sequence.
-- Read the [authentication guide](docs/guides/authentication.html) before using protected routes.
-- Use the [API reference](docs/api/index.html) for request schemas, response formats, and status codes.
+- Follow the first-call guide for the setup sequence.
+- Read the authentication guide before using protected routes.
+- Use the API reference for request schemas, response formats, and status codes.
 - Check the chosen SDK or companion tool reference for its configuration and supported operations.
 
