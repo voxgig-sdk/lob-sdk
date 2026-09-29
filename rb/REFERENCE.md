@@ -225,11 +225,10 @@ address = client.Address
 | `address_city` | `String` | No |  |
 | `address_country` | `String` | No |  |
 | `address_line1` | `String` | No |  |
+| `address_line2` | `String` | No |  |
 | `address_state` | `String` | No |  |
 | `address_zip` | `String` | No |  |
 | `company` | `String` | No |  |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of addresses |
 | `date_created` | `String` | No |  |
 | `date_modified` | `String` | No |  |
 | `description` | `String` | No |  |
@@ -237,11 +236,8 @@ address = client.Address
 | `id` | `String` | No |  |
 | `metadata` | `Hash` | No |  |
 | `name` | `String` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
-| `object` | `String` | No | Value is resource type. |
+| `object` | `String` | No |  |
 | `phone` | `String` | No |  |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 
 ### Operations
 
@@ -323,8 +319,6 @@ bank_account = client.BankAccount
 | `bank_name` | `String` | No | The name of the bank based on the provided routing number, e.g. |
 | `check_template` | `String` | No | The check template used for printing. |
 | `city` | `String` | No | The city associated with your home bank account. |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of bank_accounts |
 | `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -333,14 +327,11 @@ bank_account = client.BankAccount
 | `id` | `String` | Yes |  |
 | `metadata` | `Hash` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `microdeposit_type` | `String` | No | The type of microdeposit verification required for this bank account. |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | Yes | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `routing_number` | `String` | Yes | Must be a <a href="https://www.frbservices.org/index.html" target="_blank">valid US routing number</a>. |
 | `signatory` | `String` | Yes | The signatory associated with your account. |
 | `signature_url` | `Object` | No |  |
 | `state` | `String` | No | The state associated with your home bank account. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `verified` | `Boolean` | No | A bank account must be verified before a check can be created. |
 | `zipcode` | `String` | No | The zipcode associated with your home bank account. |
 
@@ -353,8 +344,6 @@ bank_account = client.BankAccount
 | `bank_name` | - | - | - |
 | `check_template` | - | - | - |
 | `city` | - | - | - |
-| `count` | - | - | - |
-| `data` | - | - | - |
 | `date_created` | - | - | - |
 | `date_modified` | - | - | - |
 | `deleted` | - | - | - |
@@ -363,14 +352,11 @@ bank_account = client.BankAccount
 | `id` | - | - | - |
 | `metadata` | - | - | - |
 | `microdeposit_type` | - | - | - |
-| `next_url` | - | - | - |
 | `object` | Yes | Yes | Yes |
-| `previous_url` | - | - | - |
 | `routing_number` | - | - | - |
 | `signatory` | - | - | - |
 | `signature_url` | - | - | - |
 | `state` | - | - | - |
-| `total_count` | - | - | - |
 | `verified` | - | - | - |
 | `zipcode` | - | - | - |
 
@@ -495,17 +481,12 @@ billing_group = client.BillingGroup
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of billing_groups |
 | `date_created` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `description` | `String` | No | Description of the billing group. |
 | `id` | `String` | No | Unique identifier prefixed with `bg_`. |
 | `name` | `String` | No | Name of the billing group. |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 
 ### Operations
 
@@ -576,8 +557,6 @@ booklet = client.Booklet
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `carrier` | `String` | No |  |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of booklets |
 | `date_created` | `String` | No |  |
 | `date_modified` | `String` | No |  |
 | `description` | `String` | No | An internal description that identifies this resource. |
@@ -588,17 +567,14 @@ booklet = client.Booklet
 | `mail_type` | `String` | No | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a <a href="https://lob.com/pricing/print-mail#compare" target="_blank">cheaper option</a> which is less predictable and takes longer to delive… |
 | `merge_variables` | `Hash` | No | You can input a merge variable payload object to your template or QR code redirect URLs to render dynamic content. |
 | `metadata` | `Hash` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `String` | No | Url of next page of items in list. |
-| `object` | `String` | No | Value is resource type. |
+| `object` | `String` | No |  |
 | `pages` | `Integer` | No |  |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `send_date` | `String` | No | A timestamp in ISO 8601 format which specifies a date after the current time and up to 180 days in the future to send the letter off for production. |
 | `size` | `String` | No |  |
 | `sla` | `String` | No |  |
 | `source_material` | `String` | No |  |
 | `thumbnails` | `Array` | No |  |
 | `to` | `Hash` | No |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `tracking_events` | `Array` | No | An array of tracking events ordered by ascending `time`. |
 | `tracking_number` | `String` | No |  |
 | `url` | `String` | No |  |
@@ -685,8 +661,6 @@ buckslip = client.Buckslip
 | `available_quantity` | `Float` | Yes | The available quantity of buckslips. |
 | `back_original_url` | `String` | Yes | The original URL of the back template. |
 | `buckslip_orders` | `Array` | Yes | An array of buckslip orders that are associated with the buckslip. |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of buckslips |
 | `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -695,11 +669,9 @@ buckslip = client.Buckslip
 | `front_original_url` | `String` | Yes | The original URL of the front template. |
 | `id` | `String` | Yes | Unique identifier prefixed with `bck_`. |
 | `mode` | `String` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | Yes | Value is resource type. |
 | `onhand_quantity` | `Float` | Yes | The onhand quantity of buckslips. |
 | `pending_quantity` | `Float` | Yes | The pending quantity of buckslips. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `projected_quantity` | `Float` | Yes | The sum of pending and onhand quantities of buckslips. |
 | `raw_url` | `String` | Yes | The raw URL of the buckslip. |
 | `reorder_quantity` | `Integer` | Yes | The number of buckslips to be reordered. |
@@ -709,7 +681,6 @@ buckslip = client.Buckslip
 | `stock` | `String` | Yes |  |
 | `threshold_amount` | `Integer` | Yes | The threshold amount of the buckslip |
 | `thumbnails` | `Array` | Yes |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `url` | `String` | Yes | The signed link for the buckslip. |
 | `weight` | `String` | Yes |  |
 
@@ -723,8 +694,6 @@ buckslip = client.Buckslip
 | `available_quantity` | - | - | Yes | - | - |
 | `back_original_url` | - | - | Yes | - | - |
 | `buckslip_orders` | - | - | Yes | - | - |
-| `count` | - | - | - | - | - |
-| `data` | - | - | - | - | - |
 | `date_created` | - | - | Yes | - | - |
 | `date_modified` | - | - | Yes | - | - |
 | `deleted` | - | - | - | - | - |
@@ -733,11 +702,9 @@ buckslip = client.Buckslip
 | `front_original_url` | - | - | Yes | - | - |
 | `id` | - | - | Yes | - | - |
 | `mode` | - | - | - | - | - |
-| `next_url` | - | - | - | - | - |
-| `object` | - | Yes | Yes | - | - |
+| `object` | - | - | Yes | - | - |
 | `onhand_quantity` | - | - | Yes | - | - |
 | `pending_quantity` | - | - | Yes | - | - |
-| `previous_url` | - | - | - | - | - |
 | `projected_quantity` | - | - | Yes | - | - |
 | `raw_url` | - | - | Yes | - | - |
 | `reorder_quantity` | - | - | Yes | Yes | - |
@@ -747,7 +714,6 @@ buckslip = client.Buckslip
 | `stock` | - | - | Yes | - | - |
 | `threshold_amount` | - | - | Yes | - | - |
 | `thumbnails` | - | - | Yes | - | - |
-| `total_count` | - | - | - | - | - |
 | `url` | - | - | Yes | - | - |
 | `weight` | - | - | Yes | - | - |
 
@@ -859,14 +825,20 @@ buckslip_order = client.BuckslipOrder
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | List of buckslip orders |
-| `id` | `String` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
-| `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
+| `availability_date` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
+| `buckslip_id` | `String` | No | Unique identifier prefixed with `bck_`. |
+| `cancelled_reason` | `String` | No | The reason for cancellation. |
+| `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | `String` | No | The fixed deadline for the buckslips to be printed. |
+| `id` | `String` | No | Unique identifier prefixed with `bo_`. |
+| `inventory` | `Float` | No | The inventory of the buckslip order. |
+| `object` | `String` | Yes | Value is resource type. |
 | `quantity` | `Integer` | Yes | The quantity of buckslips in the order (minimum 5,000). |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
+| `quantity_ordered` | `Float` | No | The quantity of buckslips ordered. |
+| `status` | `String` | No | The status of the buckslip order. |
+| `unit_price` | `Float` | No | The unit price for the buckslip order. |
 
 ### Operations
 
@@ -877,6 +849,9 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.BuckslipOrder.create({
   "id" => "example_id", # String
+  "date_created" => "example_date_created", # String
+  "date_modified" => "example_date_modified", # String
+  "object" => "example_object", # String
   "quantity" => 1, # Integer
 })
 ```
@@ -932,9 +907,7 @@ campaign = client.Campaign
 | `auto_cancel_if_ncoa` | `Boolean` | No | Whether or not a mail piece should be automatically canceled and not sent if the address is updated via NCOA. |
 | `billing_group_id` | `String` | No | Unique identifier prefixed with `bg_`. |
 | `cancel_window_campaign_minutes` | `Integer` | No | A window, in minutes, within which the campaign can be canceled. |
-| `count` | `Integer` | No | number of resources in a set |
 | `creatives` | `Array` | Yes | An array of creatives that have been associated with this campaign. |
-| `data` | `Array` | No | list of campaigns |
 | `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -943,14 +916,11 @@ campaign = client.Campaign
 | `is_draft` | `Boolean` | Yes | Whether or not the campaign is still a draft. |
 | `metadata` | `Hash` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `name` | `String` | Yes | Name of the campaign. |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | Yes | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `print_speed` | `String` | No | A string designating the mail speed type: * `core` - 2 production business days |
 | `schedule_type` | `String` | Yes | How the campaign should be scheduled. |
 | `send_date` | `String` | No | If `schedule_type` is `scheduled_send_date`, provide a date to send this campaign. |
 | `target_delivery_date` | `String` | No | If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `uploads` | `Array` | Yes | A single-element array containing the upload object that is assocated with this campaign. |
 | `use_type` | `String` | Yes | The use type for each mailpiece. |
 
@@ -961,9 +931,7 @@ campaign = client.Campaign
 | `auto_cancel_if_ncoa` | - | - | - | - | - |
 | `billing_group_id` | - | - | - | - | - |
 | `cancel_window_campaign_minutes` | - | - | - | - | - |
-| `count` | - | - | - | - | - |
 | `creatives` | - | - | - | - | - |
-| `data` | - | - | - | - | - |
 | `date_created` | - | - | - | - | - |
 | `date_modified` | - | - | - | - | - |
 | `deleted` | - | - | - | - | - |
@@ -972,14 +940,11 @@ campaign = client.Campaign
 | `is_draft` | - | - | - | Yes | - |
 | `metadata` | - | - | - | - | - |
 | `name` | - | - | - | Yes | - |
-| `next_url` | - | - | - | - | - |
-| `object` | - | Yes | - | - | - |
-| `previous_url` | - | - | - | - | - |
+| `object` | - | - | - | - | - |
 | `print_speed` | - | - | - | - | - |
 | `schedule_type` | - | - | - | Yes | - |
 | `send_date` | - | - | - | - | - |
 | `target_delivery_date` | - | - | - | - | - |
-| `total_count` | - | - | - | - | - |
 | `uploads` | - | - | - | - | - |
 | `use_type` | - | - | - | Yes | - |
 
@@ -1083,9 +1048,7 @@ card = client.Card
 | `auto_reorder` | `Boolean` | Yes | True if the cards should be auto-reordered. |
 | `available_quantity` | `Integer` | Yes | The available quantity of cards. |
 | `back_original_url` | `String` | Yes | The original URL of the back template. |
-| `count` | `Integer` | No | number of resources in a set |
 | `countries` | `String` | No |  |
-| `data` | `Array` | No | list of cards |
 | `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -1093,11 +1056,9 @@ card = client.Card
 | `front_original_url` | `String` | Yes | The original URL of the front template. |
 | `id` | `String` | Yes | Unique identifier prefixed with `card_`. |
 | `mode` | `String` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | Yes | Value is resource type. |
 | `orientation` | `String` | Yes | The orientation of the card. |
 | `pending_quantity` | `Integer` | Yes | The pending quantity of cards. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `raw_url` | `String` | Yes | The raw URL of the card. |
 | `reorder_quantity` | `Integer` | Yes | The number of cards to be reordered. |
 | `send_date` | `String` | No |  |
@@ -1105,7 +1066,6 @@ card = client.Card
 | `status` | `String` | Yes |  |
 | `threshold_amount` | `Integer` | Yes | The threshold amount of the card |
 | `thumbnails` | `Array` | Yes |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `url` | `String` | Yes | The signed link for the card. |
 
 ### Field Usage by Operation
@@ -1116,9 +1076,7 @@ card = client.Card
 | `auto_reorder` | - | - | Yes | - |
 | `available_quantity` | - | - | Yes | - |
 | `back_original_url` | - | - | Yes | - |
-| `count` | - | - | - | - |
 | `countries` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | Yes | - |
 | `date_modified` | - | - | Yes | - |
 | `deleted` | - | - | - | - |
@@ -1126,11 +1084,9 @@ card = client.Card
 | `front_original_url` | - | - | Yes | - |
 | `id` | - | - | Yes | - |
 | `mode` | - | - | - | - |
-| `next_url` | - | - | - | - |
-| `object` | - | Yes | Yes | - |
+| `object` | - | - | Yes | - |
 | `orientation` | - | - | Yes | - |
 | `pending_quantity` | - | - | Yes | - |
-| `previous_url` | - | - | - | - |
 | `raw_url` | - | - | Yes | - |
 | `reorder_quantity` | - | - | Yes | - |
 | `send_date` | - | - | - | - |
@@ -1138,7 +1094,6 @@ card = client.Card
 | `status` | - | - | Yes | - |
 | `threshold_amount` | - | - | Yes | - |
 | `thumbnails` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `url` | - | - | Yes | - |
 
 ### Operations
@@ -1232,14 +1187,20 @@ card_order = client.CardOrder
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | List of card orders |
-| `id` | `String` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
-| `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
+| `availability_date` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
+| `cancelled_reason` | `String` | No | The reason for cancellation. |
+| `card_id` | `String` | No | Unique identifier prefixed with `card_`. |
+| `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | `String` | No | The fixed deadline for the cards to be printed. |
+| `id` | `String` | No | Unique identifier prefixed with `co_`. |
+| `inventory` | `Float` | No | The inventory of the card order. |
+| `object` | `String` | Yes | Value is resource type. |
 | `quantity` | `Integer` | Yes | The quantity of cards in the order (minimum 10,000). |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
+| `quantity_ordered` | `Float` | No | The quantity of cards ordered |
+| `status` | `String` | No | The status of the card order. |
+| `unit_price` | `Float` | No | The unit price for the card order. |
 
 ### Operations
 
@@ -1250,6 +1211,9 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.CardOrder.create({
   "id" => "example_id", # String
+  "date_created" => "example_date_created", # String
+  "date_modified" => "example_date_modified", # String
+  "object" => "example_object", # String
   "quantity" => 1, # Integer
 })
 ```
@@ -1310,8 +1274,6 @@ check = client.Check
 | `check_bottom_template_id` | `String` | No |  |
 | `check_bottom_template_version_id` | `String` | No |  |
 | `check_number` | `Integer` | No |  |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of checks |
 | `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -1325,15 +1287,12 @@ check = client.Check
 | `merge_variables` | `Hash` | No |  |
 | `message` | `String` | No |  |
 | `metadata` | `Hash` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `send_date` | `String` | No |  |
 | `sla` | `String` | No |  |
 | `status` | `String` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `Array` | No |  |
 | `to` | `Object` | Yes |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `tracking_events` | `Array` | No | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | `String` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `String` | Yes | TThe use type for each mailpiece. |
@@ -1350,8 +1309,6 @@ check = client.Check
 | `check_bottom_template_id` | - | - | - | - |
 | `check_bottom_template_version_id` | - | - | - | - |
 | `check_number` | - | - | - | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | Yes | - |
 | `date_modified` | - | - | Yes | - |
 | `deleted` | - | - | - | - |
@@ -1365,15 +1322,12 @@ check = client.Check
 | `merge_variables` | - | - | - | - |
 | `message` | - | - | - | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | Yes | - |
@@ -1571,34 +1525,22 @@ domain = client.Domain
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
 | `created_at` | `String` | No | The date and time the domain was created. |
-| `data` | `Array` | No | List of domains. |
 | `domain` | `String` | No | The registered domain/hostname. |
 | `error_redirect_link` | `String` | No | URL to redirect customers if a short link is broken or inactive. |
 | `id` | `String` | No | Unique identifier for a domain. |
-| `next_url` | `String` | No | Url of next page of items in list. |
-| `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `status` | `String` | No | The configuration status of the domain. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `updated_at` | `String` | No | The date and time the domain was last updated. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `count` | - | - | - | - |
 | `created_at` | - | - | - | - |
-| `data` | - | - | - | - |
 | `domain` | - | - | Yes | - |
 | `error_redirect_link` | - | - | - | - |
 | `id` | - | - | - | - |
-| `next_url` | - | - | - | - |
-| `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `status` | - | - | - | - |
-| `total_count` | - | - | - | - |
 | `updated_at` | - | - | - | - |
 
 ### Operations
@@ -1808,9 +1750,7 @@ letter = client.Letter
 | `cards` | `Array` | No |  |
 | `carrier` | `String` | No |  |
 | `color` | `Boolean` | No |  |
-| `count` | `Integer` | No | number of resources in a set |
 | `custom_envelope` | `String` | No |  |
-| `data` | `Array` | No | list of letters |
 | `date_created` | `String` | No |  |
 | `date_modified` | `String` | No |  |
 | `description` | `String` | No |  |
@@ -1823,16 +1763,15 @@ letter = client.Letter
 | `mail_type` | `String` | No |  |
 | `merge_variables` | `Hash` | No |  |
 | `metadata` | `Hash` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
-| `object` | `String` | No | Value is resource type. |
+| `object` | `String` | No |  |
 | `perforated_page` | `String` | No |  |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `return_envelope` | `Boolean` | No |  |
 | `send_date` | `String` | No |  |
 | `sla` | `String` | No |  |
+| `template_id` | `String` | No |  |
+| `template_version_id` | `String` | No |  |
 | `thumbnails` | `Array` | No |  |
 | `to` | `Hash` | No |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `tracking_events` | `Array` | No |  |
 | `tracking_number` | `String` | No |  |
 | `url` | `String` | No |  |
@@ -1913,18 +1852,31 @@ link = client.Link
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | List of links |
+| `created_at` | `String` | No | The date and time the link was created. |
 | `domain` | `String` | No | The registered domain to be used for the short URL. |
-| `id` | `String` | No |  |
+| `domain_id` | `String` | No | A unique identifier for the registered domain. |
+| `id` | `String` | No | Unique identifier prefixed with `lnk_`. |
 | `metadata` | `Hash` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `String` | No | Url of next page of items in list. |
-| `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
-| `redirect_link` | `String` | Yes | The original target URL. |
+| `redirect_link` | `String` | No | The original target URL. |
+| `short_link` | `String` | No | The shortened URL for the associated original URL. |
 | `slug` | `String` | No | The unique path for the shortened URL, if empty a unique path will be used. |
 | `title` | `String` | No | The title of the URL. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
+| `updated_at` | `String` | No | The date and time the link was last updated. |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | - | - | - | - | - |
+| `domain` | - | - | - | - | - |
+| `domain_id` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `metadata` | - | - | - | - | - |
+| `redirect_link` | - | - | Yes | Yes | - |
+| `short_link` | - | - | - | - | - |
+| `slug` | - | - | - | - | - |
+| `title` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
 
 ### Operations
 
@@ -1934,7 +1886,6 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Link.create({
-  "redirect_link" => "example_redirect_link", # String
 })
 ```
 
@@ -2069,8 +2020,6 @@ postcard = client.Postcard
 | `back_template_version_id` | `String` | No | The unique ID of the specific version of the HTML template used for the back of the postcard. |
 | `campaign_id` | `String` | No | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `String` | Yes |  |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of postcards |
 | `date_created` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2083,15 +2032,12 @@ postcard = client.Postcard
 | `fsc` | `Boolean` | No | This is in beta. |
 | `id` | `String` | Yes | Unique identifier prefixed with `psc_`. |
 | `metadata` | `Hash` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `send_date` | `String` | No |  |
 | `sla` | `String` | No |  |
 | `status` | `String` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `Array` | No |  |
 | `to` | `Object` | Yes |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `tracking_events` | `Array` | No | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | `String` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `String` | No | The use type for each mailpiece. |
@@ -2104,8 +2050,6 @@ postcard = client.Postcard
 | `back_template_version_id` | - | - | - | - |
 | `campaign_id` | - | - | - | - |
 | `carrier` | - | - | Yes | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2118,15 +2062,12 @@ postcard = client.Postcard
 | `fsc` | - | - | - | - |
 | `id` | - | - | Yes | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | - | - |
@@ -2212,11 +2153,10 @@ qr_code = client.QrCode
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | List of QR code analytics |
-| `object` | `String` | No | Value is resource type. |
-| `scanned_count` | `Integer` | No | Indicates the number of QR Codes out of `count` that were scanned atleast once. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
+| `date_created` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
+| `number_of_scans` | `Float` | No | Number of times the QR Code associated with this mail piece was scanned. |
+| `resource_id` | `String` | No | Unique identifier for each mail piece. |
+| `scans` | `Array` | No | Detailed scan information associated with each mail piece. |
 
 ### Operations
 
@@ -2371,8 +2311,6 @@ response = client.Response
 | `account_id` | `String` | Yes | Your Lob account id. |
 | `brand_name` | `String` | No |  |
 | `campaign_code` | `String` | Yes | The campaign code associated with the Informed Delivery campaign. |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of Informed Delivery campaigns |
 | `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | Yes | Whether the resource has been deleted. |
@@ -2381,9 +2319,7 @@ response = client.Response
 | `id` | `String` | Yes | Unique identifier prefixed with `infd_`. |
 | `lob_campaign_id` | `String` | No |  |
 | `mode` | `String` | Yes | The mode of the Informed Delivery campaign. |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | Yes | Value is the resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `quantity` | `Integer` | No |  |
 | `representative_image_s3_link` | `String` | Yes | A URL link to the campaigns representative image. |
 | `ride_along_image_s3_link` | `String` | Yes | A URL link to the campaigns ride along image. |
@@ -2392,7 +2328,6 @@ response = client.Response
 | `start_date` | `String` | No |  |
 | `start_serial` | `Integer` | Yes | The first serial number in the range of serial numbers for this campaign. |
 | `status` | `String` | No |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `usps_campaign_id` | `String` | Yes | A numberical string up to 12 characters long. |
 | `usps_title` | `String` | No |  |
 
@@ -2403,8 +2338,6 @@ response = client.Response
 | `account_id` | - | - | Yes | Yes |
 | `brand_name` | - | - | - | - |
 | `campaign_code` | - | - | Yes | Yes |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | Yes | Yes |
 | `date_modified` | - | - | Yes | Yes |
 | `deleted` | - | - | Yes | Yes |
@@ -2413,9 +2346,7 @@ response = client.Response
 | `id` | - | - | Yes | Yes |
 | `lob_campaign_id` | - | - | - | - |
 | `mode` | - | - | Yes | Yes |
-| `next_url` | - | - | - | - |
-| `object` | - | Yes | Yes | Yes |
-| `previous_url` | - | - | - | - |
+| `object` | - | - | Yes | Yes |
 | `quantity` | - | - | - | - |
 | `representative_image_s3_link` | - | - | Yes | Yes |
 | `ride_along_image_s3_link` | - | - | Yes | Yes |
@@ -2424,7 +2355,6 @@ response = client.Response
 | `start_date` | - | - | - | - |
 | `start_serial` | - | - | Yes | Yes |
 | `status` | - | - | - | - |
-| `total_count` | - | - | - | - |
 | `usps_campaign_id` | - | - | Yes | Yes |
 | `usps_title` | - | - | - | - |
 
@@ -2582,8 +2512,6 @@ self_mailer = client.SelfMailer
 | --- | --- | --- | --- |
 | `campaign_id` | `String` | No | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `String` | Yes |  |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of self_mailers |
 | `date_created` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2598,18 +2526,15 @@ self_mailer = client.SelfMailer
 | `mail_type` | `String` | No |  |
 | `merge_variables` | `Hash` | No |  |
 | `metadata` | `Hash` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | No | Value is resource type. |
 | `outside_template_id` | `String` | No | The unique ID of the HTML template used for the outside of the self mailer. |
 | `outside_template_version_id` | `String` | No | The unique ID of the specific version of the HTML template used for the outside of the self mailer. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `send_date` | `String` | No |  |
 | `size` | `String` | No |  |
 | `sla` | `String` | No |  |
 | `status` | `String` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `Array` | No |  |
 | `to` | `Object` | Yes |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `tracking_events` | `Array` | No | An array of certified tracking events ordered by ascending `time`. |
 | `url` | `String` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `String` | Yes | The use type for each mailpiece. |
@@ -2620,8 +2545,6 @@ self_mailer = client.SelfMailer
 | --- | --- | --- | --- | --- |
 | `campaign_id` | - | - | - | - |
 | `carrier` | - | - | Yes | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2636,18 +2559,15 @@ self_mailer = client.SelfMailer
 | `mail_type` | - | - | - | - |
 | `merge_variables` | - | - | - | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
 | `outside_template_id` | - | - | - | - |
 | `outside_template_version_id` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `size` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | Yes | - |
@@ -2735,8 +2655,6 @@ snap_pack = client.SnapPack
 | `campaign_id` | `String` | No | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `String` | Yes |  |
 | `color` | `Boolean` | No | Set this key to `true` if you would like to print in color. |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of snap_packs |
 | `date_created` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2750,18 +2668,15 @@ snap_pack = client.SnapPack
 | `inside_template_version_id` | `String` | No | The unique ID of the specific version of the HTML template used for the inside of the snap pack. |
 | `mail_type` | `String` | No |  |
 | `merge_variables` | `Hash` | No |  |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | No | Value is resource type. |
 | `outside_template_id` | `String` | No | The unique ID of the HTML template used for the outside of the snap pack. |
 | `outside_template_version_id` | `String` | No | The unique ID of the specific version of the HTML template used for the outside of the snap pack. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `send_date` | `String` | No |  |
 | `size` | `String` | No |  |
 | `sla` | `String` | No |  |
 | `status` | `String` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `Array` | No |  |
 | `to` | `Object` | Yes |  |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `tracking_events` | `Array` | No | An array of tracking events ordered by ascending `time`. |
 | `url` | `String` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `String` | Yes | The use type for each mailpiece. |
@@ -2773,8 +2688,6 @@ snap_pack = client.SnapPack
 | `campaign_id` | - | - | - | - |
 | `carrier` | - | - | Yes | - |
 | `color` | - | - | - | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2788,18 +2701,15 @@ snap_pack = client.SnapPack
 | `inside_template_version_id` | - | - | - | - |
 | `mail_type` | - | - | - | - |
 | `merge_variables` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
 | `outside_template_id` | - | - | - | - |
 | `outside_template_version_id` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `size` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | Yes | - |
@@ -2884,8 +2794,6 @@ template = client.Template
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of templates |
 | `date_created` | `String` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2894,20 +2802,15 @@ template = client.Template
 | `html` | `String` | Yes | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | `String` | Yes | Unique identifier prefixed with `tmpl_`. |
 | `metadata` | `Hash` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | No | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `published_version` | `Object` | Yes |  |
 | `required_vars` | `Array` | No | An array of required variables to be used in a template. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 | `versions` | `Array` | Yes | An array of all non-deleted [version objects](#tag/Template-Versions) associated with the template. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2916,12 +2819,9 @@ template = client.Template
 | `html` | - | - | - | - |
 | `id` | - | - | - | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `published_version` | - | - | Yes | - |
 | `required_vars` | - | - | - | - |
-| `total_count` | - | - | - | - |
 | `versions` | - | - | - | - |
 
 ### Operations
@@ -3003,8 +2903,6 @@ template_version = client.TemplateVersion
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No | number of resources in a set |
-| `data` | `Array` | No | list of template versions |
 | `date_created` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `String` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `Boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -3013,19 +2911,14 @@ template_version = client.TemplateVersion
 | `html` | `String` | Yes | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | `String` | Yes | Unique identifier prefixed with `vrsn_`. |
 | `merge_variables` | `Hash` | No | Object representing the keys of every merge variable present in the template. |
-| `next_url` | `String` | No | Url of next page of items in list. |
 | `object` | `String` | Yes | Value is resource type. |
-| `previous_url` | `String` | No | Url of previous page of items in list. |
 | `required_vars` | `Array` | No | An array of required variables to be used in a template. |
 | `suggest_json_editor` | `Boolean` | No | Used by frontend, true if the template uses advanced features. |
-| `total_count` | `Integer` | No | Indicates the total number of records. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create |
 | --- | --- | --- | --- |
-| `count` | - | - | - |
-| `data` | - | - | - |
 | `date_created` | - | - | - |
 | `date_modified` | - | - | - |
 | `deleted` | - | - | - |
@@ -3034,12 +2927,9 @@ template_version = client.TemplateVersion
 | `html` | - | - | - |
 | `id` | - | - | - |
 | `merge_variables` | - | - | - |
-| `next_url` | - | - | - |
 | `object` | Yes | Yes | - |
-| `previous_url` | - | - | - |
 | `required_vars` | - | - | - |
 | `suggest_json_editor` | - | - | - |
-| `total_count` | - | - | - |
 
 ### Operations
 

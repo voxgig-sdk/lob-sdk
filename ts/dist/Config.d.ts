@@ -163,17 +163,11 @@ declare class Config {
     };
     entity: {
         address: {
-            fields: ({
+            fields: {
                 name: string;
                 title: string;
                 type: string;
-                short?: undefined;
-            } | {
-                name: string;
-                title: string;
-                type: string;
-                short: string;
-            })[];
+            }[];
             id: {
                 field: string;
                 name: string;
@@ -572,13 +566,13 @@ declare class Config {
                 title: string;
                 type: string;
                 short: string;
-                format?: undefined;
+                format: string;
             } | {
                 name: string;
                 title: string;
                 type: string;
                 short: string;
-                format: string;
+                format?: undefined;
             })[];
             id: {
                 field: string;
@@ -921,7 +915,6 @@ declare class Config {
                         type: string;
                     };
                     update?: undefined;
-                    list?: undefined;
                 };
                 short: string;
                 format?: undefined;
@@ -937,7 +930,6 @@ declare class Config {
                     update: {
                         type: string;
                     };
-                    list?: undefined;
                 };
                 short: string;
                 format?: undefined;
@@ -951,7 +943,6 @@ declare class Config {
                         type: string;
                     };
                     update?: undefined;
-                    list?: undefined;
                 };
                 short: string;
                 format: string;
@@ -973,25 +964,8 @@ declare class Config {
                         type: string;
                     };
                     update?: undefined;
-                    list?: undefined;
                 };
                 short?: undefined;
-                format?: undefined;
-            } | {
-                name: string;
-                title: string;
-                type: string;
-                req: boolean;
-                op: {
-                    create: {
-                        type: string;
-                    };
-                    list: {
-                        type: string;
-                    };
-                    update?: undefined;
-                };
-                short: string;
                 format?: undefined;
             })[];
             id: {
@@ -1181,12 +1155,14 @@ declare class Config {
                 title: string;
                 type: string;
                 short: string;
+                format: string;
                 req?: undefined;
             } | {
                 name: string;
                 title: string;
                 type: string;
-                short?: undefined;
+                short: string;
+                format?: undefined;
                 req?: undefined;
             } | {
                 name: string;
@@ -1194,6 +1170,14 @@ declare class Config {
                 type: string;
                 req: boolean;
                 short: string;
+                format: string;
+            } | {
+                name: string;
+                title: string;
+                type: string;
+                req: boolean;
+                short: string;
+                format?: undefined;
             })[];
             id: {
                 field: string;
@@ -1323,20 +1307,6 @@ declare class Config {
                     update: {
                         type: string;
                     };
-                    list?: undefined;
-                };
-                short: string;
-                format?: undefined;
-            } | {
-                name: string;
-                title: string;
-                type: string;
-                req: boolean;
-                op: {
-                    list: {
-                        type: string;
-                    };
-                    update?: undefined;
                 };
                 short: string;
                 format?: undefined;
@@ -1596,7 +1566,6 @@ declare class Config {
                     create: {
                         type: string;
                     };
-                    list?: undefined;
                 };
                 short: string;
                 format?: undefined;
@@ -1609,7 +1578,6 @@ declare class Config {
                     create: {
                         type: string;
                     };
-                    list?: undefined;
                 };
                 short: string;
                 format: string;
@@ -1630,22 +1598,6 @@ declare class Config {
                     create: {
                         type: string;
                     };
-                    list: {
-                        type: string;
-                    };
-                };
-                short: string;
-                format?: undefined;
-            } | {
-                name: string;
-                title: string;
-                type: string;
-                req: boolean;
-                op: {
-                    create: {
-                        type: string;
-                    };
-                    list?: undefined;
                 };
                 short?: undefined;
                 format?: undefined;
@@ -1838,12 +1790,14 @@ declare class Config {
                 title: string;
                 type: string;
                 short: string;
+                format: string;
                 req?: undefined;
             } | {
                 name: string;
                 title: string;
                 type: string;
-                short?: undefined;
+                short: string;
+                format?: undefined;
                 req?: undefined;
             } | {
                 name: string;
@@ -1851,6 +1805,14 @@ declare class Config {
                 type: string;
                 req: boolean;
                 short: string;
+                format: string;
+            } | {
+                name: string;
+                title: string;
+                type: string;
+                req: boolean;
+                short: string;
+                format?: undefined;
             })[];
             id: {
                 field: string;
@@ -2388,9 +2350,7 @@ declare class Config {
                         parts: string[];
                         rename: {};
                         transform: {
-                            req: {
-                                domain: string;
-                            };
+                            req: string;
                             res: string;
                         };
                         args: {};
@@ -2631,17 +2591,11 @@ declare class Config {
             };
         };
         letter: {
-            fields: ({
+            fields: {
                 name: string;
                 title: string;
                 type: string;
-                short?: undefined;
-            } | {
-                name: string;
-                title: string;
-                type: string;
-                short: string;
-            })[];
+            }[];
             id: {
                 field: string;
                 name: string;
@@ -2814,18 +2768,21 @@ declare class Config {
                 title: string;
                 type: string;
                 short: string;
-                req?: undefined;
+                op?: undefined;
             } | {
                 name: string;
                 title: string;
                 type: string;
-                short?: undefined;
-                req?: undefined;
-            } | {
-                name: string;
-                title: string;
-                type: string;
-                req: boolean;
+                op: {
+                    create: {
+                        req: boolean;
+                        type: string;
+                    };
+                    update: {
+                        req: boolean;
+                        type: string;
+                    };
+                };
                 short: string;
             })[];
             id: {
@@ -3261,12 +3218,19 @@ declare class Config {
             };
         };
         qr_code: {
-            fields: {
+            fields: ({
                 name: string;
                 title: string;
                 type: string;
                 short: string;
-            }[];
+                format: string;
+            } | {
+                name: string;
+                title: string;
+                type: string;
+                short: string;
+                format?: undefined;
+            })[];
             name: string;
             op: {
                 list: {
@@ -3464,7 +3428,6 @@ declare class Config {
                     update: {
                         type: string;
                     };
-                    list?: undefined;
                 };
                 short: string;
                 format?: undefined;
@@ -3480,36 +3443,9 @@ declare class Config {
                 name: string;
                 title: string;
                 type: string;
-                short: string;
-                req?: undefined;
-                op?: undefined;
-                format?: undefined;
-            } | {
-                name: string;
-                title: string;
-                type: string;
                 req: boolean;
                 op: {
                     create: {
-                        type: string;
-                    };
-                    update: {
-                        type: string;
-                    };
-                    list?: undefined;
-                };
-                short: string;
-                format: string;
-            } | {
-                name: string;
-                title: string;
-                type: string;
-                req: boolean;
-                op: {
-                    create: {
-                        type: string;
-                    };
-                    list: {
                         type: string;
                     };
                     update: {
@@ -3517,7 +3453,7 @@ declare class Config {
                     };
                 };
                 short: string;
-                format?: undefined;
+                format: string;
             })[];
             id: {
                 field: string;
@@ -4135,7 +4071,7 @@ declare class Config {
                 title: string;
                 type: string;
                 short: string;
-                format?: undefined;
+                format: string;
                 req?: undefined;
                 op?: undefined;
             } | {
@@ -4143,7 +4079,7 @@ declare class Config {
                 title: string;
                 type: string;
                 short: string;
-                format: string;
+                format?: undefined;
                 req?: undefined;
                 op?: undefined;
             } | {
@@ -4354,17 +4290,17 @@ declare class Config {
                 name: string;
                 title: string;
                 type: string;
+                req: boolean;
                 short: string;
-                req?: undefined;
-                format?: undefined;
+                format: string;
                 op?: undefined;
             } | {
                 name: string;
                 title: string;
                 type: string;
-                req: boolean;
                 short: string;
-                format: string;
+                req?: undefined;
+                format?: undefined;
                 op?: undefined;
             } | {
                 name: string;

@@ -5,45 +5,78 @@ main: kit: entity: card_order: {
   alias: field: {}
 
   fields: {
-    count: {
-      h: "Count"
-      n: "count"
+    availability_date: {
+      fo: "date-time"
+      h: "Availability Date"
+      n: "availability_date"
       r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
     }
-    data: {
-      h: "Data"
-      n: "data"
+    cancelled_reason: {
+      h: "Cancelled Reason"
+      n: "cancelled_reason"
       r: false
-      sh: "List of card orders"
-      t: "`$ARRAY`"
+      sh: "The reason for cancellation."
+      t: "`$STRING`"
+    }
+    card_id: {
+      h: "Card Id"
+      n: "card_id"
+      r: false
+      sh: "Unique identifier prefixed with `card_`."
+      t: "`$STRING`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    expected_availability_date: {
+      fo: "date-time"
+      h: "Expected Availability Date"
+      n: "expected_availability_date"
+      r: false
+      sh: "The fixed deadline for the cards to be printed."
+      t: "`$STRING`"
     }
     id: {
       h: "Id"
       n: "id"
       r: false
+      sh: "Unique identifier prefixed with `co_`."
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
+    inventory: {
+      h: "Inventory"
+      n: "inventory"
       r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
+      sh: "The inventory of the card order."
+      t: "`$NUMBER`"
     }
     object: {
       h: "Object"
       n: "object"
-      r: false
+      r: true
       sh: "Value is resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     quantity: {
@@ -53,12 +86,26 @@ main: kit: entity: card_order: {
       sh: "The quantity of cards in the order (minimum 10,000)."
       t: "`$INTEGER`"
     }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
+    quantity_ordered: {
+      h: "Quantity Ordered"
+      n: "quantity_ordered"
       r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
+      sh: "The quantity of cards ordered"
+      t: "`$NUMBER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "The status of the card order."
+      t: "`$STRING`"
+    }
+    unit_price: {
+      h: "Unit Price"
+      n: "unit_price"
+      r: false
+      sh: "The unit price for the card order."
+      t: "`$NUMBER`"
     }
   }
 
@@ -184,7 +231,7 @@ main: kit: entity: card_order: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

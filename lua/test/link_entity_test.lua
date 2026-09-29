@@ -103,7 +103,7 @@ describe("LinkEntity", function()
       id = link_ref01_data["id"],
     }
 
-    local link_ref01_markdef_up0_name = "domain"
+    local link_ref01_markdef_up0_name = "created_at"
     local link_ref01_markdef_up0_value = "Mark01-link_ref01_" .. tostring(setup.now)
     link_ref01_data_up0_up[link_ref01_markdef_up0_name] = link_ref01_markdef_up0_value
 

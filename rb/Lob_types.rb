@@ -19,6 +19,9 @@
 # @!attribute [rw] address_line1
 #   @return [String, nil]
 #
+# @!attribute [rw] address_line2
+#   @return [String, nil]
+#
 # @!attribute [rw] address_state
 #   @return [String, nil]
 #
@@ -27,12 +30,6 @@
 #
 # @!attribute [rw] company
 #   @return [String, nil]
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -55,29 +52,19 @@
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
 # @!attribute [rw] phone
 #   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 Address = Struct.new(
   :address_city,
   :address_country,
   :address_line1,
+  :address_line2,
   :address_state,
   :address_zip,
   :company,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :description,
@@ -85,11 +72,8 @@ Address = Struct.new(
   :id,
   :metadata,
   :name,
-  :next_url,
   :object,
   :phone,
-  :previous_url,
-  :total_count,
   keyword_init: true
 )
 
@@ -138,6 +122,9 @@ AddressListMatch = Struct.new(
 # @!attribute [rw] address_line1
 #   @return [String, nil]
 #
+# @!attribute [rw] address_line2
+#   @return [String, nil]
+#
 # @!attribute [rw] address_state
 #   @return [String, nil]
 #
@@ -146,12 +133,6 @@ AddressListMatch = Struct.new(
 #
 # @!attribute [rw] company
 #   @return [String, nil]
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -174,29 +155,19 @@ AddressListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
 # @!attribute [rw] phone
 #   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 AddressCreateData = Struct.new(
   :address_city,
   :address_country,
   :address_line1,
+  :address_line2,
   :address_state,
   :address_zip,
   :company,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :description,
@@ -204,11 +175,8 @@ AddressCreateData = Struct.new(
   :id,
   :metadata,
   :name,
-  :next_url,
   :object,
   :phone,
-  :previous_url,
-  :total_count,
   keyword_init: true
 )
 
@@ -238,12 +206,6 @@ AddressRemoveMatch = Struct.new(
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String]
 #
@@ -268,14 +230,8 @@ AddressRemoveMatch = Struct.new(
 # @!attribute [rw] microdeposit_type
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] routing_number
 #   @return [String]
@@ -289,9 +245,6 @@ AddressRemoveMatch = Struct.new(
 # @!attribute [rw] state
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] verified
 #   @return [Boolean, nil]
 #
@@ -303,8 +256,6 @@ BankAccount = Struct.new(
   :bank_name,
   :check_template,
   :city,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -313,14 +264,11 @@ BankAccount = Struct.new(
   :id,
   :metadata,
   :microdeposit_type,
-  :next_url,
   :object,
-  :previous_url,
   :routing_number,
   :signatory,
   :signature_url,
   :state,
-  :total_count,
   :verified,
   :zipcode,
   keyword_init: true
@@ -377,12 +325,6 @@ BankAccountListMatch = Struct.new(
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String]
 #
@@ -407,14 +349,8 @@ BankAccountListMatch = Struct.new(
 # @!attribute [rw] microdeposit_type
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] routing_number
 #   @return [String]
@@ -428,9 +364,6 @@ BankAccountListMatch = Struct.new(
 # @!attribute [rw] state
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] verified
 #   @return [Boolean, nil]
 #
@@ -442,8 +375,6 @@ BankAccountCreateData = Struct.new(
   :bank_name,
   :check_template,
   :city,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -452,14 +383,11 @@ BankAccountCreateData = Struct.new(
   :id,
   :metadata,
   :microdeposit_type,
-  :next_url,
   :object,
-  :previous_url,
   :routing_number,
   :signatory,
   :signature_url,
   :state,
-  :total_count,
   :verified,
   :zipcode,
   keyword_init: true
@@ -480,12 +408,6 @@ BankDeletionRemoveMatch = Struct.new(
 
 # BillingGroup entity data model.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -501,29 +423,15 @@ BankDeletionRemoveMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 BillingGroup = Struct.new(
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :description,
   :id,
   :name,
-  :next_url,
   :object,
-  :previous_url,
-  :total_count,
   keyword_init: true
 )
 
@@ -570,12 +478,6 @@ BillingGroupListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -588,29 +490,15 @@ BillingGroupListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 BillingGroupCreateData = Struct.new(
   :id,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :description,
   :name,
-  :next_url,
   :object,
-  :previous_url,
-  :total_count,
   keyword_init: true
 )
 
@@ -618,12 +506,6 @@ BillingGroupCreateData = Struct.new(
 #
 # @!attribute [rw] carrier
 #   @return [String, nil]
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -655,17 +537,11 @@ BillingGroupCreateData = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
 # @!attribute [rw] pages
 #   @return [Integer, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] send_date
 #   @return [String, nil]
@@ -685,9 +561,6 @@ BillingGroupCreateData = Struct.new(
 # @!attribute [rw] to
 #   @return [Hash, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -701,8 +574,6 @@ BillingGroupCreateData = Struct.new(
 #   @return [String, nil]
 Booklet = Struct.new(
   :carrier,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :description,
@@ -713,17 +584,14 @@ Booklet = Struct.new(
   :mail_type,
   :merge_variables,
   :metadata,
-  :next_url,
   :object,
   :pages,
-  :previous_url,
   :send_date,
   :size,
   :sla,
   :source_material,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :tracking_number,
   :url,
@@ -793,12 +661,6 @@ BookletListMatch = Struct.new(
 # @!attribute [rw] carrier
 #   @return [String, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -829,17 +691,11 @@ BookletListMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
 # @!attribute [rw] pages
 #   @return [Integer, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] send_date
 #   @return [String, nil]
@@ -859,9 +715,6 @@ BookletListMatch = Struct.new(
 # @!attribute [rw] to
 #   @return [Hash, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -876,8 +729,6 @@ BookletListMatch = Struct.new(
 BookletCreateData = Struct.new(
   :idempotency_key,
   :carrier,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :description,
@@ -888,17 +739,14 @@ BookletCreateData = Struct.new(
   :mail_type,
   :merge_variables,
   :metadata,
-  :next_url,
   :object,
   :pages,
-  :previous_url,
   :send_date,
   :size,
   :sla,
   :source_material,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :tracking_number,
   :url,
@@ -935,12 +783,6 @@ BookletRemoveMatch = Struct.new(
 # @!attribute [rw] buckslip_orders
 #   @return [Array]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String]
 #
@@ -965,9 +807,6 @@ BookletRemoveMatch = Struct.new(
 # @!attribute [rw] mode
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
 #
@@ -976,9 +815,6 @@ BookletRemoveMatch = Struct.new(
 #
 # @!attribute [rw] pending_quantity
 #   @return [Float]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] projected_quantity
 #   @return [Float]
@@ -1007,9 +843,6 @@ BookletRemoveMatch = Struct.new(
 # @!attribute [rw] thumbnails
 #   @return [Array]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] url
 #   @return [String]
 #
@@ -1022,8 +855,6 @@ Buckslip = Struct.new(
   :available_quantity,
   :back_original_url,
   :buckslip_orders,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -1032,11 +863,9 @@ Buckslip = Struct.new(
   :front_original_url,
   :id,
   :mode,
-  :next_url,
   :object,
   :onhand_quantity,
   :pending_quantity,
-  :previous_url,
   :projected_quantity,
   :raw_url,
   :reorder_quantity,
@@ -1046,7 +875,6 @@ Buckslip = Struct.new(
   :stock,
   :threshold_amount,
   :thumbnails,
-  :total_count,
   :url,
   :weight,
   keyword_init: true
@@ -1098,12 +926,6 @@ BuckslipListMatch = Struct.new(
 # @!attribute [rw] buckslip_orders
 #   @return [Array]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String]
 #
@@ -1128,9 +950,6 @@ BuckslipListMatch = Struct.new(
 # @!attribute [rw] mode
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
 #
@@ -1139,9 +958,6 @@ BuckslipListMatch = Struct.new(
 #
 # @!attribute [rw] pending_quantity
 #   @return [Float]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] projected_quantity
 #   @return [Float]
@@ -1170,9 +986,6 @@ BuckslipListMatch = Struct.new(
 # @!attribute [rw] thumbnails
 #   @return [Array]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] url
 #   @return [String]
 #
@@ -1185,8 +998,6 @@ BuckslipCreateData = Struct.new(
   :available_quantity,
   :back_original_url,
   :buckslip_orders,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -1195,11 +1006,9 @@ BuckslipCreateData = Struct.new(
   :front_original_url,
   :id,
   :mode,
-  :next_url,
   :object,
   :onhand_quantity,
   :pending_quantity,
-  :previous_url,
   :projected_quantity,
   :raw_url,
   :reorder_quantity,
@@ -1209,7 +1018,6 @@ BuckslipCreateData = Struct.new(
   :stock,
   :threshold_amount,
   :thumbnails,
-  :total_count,
   :url,
   :weight,
   keyword_init: true
@@ -1238,12 +1046,6 @@ BuckslipCreateData = Struct.new(
 # @!attribute [rw] buckslip_orders
 #   @return [Array, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -1265,9 +1067,6 @@ BuckslipCreateData = Struct.new(
 # @!attribute [rw] mode
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
@@ -1276,9 +1075,6 @@ BuckslipCreateData = Struct.new(
 #
 # @!attribute [rw] pending_quantity
 #   @return [Float, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] projected_quantity
 #   @return [Float, nil]
@@ -1307,9 +1103,6 @@ BuckslipCreateData = Struct.new(
 # @!attribute [rw] thumbnails
 #   @return [Array, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] url
 #   @return [String, nil]
 #
@@ -1323,8 +1116,6 @@ BuckslipUpdateData = Struct.new(
   :available_quantity,
   :back_original_url,
   :buckslip_orders,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -1332,11 +1123,9 @@ BuckslipUpdateData = Struct.new(
   :finish,
   :front_original_url,
   :mode,
-  :next_url,
   :object,
   :onhand_quantity,
   :pending_quantity,
-  :previous_url,
   :projected_quantity,
   :raw_url,
   :reorder_quantity,
@@ -1346,7 +1135,6 @@ BuckslipUpdateData = Struct.new(
   :stock,
   :threshold_amount,
   :thumbnails,
-  :total_count,
   :url,
   :weight,
   keyword_init: true
@@ -1363,38 +1151,62 @@ BuckslipRemoveMatch = Struct.new(
 
 # BuckslipOrder entity data model.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
+# @!attribute [rw] availability_date
+#   @return [String, nil]
 #
-# @!attribute [rw] data
-#   @return [Array, nil]
+# @!attribute [rw] buckslip_id
+#   @return [String, nil]
+#
+# @!attribute [rw] cancelled_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] date_created
+#   @return [String]
+#
+# @!attribute [rw] date_modified
+#   @return [String]
+#
+# @!attribute [rw] deleted
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] expected_availability_date
+#   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
+# @!attribute [rw] inventory
+#   @return [Float, nil]
 #
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] quantity
 #   @return [Integer]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] quantity_ordered
+#   @return [Float, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [Float, nil]
 BuckslipOrder = Struct.new(
-  :count,
-  :data,
+  :availability_date,
+  :buckslip_id,
+  :cancelled_reason,
+  :date_created,
+  :date_modified,
+  :deleted,
+  :expected_availability_date,
   :id,
-  :next_url,
+  :inventory,
   :object,
-  :previous_url,
   :quantity,
-  :total_count,
+  :quantity_ordered,
+  :status,
+  :unit_price,
   keyword_init: true
 )
 
@@ -1420,35 +1232,59 @@ BuckslipOrderListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
-# @!attribute [rw] next_url
+# @!attribute [rw] availability_date
 #   @return [String, nil]
+#
+# @!attribute [rw] buckslip_id
+#   @return [String, nil]
+#
+# @!attribute [rw] cancelled_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] date_created
+#   @return [String]
+#
+# @!attribute [rw] date_modified
+#   @return [String]
+#
+# @!attribute [rw] deleted
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] expected_availability_date
+#   @return [String, nil]
+#
+# @!attribute [rw] inventory
+#   @return [Float, nil]
 #
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] quantity
 #   @return [Integer]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] quantity_ordered
+#   @return [Float, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [Float, nil]
 BuckslipOrderCreateData = Struct.new(
   :id,
-  :count,
-  :data,
-  :next_url,
+  :availability_date,
+  :buckslip_id,
+  :cancelled_reason,
+  :date_created,
+  :date_modified,
+  :deleted,
+  :expected_availability_date,
+  :inventory,
   :object,
-  :previous_url,
   :quantity,
-  :total_count,
+  :quantity_ordered,
+  :status,
+  :unit_price,
   keyword_init: true
 )
 
@@ -1463,14 +1299,8 @@ BuckslipOrderCreateData = Struct.new(
 # @!attribute [rw] cancel_window_campaign_minutes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] creatives
 #   @return [Array]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String]
@@ -1496,14 +1326,8 @@ BuckslipOrderCreateData = Struct.new(
 # @!attribute [rw] name
 #   @return [String]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] print_speed
 #   @return [String, nil]
@@ -1517,9 +1341,6 @@ BuckslipOrderCreateData = Struct.new(
 # @!attribute [rw] target_delivery_date
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] uploads
 #   @return [Array]
 #
@@ -1529,9 +1350,7 @@ Campaign = Struct.new(
   :auto_cancel_if_ncoa,
   :billing_group_id,
   :cancel_window_campaign_minutes,
-  :count,
   :creatives,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -1540,14 +1359,11 @@ Campaign = Struct.new(
   :is_draft,
   :metadata,
   :name,
-  :next_url,
   :object,
-  :previous_url,
   :print_speed,
   :schedule_type,
   :send_date,
   :target_delivery_date,
-  :total_count,
   :uploads,
   :use_type,
   keyword_init: true
@@ -1590,14 +1406,8 @@ CampaignListMatch = Struct.new(
 # @!attribute [rw] cancel_window_campaign_minutes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] creatives
 #   @return [Array]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String]
@@ -1623,14 +1433,8 @@ CampaignListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] print_speed
 #   @return [String, nil]
@@ -1644,9 +1448,6 @@ CampaignListMatch = Struct.new(
 # @!attribute [rw] target_delivery_date
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] uploads
 #   @return [Array]
 #
@@ -1656,9 +1457,7 @@ CampaignCreateData = Struct.new(
   :auto_cancel_if_ncoa,
   :billing_group_id,
   :cancel_window_campaign_minutes,
-  :count,
   :creatives,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -1667,14 +1466,11 @@ CampaignCreateData = Struct.new(
   :is_draft,
   :metadata,
   :name,
-  :next_url,
   :object,
-  :previous_url,
   :print_speed,
   :schedule_type,
   :send_date,
   :target_delivery_date,
-  :total_count,
   :uploads,
   :use_type,
   keyword_init: true
@@ -1694,13 +1490,7 @@ CampaignCreateData = Struct.new(
 # @!attribute [rw] cancel_window_campaign_minutes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] creatives
-#   @return [Array, nil]
-#
-# @!attribute [rw] data
 #   @return [Array, nil]
 #
 # @!attribute [rw] date_created
@@ -1724,13 +1514,7 @@ CampaignCreateData = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] print_speed
@@ -1745,9 +1529,6 @@ CampaignCreateData = Struct.new(
 # @!attribute [rw] target_delivery_date
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] uploads
 #   @return [Array, nil]
 #
@@ -1758,9 +1539,7 @@ CampaignUpdateData = Struct.new(
   :auto_cancel_if_ncoa,
   :billing_group_id,
   :cancel_window_campaign_minutes,
-  :count,
   :creatives,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -1768,14 +1547,11 @@ CampaignUpdateData = Struct.new(
   :is_draft,
   :metadata,
   :name,
-  :next_url,
   :object,
-  :previous_url,
   :print_speed,
   :schedule_type,
   :send_date,
   :target_delivery_date,
-  :total_count,
   :uploads,
   :use_type,
   keyword_init: true
@@ -1804,14 +1580,8 @@ CampaignRemoveMatch = Struct.new(
 # @!attribute [rw] back_original_url
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] countries
 #   @return [String, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String]
@@ -1834,9 +1604,6 @@ CampaignRemoveMatch = Struct.new(
 # @!attribute [rw] mode
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
 #
@@ -1845,9 +1612,6 @@ CampaignRemoveMatch = Struct.new(
 #
 # @!attribute [rw] pending_quantity
 #   @return [Integer]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] raw_url
 #   @return [String]
@@ -1870,9 +1634,6 @@ CampaignRemoveMatch = Struct.new(
 # @!attribute [rw] thumbnails
 #   @return [Array]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] url
 #   @return [String]
 Card = Struct.new(
@@ -1880,9 +1641,7 @@ Card = Struct.new(
   :auto_reorder,
   :available_quantity,
   :back_original_url,
-  :count,
   :countries,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -1890,11 +1649,9 @@ Card = Struct.new(
   :front_original_url,
   :id,
   :mode,
-  :next_url,
   :object,
   :orientation,
   :pending_quantity,
-  :previous_url,
   :raw_url,
   :reorder_quantity,
   :send_date,
@@ -1902,7 +1659,6 @@ Card = Struct.new(
   :status,
   :threshold_amount,
   :thumbnails,
-  :total_count,
   :url,
   keyword_init: true
 )
@@ -1950,14 +1706,8 @@ CardListMatch = Struct.new(
 # @!attribute [rw] back_original_url
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] countries
 #   @return [String, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String]
@@ -1977,9 +1727,6 @@ CardListMatch = Struct.new(
 # @!attribute [rw] mode
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
 #
@@ -1988,9 +1735,6 @@ CardListMatch = Struct.new(
 #
 # @!attribute [rw] pending_quantity
 #   @return [Integer]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] raw_url
 #   @return [String]
@@ -2013,9 +1757,6 @@ CardListMatch = Struct.new(
 # @!attribute [rw] thumbnails
 #   @return [Array]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] url
 #   @return [String]
 CardCreateData = Struct.new(
@@ -2024,20 +1765,16 @@ CardCreateData = Struct.new(
   :auto_reorder,
   :available_quantity,
   :back_original_url,
-  :count,
   :countries,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
   :description,
   :front_original_url,
   :mode,
-  :next_url,
   :object,
   :orientation,
   :pending_quantity,
-  :previous_url,
   :raw_url,
   :reorder_quantity,
   :send_date,
@@ -2045,7 +1782,6 @@ CardCreateData = Struct.new(
   :status,
   :threshold_amount,
   :thumbnails,
-  :total_count,
   :url,
   keyword_init: true
 )
@@ -2061,38 +1797,62 @@ CardRemoveMatch = Struct.new(
 
 # CardOrder entity data model.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
+# @!attribute [rw] availability_date
+#   @return [String, nil]
 #
-# @!attribute [rw] data
-#   @return [Array, nil]
+# @!attribute [rw] cancelled_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] card_id
+#   @return [String, nil]
+#
+# @!attribute [rw] date_created
+#   @return [String]
+#
+# @!attribute [rw] date_modified
+#   @return [String]
+#
+# @!attribute [rw] deleted
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] expected_availability_date
+#   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
+# @!attribute [rw] inventory
+#   @return [Float, nil]
 #
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] quantity
 #   @return [Integer]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] quantity_ordered
+#   @return [Float, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [Float, nil]
 CardOrder = Struct.new(
-  :count,
-  :data,
+  :availability_date,
+  :cancelled_reason,
+  :card_id,
+  :date_created,
+  :date_modified,
+  :deleted,
+  :expected_availability_date,
   :id,
-  :next_url,
+  :inventory,
   :object,
-  :previous_url,
   :quantity,
-  :total_count,
+  :quantity_ordered,
+  :status,
+  :unit_price,
   keyword_init: true
 )
 
@@ -2118,35 +1878,59 @@ CardOrderListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
-# @!attribute [rw] next_url
+# @!attribute [rw] availability_date
 #   @return [String, nil]
+#
+# @!attribute [rw] cancelled_reason
+#   @return [String, nil]
+#
+# @!attribute [rw] card_id
+#   @return [String, nil]
+#
+# @!attribute [rw] date_created
+#   @return [String]
+#
+# @!attribute [rw] date_modified
+#   @return [String]
+#
+# @!attribute [rw] deleted
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] expected_availability_date
+#   @return [String, nil]
+#
+# @!attribute [rw] inventory
+#   @return [Float, nil]
 #
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] quantity
 #   @return [Integer]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] quantity_ordered
+#   @return [Float, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [Float, nil]
 CardOrderCreateData = Struct.new(
   :id,
-  :count,
-  :data,
-  :next_url,
+  :availability_date,
+  :cancelled_reason,
+  :card_id,
+  :date_created,
+  :date_modified,
+  :deleted,
+  :expected_availability_date,
+  :inventory,
   :object,
-  :previous_url,
   :quantity,
-  :total_count,
+  :quantity_ordered,
+  :status,
+  :unit_price,
   keyword_init: true
 )
 
@@ -2175,12 +1959,6 @@ CardOrderCreateData = Struct.new(
 #
 # @!attribute [rw] check_number
 #   @return [Integer, nil]
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String]
@@ -2221,13 +1999,7 @@ CardOrderCreateData = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -2244,9 +2016,6 @@ CardOrderCreateData = Struct.new(
 #
 # @!attribute [rw] to
 #   @return [Object]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 #
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
@@ -2265,8 +2034,6 @@ Check = Struct.new(
   :check_bottom_template_id,
   :check_bottom_template_version_id,
   :check_number,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -2280,15 +2047,12 @@ Check = Struct.new(
   :merge_variables,
   :message,
   :metadata,
-  :next_url,
   :object,
-  :previous_url,
   :send_date,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -2378,12 +2142,6 @@ CheckListMatch = Struct.new(
 # @!attribute [rw] check_number
 #   @return [Integer, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String]
 #
@@ -2423,13 +2181,7 @@ CheckListMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -2446,9 +2198,6 @@ CheckListMatch = Struct.new(
 #
 # @!attribute [rw] to
 #   @return [Object]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 #
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
@@ -2468,8 +2217,6 @@ CheckCreateData = Struct.new(
   :check_bottom_template_id,
   :check_bottom_template_version_id,
   :check_number,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -2483,15 +2230,12 @@ CheckCreateData = Struct.new(
   :merge_variables,
   :message,
   :metadata,
-  :next_url,
   :object,
-  :previous_url,
   :send_date,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -2689,14 +2433,8 @@ CreativeUpdateData = Struct.new(
 
 # Domain entity data model.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] created_at
 #   @return [String, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] domain
 #   @return [String, nil]
@@ -2707,35 +2445,17 @@ CreativeUpdateData = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
-# @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
 # @!attribute [rw] status
 #   @return [String, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 #
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 Domain = Struct.new(
-  :count,
   :created_at,
-  :data,
   :domain,
   :error_redirect_link,
   :id,
-  :next_url,
-  :object,
-  :previous_url,
   :status,
-  :total_count,
   :updated_at,
   keyword_init: true
 )
@@ -2768,14 +2488,8 @@ DomainListMatch = Struct.new(
 
 # Request payload for Domain#create.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] created_at
 #   @return [String, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] domain
 #   @return [String, nil]
@@ -2786,35 +2500,17 @@ DomainListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
-# @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
 # @!attribute [rw] status
 #   @return [String, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 #
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 DomainCreateData = Struct.new(
-  :count,
   :created_at,
-  :data,
   :domain,
   :error_redirect_link,
   :id,
-  :next_url,
-  :object,
-  :previous_url,
   :status,
-  :total_count,
   :updated_at,
   keyword_init: true
 )
@@ -3038,14 +2734,8 @@ IntlVerificationCreateData = Struct.new(
 # @!attribute [rw] color
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] custom_envelope
 #   @return [String, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -3083,16 +2773,10 @@ IntlVerificationCreateData = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
 # @!attribute [rw] perforated_page
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] return_envelope
@@ -3104,14 +2788,17 @@ IntlVerificationCreateData = Struct.new(
 # @!attribute [rw] sla
 #   @return [String, nil]
 #
+# @!attribute [rw] template_id
+#   @return [String, nil]
+#
+# @!attribute [rw] template_version_id
+#   @return [String, nil]
+#
 # @!attribute [rw] thumbnails
 #   @return [Array, nil]
 #
 # @!attribute [rw] to
 #   @return [Hash, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 #
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
@@ -3129,9 +2816,7 @@ Letter = Struct.new(
   :cards,
   :carrier,
   :color,
-  :count,
   :custom_envelope,
-  :data,
   :date_created,
   :date_modified,
   :description,
@@ -3144,16 +2829,15 @@ Letter = Struct.new(
   :mail_type,
   :merge_variables,
   :metadata,
-  :next_url,
   :object,
   :perforated_page,
-  :previous_url,
   :return_envelope,
   :send_date,
   :sla,
+  :template_id,
+  :template_version_id,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :tracking_number,
   :url,
@@ -3240,14 +2924,8 @@ LetterListMatch = Struct.new(
 # @!attribute [rw] color
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] custom_envelope
 #   @return [String, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -3285,16 +2963,10 @@ LetterListMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
 # @!attribute [rw] perforated_page
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] return_envelope
@@ -3306,14 +2978,17 @@ LetterListMatch = Struct.new(
 # @!attribute [rw] sla
 #   @return [String, nil]
 #
+# @!attribute [rw] template_id
+#   @return [String, nil]
+#
+# @!attribute [rw] template_version_id
+#   @return [String, nil]
+#
 # @!attribute [rw] thumbnails
 #   @return [Array, nil]
 #
 # @!attribute [rw] to
 #   @return [Hash, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 #
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
@@ -3332,9 +3007,7 @@ LetterCreateData = Struct.new(
   :cards,
   :carrier,
   :color,
-  :count,
   :custom_envelope,
-  :data,
   :date_created,
   :date_modified,
   :description,
@@ -3347,16 +3020,15 @@ LetterCreateData = Struct.new(
   :mail_type,
   :merge_variables,
   :metadata,
-  :next_url,
   :object,
   :perforated_page,
-  :previous_url,
   :return_envelope,
   :send_date,
   :sla,
+  :template_id,
+  :template_version_id,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :tracking_number,
   :url,
@@ -3375,13 +3047,13 @@ LetterRemoveMatch = Struct.new(
 
 # Link entity data model.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
+# @!attribute [rw] created_at
+#   @return [String, nil]
 #
 # @!attribute [rw] domain
+#   @return [String, nil]
+#
+# @!attribute [rw] domain_id
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -3390,17 +3062,11 @@ LetterRemoveMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
-# @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
 # @!attribute [rw] redirect_link
-#   @return [String]
+#   @return [String, nil]
+#
+# @!attribute [rw] short_link
+#   @return [String, nil]
 #
 # @!attribute [rw] slug
 #   @return [String, nil]
@@ -3408,21 +3074,19 @@ LetterRemoveMatch = Struct.new(
 # @!attribute [rw] title
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 Link = Struct.new(
-  :count,
-  :data,
+  :created_at,
   :domain,
+  :domain_id,
   :id,
   :metadata,
-  :next_url,
-  :object,
-  :previous_url,
   :redirect_link,
+  :short_link,
   :slug,
   :title,
-  :total_count,
+  :updated_at,
   keyword_init: true
 )
 
@@ -3458,13 +3122,13 @@ LinkListMatch = Struct.new(
 
 # Request payload for Link#create.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
+# @!attribute [rw] created_at
+#   @return [String, nil]
 #
 # @!attribute [rw] domain
+#   @return [String, nil]
+#
+# @!attribute [rw] domain_id
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -3473,17 +3137,11 @@ LinkListMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
-# @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
 # @!attribute [rw] redirect_link
-#   @return [String]
+#   @return [String, nil]
+#
+# @!attribute [rw] short_link
+#   @return [String, nil]
 #
 # @!attribute [rw] slug
 #   @return [String, nil]
@@ -3491,21 +3149,19 @@ LinkListMatch = Struct.new(
 # @!attribute [rw] title
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 LinkCreateData = Struct.new(
-  :count,
-  :data,
+  :created_at,
   :domain,
+  :domain_id,
   :id,
   :metadata,
-  :next_url,
-  :object,
-  :previous_url,
   :redirect_link,
+  :short_link,
   :slug,
   :title,
-  :total_count,
+  :updated_at,
   keyword_init: true
 )
 
@@ -3514,28 +3170,22 @@ LinkCreateData = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
+# @!attribute [rw] created_at
+#   @return [String, nil]
 #
 # @!attribute [rw] domain
+#   @return [String, nil]
+#
+# @!attribute [rw] domain_id
 #   @return [String, nil]
 #
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
-# @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
-#
 # @!attribute [rw] redirect_link
+#   @return [String, nil]
+#
+# @!attribute [rw] short_link
 #   @return [String, nil]
 #
 # @!attribute [rw] slug
@@ -3544,21 +3194,19 @@ LinkCreateData = Struct.new(
 # @!attribute [rw] title
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 LinkUpdateData = Struct.new(
   :id,
-  :count,
-  :data,
+  :created_at,
   :domain,
+  :domain_id,
   :metadata,
-  :next_url,
-  :object,
-  :previous_url,
   :redirect_link,
+  :short_link,
   :slug,
   :title,
-  :total_count,
+  :updated_at,
   keyword_init: true
 )
 
@@ -3603,12 +3251,6 @@ LobCreditsBalanceLoadMatch = Struct.new(
 # @!attribute [rw] carrier
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -3645,13 +3287,7 @@ LobCreditsBalanceLoadMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -3669,9 +3305,6 @@ LobCreditsBalanceLoadMatch = Struct.new(
 # @!attribute [rw] to
 #   @return [Object]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -3685,8 +3318,6 @@ Postcard = Struct.new(
   :back_template_version_id,
   :campaign_id,
   :carrier,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -3699,15 +3330,12 @@ Postcard = Struct.new(
   :fsc,
   :id,
   :metadata,
-  :next_url,
   :object,
-  :previous_url,
   :send_date,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -3793,12 +3421,6 @@ PostcardListMatch = Struct.new(
 # @!attribute [rw] carrier
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -3835,13 +3457,7 @@ PostcardListMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -3859,9 +3475,6 @@ PostcardListMatch = Struct.new(
 # @!attribute [rw] to
 #   @return [Object]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -3876,8 +3489,6 @@ PostcardCreateData = Struct.new(
   :back_template_version_id,
   :campaign_id,
   :carrier,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -3890,15 +3501,12 @@ PostcardCreateData = Struct.new(
   :fsc,
   :id,
   :metadata,
-  :next_url,
   :object,
-  :previous_url,
   :send_date,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -3916,26 +3524,22 @@ PostcardRemoveMatch = Struct.new(
 
 # QrCode entity data model.
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
-# @!attribute [rw] object
+# @!attribute [rw] date_created
 #   @return [String, nil]
 #
-# @!attribute [rw] scanned_count
-#   @return [Integer, nil]
+# @!attribute [rw] number_of_scans
+#   @return [Float, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
+# @!attribute [rw] resource_id
+#   @return [String, nil]
+#
+# @!attribute [rw] scans
+#   @return [Array, nil]
 QrCode = Struct.new(
-  :count,
-  :data,
-  :object,
-  :scanned_count,
-  :total_count,
+  :date_created,
+  :number_of_scans,
+  :resource_id,
+  :scans,
   keyword_init: true
 )
 
@@ -4123,12 +3727,6 @@ ResourceProofUpdateData = Struct.new(
 # @!attribute [rw] campaign_code
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String]
 #
@@ -4153,14 +3751,8 @@ ResourceProofUpdateData = Struct.new(
 # @!attribute [rw] mode
 #   @return [String]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] quantity
 #   @return [Integer, nil]
@@ -4186,9 +3778,6 @@ ResourceProofUpdateData = Struct.new(
 # @!attribute [rw] status
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] usps_campaign_id
 #   @return [String]
 #
@@ -4198,8 +3787,6 @@ Response = Struct.new(
   :account_id,
   :brand_name,
   :campaign_code,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -4208,9 +3795,7 @@ Response = Struct.new(
   :id,
   :lob_campaign_id,
   :mode,
-  :next_url,
   :object,
-  :previous_url,
   :quantity,
   :representative_image_s3_link,
   :ride_along_image_s3_link,
@@ -4219,7 +3804,6 @@ Response = Struct.new(
   :start_date,
   :start_serial,
   :status,
-  :total_count,
   :usps_campaign_id,
   :usps_title,
   keyword_init: true
@@ -4245,12 +3829,6 @@ ResponseLoadMatch = Struct.new(
 # @!attribute [rw] campaign_code
 #   @return [String, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -4275,13 +3853,7 @@ ResponseLoadMatch = Struct.new(
 # @!attribute [rw] mode
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] quantity
@@ -4308,9 +3880,6 @@ ResponseLoadMatch = Struct.new(
 # @!attribute [rw] status
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] usps_campaign_id
 #   @return [String, nil]
 #
@@ -4320,8 +3889,6 @@ ResponseListMatch = Struct.new(
   :account_id,
   :brand_name,
   :campaign_code,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -4330,9 +3897,7 @@ ResponseListMatch = Struct.new(
   :id,
   :lob_campaign_id,
   :mode,
-  :next_url,
   :object,
-  :previous_url,
   :quantity,
   :representative_image_s3_link,
   :ride_along_image_s3_link,
@@ -4341,7 +3906,6 @@ ResponseListMatch = Struct.new(
   :start_date,
   :start_serial,
   :status,
-  :total_count,
   :usps_campaign_id,
   :usps_title,
   keyword_init: true
@@ -4357,12 +3921,6 @@ ResponseListMatch = Struct.new(
 #
 # @!attribute [rw] campaign_code
 #   @return [String]
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String]
@@ -4388,14 +3946,8 @@ ResponseListMatch = Struct.new(
 # @!attribute [rw] mode
 #   @return [String]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] quantity
 #   @return [Integer, nil]
@@ -4421,9 +3973,6 @@ ResponseListMatch = Struct.new(
 # @!attribute [rw] status
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] usps_campaign_id
 #   @return [String]
 #
@@ -4433,8 +3982,6 @@ ResponseCreateData = Struct.new(
   :account_id,
   :brand_name,
   :campaign_code,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -4443,9 +3990,7 @@ ResponseCreateData = Struct.new(
   :id,
   :lob_campaign_id,
   :mode,
-  :next_url,
   :object,
-  :previous_url,
   :quantity,
   :representative_image_s3_link,
   :ride_along_image_s3_link,
@@ -4454,7 +3999,6 @@ ResponseCreateData = Struct.new(
   :start_date,
   :start_serial,
   :status,
-  :total_count,
   :usps_campaign_id,
   :usps_title,
   keyword_init: true
@@ -4473,12 +4017,6 @@ ResponseCreateData = Struct.new(
 #
 # @!attribute [rw] campaign_code
 #   @return [String, nil]
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -4504,13 +4042,7 @@ ResponseCreateData = Struct.new(
 # @!attribute [rw] mode
 #   @return [String, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] quantity
@@ -4537,9 +4069,6 @@ ResponseCreateData = Struct.new(
 # @!attribute [rw] status
 #   @return [String, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] usps_title
 #   @return [String, nil]
 ResponseUpdateData = Struct.new(
@@ -4547,8 +4076,6 @@ ResponseUpdateData = Struct.new(
   :account_id,
   :brand_name,
   :campaign_code,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -4557,9 +4084,7 @@ ResponseUpdateData = Struct.new(
   :id,
   :lob_campaign_id,
   :mode,
-  :next_url,
   :object,
-  :previous_url,
   :quantity,
   :representative_image_s3_link,
   :ride_along_image_s3_link,
@@ -4568,7 +4093,6 @@ ResponseUpdateData = Struct.new(
   :start_date,
   :start_serial,
   :status,
-  :total_count,
   :usps_title,
   keyword_init: true
 )
@@ -4635,12 +4159,6 @@ ReverseGeocodeCreateData = Struct.new(
 # @!attribute [rw] carrier
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -4683,9 +4201,6 @@ ReverseGeocodeCreateData = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
@@ -4693,9 +4208,6 @@ ReverseGeocodeCreateData = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] outside_template_version_id
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -4716,9 +4228,6 @@ ReverseGeocodeCreateData = Struct.new(
 # @!attribute [rw] to
 #   @return [Object]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -4730,8 +4239,6 @@ ReverseGeocodeCreateData = Struct.new(
 SelfMailer = Struct.new(
   :campaign_id,
   :carrier,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -4746,18 +4253,15 @@ SelfMailer = Struct.new(
   :mail_type,
   :merge_variables,
   :metadata,
-  :next_url,
   :object,
   :outside_template_id,
   :outside_template_version_id,
-  :previous_url,
   :send_date,
   :size,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -4837,12 +4341,6 @@ SelfMailerListMatch = Struct.new(
 # @!attribute [rw] carrier
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -4885,9 +4383,6 @@ SelfMailerListMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
@@ -4895,9 +4390,6 @@ SelfMailerListMatch = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] outside_template_version_id
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -4918,9 +4410,6 @@ SelfMailerListMatch = Struct.new(
 # @!attribute [rw] to
 #   @return [Object]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -4933,8 +4422,6 @@ SelfMailerCreateData = Struct.new(
   :idempotency_key,
   :campaign_id,
   :carrier,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -4949,18 +4436,15 @@ SelfMailerCreateData = Struct.new(
   :mail_type,
   :merge_variables,
   :metadata,
-  :next_url,
   :object,
   :outside_template_id,
   :outside_template_version_id,
-  :previous_url,
   :send_date,
   :size,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -4986,12 +4470,6 @@ SelfMailerRemoveMatch = Struct.new(
 #
 # @!attribute [rw] color
 #   @return [Boolean, nil]
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -5032,9 +4510,6 @@ SelfMailerRemoveMatch = Struct.new(
 # @!attribute [rw] merge_variables
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
@@ -5042,9 +4517,6 @@ SelfMailerRemoveMatch = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] outside_template_version_id
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -5065,9 +4537,6 @@ SelfMailerRemoveMatch = Struct.new(
 # @!attribute [rw] to
 #   @return [Object]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -5080,8 +4549,6 @@ SnapPack = Struct.new(
   :campaign_id,
   :carrier,
   :color,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -5095,18 +4562,15 @@ SnapPack = Struct.new(
   :inside_template_version_id,
   :mail_type,
   :merge_variables,
-  :next_url,
   :object,
   :outside_template_id,
   :outside_template_version_id,
-  :previous_url,
   :send_date,
   :size,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -5181,12 +4645,6 @@ SnapPackListMatch = Struct.new(
 # @!attribute [rw] color
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -5226,9 +4684,6 @@ SnapPackListMatch = Struct.new(
 # @!attribute [rw] merge_variables
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String, nil]
 #
@@ -5236,9 +4691,6 @@ SnapPackListMatch = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] outside_template_version_id
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] send_date
@@ -5259,9 +4711,6 @@ SnapPackListMatch = Struct.new(
 # @!attribute [rw] to
 #   @return [Object]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] tracking_events
 #   @return [Array, nil]
 #
@@ -5275,8 +4724,6 @@ SnapPackCreateData = Struct.new(
   :campaign_id,
   :carrier,
   :color,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -5290,18 +4737,15 @@ SnapPackCreateData = Struct.new(
   :inside_template_version_id,
   :mail_type,
   :merge_variables,
-  :next_url,
   :object,
   :outside_template_id,
   :outside_template_version_id,
-  :previous_url,
   :send_date,
   :size,
   :sla,
   :status,
   :thumbnails,
   :to,
-  :total_count,
   :tracking_events,
   :url,
   :use_type,
@@ -5318,12 +4762,6 @@ SnapPackRemoveMatch = Struct.new(
 )
 
 # Template entity data model.
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String, nil]
@@ -5349,13 +4787,7 @@ SnapPackRemoveMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] published_version
@@ -5364,14 +4796,9 @@ SnapPackRemoveMatch = Struct.new(
 # @!attribute [rw] required_vars
 #   @return [Array, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] versions
 #   @return [Array]
 Template = Struct.new(
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -5380,12 +4807,9 @@ Template = Struct.new(
   :html,
   :id,
   :metadata,
-  :next_url,
   :object,
-  :previous_url,
   :published_version,
   :required_vars,
-  :total_count,
   :versions,
   keyword_init: true
 )
@@ -5429,12 +4853,6 @@ TemplateListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String, nil]
 #
@@ -5456,13 +4874,7 @@ TemplateListMatch = Struct.new(
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
-#   @return [String, nil]
-#
-# @!attribute [rw] previous_url
 #   @return [String, nil]
 #
 # @!attribute [rw] published_version
@@ -5471,15 +4883,10 @@ TemplateListMatch = Struct.new(
 # @!attribute [rw] required_vars
 #   @return [Array, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
 # @!attribute [rw] versions
 #   @return [Array]
 TemplateCreateData = Struct.new(
   :id,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -5487,12 +4894,9 @@ TemplateCreateData = Struct.new(
   :engine,
   :html,
   :metadata,
-  :next_url,
   :object,
-  :previous_url,
   :published_version,
   :required_vars,
-  :total_count,
   :versions,
   keyword_init: true
 )
@@ -5507,12 +4911,6 @@ TemplateRemoveMatch = Struct.new(
 )
 
 # TemplateVersion entity data model.
-#
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
 #
 # @!attribute [rw] date_created
 #   @return [String]
@@ -5538,26 +4936,15 @@ TemplateRemoveMatch = Struct.new(
 # @!attribute [rw] merge_variables
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] required_vars
 #   @return [Array, nil]
 #
 # @!attribute [rw] suggest_json_editor
 #   @return [Boolean, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 TemplateVersion = Struct.new(
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -5566,12 +4953,9 @@ TemplateVersion = Struct.new(
   :html,
   :id,
   :merge_variables,
-  :next_url,
   :object,
-  :previous_url,
   :required_vars,
   :suggest_json_editor,
-  :total_count,
   keyword_init: true
 )
 
@@ -5621,12 +5005,6 @@ TemplateVersionListMatch = Struct.new(
 # @!attribute [rw] template_id
 #   @return [String, nil]
 #
-# @!attribute [rw] count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] data
-#   @return [Array, nil]
-#
 # @!attribute [rw] date_created
 #   @return [String]
 #
@@ -5648,28 +5026,17 @@ TemplateVersionListMatch = Struct.new(
 # @!attribute [rw] merge_variables
 #   @return [Hash, nil]
 #
-# @!attribute [rw] next_url
-#   @return [String, nil]
-#
 # @!attribute [rw] object
 #   @return [String]
-#
-# @!attribute [rw] previous_url
-#   @return [String, nil]
 #
 # @!attribute [rw] required_vars
 #   @return [Array, nil]
 #
 # @!attribute [rw] suggest_json_editor
 #   @return [Boolean, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
 TemplateVersionCreateData = Struct.new(
   :id,
   :template_id,
-  :count,
-  :data,
   :date_created,
   :date_modified,
   :deleted,
@@ -5677,12 +5044,9 @@ TemplateVersionCreateData = Struct.new(
   :engine,
   :html,
   :merge_variables,
-  :next_url,
   :object,
-  :previous_url,
   :required_vars,
   :suggest_json_editor,
-  :total_count,
   keyword_init: true
 )
 

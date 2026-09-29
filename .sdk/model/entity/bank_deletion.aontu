@@ -43,7 +43,7 @@ main: kit: entity: bank_deletion: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.id`"
+            res: "`body`"
           }
         }
       ]

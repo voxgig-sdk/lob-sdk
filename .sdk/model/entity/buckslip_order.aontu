@@ -5,45 +5,78 @@ main: kit: entity: buckslip_order: {
   alias: field: {}
 
   fields: {
-    count: {
-      h: "Count"
-      n: "count"
+    availability_date: {
+      fo: "date-time"
+      h: "Availability Date"
+      n: "availability_date"
       r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
     }
-    data: {
-      h: "Data"
-      n: "data"
+    buckslip_id: {
+      h: "Buckslip Id"
+      n: "buckslip_id"
       r: false
-      sh: "List of buckslip orders"
-      t: "`$ARRAY`"
+      sh: "Unique identifier prefixed with `bck_`."
+      t: "`$STRING`"
+    }
+    cancelled_reason: {
+      h: "Cancelled Reason"
+      n: "cancelled_reason"
+      r: false
+      sh: "The reason for cancellation."
+      t: "`$STRING`"
+    }
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
+      t: "`$STRING`"
+    }
+    date_modified: {
+      fo: "date-time"
+      h: "Date Modified"
+      n: "date_modified"
+      r: true
+      sh: "A timestamp in ISO 8601 format of the date the resource was last modified."
+      t: "`$STRING`"
+    }
+    deleted: {
+      h: "Deleted"
+      n: "deleted"
+      r: false
+      sh: "Only returned if the resource has been successfully deleted."
+      t: "`$BOOLEAN`"
+    }
+    expected_availability_date: {
+      fo: "date-time"
+      h: "Expected Availability Date"
+      n: "expected_availability_date"
+      r: false
+      sh: "The fixed deadline for the buckslips to be printed."
+      t: "`$STRING`"
     }
     id: {
       h: "Id"
       n: "id"
       r: false
+      sh: "Unique identifier prefixed with `bo_`."
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
+    inventory: {
+      h: "Inventory"
+      n: "inventory"
       r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
+      sh: "The inventory of the buckslip order."
+      t: "`$NUMBER`"
     }
     object: {
       h: "Object"
       n: "object"
-      r: false
+      r: true
       sh: "Value is resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     quantity: {
@@ -53,12 +86,26 @@ main: kit: entity: buckslip_order: {
       sh: "The quantity of buckslips in the order (minimum 5,000)."
       t: "`$INTEGER`"
     }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
+    quantity_ordered: {
+      h: "Quantity Ordered"
+      n: "quantity_ordered"
       r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
+      sh: "The quantity of buckslips ordered."
+      t: "`$NUMBER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "The status of the buckslip order."
+      t: "`$STRING`"
+    }
+    unit_price: {
+      h: "Unit Price"
+      n: "unit_price"
+      r: false
+      sh: "The unit price for the buckslip order."
+      t: "`$NUMBER`"
     }
   }
 
@@ -184,7 +231,7 @@ main: kit: entity: buckslip_order: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

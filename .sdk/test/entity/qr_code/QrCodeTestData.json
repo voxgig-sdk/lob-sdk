@@ -2,36 +2,32 @@
   "existing": {
     "qr_code": {
       "QR_CODE00": {
-        "count": 50,
-        "data": [],
-        "object": "s34",
-        "scanned_count": 53,
-        "total_count": 54
+        "date_created": "s28",
+        "number_of_scans": 41,
+        "resource_id": "RESOURCE01",
+        "scans": []
       },
       "QR_CODE01": {
-        "count": 100,
-        "data": [],
-        "object": "s66",
-        "scanned_count": 103,
-        "total_count": 104
+        "date_created": "s50",
+        "number_of_scans": 81,
+        "resource_id": "RESOURCE01",
+        "scans": []
       },
       "QR_CODE02": {
-        "count": 150,
-        "data": [],
-        "object": "s98",
-        "scanned_count": 153,
-        "total_count": 154
+        "date_created": "s78",
+        "number_of_scans": 121,
+        "resource_id": "RESOURCE01",
+        "scans": []
       }
     }
   },
   "new": {
     "qr_code": {
       "qr_code_ref01": {
-        "count": 200,
-        "data": [],
-        "object": "sca",
-        "scanned_count": 203,
-        "total_count": 204
+        "date_created": "sa0",
+        "number_of_scans": 161,
+        "resource_id": "RESOURCE01",
+        "scans": []
       }
     }
   },

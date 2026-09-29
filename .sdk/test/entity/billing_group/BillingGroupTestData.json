@@ -2,59 +2,39 @@
   "existing": {
     "billing_group": {
       "BILLING_GROUP00": {
-        "count": 110,
-        "data": [],
-        "date_created": "s70",
-        "date_modified": "s71",
-        "description": "s72",
+        "date_created": "s3c",
+        "date_modified": "s3d",
+        "description": "s3e",
         "id": "BILLING_GROUP00",
-        "name": "s74",
-        "next_url": "s75",
-        "object": "s76",
-        "previous_url": "s77",
-        "total_count": 120
+        "name": "s40",
+        "object": "s41"
       },
       "BILLING_GROUP01": {
-        "count": 220,
-        "data": [],
-        "date_created": "sde",
-        "date_modified": "sdf",
-        "description": "se0",
+        "date_created": "s78",
+        "date_modified": "s79",
+        "description": "s7a",
         "id": "BILLING_GROUP01",
-        "name": "se2",
-        "next_url": "se3",
-        "object": "se4",
-        "previous_url": "se5",
-        "total_count": 230
+        "name": "s7c",
+        "object": "s7d"
       },
       "BILLING_GROUP02": {
-        "count": 330,
-        "data": [],
-        "date_created": "s14c",
-        "date_modified": "s14d",
-        "description": "s14e",
+        "date_created": "sb4",
+        "date_modified": "sb5",
+        "description": "sb6",
         "id": "BILLING_GROUP02",
-        "name": "s150",
-        "next_url": "s151",
-        "object": "s152",
-        "previous_url": "s153",
-        "total_count": 340
+        "name": "sb8",
+        "object": "sb9"
       }
     }
   },
   "new": {
     "billing_group": {
       "billing_group_ref01": {
-        "count": 440,
-        "data": [],
-        "date_created": "s1ba",
-        "date_modified": "s1bb",
-        "description": "s1bc",
-        "name": "s1be",
-        "next_url": "s1bf",
-        "object": "s1c0",
-        "previous_url": "s1c1",
-        "total_count": 450
+        "date_created": "sf0",
+        "date_modified": "sf1",
+        "description": "sf2",
+        "name": "sf4",
+        "object": "sf5"
       }
     }
   },

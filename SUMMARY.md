@@ -22,9 +22,9 @@ Key fields to recognise:
 
 - `address_country`: Full name of country
 - `address_line1`: The primary number, street name, and directional information.
+- `address_line2`: An optional field containing any information which can&#39;t fit into line 1.
 - `address_state`: 2 letter state short-name code
 - `address_zip`: Must follow the ZIP format of `12345` or ZIP+4 format of `12345-1234`.
-- `company`: Either `name` or `company` is required, you may also add both. Must be no longer than 40 characters. If both `name` and `company` are provided, they will be printed on two separate lines above the rest of the address. This field can be used for any secondary recipient information which is not part of the actual mailing address (Company Name, Department, Attention Line, etc).
 
 ### BankAccount
 
@@ -38,7 +38,7 @@ Key fields to recognise:
 - `bank_name`: The name of the bank based on the provided routing number, for example `JPMORGAN CHASE BANK`.
 - `check_template`: The check template used for printing. The defualt value is `common`. If you bank with JP Morgan Chase and wish to use Positive Pay use the `jpm` template. `jpm` requires additional information to be provided.
 - `city`: The city associated with your home bank account. Required for the `jpm` check template only. Please contact a bank representative if you do not know the city associated with your home bank institution.
-- `count`: number of resources in a set
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 
 ### BankDeletion
 
@@ -54,11 +54,11 @@ SDK operations: `create`, `list`, `load`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: list of billing_groups
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `description`: Description of the billing group.
+- `id`: Unique identifier prefixed with `bg_`.
+- `name`: Name of the billing group.
 
 ### Booklet
 
@@ -68,11 +68,11 @@ SDK operations: `create`, `list`, `load`, `remove`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: list of booklets
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `description`: An internal description that identifies this resource. Must be no longer than 255 characters.
+- `expected_delivery_date`: A date in YYYY-MM-DD format of the mailpiece&#39;s expected delivery date based on its `send_date`.
+- `fsc`: This is in beta. Contact support@lob.com or your account contact to learn more.
 
 ### Buckslip
 
@@ -96,11 +96,11 @@ SDK operations: `create`, `list`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: List of buckslip orders
-- `id`: Unique identifier prefixed with `bo_`.
-- `next_url`: Url of next page of items in list.
-- `object`: Value is resource type.
+- `availability_date`: A timestamp in ISO 8601 format of the date the resource was created.
+- `buckslip_id`: Unique identifier prefixed with `bck_`.
+- `cancelled_reason`: The reason for cancellation.
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 
 ### Campaign
 
@@ -113,8 +113,8 @@ Key fields to recognise:
 - `auto_cancel_if_ncoa`: Whether or not a mail piece should be automatically canceled and not sent if the address is updated via NCOA.
 - `billing_group_id`: Unique identifier prefixed with `bg_`.
 - `cancel_window_campaign_minutes`: A window, in minutes, within which the campaign can be canceled.
-- `count`: number of resources in a set
 - `creatives`: An array of creatives that have been associated with this campaign.
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 
 ### Card
 
@@ -127,8 +127,8 @@ Key fields to recognise:
 - `auto_reorder`: True if the cards should be auto-reordered.
 - `available_quantity`: The available quantity of cards.
 - `back_original_url`: The original URL of the back template.
-- `count`: number of resources in a set
-- `data`: list of cards
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 
 ### CardOrder
 
@@ -138,11 +138,11 @@ SDK operations: `create`, `list`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: List of card orders
-- `id`: Unique identifier prefixed with `co_`.
-- `next_url`: Url of next page of items in list.
-- `object`: Value is resource type.
+- `availability_date`: A timestamp in ISO 8601 format of the date the resource was created.
+- `cancelled_reason`: The reason for cancellation.
+- `card_id`: Unique identifier prefixed with `card_`.
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 
 ### Check
 
@@ -154,9 +154,9 @@ Key fields to recognise:
 
 - `amount`: The payment amount to be sent in US dollars.
 - `check_number`: An integer that designates the check number. If `check_number` is not provided, checks created from a new `bank_account` will start at `10000` and increment with each check created with the `bank_account`. A provided `check_number` overrides the defaults. Subsequent checks created with the same `bank_account` will increment from the provided check number.
-- `count`: number of resources in a set
-- `data`: list of checks
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
+- `deleted`: Only returned if the resource has been successfully deleted.
 
 ### Creative
 
@@ -180,11 +180,11 @@ SDK operations: `create`, `list`, `load`, `remove`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
 - `created_at`: The date and time the domain was created.
-- `data`: List of domains.
 - `domain`: The registered domain/hostname.
 - `error_redirect_link`: URL to redirect customers if a short link is broken or inactive.
+- `id`: Unique identifier for a domain.
+- `status`: The configuration status of the domain.
 
 ### IdentityValidation
 
@@ -225,8 +225,8 @@ Key fields to recognise:
 - `address_placement`: Specifies the location of the address information that will show through the double-window envelope. To see how this will impact your letter design, view our letter template. Some values are exclusive to certain customers. Upgrade to the appropriate &lt;a href=&quot;https://dashboard.lob.com/#/settings/editions&quot; target=&quot;_blank&quot;&gt;Print &amp; Mail Edition&lt;/a&gt; to gain access. * `top_first_page` - (default) print address information at the top of your provided first page * `insert_blank_page` - insert a blank address page at the beginning of your file (you will be charged for the extra page) * `bottom_first_page_center` - **(exclusive, deprecation planned within a few months)** print address information at the bottom center of your provided first page * `bottom_first_page` - **(exclusive)** print address information at the bottom of your provided first page
 - `cards`: An array of cards associated with a specific letter
 - `color`: Set this key to `true` if you would like to print in color. Set to `false` if you would like to print in black and white.
-- `count`: number of resources in a set
 - `custom_envelope`: A nested custom envelope object containing more information about the custom envelope used or `null` if a custom envelope was not used.
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 
 ### Link
 
@@ -236,9 +236,9 @@ SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: List of links
+- `created_at`: The date and time the link was created.
 - `domain`: The registered domain to be used for the short URL.
+- `domain_id`: A unique identifier for the registered domain.
 - `id`: Unique identifier prefixed with `lnk_`.
 - `metadata`: Use metadata to store custom information for tagging and labeling back to your internal systems. Must be an object with up to 20 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters `&quot;` and `\`. that is &#39;&#123;&quot;customer_id&quot; : &quot;NEWYORK2015&quot;&#125;&#39; Nested objects are not supported. See [Metadata](#section/Metadata) for more information.
 
@@ -263,8 +263,8 @@ Key fields to recognise:
 - `back_template_id`: The unique ID of the HTML template used for the back of the postcard. Only filled out when the request contains a valid postcard template ID.
 - `back_template_version_id`: The unique ID of the specific version of the HTML template used for the back of the postcard. Only filled out when the request contains a valid postcard template ID.
 - `campaign_id`: Denotes resources created by the provided campaign id, prefixed with `cmp_`. In the case of snap packs, booklets, and letters with size `us_legal`, however, the campaign id is prefixed with `camp_` instead of `cmp_`.
-- `count`: number of resources in a set
-- `data`: list of postcards
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 
 ### QrCode
 
@@ -274,11 +274,10 @@ SDK operations: `list`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: List of QR code analytics
-- `object`: Value is resource type.
-- `scanned_count`: Indicates the number of QR Codes out of `count` that were scanned atleast once.
-- `total_count`: Indicates the total number of records. Provided when the request specifies an &quot;include&quot; query parameter
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `number_of_scans`: Number of times the QR Code associated with this mail piece was scanned.
+- `resource_id`: Unique identifier for each mail piece.
+- `scans`: Detailed scan information associated with each mail piece.
 
 ### ResourceProof
 
@@ -305,8 +304,8 @@ Key fields to recognise:
 - `account_id`: Your Lob account id.
 - `brand_name`: The brand name you would like included in the informed delivery email. Will default to the “company” on the users account.
 - `campaign_code`: The campaign code associated with the Informed Delivery campaign.
-- `count`: number of resources in a set
-- `data`: list of Informed Delivery campaigns
+- `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 
 ### ReverseGeocode
 
@@ -331,10 +330,10 @@ SDK operations: `create`, `list`, `load`, `remove`.
 Key fields to recognise:
 
 - `campaign_id`: Denotes resources created by the provided campaign id, prefixed with `cmp_`. In the case of snap packs, booklets, and letters with size `us_legal`, however, the campaign id is prefixed with `camp_` instead of `cmp_`.
-- `count`: number of resources in a set
-- `data`: list of self_mailers
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
+- `deleted`: Only returned if the resource has been successfully deleted.
+- `description`: An internal description that identifies this resource. Must be no longer than 255 characters.
 
 ### SnapPack
 
@@ -346,9 +345,9 @@ Key fields to recognise:
 
 - `campaign_id`: Denotes resources created by the provided campaign id, prefixed with `cmp_`. In the case of snap packs, booklets, and letters with size `us_legal`, however, the campaign id is prefixed with `camp_` instead of `cmp_`.
 - `color`: Set this key to `true` if you would like to print in color. Set to `false` if you would like to print in black and white.
-- `count`: number of resources in a set
-- `data`: list of snap_packs
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
+- `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
+- `deleted`: Only returned if the resource has been successfully deleted.
 
 ### Template
 
@@ -358,11 +357,11 @@ SDK operations: `create`, `list`, `load`, `remove`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: list of templates
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `deleted`: Only returned if the resource has been successfully deleted.
+- `description`: An internal description that identifies this resource. Must be no longer than 255 characters.
+- `engine`: The engine used to combine HTML template with merge variables. * `legacy` - Lob&#39;s original engine * `handlebars`
 
 ### TemplateVersion
 
@@ -372,11 +371,11 @@ SDK operations: `create`, `list`, `load`.
 
 Key fields to recognise:
 
-- `count`: number of resources in a set
-- `data`: list of template versions
 - `date_created`: A timestamp in ISO 8601 format of the date the resource was created.
 - `date_modified`: A timestamp in ISO 8601 format of the date the resource was last modified.
 - `deleted`: Only returned if the resource has been successfully deleted.
+- `description`: An internal description that identifies this resource. Must be no longer than 255 characters.
+- `engine`: The engine used to combine HTML template with merge variables. * `legacy` - Lob&#39;s original engine * `handlebars`
 
 ### TemplateVersionDeletion
 

@@ -5,40 +5,34 @@ main: kit: entity: qr_code: {
   alias: field: {}
 
   fields: {
-    count: {
-      h: "Count"
-      n: "count"
+    date_created: {
+      fo: "date-time"
+      h: "Date Created"
+      n: "date_created"
       r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "List of QR code analytics"
-      t: "`$ARRAY`"
-    }
-    object: {
-      h: "Object"
-      n: "object"
-      r: false
-      sh: "Value is resource type."
+      sh: "A timestamp in ISO 8601 format of the date the resource was created."
       t: "`$STRING`"
     }
-    scanned_count: {
-      h: "Scanned Count"
-      n: "scanned_count"
+    number_of_scans: {
+      h: "Number Of Scans"
+      n: "number_of_scans"
       r: false
-      sh: "Indicates the number of QR Codes out of `count` that were scanned atleast once."
-      t: "`$INTEGER`"
+      sh: "Number of times the QR Code associated with this mail piece was scanned."
+      t: "`$NUMBER`"
     }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
+    resource_id: {
+      h: "Resource Id"
+      n: "resource_id"
       r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
+      sh: "Unique identifier for each mail piece."
+      t: "`$STRING`"
+    }
+    scans: {
+      h: "Scans"
+      n: "scans"
+      r: false
+      sh: "Detailed scan information associated with each mail piece."
+      t: "`$ARRAY`"
     }
   }
 
@@ -88,7 +82,7 @@ main: kit: entity: qr_code: {
               {
                 k: "query"
                 n: "resource_id"
-                or: "resource_id"
+                or: "resource_ids"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -120,7 +114,7 @@ main: kit: entity: qr_code: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

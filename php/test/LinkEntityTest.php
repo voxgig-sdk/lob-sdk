@@ -103,7 +103,7 @@ class LinkEntityTest extends TestCase
             "id" => $link_ref01_data["id"],
         ];
 
-        $link_ref01_markdef_up0_name = "domain";
+        $link_ref01_markdef_up0_name = "created_at";
         $link_ref01_markdef_up0_value = "Mark01-link_ref01_" . $setup["now"];
         $link_ref01_data_up0_up[$link_ref01_markdef_up0_name] = $link_ref01_markdef_up0_value;
 

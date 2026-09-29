@@ -137,7 +137,7 @@ func TestLinkEntity(t *testing.T) {
 			"id": linkRef01Data["id"],
 		}
 
-		linkRef01MarkdefUp0Name := "domain"
+		linkRef01MarkdefUp0Name := "created_at"
 		linkRef01MarkdefUp0Value := fmt.Sprintf("Mark01-link_ref01_%d", setup.now)
 		linkRef01DataUp0Up[linkRef01MarkdefUp0Name] = linkRef01MarkdefUp0Value
 

@@ -150,6 +150,13 @@
               "r": false,
               "t": "`$STRING`"
             },
+            "address_line2": {
+              "a": true,
+              "h": "Address Line2",
+              "n": "address_line2",
+              "r": false,
+              "t": "`$STRING`"
+            },
             "address_state": {
               "a": true,
               "h": "Address State",
@@ -170,27 +177,6 @@
               "n": "company",
               "r": false,
               "t": "`$STRING`"
-            },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of addresses",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 3,
-                "depth": 5
-              }
             },
             "date_created": {
               "a": true,
@@ -241,20 +227,11 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "r": false,
-              "sh": "Value is resource type.",
               "t": "`$STRING`"
             },
             "phone": {
@@ -263,22 +240,6 @@
               "n": "phone",
               "r": false,
               "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -392,7 +353,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -549,22 +510,6 @@
               "sh": "The city associated with your home bank account.",
               "t": "`$STRING`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of bank_accounts",
-              "t": "`$ARRAY`"
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -630,14 +575,6 @@
               "sh": "The type of microdeposit verification required for this bank account.",
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
@@ -658,14 +595,6 @@
               },
               "r": true,
               "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "routing_number": {
@@ -698,14 +627,6 @@
               "r": false,
               "sh": "The state associated with your home bank account.",
               "t": "`$STRING`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "verified": {
               "a": true,
@@ -884,7 +805,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -995,7 +916,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.id`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -1015,22 +936,6 @@
             "field": {}
           },
           "fields": {
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of billing_groups",
-              "t": "`$ARRAY`"
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -1073,14 +978,6 @@
               "sh": "Name of the billing group.",
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
@@ -1088,22 +985,6 @@
               "r": false,
               "sh": "Value is resource type.",
               "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -1272,7 +1153,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -1345,27 +1226,6 @@
               "n": "carrier",
               "r": false,
               "t": "`$STRING`"
-            },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of booklets",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 7,
-                "depth": 11
-              }
             },
             "date_created": {
               "a": true,
@@ -1441,20 +1301,11 @@
               "sh": "Use metadata to store custom information for tagging and labeling back to your internal systems.",
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "r": false,
-              "sh": "Value is resource type.",
               "t": "`$STRING`"
             },
             "pages": {
@@ -1463,14 +1314,6 @@
               "n": "pages",
               "r": false,
               "t": "`$INTEGER`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
             },
             "send_date": {
               "a": true,
@@ -1519,14 +1362,6 @@
               "n": "to",
               "r": false,
               "t": "`$OBJECT`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "tracking_events": {
               "a": true,
@@ -1582,7 +1417,7 @@
                         "ex": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
                         "k": "header",
                         "n": "idempotency_key",
-                        "or": "idempotency_key",
+                        "or": "Idempotency-Key",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -1742,7 +1577,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -1942,22 +1777,6 @@
               "sh": "An array of buckslip orders that are associated with the buckslip.",
               "t": "`$ARRAY`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of buckslips",
-              "t": "`$ARRAY`"
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -2053,24 +1872,12 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "op": {
                 "create": {
-                  "req": false,
-                  "type": "`$STRING`"
-                },
-                "list": {
                   "req": false,
                   "type": "`$STRING`"
                 }
@@ -2106,14 +1913,6 @@
               "r": true,
               "sh": "The pending quantity of buckslips.",
               "t": "`$NUMBER`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
             },
             "projected_quantity": {
               "a": true,
@@ -2229,14 +2028,6 @@
               },
               "r": true,
               "t": "`$ARRAY`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "url": {
               "a": true,
@@ -2360,7 +2151,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -2529,51 +2320,88 @@
             "field": {}
           },
           "fields": {
-            "count": {
+            "availability_date": {
               "a": true,
-              "h": "Count",
-              "n": "count",
+              "fo": "date-time",
+              "h": "Availability Date",
+              "n": "availability_date",
               "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
+              "sh": "A timestamp in ISO 8601 format of the date the resource was created.",
+              "t": "`$STRING`"
             },
-            "data": {
+            "buckslip_id": {
               "a": true,
-              "h": "Data",
-              "n": "data",
+              "h": "Buckslip Id",
+              "n": "buckslip_id",
               "r": false,
-              "sh": "List of buckslip orders",
-              "t": "`$ARRAY`"
+              "sh": "Unique identifier prefixed with `bck_`.",
+              "t": "`$STRING`"
+            },
+            "cancelled_reason": {
+              "a": true,
+              "h": "Cancelled Reason",
+              "n": "cancelled_reason",
+              "r": false,
+              "sh": "The reason for cancellation.",
+              "t": "`$STRING`"
+            },
+            "date_created": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Date Created",
+              "n": "date_created",
+              "r": true,
+              "sh": "A timestamp in ISO 8601 format of the date the resource was created.",
+              "t": "`$STRING`"
+            },
+            "date_modified": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Date Modified",
+              "n": "date_modified",
+              "r": true,
+              "sh": "A timestamp in ISO 8601 format of the date the resource was last modified.",
+              "t": "`$STRING`"
+            },
+            "deleted": {
+              "a": true,
+              "h": "Deleted",
+              "n": "deleted",
+              "r": false,
+              "sh": "Only returned if the resource has been successfully deleted.",
+              "t": "`$BOOLEAN`"
+            },
+            "expected_availability_date": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Expected Availability Date",
+              "n": "expected_availability_date",
+              "r": false,
+              "sh": "The fixed deadline for the buckslips to be printed.",
+              "t": "`$STRING`"
             },
             "id": {
               "a": true,
               "h": "Id",
               "n": "id",
               "r": false,
+              "sh": "Unique identifier prefixed with `bo_`.",
               "t": "`$STRING`"
             },
-            "next_url": {
+            "inventory": {
               "a": true,
-              "h": "Next Url",
-              "n": "next_url",
+              "h": "Inventory",
+              "n": "inventory",
               "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
+              "sh": "The inventory of the buckslip order.",
+              "t": "`$NUMBER`"
             },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
-              "r": false,
+              "r": true,
               "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "quantity": {
@@ -2584,13 +2412,29 @@
               "sh": "The quantity of buckslips in the order (minimum 5,000).",
               "t": "`$INTEGER`"
             },
-            "total_count": {
+            "quantity_ordered": {
               "a": true,
-              "h": "Total Count",
-              "n": "total_count",
+              "h": "Quantity Ordered",
+              "n": "quantity_ordered",
               "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
+              "sh": "The quantity of buckslips ordered.",
+              "t": "`$NUMBER`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "The status of the buckslip order.",
+              "t": "`$STRING`"
+            },
+            "unit_price": {
+              "a": true,
+              "h": "Unit Price",
+              "n": "unit_price",
+              "r": false,
+              "sh": "The unit price for the buckslip order.",
+              "t": "`$NUMBER`"
             }
           },
           "id": {
@@ -2724,7 +2568,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -2764,14 +2608,6 @@
               "sh": "A window, in minutes, within which the campaign can be canceled.",
               "t": "`$INTEGER`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
             "creatives": {
               "a": true,
               "h": "Creatives",
@@ -2783,19 +2619,6 @@
                 "branches": 3,
                 "count": 6,
                 "depth": 15
-              }
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of campaigns",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 3,
-                "count": 6,
-                "depth": 20
               }
             },
             "date_created": {
@@ -2876,34 +2699,12 @@
               "sh": "Name of the campaign.",
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
-              "op": {
-                "list": {
-                  "req": false,
-                  "type": "`$STRING`"
-                }
-              },
               "r": true,
               "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "print_speed": {
@@ -2945,14 +2746,6 @@
               "r": false,
               "sh": "If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign.",
               "t": "`$STRING`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "uploads": {
               "a": true,
@@ -3049,7 +2842,7 @@
                         "a": true,
                         "k": "header",
                         "n": "x_lang_output",
-                        "or": "x_lang_output",
+                        "or": "x-lang-output",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -3134,7 +2927,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -3353,28 +3146,12 @@
               "sh": "The original URL of the back template.",
               "t": "`$STRING`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
             "countries": {
               "a": true,
               "h": "Countries",
               "n": "countries",
               "r": false,
               "t": "`$STRING`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of cards",
-              "t": "`$ARRAY`"
             },
             "date_created": {
               "a": true,
@@ -3458,24 +3235,12 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "op": {
                 "create": {
-                  "req": false,
-                  "type": "`$STRING`"
-                },
-                "list": {
                   "req": false,
                   "type": "`$STRING`"
                 }
@@ -3511,14 +3276,6 @@
               "r": true,
               "sh": "The pending quantity of cards.",
               "t": "`$INTEGER`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
             },
             "raw_url": {
               "a": true,
@@ -3603,14 +3360,6 @@
               },
               "r": true,
               "t": "`$ARRAY`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "url": {
               "a": true,
@@ -3766,7 +3515,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -3884,51 +3633,88 @@
             "field": {}
           },
           "fields": {
-            "count": {
+            "availability_date": {
               "a": true,
-              "h": "Count",
-              "n": "count",
+              "fo": "date-time",
+              "h": "Availability Date",
+              "n": "availability_date",
               "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
+              "sh": "A timestamp in ISO 8601 format of the date the resource was created.",
+              "t": "`$STRING`"
             },
-            "data": {
+            "cancelled_reason": {
               "a": true,
-              "h": "Data",
-              "n": "data",
+              "h": "Cancelled Reason",
+              "n": "cancelled_reason",
               "r": false,
-              "sh": "List of card orders",
-              "t": "`$ARRAY`"
+              "sh": "The reason for cancellation.",
+              "t": "`$STRING`"
+            },
+            "card_id": {
+              "a": true,
+              "h": "Card Id",
+              "n": "card_id",
+              "r": false,
+              "sh": "Unique identifier prefixed with `card_`.",
+              "t": "`$STRING`"
+            },
+            "date_created": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Date Created",
+              "n": "date_created",
+              "r": true,
+              "sh": "A timestamp in ISO 8601 format of the date the resource was created.",
+              "t": "`$STRING`"
+            },
+            "date_modified": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Date Modified",
+              "n": "date_modified",
+              "r": true,
+              "sh": "A timestamp in ISO 8601 format of the date the resource was last modified.",
+              "t": "`$STRING`"
+            },
+            "deleted": {
+              "a": true,
+              "h": "Deleted",
+              "n": "deleted",
+              "r": false,
+              "sh": "Only returned if the resource has been successfully deleted.",
+              "t": "`$BOOLEAN`"
+            },
+            "expected_availability_date": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Expected Availability Date",
+              "n": "expected_availability_date",
+              "r": false,
+              "sh": "The fixed deadline for the cards to be printed.",
+              "t": "`$STRING`"
             },
             "id": {
               "a": true,
               "h": "Id",
               "n": "id",
               "r": false,
+              "sh": "Unique identifier prefixed with `co_`.",
               "t": "`$STRING`"
             },
-            "next_url": {
+            "inventory": {
               "a": true,
-              "h": "Next Url",
-              "n": "next_url",
+              "h": "Inventory",
+              "n": "inventory",
               "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
+              "sh": "The inventory of the card order.",
+              "t": "`$NUMBER`"
             },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
-              "r": false,
+              "r": true,
               "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "quantity": {
@@ -3939,13 +3725,29 @@
               "sh": "The quantity of cards in the order (minimum 10,000).",
               "t": "`$INTEGER`"
             },
-            "total_count": {
+            "quantity_ordered": {
               "a": true,
-              "h": "Total Count",
-              "n": "total_count",
+              "h": "Quantity Ordered",
+              "n": "quantity_ordered",
               "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
+              "sh": "The quantity of cards ordered",
+              "t": "`$NUMBER`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "The status of the card order.",
+              "t": "`$STRING`"
+            },
+            "unit_price": {
+              "a": true,
+              "h": "Unit Price",
+              "n": "unit_price",
+              "r": false,
+              "sh": "The unit price for the card order.",
+              "t": "`$NUMBER`"
             }
           },
           "id": {
@@ -4079,7 +3881,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -4170,27 +3972,6 @@
               "n": "check_number",
               "r": false,
               "t": "`$INTEGER`"
-            },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of checks",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 3,
-                "depth": 7
-              }
             },
             "date_created": {
               "a": true,
@@ -4314,28 +4095,12 @@
               "r": false,
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "r": false,
               "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "send_date": {
@@ -4384,14 +4149,6 @@
                 "count": 1,
                 "depth": 2
               }
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "tracking_events": {
               "a": true,
@@ -4454,7 +4211,7 @@
                         "ex": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
                         "k": "header",
                         "n": "idempotency_key",
-                        "or": "idempotency_key",
+                        "or": "Idempotency-Key",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -4614,7 +4371,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -4908,7 +4665,7 @@
                         "a": true,
                         "k": "header",
                         "n": "x_lang_output",
-                        "or": "x_lang_output",
+                        "or": "x-lang-output",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -5050,14 +4807,6 @@
             "field": {}
           },
           "fields": {
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
             "created_at": {
               "a": true,
               "h": "Created At",
@@ -5065,14 +4814,6 @@
               "r": false,
               "sh": "The date and time the domain was created.",
               "t": "`$STRING`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "List of domains.",
-              "t": "`$ARRAY`"
             },
             "domain": {
               "a": true,
@@ -5104,30 +4845,6 @@
               "sh": "Unique identifier for a domain.",
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
-            "object": {
-              "a": true,
-              "h": "Object",
-              "n": "object",
-              "r": false,
-              "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
-            },
             "status": {
               "a": true,
               "h": "Status",
@@ -5135,14 +4852,6 @@
               "r": false,
               "sh": "The configuration status of the domain.",
               "t": "`$STRING`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "updated_at": {
               "a": true,
@@ -5182,9 +4891,7 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "domain": "`reqdata`"
-                    },
+                    "req": "`reqdata`",
                     "res": "`body`"
                   }
                 }
@@ -5248,7 +4955,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -5597,7 +5304,7 @@
                         "a": true,
                         "k": "header",
                         "n": "x_lang_output",
-                        "or": "x_lang_output",
+                        "or": "x-lang-output",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -5689,33 +5396,12 @@
               "r": false,
               "t": "`$BOOLEAN`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
             "custom_envelope": {
               "a": true,
               "h": "Custom Envelope",
               "n": "custom_envelope",
               "r": false,
               "t": "`$STRING`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of letters",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 3,
-                "count": 34,
-                "depth": 17
-              }
             },
             "date_created": {
               "a": true,
@@ -5801,20 +5487,11 @@
               "r": false,
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "r": false,
-              "sh": "Value is resource type.",
               "t": "`$STRING`"
             },
             "perforated_page": {
@@ -5822,14 +5499,6 @@
               "h": "Perforated Page",
               "n": "perforated_page",
               "r": false,
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "return_envelope": {
@@ -5853,6 +5522,20 @@
               "r": false,
               "t": "`$STRING`"
             },
+            "template_id": {
+              "a": true,
+              "h": "Template Id",
+              "n": "template_id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "template_version_id": {
+              "a": true,
+              "h": "Template Version Id",
+              "n": "template_version_id",
+              "r": false,
+              "t": "`$STRING`"
+            },
             "thumbnails": {
               "a": true,
               "h": "Thumbnails",
@@ -5866,14 +5549,6 @@
               "n": "to",
               "r": false,
               "t": "`$OBJECT`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "tracking_events": {
               "a": true,
@@ -5928,7 +5603,7 @@
                         "ex": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
                         "k": "header",
                         "n": "idempotency_key",
-                        "or": "idempotency_key",
+                        "or": "Idempotency-Key",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -5937,7 +5612,7 @@
                         "ex": "2024-01-01",
                         "k": "header",
                         "n": "lob_version",
-                        "or": "lob_version",
+                        "or": "Lob-Version",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -6116,7 +5791,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -6234,21 +5909,13 @@
             "field": {}
           },
           "fields": {
-            "count": {
+            "created_at": {
               "a": true,
-              "h": "Count",
-              "n": "count",
+              "h": "Created At",
+              "n": "created_at",
               "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "List of links",
-              "t": "`$ARRAY`"
+              "sh": "The date and time the link was created.",
+              "t": "`$STRING`"
             },
             "domain": {
               "a": true,
@@ -6258,11 +5925,20 @@
               "sh": "The registered domain to be used for the short URL.",
               "t": "`$STRING`"
             },
+            "domain_id": {
+              "a": true,
+              "h": "Domain Id",
+              "n": "domain_id",
+              "r": false,
+              "sh": "A unique identifier for the registered domain.",
+              "t": "`$STRING`"
+            },
             "id": {
               "a": true,
               "h": "Id",
               "n": "id",
               "r": false,
+              "sh": "Unique identifier prefixed with `lnk_`.",
               "t": "`$STRING`"
             },
             "metadata": {
@@ -6273,36 +5949,30 @@
               "sh": "Use metadata to store custom information for tagging and labeling back to your internal systems.",
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
-            "object": {
-              "a": true,
-              "h": "Object",
-              "n": "object",
-              "r": false,
-              "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
-            },
             "redirect_link": {
               "a": true,
               "h": "Redirect Link",
               "n": "redirect_link",
-              "r": true,
+              "op": {
+                "create": {
+                  "req": true,
+                  "type": "`$STRING`"
+                },
+                "update": {
+                  "req": true,
+                  "type": "`$STRING`"
+                }
+              },
+              "r": false,
               "sh": "The original target URL.",
+              "t": "`$STRING`"
+            },
+            "short_link": {
+              "a": true,
+              "h": "Short Link",
+              "n": "short_link",
+              "r": false,
+              "sh": "The shortened URL for the associated original URL.",
               "t": "`$STRING`"
             },
             "slug": {
@@ -6321,13 +5991,13 @@
               "sh": "The title of the URL.",
               "t": "`$STRING`"
             },
-            "total_count": {
+            "updated_at": {
               "a": true,
-              "h": "Total Count",
-              "n": "total_count",
+              "h": "Updated At",
+              "n": "updated_at",
               "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
+              "sh": "The date and time the link was last updated.",
+              "t": "`$STRING`"
             }
           },
           "id": {
@@ -6360,7 +6030,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.metadata`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -6432,7 +6102,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -6483,7 +6153,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.metadata`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -6585,7 +6255,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.metadata`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -6694,27 +6364,6 @@
               },
               "r": true,
               "t": "`$STRING`"
-            },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of postcards",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 5,
-                "depth": 9
-              }
             },
             "date_created": {
               "a": true,
@@ -6828,28 +6477,12 @@
               "r": false,
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "r": false,
               "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "send_date": {
@@ -6898,14 +6531,6 @@
                 "count": 3,
                 "depth": 4
               }
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "tracking_events": {
               "a": true,
@@ -6962,7 +6587,7 @@
                         "ex": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
                         "k": "header",
                         "n": "idempotency_key",
-                        "or": "idempotency_key",
+                        "or": "Idempotency-Key",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -7140,7 +6765,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -7258,45 +6883,38 @@
             "field": {}
           },
           "fields": {
-            "count": {
+            "date_created": {
               "a": true,
-              "h": "Count",
-              "n": "count",
+              "fo": "date-time",
+              "h": "Date Created",
+              "n": "date_created",
               "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "List of QR code analytics",
-              "t": "`$ARRAY`"
-            },
-            "object": {
-              "a": true,
-              "h": "Object",
-              "n": "object",
-              "r": false,
-              "sh": "Value is resource type.",
+              "sh": "A timestamp in ISO 8601 format of the date the resource was created.",
               "t": "`$STRING`"
             },
-            "scanned_count": {
+            "number_of_scans": {
               "a": true,
-              "h": "Scanned Count",
-              "n": "scanned_count",
+              "h": "Number Of Scans",
+              "n": "number_of_scans",
               "r": false,
-              "sh": "Indicates the number of QR Codes out of `count` that were scanned atleast once.",
-              "t": "`$INTEGER`"
+              "sh": "Number of times the QR Code associated with this mail piece was scanned.",
+              "t": "`$NUMBER`"
             },
-            "total_count": {
+            "resource_id": {
               "a": true,
-              "h": "Total Count",
-              "n": "total_count",
+              "h": "Resource Id",
+              "n": "resource_id",
               "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
+              "sh": "Unique identifier for each mail piece.",
+              "t": "`$STRING`"
+            },
+            "scans": {
+              "a": true,
+              "h": "Scans",
+              "n": "scans",
+              "r": false,
+              "sh": "Detailed scan information associated with each mail piece.",
+              "t": "`$ARRAY`"
             }
           },
           "name": "qr_code",
@@ -7352,7 +6970,7 @@
                         "a": true,
                         "k": "query",
                         "n": "resource_id",
-                        "or": "resource_id",
+                        "or": "resource_ids",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -7387,7 +7005,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -7701,22 +7319,6 @@
               "sh": "The campaign code associated with the Informed Delivery campaign.",
               "t": "`$STRING`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of Informed Delivery campaigns",
-              "t": "`$ARRAY`"
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -7853,24 +7455,12 @@
               "sh": "The mode of the Informed Delivery campaign.",
               "t": "`$STRING`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "op": {
                 "create": {
-                  "req": false,
-                  "type": "`$STRING`"
-                },
-                "list": {
                   "req": false,
                   "type": "`$STRING`"
                 },
@@ -7881,14 +7471,6 @@
               },
               "r": true,
               "sh": "Value is the resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "quantity": {
@@ -7991,14 +7573,6 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
-            },
             "usps_campaign_id": {
               "a": true,
               "h": "Usps Campaign Id",
@@ -8084,7 +7658,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -8322,27 +7896,6 @@
               "r": true,
               "t": "`$STRING`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of self_mailers",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 5,
-                "depth": 9
-              }
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -8463,14 +8016,6 @@
               "r": false,
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
@@ -8493,14 +8038,6 @@
               "n": "outside_template_version_id",
               "r": false,
               "sh": "The unique ID of the specific version of the HTML template used for the outside of the self mailer.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "send_date": {
@@ -8556,14 +8093,6 @@
                 "count": 3,
                 "depth": 4
               }
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "tracking_events": {
               "a": true,
@@ -8626,7 +8155,7 @@
                         "ex": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
                         "k": "header",
                         "n": "idempotency_key",
-                        "or": "idempotency_key",
+                        "or": "Idempotency-Key",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -8804,7 +8333,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -8951,27 +8480,6 @@
               "sh": "Set this key to `true` if you would like to print in color.",
               "t": "`$BOOLEAN`"
             },
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of snap_packs",
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 5,
-                "depth": 9
-              }
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -9085,14 +8593,6 @@
               "r": false,
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
@@ -9115,14 +8615,6 @@
               "n": "outside_template_version_id",
               "r": false,
               "sh": "The unique ID of the specific version of the HTML template used for the outside of the snap pack.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "send_date": {
@@ -9178,14 +8670,6 @@
                 "count": 3,
                 "depth": 4
               }
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "tracking_events": {
               "a": true,
@@ -9248,7 +8732,7 @@
                         "ex": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
                         "k": "header",
                         "n": "idempotency_key",
-                        "or": "idempotency_key",
+                        "or": "Idempotency-Key",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -9408,7 +8892,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -9526,22 +9010,6 @@
             "field": {}
           },
           "fields": {
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of templates",
-              "t": "`$ARRAY`"
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -9608,28 +9076,12 @@
               "sh": "Use metadata to store custom information for tagging and labeling back to your internal systems.",
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
               "n": "object",
               "r": false,
               "sh": "Value is resource type.",
-              "t": "`$STRING`"
-            },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
               "t": "`$STRING`"
             },
             "published_version": {
@@ -9652,14 +9104,6 @@
               "r": false,
               "sh": "An array of required variables to be used in a template.",
               "t": "`$ARRAY`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             },
             "versions": {
               "a": true,
@@ -9826,7 +9270,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -9944,22 +9388,6 @@
             "field": {}
           },
           "fields": {
-            "count": {
-              "a": true,
-              "h": "Count",
-              "n": "count",
-              "r": false,
-              "sh": "number of resources in a set",
-              "t": "`$INTEGER`"
-            },
-            "data": {
-              "a": true,
-              "h": "Data",
-              "n": "data",
-              "r": false,
-              "sh": "list of template versions",
-              "t": "`$ARRAY`"
-            },
             "date_created": {
               "a": true,
               "fo": "date-time",
@@ -10026,14 +9454,6 @@
               "sh": "Object representing the keys of every merge variable present in the template.",
               "t": "`$OBJECT`"
             },
-            "next_url": {
-              "a": true,
-              "h": "Next Url",
-              "n": "next_url",
-              "r": false,
-              "sh": "Url of next page of items in list.",
-              "t": "`$STRING`"
-            },
             "object": {
               "a": true,
               "h": "Object",
@@ -10052,14 +9472,6 @@
               "sh": "Value is resource type.",
               "t": "`$STRING`"
             },
-            "previous_url": {
-              "a": true,
-              "h": "Previous Url",
-              "n": "previous_url",
-              "r": false,
-              "sh": "Url of previous page of items in list.",
-              "t": "`$STRING`"
-            },
             "required_vars": {
               "a": true,
               "h": "Required Vars",
@@ -10075,14 +9487,6 @@
               "r": false,
               "sh": "Used by frontend, true if the template uses advanced features.",
               "t": "`$BOOLEAN`"
-            },
-            "total_count": {
-              "a": true,
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "sh": "Indicates the total number of records.",
-              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -10294,7 +9698,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -10815,7 +10219,7 @@
                         "a": true,
                         "k": "query",
                         "n": "campaign_id",
-                        "or": "campaign_id",
+                        "or": "campaignId",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -11264,7 +10668,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "valid_address",
-                        "or": "valid_address",
+                        "or": "valid_addresses",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -13538,7 +12942,7 @@
                 "ref": "link_ref01",
                 "srcdatavar": "link_ref01_data",
                 "suffix": "_up0",
-                "textfield": "domain"
+                "textfield": "created_at"
               },
               "m": {},
               "o": "update",

@@ -12,6 +12,7 @@ guide: {
     path: "/addresses": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/addresses/{adr_id}": {
       rename: param: "adr_id": *"id"
@@ -24,6 +25,7 @@ guide: {
     path: "/bank_accounts": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/bank_accounts/{bank_id}": {
       rename: param: "bank_id": *"id"
@@ -39,7 +41,6 @@ guide: {
   entity: bank_deletion: {
     path: "/bank_accounts/{bank_id}": {
       op: remove: method: *DELETE
-      op: remove: transform: res: *("`body.id`")|top
     }
   }
 
@@ -47,6 +48,7 @@ guide: {
     path: "/billing_groups": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/billing_groups/{bg_id}": {
       rename: param: "bg_id": *"id"
@@ -59,6 +61,7 @@ guide: {
     path: "/booklets": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/booklets/{booklet_id}": {
       rename: param: "booklet_id": *"id"
@@ -71,6 +74,7 @@ guide: {
     path: "/buckslips": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/buckslips/{buckslip_id}": {
       rename: param: "buckslip_id": *"id"
@@ -85,6 +89,7 @@ guide: {
       rename: param: "buckslip_id": *"id"
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -92,6 +97,7 @@ guide: {
     path: "/campaigns": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/campaigns/{cmp_id}": {
       rename: param: "cmp_id": *"id"
@@ -110,6 +116,7 @@ guide: {
     path: "/cards": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/cards/{card_id}": {
       rename: param: "card_id": *"id"
@@ -124,6 +131,7 @@ guide: {
       rename: param: "card_id": *"id"
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -131,6 +139,7 @@ guide: {
     path: "/checks": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/checks/{chk_id}": {
       rename: param: "chk_id": *"id"
@@ -153,8 +162,8 @@ guide: {
   entity: domain: {
     path: "/domains": {
       op: create: method: *POST
-      op: create: transform: req: "domain": *("`reqdata`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/domains/{domain_id}": {
       rename: param: "domain_id": *"id"
@@ -182,6 +191,7 @@ guide: {
     path: "/letters": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/letters/{ltr_id}": {
       rename: param: "ltr_id": *"id"
@@ -193,15 +203,13 @@ guide: {
   entity: link: {
     path: "/links": {
       op: create: method: *POST
-      op: create: transform: res: *("`body.metadata`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/links/{link_id}": {
       rename: param: "link_id": *"id"
       op: load: method: *GET
-      op: load: transform: res: *("`body.metadata`")|top
       op: patch: method: *PATCH
-      op: patch: transform: res: *("`body.metadata`")|top
       op: remove: method: *DELETE
     }
   }
@@ -216,6 +224,7 @@ guide: {
     path: "/postcards": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/postcards/{psc_id}": {
       rename: param: "psc_id": *"id"
@@ -227,6 +236,7 @@ guide: {
   entity: qr_code: {
     path: "/qr_code_analytics": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -245,6 +255,7 @@ guide: {
     path: "/informed_delivery_campaigns": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/informed_delivery_campaigns/{usps_campaign_id}": {
       op: load: method: *GET
@@ -262,6 +273,7 @@ guide: {
     path: "/self_mailers": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/self_mailers/{sfm_id}": {
       rename: param: "sfm_id": *"id"
@@ -274,6 +286,7 @@ guide: {
     path: "/snap_packs": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/snap_packs/{snap_pack_id}": {
       rename: param: "snap_pack_id": *"id"
@@ -286,6 +299,7 @@ guide: {
     path: "/templates": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/templates/{tmpl_id}": {
       rename: param: "tmpl_id": *"id"
@@ -300,6 +314,7 @@ guide: {
       rename: param: "tmpl_id": *"id"
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/templates/{tmpl_id}/versions/{vrsn_id}": {
       rename: param: "tmpl_id": *"template_id"

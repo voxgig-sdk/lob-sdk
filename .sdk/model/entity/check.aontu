@@ -73,25 +73,6 @@ main: kit: entity: check: {
       r: false
       t: "`$INTEGER`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of checks"
-      t: "`$ARRAY`"
-      union: {
-        branches: 2
-        count: 3
-        depth: 7
-      }
-    }
     date_created: {
       fo: "date-time"
       h: "Date Created"
@@ -201,25 +182,11 @@ main: kit: entity: check: {
       r: false
       t: "`$OBJECT`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
       r: false
       sh: "Value is resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     send_date: {
@@ -263,13 +230,6 @@ main: kit: entity: check: {
         count: 1
         depth: 2
       }
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     tracking_events: {
       h: "Tracking Events"
@@ -328,7 +288,7 @@ main: kit: entity: check: {
                 ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
                 k: "header"
                 n: "idempotency_key"
-                or: "idempotency_key"
+                or: "Idempotency-Key"
                 r: false
                 t: "`$STRING`"
               }
@@ -471,7 +431,7 @@ main: kit: entity: check: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

@@ -81,20 +81,6 @@ main: kit: entity: buckslip: {
       sh: "An array of buckslip orders that are associated with the buckslip."
       t: "`$ARRAY`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of buckslips"
-      t: "`$ARRAY`"
-    }
     date_created: {
       fo: "date-time"
       h: "Date Created"
@@ -182,22 +168,11 @@ main: kit: entity: buckslip: {
       r: false
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
       op: {
         create: {
-          req: false
-          type: "`$STRING`"
-        }
-        list: {
           req: false
           type: "`$STRING`"
         }
@@ -231,13 +206,6 @@ main: kit: entity: buckslip: {
       r: true
       sh: "The pending quantity of buckslips."
       t: "`$NUMBER`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
-      t: "`$STRING`"
     }
     projected_quantity: {
       h: "Projected Quantity"
@@ -344,13 +312,6 @@ main: kit: entity: buckslip: {
       }
       r: true
       t: "`$ARRAY`"
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     url: {
       fo: "uri"
@@ -461,7 +422,7 @@ main: kit: entity: buckslip: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

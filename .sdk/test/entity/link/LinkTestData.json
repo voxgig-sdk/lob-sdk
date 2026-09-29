@@ -2,63 +2,55 @@
   "existing": {
     "link": {
       "LINK00": {
-        "count": 120,
-        "data": [],
-        "domain": "s7a",
+        "created_at": "s64",
+        "domain": "s65",
+        "domain_id": "DOMAIN01",
         "id": "LINK00",
         "metadata": {},
-        "next_url": "s7d",
-        "object": "s7e",
-        "previous_url": "s7f",
-        "redirect_link": "s80",
-        "slug": "s81",
-        "title": "s82",
-        "total_count": 131
+        "redirect_link": "s69",
+        "short_link": "s6a",
+        "slug": "s6b",
+        "title": "s6c",
+        "updated_at": "s6d"
       },
       "LINK01": {
-        "count": 240,
-        "data": [],
-        "domain": "sf2",
+        "created_at": "sc8",
+        "domain": "sc9",
+        "domain_id": "DOMAIN01",
         "id": "LINK01",
         "metadata": {},
-        "next_url": "sf5",
-        "object": "sf6",
-        "previous_url": "sf7",
-        "redirect_link": "sf8",
-        "slug": "sf9",
-        "title": "sfa",
-        "total_count": 251
+        "redirect_link": "scd",
+        "short_link": "sce",
+        "slug": "scf",
+        "title": "sd0",
+        "updated_at": "sd1"
       },
       "LINK02": {
-        "count": 360,
-        "data": [],
-        "domain": "s16a",
+        "created_at": "s12c",
+        "domain": "s12d",
+        "domain_id": "DOMAIN01",
         "id": "LINK02",
         "metadata": {},
-        "next_url": "s16d",
-        "object": "s16e",
-        "previous_url": "s16f",
-        "redirect_link": "s170",
-        "slug": "s171",
-        "title": "s172",
-        "total_count": 371
+        "redirect_link": "s131",
+        "short_link": "s132",
+        "slug": "s133",
+        "title": "s134",
+        "updated_at": "s135"
       }
     }
   },
   "new": {
     "link": {
       "link_ref01": {
-        "count": 480,
-        "data": [],
-        "domain": "s1e2",
+        "created_at": "s190",
+        "domain": "s191",
+        "domain_id": "DOMAIN01",
         "metadata": {},
-        "next_url": "s1e5",
-        "object": "s1e6",
-        "previous_url": "s1e7",
-        "redirect_link": "s1e8",
-        "slug": "s1e9",
-        "title": "s1ea",
-        "total_count": 491
+        "redirect_link": "s195",
+        "short_link": "s196",
+        "slug": "s197",
+        "title": "s198",
+        "updated_at": "s199"
       }
     }
   },

@@ -2,63 +2,39 @@
   "existing": {
     "domain": {
       "DOMAIN00": {
-        "count": 120,
-        "created_at": "s79",
-        "data": [],
-        "domain": "s7b",
-        "error_redirect_link": "s7c",
+        "created_at": "s3c",
+        "domain": "s3d",
+        "error_redirect_link": "s3e",
         "id": "DOMAIN00",
-        "next_url": "s7e",
-        "object": "s7f",
-        "previous_url": "s80",
-        "status": "s81",
-        "total_count": 130,
-        "updated_at": "s83"
+        "status": "s40",
+        "updated_at": "s41"
       },
       "DOMAIN01": {
-        "count": 240,
-        "created_at": "sf1",
-        "data": [],
-        "domain": "sf3",
-        "error_redirect_link": "sf4",
+        "created_at": "s78",
+        "domain": "s79",
+        "error_redirect_link": "s7a",
         "id": "DOMAIN01",
-        "next_url": "sf6",
-        "object": "sf7",
-        "previous_url": "sf8",
-        "status": "sf9",
-        "total_count": 250,
-        "updated_at": "sfb"
+        "status": "s7c",
+        "updated_at": "s7d"
       },
       "DOMAIN02": {
-        "count": 360,
-        "created_at": "s169",
-        "data": [],
-        "domain": "s16b",
-        "error_redirect_link": "s16c",
+        "created_at": "sb4",
+        "domain": "sb5",
+        "error_redirect_link": "sb6",
         "id": "DOMAIN02",
-        "next_url": "s16e",
-        "object": "s16f",
-        "previous_url": "s170",
-        "status": "s171",
-        "total_count": 370,
-        "updated_at": "s173"
+        "status": "sb8",
+        "updated_at": "sb9"
       }
     }
   },
   "new": {
     "domain": {
       "domain_ref01": {
-        "count": 480,
-        "created_at": "s1e1",
-        "data": [],
-        "domain": "s1e3",
-        "error_redirect_link": "s1e4",
-        "next_url": "s1e6",
-        "object": "s1e7",
-        "previous_url": "s1e8",
-        "status": "s1e9",
-        "total_count": 490,
-        "updated_at": "s1eb"
+        "created_at": "sf0",
+        "domain": "sf1",
+        "error_redirect_link": "sf2",
+        "status": "sf4",
+        "updated_at": "sf5"
       }
     }
   },

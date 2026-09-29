@@ -35,11 +35,10 @@ type AddressCreateData struct {
 	AddressCity *string `json:"address_city,omitempty"`
 	AddressCountry *string `json:"address_country,omitempty"`
 	AddressLine1 *string `json:"address_line1,omitempty"`
+	AddressLine2 *string `json:"address_line2,omitempty"`
 	AddressState *string `json:"address_state,omitempty"`
 	AddressZip *string `json:"address_zip,omitempty"`
 	Company *string `json:"company,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -47,11 +46,8 @@ type AddressCreateData struct {
 	Id *string `json:"id,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
 	Name *string `json:"name,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
 	Phone *string `json:"phone,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 }
 
 // AddressRemoveMatch is the typed request payload for Address.RemoveTyped.
@@ -84,8 +80,6 @@ type BankAccountCreateData struct {
 	BankName *string `json:"bank_name,omitempty"`
 	CheckTemplate *string `json:"check_template,omitempty"`
 	City *string `json:"city,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated string `json:"date_created"`
 	DateModified string `json:"date_modified"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -94,14 +88,11 @@ type BankAccountCreateData struct {
 	Id string `json:"id"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
 	MicrodepositType *string `json:"microdeposit_type,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object string `json:"object"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	RoutingNumber string `json:"routing_number"`
 	Signatory string `json:"signatory"`
 	SignatureUrl *any `json:"signature_url,omitempty"`
 	State *string `json:"state,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	Verified *bool `json:"verified,omitempty"`
 	Zipcode *string `json:"zipcode,omitempty"`
 }
@@ -137,16 +128,11 @@ type BillingGroupListMatch struct {
 // BillingGroupCreateData is the typed request payload for BillingGroup.CreateTyped.
 type BillingGroupCreateData struct {
 	Id string `json:"id"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 }
 
 // Booklet is the typed data model for the booklet entity.
@@ -176,8 +162,6 @@ type BookletListMatch struct {
 type BookletCreateData struct {
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 	Carrier *string `json:"carrier,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -188,17 +172,14 @@ type BookletCreateData struct {
 	MailType *string `json:"mail_type,omitempty"`
 	MergeVariables *map[string]any `json:"merge_variables,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
 	Pages *int `json:"pages,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	SendDate *string `json:"send_date,omitempty"`
 	Size *string `json:"size,omitempty"`
 	Sla *string `json:"sla,omitempty"`
 	SourceMaterial *string `json:"source_material,omitempty"`
 	Thumbnails *[]any `json:"thumbnails,omitempty"`
 	To *map[string]any `json:"to,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	TrackingEvents *[]any `json:"tracking_events,omitempty"`
 	TrackingNumber *string `json:"tracking_number,omitempty"`
 	Url *string `json:"url,omitempty"`
@@ -234,8 +215,6 @@ type BuckslipCreateData struct {
 	AvailableQuantity float64 `json:"available_quantity"`
 	BackOriginalUrl string `json:"back_original_url"`
 	BuckslipOrders []any `json:"buckslip_orders"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated string `json:"date_created"`
 	DateModified string `json:"date_modified"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -244,11 +223,9 @@ type BuckslipCreateData struct {
 	FrontOriginalUrl string `json:"front_original_url"`
 	Id string `json:"id"`
 	Mode *string `json:"mode,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object string `json:"object"`
 	OnhandQuantity float64 `json:"onhand_quantity"`
 	PendingQuantity float64 `json:"pending_quantity"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	ProjectedQuantity float64 `json:"projected_quantity"`
 	RawUrl string `json:"raw_url"`
 	ReorderQuantity int `json:"reorder_quantity"`
@@ -258,7 +235,6 @@ type BuckslipCreateData struct {
 	Stock string `json:"stock"`
 	ThresholdAmount int `json:"threshold_amount"`
 	Thumbnails []any `json:"thumbnails"`
-	TotalCount *int `json:"total_count,omitempty"`
 	Url string `json:"url"`
 	Weight string `json:"weight"`
 }
@@ -272,8 +248,6 @@ type BuckslipUpdateData struct {
 	AvailableQuantity *float64 `json:"available_quantity,omitempty"`
 	BackOriginalUrl *string `json:"back_original_url,omitempty"`
 	BuckslipOrders *[]any `json:"buckslip_orders,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -281,11 +255,9 @@ type BuckslipUpdateData struct {
 	Finish *string `json:"finish,omitempty"`
 	FrontOriginalUrl *string `json:"front_original_url,omitempty"`
 	Mode *string `json:"mode,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
 	OnhandQuantity *float64 `json:"onhand_quantity,omitempty"`
 	PendingQuantity *float64 `json:"pending_quantity,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	ProjectedQuantity *float64 `json:"projected_quantity,omitempty"`
 	RawUrl *string `json:"raw_url,omitempty"`
 	ReorderQuantity *int `json:"reorder_quantity,omitempty"`
@@ -295,7 +267,6 @@ type BuckslipUpdateData struct {
 	Stock *string `json:"stock,omitempty"`
 	ThresholdAmount *int `json:"threshold_amount,omitempty"`
 	Thumbnails *[]any `json:"thumbnails,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	Url *string `json:"url,omitempty"`
 	Weight *string `json:"weight,omitempty"`
 }
@@ -319,13 +290,19 @@ type BuckslipOrderListMatch struct {
 // BuckslipOrderCreateData is the typed request payload for BuckslipOrder.CreateTyped.
 type BuckslipOrderCreateData struct {
 	Id string `json:"id"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
-	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
+	AvailabilityDate *string `json:"availability_date,omitempty"`
+	BuckslipId *string `json:"buckslip_id,omitempty"`
+	CancelledReason *string `json:"cancelled_reason,omitempty"`
+	DateCreated string `json:"date_created"`
+	DateModified string `json:"date_modified"`
+	Deleted *bool `json:"deleted,omitempty"`
+	ExpectedAvailabilityDate *string `json:"expected_availability_date,omitempty"`
+	Inventory *float64 `json:"inventory,omitempty"`
+	Object string `json:"object"`
 	Quantity int `json:"quantity"`
-	TotalCount *int `json:"total_count,omitempty"`
+	QuantityOrdered *float64 `json:"quantity_ordered,omitempty"`
+	Status *string `json:"status,omitempty"`
+	UnitPrice *float64 `json:"unit_price,omitempty"`
 }
 
 // Campaign is the typed data model for the campaign entity.
@@ -349,9 +326,7 @@ type CampaignCreateData struct {
 	AutoCancelIfNcoa *bool `json:"auto_cancel_if_ncoa,omitempty"`
 	BillingGroupId *string `json:"billing_group_id,omitempty"`
 	CancelWindowCampaignMinutes *int `json:"cancel_window_campaign_minutes,omitempty"`
-	Count *int `json:"count,omitempty"`
 	Creatives []any `json:"creatives"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated string `json:"date_created"`
 	DateModified string `json:"date_modified"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -360,14 +335,11 @@ type CampaignCreateData struct {
 	IsDraft bool `json:"is_draft"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
 	Name string `json:"name"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object string `json:"object"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	PrintSpeed *string `json:"print_speed,omitempty"`
 	ScheduleType string `json:"schedule_type"`
 	SendDate *string `json:"send_date,omitempty"`
 	TargetDeliveryDate *string `json:"target_delivery_date,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	Uploads []any `json:"uploads"`
 	UseType string `json:"use_type"`
 }
@@ -378,9 +350,7 @@ type CampaignUpdateData struct {
 	AutoCancelIfNcoa *bool `json:"auto_cancel_if_ncoa,omitempty"`
 	BillingGroupId *string `json:"billing_group_id,omitempty"`
 	CancelWindowCampaignMinutes *int `json:"cancel_window_campaign_minutes,omitempty"`
-	Count *int `json:"count,omitempty"`
 	Creatives *[]any `json:"creatives,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -388,14 +358,11 @@ type CampaignUpdateData struct {
 	IsDraft *bool `json:"is_draft,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
 	Name *string `json:"name,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	PrintSpeed *string `json:"print_speed,omitempty"`
 	ScheduleType *string `json:"schedule_type,omitempty"`
 	SendDate *string `json:"send_date,omitempty"`
 	TargetDeliveryDate *string `json:"target_delivery_date,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	Uploads *[]any `json:"uploads,omitempty"`
 	UseType *string `json:"use_type,omitempty"`
 }
@@ -428,20 +395,16 @@ type CardCreateData struct {
 	AutoReorder bool `json:"auto_reorder"`
 	AvailableQuantity int `json:"available_quantity"`
 	BackOriginalUrl string `json:"back_original_url"`
-	Count *int `json:"count,omitempty"`
 	Countries *string `json:"countries,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated string `json:"date_created"`
 	DateModified string `json:"date_modified"`
 	Deleted *bool `json:"deleted,omitempty"`
 	Description *string `json:"description,omitempty"`
 	FrontOriginalUrl string `json:"front_original_url"`
 	Mode *string `json:"mode,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object string `json:"object"`
 	Orientation string `json:"orientation"`
 	PendingQuantity int `json:"pending_quantity"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	RawUrl string `json:"raw_url"`
 	ReorderQuantity int `json:"reorder_quantity"`
 	SendDate *string `json:"send_date,omitempty"`
@@ -449,7 +412,6 @@ type CardCreateData struct {
 	Status string `json:"status"`
 	ThresholdAmount int `json:"threshold_amount"`
 	Thumbnails []any `json:"thumbnails"`
-	TotalCount *int `json:"total_count,omitempty"`
 	Url string `json:"url"`
 }
 
@@ -472,13 +434,19 @@ type CardOrderListMatch struct {
 // CardOrderCreateData is the typed request payload for CardOrder.CreateTyped.
 type CardOrderCreateData struct {
 	Id string `json:"id"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
-	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
+	AvailabilityDate *string `json:"availability_date,omitempty"`
+	CancelledReason *string `json:"cancelled_reason,omitempty"`
+	CardId *string `json:"card_id,omitempty"`
+	DateCreated string `json:"date_created"`
+	DateModified string `json:"date_modified"`
+	Deleted *bool `json:"deleted,omitempty"`
+	ExpectedAvailabilityDate *string `json:"expected_availability_date,omitempty"`
+	Inventory *float64 `json:"inventory,omitempty"`
+	Object string `json:"object"`
 	Quantity int `json:"quantity"`
-	TotalCount *int `json:"total_count,omitempty"`
+	QuantityOrdered *float64 `json:"quantity_ordered,omitempty"`
+	Status *string `json:"status,omitempty"`
+	UnitPrice *float64 `json:"unit_price,omitempty"`
 }
 
 // Check is the typed data model for the check entity.
@@ -515,8 +483,6 @@ type CheckCreateData struct {
 	CheckBottomTemplateId *string `json:"check_bottom_template_id,omitempty"`
 	CheckBottomTemplateVersionId *string `json:"check_bottom_template_version_id,omitempty"`
 	CheckNumber *int `json:"check_number,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated string `json:"date_created"`
 	DateModified string `json:"date_modified"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -530,15 +496,12 @@ type CheckCreateData struct {
 	MergeVariables *map[string]any `json:"merge_variables,omitempty"`
 	Message *string `json:"message,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	SendDate *string `json:"send_date,omitempty"`
 	Sla *string `json:"sla,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Thumbnails *[]any `json:"thumbnails,omitempty"`
 	To any `json:"to"`
-	TotalCount *int `json:"total_count,omitempty"`
 	TrackingEvents *[]any `json:"tracking_events,omitempty"`
 	Url string `json:"url"`
 	UseType string `json:"use_type"`
@@ -610,17 +573,11 @@ type DomainListMatch struct {
 
 // DomainCreateData is the typed request payload for Domain.CreateTyped.
 type DomainCreateData struct {
-	Count *int `json:"count,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	Domain *string `json:"domain,omitempty"`
 	ErrorRedirectLink *string `json:"error_redirect_link,omitempty"`
 	Id *string `json:"id,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
-	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	Status *string `json:"status,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
@@ -699,9 +656,7 @@ type LetterCreateData struct {
 	Cards *[]any `json:"cards,omitempty"`
 	Carrier *string `json:"carrier,omitempty"`
 	Color *bool `json:"color,omitempty"`
-	Count *int `json:"count,omitempty"`
 	CustomEnvelope *string `json:"custom_envelope,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -714,16 +669,15 @@ type LetterCreateData struct {
 	MailType *string `json:"mail_type,omitempty"`
 	MergeVariables *map[string]any `json:"merge_variables,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
 	PerforatedPage *string `json:"perforated_page,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	ReturnEnvelope *bool `json:"return_envelope,omitempty"`
 	SendDate *string `json:"send_date,omitempty"`
 	Sla *string `json:"sla,omitempty"`
+	TemplateId *string `json:"template_id,omitempty"`
+	TemplateVersionId *string `json:"template_version_id,omitempty"`
 	Thumbnails *[]any `json:"thumbnails,omitempty"`
 	To *map[string]any `json:"to,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	TrackingEvents *[]any `json:"tracking_events,omitempty"`
 	TrackingNumber *string `json:"tracking_number,omitempty"`
 	Url *string `json:"url,omitempty"`
@@ -754,34 +708,30 @@ type LinkListMatch struct {
 
 // LinkCreateData is the typed request payload for Link.CreateTyped.
 type LinkCreateData struct {
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
 	Domain *string `json:"domain,omitempty"`
+	DomainId *string `json:"domain_id,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
-	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
-	RedirectLink string `json:"redirect_link"`
+	RedirectLink *string `json:"redirect_link,omitempty"`
+	ShortLink *string `json:"short_link,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 	Title *string `json:"title,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
 // LinkUpdateData is the typed request payload for Link.UpdateTyped.
 type LinkUpdateData struct {
 	Id string `json:"id"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
 	Domain *string `json:"domain,omitempty"`
+	DomainId *string `json:"domain_id,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
-	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	RedirectLink *string `json:"redirect_link,omitempty"`
+	ShortLink *string `json:"short_link,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 	Title *string `json:"title,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
 // LinkRemoveMatch is the typed request payload for Link.RemoveTyped.
@@ -830,8 +780,6 @@ type PostcardCreateData struct {
 	BackTemplateVersionId *string `json:"back_template_version_id,omitempty"`
 	CampaignId *string `json:"campaign_id,omitempty"`
 	Carrier string `json:"carrier"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -844,15 +792,12 @@ type PostcardCreateData struct {
 	Fsc *bool `json:"fsc,omitempty"`
 	Id string `json:"id"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	SendDate *string `json:"send_date,omitempty"`
 	Sla *string `json:"sla,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Thumbnails *[]any `json:"thumbnails,omitempty"`
 	To any `json:"to"`
-	TotalCount *int `json:"total_count,omitempty"`
 	TrackingEvents *[]any `json:"tracking_events,omitempty"`
 	Url string `json:"url"`
 	UseType *string `json:"use_type,omitempty"`
@@ -928,8 +873,6 @@ type ResponseListMatch struct {
 	AccountId *string `json:"account_id,omitempty"`
 	BrandName *string `json:"brand_name,omitempty"`
 	CampaignCode *string `json:"campaign_code,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -938,9 +881,7 @@ type ResponseListMatch struct {
 	Id *string `json:"id,omitempty"`
 	LobCampaignId *string `json:"lob_campaign_id,omitempty"`
 	Mode *string `json:"mode,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	Quantity *int `json:"quantity,omitempty"`
 	RepresentativeImageS3Link *string `json:"representative_image_s3_link,omitempty"`
 	RideAlongImageS3Link *string `json:"ride_along_image_s3_link,omitempty"`
@@ -949,7 +890,6 @@ type ResponseListMatch struct {
 	StartDate *string `json:"start_date,omitempty"`
 	StartSerial *int `json:"start_serial,omitempty"`
 	Status *string `json:"status,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	UspsCampaignId *string `json:"usps_campaign_id,omitempty"`
 	UspsTitle *string `json:"usps_title,omitempty"`
 }
@@ -959,8 +899,6 @@ type ResponseCreateData struct {
 	AccountId string `json:"account_id"`
 	BrandName *string `json:"brand_name,omitempty"`
 	CampaignCode string `json:"campaign_code"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated string `json:"date_created"`
 	DateModified string `json:"date_modified"`
 	Deleted bool `json:"deleted"`
@@ -969,9 +907,7 @@ type ResponseCreateData struct {
 	Id string `json:"id"`
 	LobCampaignId *string `json:"lob_campaign_id,omitempty"`
 	Mode string `json:"mode"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object string `json:"object"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	Quantity *int `json:"quantity,omitempty"`
 	RepresentativeImageS3Link string `json:"representative_image_s3_link"`
 	RideAlongImageS3Link string `json:"ride_along_image_s3_link"`
@@ -980,7 +916,6 @@ type ResponseCreateData struct {
 	StartDate *string `json:"start_date,omitempty"`
 	StartSerial int `json:"start_serial"`
 	Status *string `json:"status,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	UspsCampaignId string `json:"usps_campaign_id"`
 	UspsTitle *string `json:"usps_title,omitempty"`
 }
@@ -991,8 +926,6 @@ type ResponseUpdateData struct {
 	AccountId *string `json:"account_id,omitempty"`
 	BrandName *string `json:"brand_name,omitempty"`
 	CampaignCode *string `json:"campaign_code,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -1001,9 +934,7 @@ type ResponseUpdateData struct {
 	Id *string `json:"id,omitempty"`
 	LobCampaignId *string `json:"lob_campaign_id,omitempty"`
 	Mode *string `json:"mode,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	Quantity *int `json:"quantity,omitempty"`
 	RepresentativeImageS3Link *string `json:"representative_image_s3_link,omitempty"`
 	RideAlongImageS3Link *string `json:"ride_along_image_s3_link,omitempty"`
@@ -1012,7 +943,6 @@ type ResponseUpdateData struct {
 	StartDate *string `json:"start_date,omitempty"`
 	StartSerial *int `json:"start_serial,omitempty"`
 	Status *string `json:"status,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	UspsTitle *string `json:"usps_title,omitempty"`
 }
 
@@ -1060,8 +990,6 @@ type SelfMailerCreateData struct {
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 	CampaignId *string `json:"campaign_id,omitempty"`
 	Carrier string `json:"carrier"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -1076,18 +1004,15 @@ type SelfMailerCreateData struct {
 	MailType *string `json:"mail_type,omitempty"`
 	MergeVariables *map[string]any `json:"merge_variables,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
 	OutsideTemplateId *string `json:"outside_template_id,omitempty"`
 	OutsideTemplateVersionId *string `json:"outside_template_version_id,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	SendDate *string `json:"send_date,omitempty"`
 	Size *string `json:"size,omitempty"`
 	Sla *string `json:"sla,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Thumbnails *[]any `json:"thumbnails,omitempty"`
 	To any `json:"to"`
-	TotalCount *int `json:"total_count,omitempty"`
 	TrackingEvents *[]any `json:"tracking_events,omitempty"`
 	Url string `json:"url"`
 	UseType string `json:"use_type"`
@@ -1127,8 +1052,6 @@ type SnapPackCreateData struct {
 	CampaignId *string `json:"campaign_id,omitempty"`
 	Carrier string `json:"carrier"`
 	Color *bool `json:"color,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -1142,18 +1065,15 @@ type SnapPackCreateData struct {
 	InsideTemplateVersionId *string `json:"inside_template_version_id,omitempty"`
 	MailType *string `json:"mail_type,omitempty"`
 	MergeVariables *map[string]any `json:"merge_variables,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
 	OutsideTemplateId *string `json:"outside_template_id,omitempty"`
 	OutsideTemplateVersionId *string `json:"outside_template_version_id,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	SendDate *string `json:"send_date,omitempty"`
 	Size *string `json:"size,omitempty"`
 	Sla *string `json:"sla,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Thumbnails *[]any `json:"thumbnails,omitempty"`
 	To any `json:"to"`
-	TotalCount *int `json:"total_count,omitempty"`
 	TrackingEvents *[]any `json:"tracking_events,omitempty"`
 	Url string `json:"url"`
 	UseType string `json:"use_type"`
@@ -1185,8 +1105,6 @@ type TemplateListMatch struct {
 // TemplateCreateData is the typed request payload for Template.CreateTyped.
 type TemplateCreateData struct {
 	Id string `json:"id"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated *string `json:"date_created,omitempty"`
 	DateModified *string `json:"date_modified,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -1194,12 +1112,9 @@ type TemplateCreateData struct {
 	Engine *string `json:"engine,omitempty"`
 	Html string `json:"html"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object *string `json:"object,omitempty"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	PublishedVersion any `json:"published_version"`
 	RequiredVars *[]any `json:"required_vars,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 	Versions []any `json:"versions"`
 }
 
@@ -1231,8 +1146,6 @@ type TemplateVersionListMatch struct {
 type TemplateVersionCreateData struct {
 	Id string `json:"id"`
 	TemplateId *string `json:"template_id,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
 	DateCreated string `json:"date_created"`
 	DateModified string `json:"date_modified"`
 	Deleted *bool `json:"deleted,omitempty"`
@@ -1240,12 +1153,9 @@ type TemplateVersionCreateData struct {
 	Engine *string `json:"engine,omitempty"`
 	Html string `json:"html"`
 	MergeVariables *map[string]any `json:"merge_variables,omitempty"`
-	NextUrl *string `json:"next_url,omitempty"`
 	Object string `json:"object"`
-	PreviousUrl *string `json:"previous_url,omitempty"`
 	RequiredVars *[]any `json:"required_vars,omitempty"`
 	SuggestJsonEditor *bool `json:"suggest_json_editor,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
 }
 
 // TemplateVersionDeletion is the typed data model for the template_version_deletion entity.

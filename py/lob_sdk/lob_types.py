@@ -20,11 +20,10 @@ class Address(TypedDict, total=False):
     address_city: str
     address_country: str
     address_line1: str
+    address_line2: str
     address_state: str
     address_zip: str
     company: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     description: str
@@ -32,11 +31,8 @@ class Address(TypedDict, total=False):
     id: str
     metadata: dict
     name: str
-    next_url: str
     object: str
     phone: str
-    previous_url: str
-    total_count: int
 
 
 class AddressLoadMatch(TypedDict):
@@ -54,11 +50,10 @@ class AddressCreateData(TypedDict, total=False):
     address_city: str
     address_country: str
     address_line1: str
+    address_line2: str
     address_state: str
     address_zip: str
     company: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     description: str
@@ -66,11 +61,8 @@ class AddressCreateData(TypedDict, total=False):
     id: str
     metadata: dict
     name: str
-    next_url: str
     object: str
     phone: str
-    previous_url: str
-    total_count: int
 
 
 class AddressRemoveMatch(TypedDict):
@@ -92,18 +84,13 @@ class BankAccount(BankAccountRequired, total=False):
     bank_name: str
     check_template: str
     city: str
-    count: int
-    data: list
     deleted: bool
     description: str
     fractional_routing_number: str
     metadata: dict
     microdeposit_type: str
-    next_url: str
-    previous_url: str
     signature_url: Any
     state: str
-    total_count: int
     verified: bool
     zipcode: str
 
@@ -134,18 +121,13 @@ class BankAccountCreateData(BankAccountCreateDataRequired, total=False):
     bank_name: str
     check_template: str
     city: str
-    count: int
-    data: list
     deleted: bool
     description: str
     fractional_routing_number: str
     metadata: dict
     microdeposit_type: str
-    next_url: str
-    previous_url: str
     signature_url: Any
     state: str
-    total_count: int
     verified: bool
     zipcode: str
 
@@ -159,17 +141,12 @@ class BankDeletionRemoveMatch(TypedDict):
 
 
 class BillingGroup(TypedDict, total=False):
-    count: int
-    data: list
     date_created: str
     date_modified: str
     description: str
     id: str
     name: str
-    next_url: str
     object: str
-    previous_url: str
-    total_count: int
 
 
 class BillingGroupLoadMatch(TypedDict):
@@ -190,22 +167,15 @@ class BillingGroupCreateDataRequired(TypedDict):
 
 
 class BillingGroupCreateData(BillingGroupCreateDataRequired, total=False):
-    count: int
-    data: list
     date_created: str
     date_modified: str
     description: str
     name: str
-    next_url: str
     object: str
-    previous_url: str
-    total_count: int
 
 
 class Booklet(TypedDict, total=False):
     carrier: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     description: str
@@ -215,17 +185,14 @@ class Booklet(TypedDict, total=False):
     mail_type: str
     merge_variables: dict
     metadata: dict
-    next_url: str
     object: str
     pages: int
-    previous_url: str
     send_date: str
     size: str
     sla: str
     source_material: str
     thumbnails: list
     to: dict
-    total_count: int
     tracking_events: list
     tracking_number: str
     url: str
@@ -251,8 +218,6 @@ class BookletListMatch(TypedDict, total=False):
 class BookletCreateData(TypedDict, total=False):
     idempotency_key: str
     carrier: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     description: str
@@ -262,17 +227,14 @@ class BookletCreateData(TypedDict, total=False):
     mail_type: str
     merge_variables: dict
     metadata: dict
-    next_url: str
     object: str
     pages: int
-    previous_url: str
     send_date: str
     size: str
     sla: str
     source_material: str
     thumbnails: list
     to: dict
-    total_count: int
     tracking_events: list
     tracking_number: str
     url: str
@@ -310,16 +272,11 @@ class BuckslipRequired(TypedDict):
 
 class Buckslip(BuckslipRequired, total=False):
     account_id: str
-    count: int
-    data: list
     deleted: bool
     description: str
     mode: str
-    next_url: str
-    previous_url: str
     send_date: str
     size: str
-    total_count: int
 
 
 class BuckslipLoadMatch(TypedDict):
@@ -358,16 +315,11 @@ class BuckslipCreateDataRequired(TypedDict):
 
 class BuckslipCreateData(BuckslipCreateDataRequired, total=False):
     account_id: str
-    count: int
-    data: list
     deleted: bool
     description: str
     mode: str
-    next_url: str
-    previous_url: str
     send_date: str
     size: str
-    total_count: int
 
 
 class BuckslipUpdateDataRequired(TypedDict):
@@ -381,8 +333,6 @@ class BuckslipUpdateData(BuckslipUpdateDataRequired, total=False):
     available_quantity: float
     back_original_url: str
     buckslip_orders: list
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -390,11 +340,9 @@ class BuckslipUpdateData(BuckslipUpdateDataRequired, total=False):
     finish: str
     front_original_url: str
     mode: str
-    next_url: str
     object: str
     onhand_quantity: float
     pending_quantity: float
-    previous_url: str
     projected_quantity: float
     raw_url: str
     reorder_quantity: int
@@ -404,7 +352,6 @@ class BuckslipUpdateData(BuckslipUpdateDataRequired, total=False):
     stock: str
     threshold_amount: int
     thumbnails: list
-    total_count: int
     url: str
     weight: str
 
@@ -414,17 +361,23 @@ class BuckslipRemoveMatch(TypedDict):
 
 
 class BuckslipOrderRequired(TypedDict):
+    date_created: str
+    date_modified: str
+    object: str
     quantity: int
 
 
 class BuckslipOrder(BuckslipOrderRequired, total=False):
-    count: int
-    data: list
+    availability_date: str
+    buckslip_id: str
+    cancelled_reason: str
+    deleted: bool
+    expected_availability_date: str
     id: str
-    next_url: str
-    object: str
-    previous_url: str
-    total_count: int
+    inventory: float
+    quantity_ordered: float
+    status: str
+    unit_price: float
 
 
 class BuckslipOrderListMatchRequired(TypedDict):
@@ -438,16 +391,22 @@ class BuckslipOrderListMatch(BuckslipOrderListMatchRequired, total=False):
 
 class BuckslipOrderCreateDataRequired(TypedDict):
     id: str
+    date_created: str
+    date_modified: str
+    object: str
     quantity: int
 
 
 class BuckslipOrderCreateData(BuckslipOrderCreateDataRequired, total=False):
-    count: int
-    data: list
-    next_url: str
-    object: str
-    previous_url: str
-    total_count: int
+    availability_date: str
+    buckslip_id: str
+    cancelled_reason: str
+    deleted: bool
+    expected_availability_date: str
+    inventory: float
+    quantity_ordered: float
+    status: str
+    unit_price: float
 
 
 class CampaignRequired(TypedDict):
@@ -467,17 +426,12 @@ class Campaign(CampaignRequired, total=False):
     auto_cancel_if_ncoa: bool
     billing_group_id: str
     cancel_window_campaign_minutes: int
-    count: int
-    data: list
     deleted: bool
     description: str
     metadata: dict
-    next_url: str
-    previous_url: str
     print_speed: str
     send_date: str
     target_delivery_date: str
-    total_count: int
 
 
 class CampaignLoadMatch(TypedDict):
@@ -506,17 +460,12 @@ class CampaignCreateData(CampaignCreateDataRequired, total=False):
     auto_cancel_if_ncoa: bool
     billing_group_id: str
     cancel_window_campaign_minutes: int
-    count: int
-    data: list
     deleted: bool
     description: str
     metadata: dict
-    next_url: str
-    previous_url: str
     print_speed: str
     send_date: str
     target_delivery_date: str
-    total_count: int
 
 
 class CampaignUpdateDataRequired(TypedDict):
@@ -527,9 +476,7 @@ class CampaignUpdateData(CampaignUpdateDataRequired, total=False):
     auto_cancel_if_ncoa: bool
     billing_group_id: str
     cancel_window_campaign_minutes: int
-    count: int
     creatives: list
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -537,14 +484,11 @@ class CampaignUpdateData(CampaignUpdateDataRequired, total=False):
     is_draft: bool
     metadata: dict
     name: str
-    next_url: str
     object: str
-    previous_url: str
     print_speed: str
     schedule_type: str
     send_date: str
     target_delivery_date: str
-    total_count: int
     uploads: list
     use_type: str
 
@@ -574,17 +518,12 @@ class CardRequired(TypedDict):
 
 class Card(CardRequired, total=False):
     account_id: str
-    count: int
     countries: str
-    data: list
     deleted: bool
     description: str
     mode: str
-    next_url: str
-    previous_url: str
     send_date: str
     size: str
-    total_count: int
 
 
 class CardLoadMatch(TypedDict):
@@ -617,17 +556,12 @@ class CardCreateDataRequired(TypedDict):
 
 class CardCreateData(CardCreateDataRequired, total=False):
     account_id: str
-    count: int
     countries: str
-    data: list
     deleted: bool
     description: str
     mode: str
-    next_url: str
-    previous_url: str
     send_date: str
     size: str
-    total_count: int
 
 
 class CardRemoveMatch(TypedDict):
@@ -635,17 +569,23 @@ class CardRemoveMatch(TypedDict):
 
 
 class CardOrderRequired(TypedDict):
+    date_created: str
+    date_modified: str
+    object: str
     quantity: int
 
 
 class CardOrder(CardOrderRequired, total=False):
-    count: int
-    data: list
+    availability_date: str
+    cancelled_reason: str
+    card_id: str
+    deleted: bool
+    expected_availability_date: str
     id: str
-    next_url: str
-    object: str
-    previous_url: str
-    total_count: int
+    inventory: float
+    quantity_ordered: float
+    status: str
+    unit_price: float
 
 
 class CardOrderListMatchRequired(TypedDict):
@@ -659,16 +599,22 @@ class CardOrderListMatch(CardOrderListMatchRequired, total=False):
 
 class CardOrderCreateDataRequired(TypedDict):
     id: str
+    date_created: str
+    date_modified: str
+    object: str
     quantity: int
 
 
 class CardOrderCreateData(CardOrderCreateDataRequired, total=False):
-    count: int
-    data: list
-    next_url: str
-    object: str
-    previous_url: str
-    total_count: int
+    availability_date: str
+    cancelled_reason: str
+    card_id: str
+    deleted: bool
+    expected_availability_date: str
+    inventory: float
+    quantity_ordered: float
+    status: str
+    unit_price: float
 
 
 class CheckRequired(TypedDict):
@@ -689,8 +635,6 @@ class Check(CheckRequired, total=False):
     check_bottom_template_id: str
     check_bottom_template_version_id: str
     check_number: int
-    count: int
-    data: list
     deleted: bool
     description: str
     expected_delivery_date: str
@@ -700,14 +644,11 @@ class Check(CheckRequired, total=False):
     merge_variables: dict
     message: str
     metadata: dict
-    next_url: str
     object: str
-    previous_url: str
     send_date: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
 
 
@@ -746,8 +687,6 @@ class CheckCreateData(CheckCreateDataRequired, total=False):
     check_bottom_template_id: str
     check_bottom_template_version_id: str
     check_number: int
-    count: int
-    data: list
     deleted: bool
     description: str
     expected_delivery_date: str
@@ -757,14 +696,11 @@ class CheckCreateData(CheckCreateDataRequired, total=False):
     merge_variables: dict
     message: str
     metadata: dict
-    next_url: str
     object: str
-    previous_url: str
     send_date: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
 
 
@@ -831,17 +767,11 @@ class CreativeUpdateData(CreativeUpdateDataRequired, total=False):
 
 
 class Domain(TypedDict, total=False):
-    count: int
     created_at: str
-    data: list
     domain: str
     error_redirect_link: str
     id: str
-    next_url: str
-    object: str
-    previous_url: str
     status: str
-    total_count: int
     updated_at: str
 
 
@@ -855,17 +785,11 @@ class DomainListMatch(TypedDict, total=False):
 
 
 class DomainCreateData(TypedDict, total=False):
-    count: int
     created_at: str
-    data: list
     domain: str
     error_redirect_link: str
     id: str
-    next_url: str
-    object: str
-    previous_url: str
     status: str
-    total_count: int
     updated_at: str
 
 
@@ -940,9 +864,7 @@ class Letter(TypedDict, total=False):
     cards: list
     carrier: str
     color: bool
-    count: int
     custom_envelope: str
-    data: list
     date_created: str
     date_modified: str
     description: str
@@ -954,16 +876,15 @@ class Letter(TypedDict, total=False):
     mail_type: str
     merge_variables: dict
     metadata: dict
-    next_url: str
     object: str
     perforated_page: str
-    previous_url: str
     return_envelope: bool
     send_date: str
     sla: str
+    template_id: str
+    template_version_id: str
     thumbnails: list
     to: dict
-    total_count: int
     tracking_events: list
     tracking_number: str
     url: str
@@ -994,9 +915,7 @@ class LetterCreateData(TypedDict, total=False):
     cards: list
     carrier: str
     color: bool
-    count: int
     custom_envelope: str
-    data: list
     date_created: str
     date_modified: str
     description: str
@@ -1008,16 +927,15 @@ class LetterCreateData(TypedDict, total=False):
     mail_type: str
     merge_variables: dict
     metadata: dict
-    next_url: str
     object: str
     perforated_page: str
-    previous_url: str
     return_envelope: bool
     send_date: str
     sla: str
+    template_id: str
+    template_version_id: str
     thumbnails: list
     to: dict
-    total_count: int
     tracking_events: list
     tracking_number: str
     url: str
@@ -1028,22 +946,17 @@ class LetterRemoveMatch(TypedDict):
     id: str
 
 
-class LinkRequired(TypedDict):
-    redirect_link: str
-
-
-class Link(LinkRequired, total=False):
-    count: int
-    data: list
+class Link(TypedDict, total=False):
+    created_at: str
     domain: str
+    domain_id: str
     id: str
     metadata: dict
-    next_url: str
-    object: str
-    previous_url: str
+    redirect_link: str
+    short_link: str
     slug: str
     title: str
-    total_count: int
+    updated_at: str
 
 
 class LinkLoadMatch(TypedDict):
@@ -1056,22 +969,17 @@ class LinkListMatch(TypedDict, total=False):
     limit: int
 
 
-class LinkCreateDataRequired(TypedDict):
-    redirect_link: str
-
-
-class LinkCreateData(LinkCreateDataRequired, total=False):
-    count: int
-    data: list
+class LinkCreateData(TypedDict, total=False):
+    created_at: str
     domain: str
+    domain_id: str
     id: str
     metadata: dict
-    next_url: str
-    object: str
-    previous_url: str
+    redirect_link: str
+    short_link: str
     slug: str
     title: str
-    total_count: int
+    updated_at: str
 
 
 class LinkUpdateDataRequired(TypedDict):
@@ -1079,17 +987,15 @@ class LinkUpdateDataRequired(TypedDict):
 
 
 class LinkUpdateData(LinkUpdateDataRequired, total=False):
-    count: int
-    data: list
+    created_at: str
     domain: str
+    domain_id: str
     metadata: dict
-    next_url: str
-    object: str
-    previous_url: str
     redirect_link: str
+    short_link: str
     slug: str
     title: str
-    total_count: int
+    updated_at: str
 
 
 class LinkRemoveMatch(TypedDict):
@@ -1116,8 +1022,6 @@ class PostcardRequired(TypedDict):
 class Postcard(PostcardRequired, total=False):
     back_template_version_id: str
     campaign_id: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1127,14 +1031,11 @@ class Postcard(PostcardRequired, total=False):
     front_template_version_id: str
     fsc: bool
     metadata: dict
-    next_url: str
     object: str
-    previous_url: str
     send_date: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
     use_type: str
 
@@ -1170,8 +1071,6 @@ class PostcardCreateData(PostcardCreateDataRequired, total=False):
     idempotency_key: str
     back_template_version_id: str
     campaign_id: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1181,14 +1080,11 @@ class PostcardCreateData(PostcardCreateDataRequired, total=False):
     front_template_version_id: str
     fsc: bool
     metadata: dict
-    next_url: str
     object: str
-    previous_url: str
     send_date: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
     use_type: str
 
@@ -1198,11 +1094,10 @@ class PostcardRemoveMatch(TypedDict):
 
 
 class QrCode(TypedDict, total=False):
-    count: int
-    data: list
-    object: str
-    scanned_count: int
-    total_count: int
+    date_created: str
+    number_of_scans: float
+    resource_id: str
+    scans: list
 
 
 class QrCodeListMatch(TypedDict, total=False):
@@ -1286,16 +1181,11 @@ class ResponseRequired(TypedDict):
 
 class Response(ResponseRequired, total=False):
     brand_name: str
-    count: int
-    data: list
     lob_campaign_id: str
-    next_url: str
-    previous_url: str
     quantity: int
     ride_along_url: str
     start_date: str
     status: str
-    total_count: int
     usps_title: str
 
 
@@ -1307,8 +1197,6 @@ class ResponseListMatch(TypedDict, total=False):
     account_id: str
     brand_name: str
     campaign_code: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1317,9 +1205,7 @@ class ResponseListMatch(TypedDict, total=False):
     id: str
     lob_campaign_id: str
     mode: str
-    next_url: str
     object: str
-    previous_url: str
     quantity: int
     representative_image_s3_link: str
     ride_along_image_s3_link: str
@@ -1328,7 +1214,6 @@ class ResponseListMatch(TypedDict, total=False):
     start_date: str
     start_serial: int
     status: str
-    total_count: int
     usps_campaign_id: str
     usps_title: str
 
@@ -1353,16 +1238,11 @@ class ResponseCreateDataRequired(TypedDict):
 
 class ResponseCreateData(ResponseCreateDataRequired, total=False):
     brand_name: str
-    count: int
-    data: list
     lob_campaign_id: str
-    next_url: str
-    previous_url: str
     quantity: int
     ride_along_url: str
     start_date: str
     status: str
-    total_count: int
     usps_title: str
 
 
@@ -1374,8 +1254,6 @@ class ResponseUpdateData(ResponseUpdateDataRequired, total=False):
     account_id: str
     brand_name: str
     campaign_code: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1384,9 +1262,7 @@ class ResponseUpdateData(ResponseUpdateDataRequired, total=False):
     id: str
     lob_campaign_id: str
     mode: str
-    next_url: str
     object: str
-    previous_url: str
     quantity: int
     representative_image_s3_link: str
     ride_along_image_s3_link: str
@@ -1395,7 +1271,6 @@ class ResponseUpdateData(ResponseUpdateDataRequired, total=False):
     start_date: str
     start_serial: int
     status: str
-    total_count: int
     usps_title: str
 
 
@@ -1432,8 +1307,6 @@ class SelfMailerRequired(TypedDict):
 
 class SelfMailer(SelfMailerRequired, total=False):
     campaign_id: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1446,17 +1319,14 @@ class SelfMailer(SelfMailerRequired, total=False):
     mail_type: str
     merge_variables: dict
     metadata: dict
-    next_url: str
     object: str
     outside_template_id: str
     outside_template_version_id: str
-    previous_url: str
     send_date: str
     size: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
 
 
@@ -1489,8 +1359,6 @@ class SelfMailerCreateDataRequired(TypedDict):
 class SelfMailerCreateData(SelfMailerCreateDataRequired, total=False):
     idempotency_key: str
     campaign_id: str
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1503,17 +1371,14 @@ class SelfMailerCreateData(SelfMailerCreateDataRequired, total=False):
     mail_type: str
     merge_variables: dict
     metadata: dict
-    next_url: str
     object: str
     outside_template_id: str
     outside_template_version_id: str
-    previous_url: str
     send_date: str
     size: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
 
 
@@ -1532,8 +1397,6 @@ class SnapPackRequired(TypedDict):
 class SnapPack(SnapPackRequired, total=False):
     campaign_id: str
     color: bool
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1545,17 +1408,14 @@ class SnapPack(SnapPackRequired, total=False):
     inside_template_version_id: str
     mail_type: str
     merge_variables: dict
-    next_url: str
     object: str
     outside_template_id: str
     outside_template_version_id: str
-    previous_url: str
     send_date: str
     size: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
 
 
@@ -1587,8 +1447,6 @@ class SnapPackCreateData(SnapPackCreateDataRequired, total=False):
     idempotency_key: str
     campaign_id: str
     color: bool
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
@@ -1600,17 +1458,14 @@ class SnapPackCreateData(SnapPackCreateDataRequired, total=False):
     inside_template_version_id: str
     mail_type: str
     merge_variables: dict
-    next_url: str
     object: str
     outside_template_id: str
     outside_template_version_id: str
-    previous_url: str
     send_date: str
     size: str
     sla: str
     status: str
     thumbnails: list
-    total_count: int
     tracking_events: list
 
 
@@ -1626,19 +1481,14 @@ class TemplateRequired(TypedDict):
 
 
 class Template(TemplateRequired, total=False):
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
     description: str
     engine: str
     metadata: dict
-    next_url: str
     object: str
-    previous_url: str
     required_vars: list
-    total_count: int
 
 
 class TemplateLoadMatch(TypedDict):
@@ -1660,19 +1510,14 @@ class TemplateCreateDataRequired(TypedDict):
 
 
 class TemplateCreateData(TemplateCreateDataRequired, total=False):
-    count: int
-    data: list
     date_created: str
     date_modified: str
     deleted: bool
     description: str
     engine: str
     metadata: dict
-    next_url: str
     object: str
-    previous_url: str
     required_vars: list
-    total_count: int
 
 
 class TemplateRemoveMatch(TypedDict):
@@ -1688,17 +1533,12 @@ class TemplateVersionRequired(TypedDict):
 
 
 class TemplateVersion(TemplateVersionRequired, total=False):
-    count: int
-    data: list
     deleted: bool
     description: str
     engine: str
     merge_variables: dict
-    next_url: str
-    previous_url: str
     required_vars: list
     suggest_json_editor: bool
-    total_count: int
 
 
 class TemplateVersionLoadMatch(TypedDict):
@@ -1726,17 +1566,12 @@ class TemplateVersionCreateDataRequired(TypedDict):
 
 class TemplateVersionCreateData(TemplateVersionCreateDataRequired, total=False):
     template_id: str
-    count: int
-    data: list
     deleted: bool
     description: str
     engine: str
     merge_variables: dict
-    next_url: str
-    previous_url: str
     required_vars: list
     suggest_json_editor: bool
-    total_count: int
 
 
 class TemplateVersionDeletion(TypedDict):

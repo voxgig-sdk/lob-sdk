@@ -39,20 +39,6 @@ main: kit: entity: bank_account: {
       sh: "The city associated with your home bank account."
       t: "`$STRING`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of bank_accounts"
-      t: "`$ARRAY`"
-    }
     date_created: {
       fo: "date-time"
       h: "Date Created"
@@ -110,13 +96,6 @@ main: kit: entity: bank_account: {
       sh: "The type of microdeposit verification required for this bank account."
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
@@ -136,13 +115,6 @@ main: kit: entity: bank_account: {
       }
       r: true
       sh: "Value is resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     routing_number: {
@@ -171,13 +143,6 @@ main: kit: entity: bank_account: {
       r: false
       sh: "The state associated with your home bank account."
       t: "`$STRING`"
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     verified: {
       h: "Verified"
@@ -338,7 +303,7 @@ main: kit: entity: bank_account: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

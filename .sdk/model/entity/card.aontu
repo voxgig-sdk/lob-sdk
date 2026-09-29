@@ -51,25 +51,11 @@ main: kit: entity: card: {
       sh: "The original URL of the back template."
       t: "`$STRING`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
     countries: {
       h: "Countries"
       n: "countries"
       r: false
       t: "`$STRING`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of cards"
-      t: "`$ARRAY`"
     }
     date_created: {
       fo: "date-time"
@@ -146,22 +132,11 @@ main: kit: entity: card: {
       r: false
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
       op: {
         create: {
-          req: false
-          type: "`$STRING`"
-        }
-        list: {
           req: false
           type: "`$STRING`"
         }
@@ -195,13 +170,6 @@ main: kit: entity: card: {
       r: true
       sh: "The pending quantity of cards."
       t: "`$INTEGER`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
-      t: "`$STRING`"
     }
     raw_url: {
       fo: "uri"
@@ -279,13 +247,6 @@ main: kit: entity: card: {
       }
       r: true
       t: "`$ARRAY`"
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     url: {
       fo: "uri"
@@ -426,7 +387,7 @@ main: kit: entity: card: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

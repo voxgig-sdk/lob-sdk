@@ -222,11 +222,10 @@ local address = client:Address(nil)
 | `address_city` | `string` | No |  |
 | `address_country` | `string` | No |  |
 | `address_line1` | `string` | No |  |
+| `address_line2` | `string` | No |  |
 | `address_state` | `string` | No |  |
 | `address_zip` | `string` | No |  |
 | `company` | `string` | No |  |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of addresses |
 | `date_created` | `string` | No |  |
 | `date_modified` | `string` | No |  |
 | `description` | `string` | No |  |
@@ -234,11 +233,8 @@ local address = client:Address(nil)
 | `id` | `string` | No |  |
 | `metadata` | `table` | No |  |
 | `name` | `string` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
-| `object` | `string` | No | Value is resource type. |
+| `object` | `string` | No |  |
 | `phone` | `string` | No |  |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
-| `total_count` | `number` | No | Indicates the total number of records. |
 
 ### Operations
 
@@ -320,8 +316,6 @@ local bank_account = client:BankAccount(nil)
 | `bank_name` | `string` | No | The name of the bank based on the provided routing number, e.g. |
 | `check_template` | `string` | No | The check template used for printing. |
 | `city` | `string` | No | The city associated with your home bank account. |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of bank_accounts |
 | `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -330,14 +324,11 @@ local bank_account = client:BankAccount(nil)
 | `id` | `string` | Yes |  |
 | `metadata` | `table` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `microdeposit_type` | `string` | No | The type of microdeposit verification required for this bank account. |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | Yes | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `routing_number` | `string` | Yes | Must be a <a href="https://www.frbservices.org/index.html" target="_blank">valid US routing number</a>. |
 | `signatory` | `string` | Yes | The signatory associated with your account. |
 | `signature_url` | `any` | No |  |
 | `state` | `string` | No | The state associated with your home bank account. |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `verified` | `boolean` | No | A bank account must be verified before a check can be created. |
 | `zipcode` | `string` | No | The zipcode associated with your home bank account. |
 
@@ -350,8 +341,6 @@ local bank_account = client:BankAccount(nil)
 | `bank_name` | - | - | - |
 | `check_template` | - | - | - |
 | `city` | - | - | - |
-| `count` | - | - | - |
-| `data` | - | - | - |
 | `date_created` | - | - | - |
 | `date_modified` | - | - | - |
 | `deleted` | - | - | - |
@@ -360,14 +349,11 @@ local bank_account = client:BankAccount(nil)
 | `id` | - | - | - |
 | `metadata` | - | - | - |
 | `microdeposit_type` | - | - | - |
-| `next_url` | - | - | - |
 | `object` | Yes | Yes | Yes |
-| `previous_url` | - | - | - |
 | `routing_number` | - | - | - |
 | `signatory` | - | - | - |
 | `signature_url` | - | - | - |
 | `state` | - | - | - |
-| `total_count` | - | - | - |
 | `verified` | - | - | - |
 | `zipcode` | - | - | - |
 
@@ -492,17 +478,12 @@ local billing_group = client:BillingGroup(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of billing_groups |
 | `date_created` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `description` | `string` | No | Description of the billing group. |
 | `id` | `string` | No | Unique identifier prefixed with `bg_`. |
 | `name` | `string` | No | Name of the billing group. |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
-| `total_count` | `number` | No | Indicates the total number of records. |
 
 ### Operations
 
@@ -573,8 +554,6 @@ local booklet = client:Booklet(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `carrier` | `string` | No |  |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of booklets |
 | `date_created` | `string` | No |  |
 | `date_modified` | `string` | No |  |
 | `description` | `string` | No | An internal description that identifies this resource. |
@@ -585,17 +564,14 @@ local booklet = client:Booklet(nil)
 | `mail_type` | `string` | No | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a <a href="https://lob.com/pricing/print-mail#compare" target="_blank">cheaper option</a> which is less predictable and takes longer to delive… |
 | `merge_variables` | `table` | No | You can input a merge variable payload object to your template or QR code redirect URLs to render dynamic content. |
 | `metadata` | `table` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `string` | No | Url of next page of items in list. |
-| `object` | `string` | No | Value is resource type. |
+| `object` | `string` | No |  |
 | `pages` | `number` | No |  |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `send_date` | `string` | No | A timestamp in ISO 8601 format which specifies a date after the current time and up to 180 days in the future to send the letter off for production. |
 | `size` | `string` | No |  |
 | `sla` | `string` | No |  |
 | `source_material` | `string` | No |  |
 | `thumbnails` | `table` | No |  |
 | `to` | `table` | No |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `tracking_events` | `table` | No | An array of tracking events ordered by ascending `time`. |
 | `tracking_number` | `string` | No |  |
 | `url` | `string` | No |  |
@@ -682,8 +658,6 @@ local buckslip = client:Buckslip(nil)
 | `available_quantity` | `number` | Yes | The available quantity of buckslips. |
 | `back_original_url` | `string` | Yes | The original URL of the back template. |
 | `buckslip_orders` | `table` | Yes | An array of buckslip orders that are associated with the buckslip. |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of buckslips |
 | `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -692,11 +666,9 @@ local buckslip = client:Buckslip(nil)
 | `front_original_url` | `string` | Yes | The original URL of the front template. |
 | `id` | `string` | Yes | Unique identifier prefixed with `bck_`. |
 | `mode` | `string` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | Yes | Value is resource type. |
 | `onhand_quantity` | `number` | Yes | The onhand quantity of buckslips. |
 | `pending_quantity` | `number` | Yes | The pending quantity of buckslips. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `projected_quantity` | `number` | Yes | The sum of pending and onhand quantities of buckslips. |
 | `raw_url` | `string` | Yes | The raw URL of the buckslip. |
 | `reorder_quantity` | `number` | Yes | The number of buckslips to be reordered. |
@@ -706,7 +678,6 @@ local buckslip = client:Buckslip(nil)
 | `stock` | `string` | Yes |  |
 | `threshold_amount` | `number` | Yes | The threshold amount of the buckslip |
 | `thumbnails` | `table` | Yes |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `url` | `string` | Yes | The signed link for the buckslip. |
 | `weight` | `string` | Yes |  |
 
@@ -720,8 +691,6 @@ local buckslip = client:Buckslip(nil)
 | `available_quantity` | - | - | Yes | - | - |
 | `back_original_url` | - | - | Yes | - | - |
 | `buckslip_orders` | - | - | Yes | - | - |
-| `count` | - | - | - | - | - |
-| `data` | - | - | - | - | - |
 | `date_created` | - | - | Yes | - | - |
 | `date_modified` | - | - | Yes | - | - |
 | `deleted` | - | - | - | - | - |
@@ -730,11 +699,9 @@ local buckslip = client:Buckslip(nil)
 | `front_original_url` | - | - | Yes | - | - |
 | `id` | - | - | Yes | - | - |
 | `mode` | - | - | - | - | - |
-| `next_url` | - | - | - | - | - |
-| `object` | - | Yes | Yes | - | - |
+| `object` | - | - | Yes | - | - |
 | `onhand_quantity` | - | - | Yes | - | - |
 | `pending_quantity` | - | - | Yes | - | - |
-| `previous_url` | - | - | - | - | - |
 | `projected_quantity` | - | - | Yes | - | - |
 | `raw_url` | - | - | Yes | - | - |
 | `reorder_quantity` | - | - | Yes | Yes | - |
@@ -744,7 +711,6 @@ local buckslip = client:Buckslip(nil)
 | `stock` | - | - | Yes | - | - |
 | `threshold_amount` | - | - | Yes | - | - |
 | `thumbnails` | - | - | Yes | - | - |
-| `total_count` | - | - | - | - | - |
 | `url` | - | - | Yes | - | - |
 | `weight` | - | - | Yes | - | - |
 
@@ -856,14 +822,20 @@ local buckslip_order = client:BuckslipOrder(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | List of buckslip orders |
-| `id` | `string` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
-| `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
+| `availability_date` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
+| `buckslip_id` | `string` | No | Unique identifier prefixed with `bck_`. |
+| `cancelled_reason` | `string` | No | The reason for cancellation. |
+| `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | `string` | No | The fixed deadline for the buckslips to be printed. |
+| `id` | `string` | No | Unique identifier prefixed with `bo_`. |
+| `inventory` | `number` | No | The inventory of the buckslip order. |
+| `object` | `string` | Yes | Value is resource type. |
 | `quantity` | `number` | Yes | The quantity of buckslips in the order (minimum 5,000). |
-| `total_count` | `number` | No | Indicates the total number of records. |
+| `quantity_ordered` | `number` | No | The quantity of buckslips ordered. |
+| `status` | `string` | No | The status of the buckslip order. |
+| `unit_price` | `number` | No | The unit price for the buckslip order. |
 
 ### Operations
 
@@ -874,6 +846,9 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:BuckslipOrder():create({
   id = --[[ string ]],
+  date_created = --[[ string ]],
+  date_modified = --[[ string ]],
+  object = --[[ string ]],
   quantity = --[[ number ]],
 })
 ```
@@ -929,9 +904,7 @@ local campaign = client:Campaign(nil)
 | `auto_cancel_if_ncoa` | `boolean` | No | Whether or not a mail piece should be automatically canceled and not sent if the address is updated via NCOA. |
 | `billing_group_id` | `string` | No | Unique identifier prefixed with `bg_`. |
 | `cancel_window_campaign_minutes` | `number` | No | A window, in minutes, within which the campaign can be canceled. |
-| `count` | `number` | No | number of resources in a set |
 | `creatives` | `table` | Yes | An array of creatives that have been associated with this campaign. |
-| `data` | `table` | No | list of campaigns |
 | `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -940,14 +913,11 @@ local campaign = client:Campaign(nil)
 | `is_draft` | `boolean` | Yes | Whether or not the campaign is still a draft. |
 | `metadata` | `table` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `name` | `string` | Yes | Name of the campaign. |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | Yes | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `print_speed` | `string` | No | A string designating the mail speed type: * `core` - 2 production business days |
 | `schedule_type` | `string` | Yes | How the campaign should be scheduled. |
 | `send_date` | `string` | No | If `schedule_type` is `scheduled_send_date`, provide a date to send this campaign. |
 | `target_delivery_date` | `string` | No | If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign. |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `uploads` | `table` | Yes | A single-element array containing the upload object that is assocated with this campaign. |
 | `use_type` | `string` | Yes | The use type for each mailpiece. |
 
@@ -958,9 +928,7 @@ local campaign = client:Campaign(nil)
 | `auto_cancel_if_ncoa` | - | - | - | - | - |
 | `billing_group_id` | - | - | - | - | - |
 | `cancel_window_campaign_minutes` | - | - | - | - | - |
-| `count` | - | - | - | - | - |
 | `creatives` | - | - | - | - | - |
-| `data` | - | - | - | - | - |
 | `date_created` | - | - | - | - | - |
 | `date_modified` | - | - | - | - | - |
 | `deleted` | - | - | - | - | - |
@@ -969,14 +937,11 @@ local campaign = client:Campaign(nil)
 | `is_draft` | - | - | - | Yes | - |
 | `metadata` | - | - | - | - | - |
 | `name` | - | - | - | Yes | - |
-| `next_url` | - | - | - | - | - |
-| `object` | - | Yes | - | - | - |
-| `previous_url` | - | - | - | - | - |
+| `object` | - | - | - | - | - |
 | `print_speed` | - | - | - | - | - |
 | `schedule_type` | - | - | - | Yes | - |
 | `send_date` | - | - | - | - | - |
 | `target_delivery_date` | - | - | - | - | - |
-| `total_count` | - | - | - | - | - |
 | `uploads` | - | - | - | - | - |
 | `use_type` | - | - | - | Yes | - |
 
@@ -1080,9 +1045,7 @@ local card = client:Card(nil)
 | `auto_reorder` | `boolean` | Yes | True if the cards should be auto-reordered. |
 | `available_quantity` | `number` | Yes | The available quantity of cards. |
 | `back_original_url` | `string` | Yes | The original URL of the back template. |
-| `count` | `number` | No | number of resources in a set |
 | `countries` | `string` | No |  |
-| `data` | `table` | No | list of cards |
 | `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -1090,11 +1053,9 @@ local card = client:Card(nil)
 | `front_original_url` | `string` | Yes | The original URL of the front template. |
 | `id` | `string` | Yes | Unique identifier prefixed with `card_`. |
 | `mode` | `string` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | Yes | Value is resource type. |
 | `orientation` | `string` | Yes | The orientation of the card. |
 | `pending_quantity` | `number` | Yes | The pending quantity of cards. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `raw_url` | `string` | Yes | The raw URL of the card. |
 | `reorder_quantity` | `number` | Yes | The number of cards to be reordered. |
 | `send_date` | `string` | No |  |
@@ -1102,7 +1063,6 @@ local card = client:Card(nil)
 | `status` | `string` | Yes |  |
 | `threshold_amount` | `number` | Yes | The threshold amount of the card |
 | `thumbnails` | `table` | Yes |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `url` | `string` | Yes | The signed link for the card. |
 
 ### Field Usage by Operation
@@ -1113,9 +1073,7 @@ local card = client:Card(nil)
 | `auto_reorder` | - | - | Yes | - |
 | `available_quantity` | - | - | Yes | - |
 | `back_original_url` | - | - | Yes | - |
-| `count` | - | - | - | - |
 | `countries` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | Yes | - |
 | `date_modified` | - | - | Yes | - |
 | `deleted` | - | - | - | - |
@@ -1123,11 +1081,9 @@ local card = client:Card(nil)
 | `front_original_url` | - | - | Yes | - |
 | `id` | - | - | Yes | - |
 | `mode` | - | - | - | - |
-| `next_url` | - | - | - | - |
-| `object` | - | Yes | Yes | - |
+| `object` | - | - | Yes | - |
 | `orientation` | - | - | Yes | - |
 | `pending_quantity` | - | - | Yes | - |
-| `previous_url` | - | - | - | - |
 | `raw_url` | - | - | Yes | - |
 | `reorder_quantity` | - | - | Yes | - |
 | `send_date` | - | - | - | - |
@@ -1135,7 +1091,6 @@ local card = client:Card(nil)
 | `status` | - | - | Yes | - |
 | `threshold_amount` | - | - | Yes | - |
 | `thumbnails` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `url` | - | - | Yes | - |
 
 ### Operations
@@ -1229,14 +1184,20 @@ local card_order = client:CardOrder(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | List of card orders |
-| `id` | `string` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
-| `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
+| `availability_date` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
+| `cancelled_reason` | `string` | No | The reason for cancellation. |
+| `card_id` | `string` | No | Unique identifier prefixed with `card_`. |
+| `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | `string` | No | The fixed deadline for the cards to be printed. |
+| `id` | `string` | No | Unique identifier prefixed with `co_`. |
+| `inventory` | `number` | No | The inventory of the card order. |
+| `object` | `string` | Yes | Value is resource type. |
 | `quantity` | `number` | Yes | The quantity of cards in the order (minimum 10,000). |
-| `total_count` | `number` | No | Indicates the total number of records. |
+| `quantity_ordered` | `number` | No | The quantity of cards ordered |
+| `status` | `string` | No | The status of the card order. |
+| `unit_price` | `number` | No | The unit price for the card order. |
 
 ### Operations
 
@@ -1247,6 +1208,9 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:CardOrder():create({
   id = --[[ string ]],
+  date_created = --[[ string ]],
+  date_modified = --[[ string ]],
+  object = --[[ string ]],
   quantity = --[[ number ]],
 })
 ```
@@ -1307,8 +1271,6 @@ local check = client:Check(nil)
 | `check_bottom_template_id` | `string` | No |  |
 | `check_bottom_template_version_id` | `string` | No |  |
 | `check_number` | `number` | No |  |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of checks |
 | `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -1322,15 +1284,12 @@ local check = client:Check(nil)
 | `merge_variables` | `table` | No |  |
 | `message` | `string` | No |  |
 | `metadata` | `table` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `send_date` | `string` | No |  |
 | `sla` | `string` | No |  |
 | `status` | `string` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` | No |  |
 | `to` | `any` | Yes |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `tracking_events` | `table` | No | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | `string` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | Yes | TThe use type for each mailpiece. |
@@ -1347,8 +1306,6 @@ local check = client:Check(nil)
 | `check_bottom_template_id` | - | - | - | - |
 | `check_bottom_template_version_id` | - | - | - | - |
 | `check_number` | - | - | - | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | Yes | - |
 | `date_modified` | - | - | Yes | - |
 | `deleted` | - | - | - | - |
@@ -1362,15 +1319,12 @@ local check = client:Check(nil)
 | `merge_variables` | - | - | - | - |
 | `message` | - | - | - | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | Yes | - |
@@ -1568,34 +1522,22 @@ local domain = client:Domain(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
 | `created_at` | `string` | No | The date and time the domain was created. |
-| `data` | `table` | No | List of domains. |
 | `domain` | `string` | No | The registered domain/hostname. |
 | `error_redirect_link` | `string` | No | URL to redirect customers if a short link is broken or inactive. |
 | `id` | `string` | No | Unique identifier for a domain. |
-| `next_url` | `string` | No | Url of next page of items in list. |
-| `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `status` | `string` | No | The configuration status of the domain. |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `updated_at` | `string` | No | The date and time the domain was last updated. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `count` | - | - | - | - |
 | `created_at` | - | - | - | - |
-| `data` | - | - | - | - |
 | `domain` | - | - | Yes | - |
 | `error_redirect_link` | - | - | - | - |
 | `id` | - | - | - | - |
-| `next_url` | - | - | - | - |
-| `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `status` | - | - | - | - |
-| `total_count` | - | - | - | - |
 | `updated_at` | - | - | - | - |
 
 ### Operations
@@ -1805,9 +1747,7 @@ local letter = client:Letter(nil)
 | `cards` | `table` | No |  |
 | `carrier` | `string` | No |  |
 | `color` | `boolean` | No |  |
-| `count` | `number` | No | number of resources in a set |
 | `custom_envelope` | `string` | No |  |
-| `data` | `table` | No | list of letters |
 | `date_created` | `string` | No |  |
 | `date_modified` | `string` | No |  |
 | `description` | `string` | No |  |
@@ -1820,16 +1760,15 @@ local letter = client:Letter(nil)
 | `mail_type` | `string` | No |  |
 | `merge_variables` | `table` | No |  |
 | `metadata` | `table` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
-| `object` | `string` | No | Value is resource type. |
+| `object` | `string` | No |  |
 | `perforated_page` | `string` | No |  |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `return_envelope` | `boolean` | No |  |
 | `send_date` | `string` | No |  |
 | `sla` | `string` | No |  |
+| `template_id` | `string` | No |  |
+| `template_version_id` | `string` | No |  |
 | `thumbnails` | `table` | No |  |
 | `to` | `table` | No |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `tracking_events` | `table` | No |  |
 | `tracking_number` | `string` | No |  |
 | `url` | `string` | No |  |
@@ -1910,18 +1849,31 @@ local link = client:Link(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | List of links |
+| `created_at` | `string` | No | The date and time the link was created. |
 | `domain` | `string` | No | The registered domain to be used for the short URL. |
-| `id` | `string` | No |  |
+| `domain_id` | `string` | No | A unique identifier for the registered domain. |
+| `id` | `string` | No | Unique identifier prefixed with `lnk_`. |
 | `metadata` | `table` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `string` | No | Url of next page of items in list. |
-| `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
-| `redirect_link` | `string` | Yes | The original target URL. |
+| `redirect_link` | `string` | No | The original target URL. |
+| `short_link` | `string` | No | The shortened URL for the associated original URL. |
 | `slug` | `string` | No | The unique path for the shortened URL, if empty a unique path will be used. |
 | `title` | `string` | No | The title of the URL. |
-| `total_count` | `number` | No | Indicates the total number of records. |
+| `updated_at` | `string` | No | The date and time the link was last updated. |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | - | - | - | - | - |
+| `domain` | - | - | - | - | - |
+| `domain_id` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `metadata` | - | - | - | - | - |
+| `redirect_link` | - | - | Yes | Yes | - |
+| `short_link` | - | - | - | - | - |
+| `slug` | - | - | - | - | - |
+| `title` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
 
 ### Operations
 
@@ -1931,7 +1883,6 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Link():create({
-  redirect_link = --[[ string ]],
 })
 ```
 
@@ -2066,8 +2017,6 @@ local postcard = client:Postcard(nil)
 | `back_template_version_id` | `string` | No | The unique ID of the specific version of the HTML template used for the back of the postcard. |
 | `campaign_id` | `string` | No | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `string` | Yes |  |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of postcards |
 | `date_created` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2080,15 +2029,12 @@ local postcard = client:Postcard(nil)
 | `fsc` | `boolean` | No | This is in beta. |
 | `id` | `string` | Yes | Unique identifier prefixed with `psc_`. |
 | `metadata` | `table` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `send_date` | `string` | No |  |
 | `sla` | `string` | No |  |
 | `status` | `string` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` | No |  |
 | `to` | `any` | Yes |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `tracking_events` | `table` | No | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | `string` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | No | The use type for each mailpiece. |
@@ -2101,8 +2047,6 @@ local postcard = client:Postcard(nil)
 | `back_template_version_id` | - | - | - | - |
 | `campaign_id` | - | - | - | - |
 | `carrier` | - | - | Yes | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2115,15 +2059,12 @@ local postcard = client:Postcard(nil)
 | `fsc` | - | - | - | - |
 | `id` | - | - | Yes | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | - | - |
@@ -2209,11 +2150,10 @@ local qr_code = client:QrCode(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | List of QR code analytics |
-| `object` | `string` | No | Value is resource type. |
-| `scanned_count` | `number` | No | Indicates the number of QR Codes out of `count` that were scanned atleast once. |
-| `total_count` | `number` | No | Indicates the total number of records. |
+| `date_created` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
+| `number_of_scans` | `number` | No | Number of times the QR Code associated with this mail piece was scanned. |
+| `resource_id` | `string` | No | Unique identifier for each mail piece. |
+| `scans` | `table` | No | Detailed scan information associated with each mail piece. |
 
 ### Operations
 
@@ -2368,8 +2308,6 @@ local response = client:Response(nil)
 | `account_id` | `string` | Yes | Your Lob account id. |
 | `brand_name` | `string` | No |  |
 | `campaign_code` | `string` | Yes | The campaign code associated with the Informed Delivery campaign. |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of Informed Delivery campaigns |
 | `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Yes | Whether the resource has been deleted. |
@@ -2378,9 +2316,7 @@ local response = client:Response(nil)
 | `id` | `string` | Yes | Unique identifier prefixed with `infd_`. |
 | `lob_campaign_id` | `string` | No |  |
 | `mode` | `string` | Yes | The mode of the Informed Delivery campaign. |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | Yes | Value is the resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `quantity` | `number` | No |  |
 | `representative_image_s3_link` | `string` | Yes | A URL link to the campaigns representative image. |
 | `ride_along_image_s3_link` | `string` | Yes | A URL link to the campaigns ride along image. |
@@ -2389,7 +2325,6 @@ local response = client:Response(nil)
 | `start_date` | `string` | No |  |
 | `start_serial` | `number` | Yes | The first serial number in the range of serial numbers for this campaign. |
 | `status` | `string` | No |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `usps_campaign_id` | `string` | Yes | A numberical string up to 12 characters long. |
 | `usps_title` | `string` | No |  |
 
@@ -2400,8 +2335,6 @@ local response = client:Response(nil)
 | `account_id` | - | - | Yes | Yes |
 | `brand_name` | - | - | - | - |
 | `campaign_code` | - | - | Yes | Yes |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | Yes | Yes |
 | `date_modified` | - | - | Yes | Yes |
 | `deleted` | - | - | Yes | Yes |
@@ -2410,9 +2343,7 @@ local response = client:Response(nil)
 | `id` | - | - | Yes | Yes |
 | `lob_campaign_id` | - | - | - | - |
 | `mode` | - | - | Yes | Yes |
-| `next_url` | - | - | - | - |
-| `object` | - | Yes | Yes | Yes |
-| `previous_url` | - | - | - | - |
+| `object` | - | - | Yes | Yes |
 | `quantity` | - | - | - | - |
 | `representative_image_s3_link` | - | - | Yes | Yes |
 | `ride_along_image_s3_link` | - | - | Yes | Yes |
@@ -2421,7 +2352,6 @@ local response = client:Response(nil)
 | `start_date` | - | - | - | - |
 | `start_serial` | - | - | Yes | Yes |
 | `status` | - | - | - | - |
-| `total_count` | - | - | - | - |
 | `usps_campaign_id` | - | - | Yes | Yes |
 | `usps_title` | - | - | - | - |
 
@@ -2579,8 +2509,6 @@ local self_mailer = client:SelfMailer(nil)
 | --- | --- | --- | --- |
 | `campaign_id` | `string` | No | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `string` | Yes |  |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of self_mailers |
 | `date_created` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2595,18 +2523,15 @@ local self_mailer = client:SelfMailer(nil)
 | `mail_type` | `string` | No |  |
 | `merge_variables` | `table` | No |  |
 | `metadata` | `table` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | No | Value is resource type. |
 | `outside_template_id` | `string` | No | The unique ID of the HTML template used for the outside of the self mailer. |
 | `outside_template_version_id` | `string` | No | The unique ID of the specific version of the HTML template used for the outside of the self mailer. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `send_date` | `string` | No |  |
 | `size` | `string` | No |  |
 | `sla` | `string` | No |  |
 | `status` | `string` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` | No |  |
 | `to` | `any` | Yes |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `tracking_events` | `table` | No | An array of certified tracking events ordered by ascending `time`. |
 | `url` | `string` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | Yes | The use type for each mailpiece. |
@@ -2617,8 +2542,6 @@ local self_mailer = client:SelfMailer(nil)
 | --- | --- | --- | --- | --- |
 | `campaign_id` | - | - | - | - |
 | `carrier` | - | - | Yes | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2633,18 +2556,15 @@ local self_mailer = client:SelfMailer(nil)
 | `mail_type` | - | - | - | - |
 | `merge_variables` | - | - | - | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
 | `outside_template_id` | - | - | - | - |
 | `outside_template_version_id` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `size` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | Yes | - |
@@ -2732,8 +2652,6 @@ local snap_pack = client:SnapPack(nil)
 | `campaign_id` | `string` | No | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `string` | Yes |  |
 | `color` | `boolean` | No | Set this key to `true` if you would like to print in color. |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of snap_packs |
 | `date_created` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2747,18 +2665,15 @@ local snap_pack = client:SnapPack(nil)
 | `inside_template_version_id` | `string` | No | The unique ID of the specific version of the HTML template used for the inside of the snap pack. |
 | `mail_type` | `string` | No |  |
 | `merge_variables` | `table` | No |  |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | No | Value is resource type. |
 | `outside_template_id` | `string` | No | The unique ID of the HTML template used for the outside of the snap pack. |
 | `outside_template_version_id` | `string` | No | The unique ID of the specific version of the HTML template used for the outside of the snap pack. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `send_date` | `string` | No |  |
 | `size` | `string` | No |  |
 | `sla` | `string` | No |  |
 | `status` | `string` | No | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` | No |  |
 | `to` | `any` | Yes |  |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `tracking_events` | `table` | No | An array of tracking events ordered by ascending `time`. |
 | `url` | `string` | Yes | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | Yes | The use type for each mailpiece. |
@@ -2770,8 +2685,6 @@ local snap_pack = client:SnapPack(nil)
 | `campaign_id` | - | - | - | - |
 | `carrier` | - | - | Yes | - |
 | `color` | - | - | - | - |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2785,18 +2698,15 @@ local snap_pack = client:SnapPack(nil)
 | `inside_template_version_id` | - | - | - | - |
 | `mail_type` | - | - | - | - |
 | `merge_variables` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
 | `outside_template_id` | - | - | - | - |
 | `outside_template_version_id` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `send_date` | - | - | - | - |
 | `size` | - | - | - | - |
 | `sla` | - | - | - | - |
 | `status` | - | - | - | - |
 | `thumbnails` | - | - | - | - |
 | `to` | - | - | Yes | - |
-| `total_count` | - | - | - | - |
 | `tracking_events` | - | - | - | - |
 | `url` | - | - | Yes | - |
 | `use_type` | - | - | Yes | - |
@@ -2881,8 +2791,6 @@ local template = client:Template(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of templates |
 | `date_created` | `string` | No | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | No | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -2891,20 +2799,15 @@ local template = client:Template(nil)
 | `html` | `string` | Yes | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | `string` | Yes | Unique identifier prefixed with `tmpl_`. |
 | `metadata` | `table` | No | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | No | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `published_version` | `any` | Yes |  |
 | `required_vars` | `table` | No | An array of required variables to be used in a template. |
-| `total_count` | `number` | No | Indicates the total number of records. |
 | `versions` | `table` | Yes | An array of all non-deleted [version objects](#tag/Template-Versions) associated with the template. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | remove |
 | --- | --- | --- | --- | --- |
-| `count` | - | - | - | - |
-| `data` | - | - | - | - |
 | `date_created` | - | - | - | - |
 | `date_modified` | - | - | - | - |
 | `deleted` | - | - | - | - |
@@ -2913,12 +2816,9 @@ local template = client:Template(nil)
 | `html` | - | - | - | - |
 | `id` | - | - | - | - |
 | `metadata` | - | - | - | - |
-| `next_url` | - | - | - | - |
 | `object` | - | - | - | - |
-| `previous_url` | - | - | - | - |
 | `published_version` | - | - | Yes | - |
 | `required_vars` | - | - | - | - |
-| `total_count` | - | - | - | - |
 | `versions` | - | - | - | - |
 
 ### Operations
@@ -3000,8 +2900,6 @@ local template_version = client:TemplateVersion(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No | number of resources in a set |
-| `data` | `table` | No | list of template versions |
 | `date_created` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | Yes | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | No | Only returned if the resource has been successfully deleted. |
@@ -3010,19 +2908,14 @@ local template_version = client:TemplateVersion(nil)
 | `html` | `string` | Yes | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | `string` | Yes | Unique identifier prefixed with `vrsn_`. |
 | `merge_variables` | `table` | No | Object representing the keys of every merge variable present in the template. |
-| `next_url` | `string` | No | Url of next page of items in list. |
 | `object` | `string` | Yes | Value is resource type. |
-| `previous_url` | `string` | No | Url of previous page of items in list. |
 | `required_vars` | `table` | No | An array of required variables to be used in a template. |
 | `suggest_json_editor` | `boolean` | No | Used by frontend, true if the template uses advanced features. |
-| `total_count` | `number` | No | Indicates the total number of records. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create |
 | --- | --- | --- | --- |
-| `count` | - | - | - |
-| `data` | - | - | - |
 | `date_created` | - | - | - |
 | `date_modified` | - | - | - |
 | `deleted` | - | - | - |
@@ -3031,12 +2924,9 @@ local template_version = client:TemplateVersion(nil)
 | `html` | - | - | - |
 | `id` | - | - | - |
 | `merge_variables` | - | - | - |
-| `next_url` | - | - | - |
 | `object` | Yes | Yes | - |
-| `previous_url` | - | - | - |
 | `required_vars` | - | - | - |
 | `suggest_json_editor` | - | - | - |
-| `total_count` | - | - | - |
 
 ### Operations
 

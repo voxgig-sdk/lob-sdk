@@ -5,19 +5,12 @@ main: kit: entity: link: {
   alias: field: {}
 
   fields: {
-    count: {
-      h: "Count"
-      n: "count"
+    created_at: {
+      h: "Created At"
+      n: "created_at"
       r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "List of links"
-      t: "`$ARRAY`"
+      sh: "The date and time the link was created."
+      t: "`$STRING`"
     }
     domain: {
       h: "Domain"
@@ -26,10 +19,18 @@ main: kit: entity: link: {
       sh: "The registered domain to be used for the short URL."
       t: "`$STRING`"
     }
+    domain_id: {
+      h: "Domain Id"
+      n: "domain_id"
+      r: false
+      sh: "A unique identifier for the registered domain."
+      t: "`$STRING`"
+    }
     id: {
       h: "Id"
       n: "id"
       r: false
+      sh: "Unique identifier prefixed with `lnk_`."
       t: "`$STRING`"
     }
     metadata: {
@@ -39,32 +40,28 @@ main: kit: entity: link: {
       sh: "Use metadata to store custom information for tagging and labeling back to your internal systems."
       t: "`$OBJECT`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
-    object: {
-      h: "Object"
-      n: "object"
-      r: false
-      sh: "Value is resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
-      t: "`$STRING`"
-    }
     redirect_link: {
       h: "Redirect Link"
       n: "redirect_link"
-      r: true
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+        update: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
       sh: "The original target URL."
+      t: "`$STRING`"
+    }
+    short_link: {
+      h: "Short Link"
+      n: "short_link"
+      r: false
+      sh: "The shortened URL for the associated original URL."
       t: "`$STRING`"
     }
     slug: {
@@ -81,12 +78,12 @@ main: kit: entity: link: {
       sh: "The title of the URL."
       t: "`$STRING`"
     }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
+    updated_at: {
+      h: "Updated At"
+      n: "updated_at"
       r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
+      sh: "The date and time the link was last updated."
+      t: "`$STRING`"
     }
   }
 
@@ -115,7 +112,7 @@ main: kit: entity: link: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.metadata`"
+            res: "`body`"
           }
         }
       ]
@@ -179,7 +176,7 @@ main: kit: entity: link: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]
@@ -226,7 +223,7 @@ main: kit: entity: link: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.metadata`"
+            res: "`body`"
           }
         }
       ]
@@ -320,7 +317,7 @@ main: kit: entity: link: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.metadata`"
+            res: "`body`"
           }
         }
       ]

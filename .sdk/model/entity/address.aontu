@@ -23,6 +23,12 @@ main: kit: entity: address: {
       r: false
       t: "`$STRING`"
     }
+    address_line2: {
+      h: "Address Line2"
+      n: "address_line2"
+      r: false
+      t: "`$STRING`"
+    }
     address_state: {
       h: "Address State"
       n: "address_state"
@@ -40,25 +46,6 @@ main: kit: entity: address: {
       n: "company"
       r: false
       t: "`$STRING`"
-    }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of addresses"
-      t: "`$ARRAY`"
-      union: {
-        branches: 2
-        count: 3
-        depth: 5
-      }
     }
     date_created: {
       h: "Date Created"
@@ -102,18 +89,10 @@ main: kit: entity: address: {
       r: false
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
       r: false
-      sh: "Value is resource type."
       t: "`$STRING`"
     }
     phone: {
@@ -121,20 +100,6 @@ main: kit: entity: address: {
       n: "phone"
       r: false
       t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
-      t: "`$STRING`"
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
   }
 
@@ -235,7 +200,7 @@ main: kit: entity: address: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

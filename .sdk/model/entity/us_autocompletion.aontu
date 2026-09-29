@@ -93,7 +93,7 @@ main: kit: entity: us_autocompletion: {
                 ex: false
                 k: "query"
                 n: "valid_address"
-                or: "valid_address"
+                or: "valid_addresses"
                 r: false
                 t: "`$BOOLEAN`"
               }

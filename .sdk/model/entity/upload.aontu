@@ -319,7 +319,7 @@ main: kit: entity: upload: {
               {
                 k: "query"
                 n: "campaign_id"
-                or: "campaign_id"
+                or: "campaignId"
                 r: false
                 t: "`$STRING`"
               }

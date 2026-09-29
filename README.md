@@ -12,7 +12,7 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-> **Features:** `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined` — opt-in,
+> **Features:** `debug`, `idempotency`, `metrics`, `paging`, `ratelimit`, `retry`, `test`, `timeout` — opt-in,
 > inactive until switched on, and configured per client. See the Features
 > section of any SDK README below for what each one does.
 
@@ -44,23 +44,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = LobSDK.test({
   entity: {
-    address: {
-      test01: { id: 'test01' },
+    campaign: {
+      test01: { id: 'test01', creatives: [], date_created: 'example_date_created', date_modified: 'example_date_modified' },
     },
   },
 })
-const addresss = await client.Address().list()
-// addresss is an array of Address entities, populated with mock data
-// — call addresss[0].data() for the record itself
-console.log(addresss)
+const campaigns = await client.Campaign().list()
+// campaigns is an array of Campaign entities, populated with mock data
+// — call campaigns[0].data() for the record itself
+console.log(campaigns)
 ```
 
 ### Python
 
 ```python
 client = LobSDK.test()
-addresss = client.Address().list()
-print(addresss)
+campaigns = client.Campaign().list()
+print(campaigns)
 ```
 
 ### PHP
@@ -68,16 +68,16 @@ print(addresss)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = LobSDK::test([
-    "entity" => ["address" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["campaign" => ["test01" => ["id" => "test01"]]],
 ]);
-$addresss = $client->Address()->list();
+$campaigns = $client->Campaign()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Address(nil).List(
+result, err := client.Campaign(nil).List(
     nil, nil,
 )
 ```
@@ -87,28 +87,28 @@ result, err := client.Address(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = LobSDK.test({
-  "entity" => { "address" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "campaign" => { "test01" => { "id" => "test01" } } },
 })
-addresss = client.Address.list()
+campaigns = client.Campaign.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Address():list()
+local results, err = client:Campaign():list()
 ```
 
 ## Packages
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/lob-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lob-sdk/tags) |
-| Python | `voxgig-sdk-lob-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lob-sdk/tags) |
-| PHP | `voxgig-sdk/lob-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lob-sdk/tags) |
+| TypeScript | `@voxgig-sdk/lob-sdk` | publish pending — [install from source](ts/README.md#install) |
+| Python | `voxgig-sdk-lob-sdk` | publish pending — [install from source](py/README.md#install) |
+| PHP | `voxgig-sdk/lob-sdk` | publish pending — [install from source](php/README.md#install) |
 | Golang | `github.com/voxgig-sdk/lob-sdk/go` | `go get github.com/voxgig-sdk/lob-sdk/go@latest` |
-| Ruby | `voxgig-sdk-lob-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lob-sdk/tags) |
-| Lua | `voxgig-sdk-lob-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lob-sdk/tags) |
+| Ruby | `voxgig-sdk-lob-sdk` | publish pending — [install from source](rb/README.md#install) |
+| Lua | `voxgig-sdk-lob-sdk` | publish pending — [install from source](lua/README.md#install) |
 | Go CLI | `github.com/voxgig-sdk/lob-sdk/go-cli` | `go install github.com/voxgig-sdk/lob-sdk/go-cli/cmd/lob@latest` |
 | Go MCP server | `github.com/voxgig-sdk/lob-sdk/go-mcp` | `go get github.com/voxgig-sdk/lob-sdk/go-mcp@latest` |
 

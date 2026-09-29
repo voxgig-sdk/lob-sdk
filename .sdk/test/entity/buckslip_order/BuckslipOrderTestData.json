@@ -2,47 +2,71 @@
   "existing": {
     "buckslip_order": {
       "BUCKSLIP_ORDER00": {
-        "count": 80,
-        "data": [],
+        "availability_date": "s8c",
+        "buckslip_id": "BUCKSLIP01",
+        "cancelled_reason": "s8e",
+        "date_created": "s8f",
+        "date_modified": "s90",
+        "deleted": false,
+        "expected_availability_date": "s92",
         "id": "BUCKSLIP_ORDER00",
-        "next_url": "s53",
-        "object": "s54",
-        "previous_url": "s55",
-        "quantity": 86,
-        "total_count": 87
+        "inventory": 148,
+        "object": "s95",
+        "quantity": 150,
+        "quantity_ordered": 151,
+        "status": "s98",
+        "unit_price": 153
       },
       "BUCKSLIP_ORDER01": {
-        "count": 160,
-        "data": [],
+        "availability_date": "s118",
+        "buckslip_id": "BUCKSLIP01",
+        "cancelled_reason": "s11a",
+        "date_created": "s11b",
+        "date_modified": "s11c",
+        "deleted": false,
+        "expected_availability_date": "s11e",
         "id": "BUCKSLIP_ORDER01",
-        "next_url": "sa3",
-        "object": "sa4",
-        "previous_url": "sa5",
-        "quantity": 166,
-        "total_count": 167
+        "inventory": 288,
+        "object": "s121",
+        "quantity": 290,
+        "quantity_ordered": 291,
+        "status": "s124",
+        "unit_price": 293
       },
       "BUCKSLIP_ORDER02": {
-        "count": 240,
-        "data": [],
+        "availability_date": "s1a4",
+        "buckslip_id": "BUCKSLIP01",
+        "cancelled_reason": "s1a6",
+        "date_created": "s1a7",
+        "date_modified": "s1a8",
+        "deleted": false,
+        "expected_availability_date": "s1aa",
         "id": "BUCKSLIP_ORDER02",
-        "next_url": "sf3",
-        "object": "sf4",
-        "previous_url": "sf5",
-        "quantity": 246,
-        "total_count": 247
+        "inventory": 428,
+        "object": "s1ad",
+        "quantity": 430,
+        "quantity_ordered": 431,
+        "status": "s1b0",
+        "unit_price": 433
       }
     }
   },
   "new": {
     "buckslip_order": {
       "buckslip_order_ref01": {
-        "count": 320,
-        "data": [],
-        "next_url": "s143",
-        "object": "s144",
-        "previous_url": "s145",
-        "quantity": 326,
-        "total_count": 327
+        "availability_date": "s230",
+        "buckslip_id": "BUCKSLIP01",
+        "cancelled_reason": "s232",
+        "date_created": "s233",
+        "date_modified": "s234",
+        "deleted": false,
+        "expected_availability_date": "s236",
+        "inventory": 568,
+        "object": "s239",
+        "quantity": 570,
+        "quantity_ordered": 571,
+        "status": "s23c",
+        "unit_price": 573
       }
     }
   },

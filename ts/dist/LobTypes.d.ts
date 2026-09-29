@@ -2,11 +2,10 @@ export interface Address {
     address_city?: string;
     address_country?: string;
     address_line1?: string;
+    address_line2?: string;
     address_state?: string;
     address_zip?: string;
     company?: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
@@ -14,11 +13,8 @@ export interface Address {
     id?: string;
     metadata?: Record<string, any>;
     name?: string;
-    next_url?: string;
     object?: string;
     phone?: string;
-    previous_url?: string;
-    total_count?: number;
 }
 export interface AddressLoadMatch {
     id: string;
@@ -34,11 +30,10 @@ export interface AddressCreateData {
     address_city?: string;
     address_country?: string;
     address_line1?: string;
+    address_line2?: string;
     address_state?: string;
     address_zip?: string;
     company?: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
@@ -46,11 +41,8 @@ export interface AddressCreateData {
     id?: string;
     metadata?: Record<string, any>;
     name?: string;
-    next_url?: string;
     object?: string;
     phone?: string;
-    previous_url?: string;
-    total_count?: number;
 }
 export interface AddressRemoveMatch {
     id: string;
@@ -61,8 +53,6 @@ export interface BankAccount {
     bank_name?: string;
     check_template?: string;
     city?: string;
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -71,14 +61,11 @@ export interface BankAccount {
     id: string;
     metadata?: Record<string, any>;
     microdeposit_type?: string;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     routing_number: string;
     signatory: string;
     signature_url?: any;
     state?: string;
-    total_count?: number;
     verified?: boolean;
     zipcode?: string;
 }
@@ -98,8 +85,6 @@ export interface BankAccountCreateData {
     bank_name?: string;
     check_template?: string;
     city?: string;
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -108,14 +93,11 @@ export interface BankAccountCreateData {
     id: string;
     metadata?: Record<string, any>;
     microdeposit_type?: string;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     routing_number: string;
     signatory: string;
     signature_url?: any;
     state?: string;
-    total_count?: number;
     verified?: boolean;
     zipcode?: string;
     $action?: string;
@@ -127,17 +109,12 @@ export interface BankDeletionRemoveMatch {
     bank_id: string;
 }
 export interface BillingGroup {
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
     id?: string;
     name?: string;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
-    total_count?: number;
 }
 export interface BillingGroupLoadMatch {
     id: string;
@@ -152,21 +129,14 @@ export interface BillingGroupListMatch {
 }
 export interface BillingGroupCreateData {
     id: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
     name?: string;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
-    total_count?: number;
 }
 export interface Booklet {
     carrier?: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
@@ -177,17 +147,14 @@ export interface Booklet {
     mail_type?: string;
     merge_variables?: Record<string, any>;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
     pages?: number;
-    previous_url?: string;
     send_date?: string;
     size?: string;
     sla?: string;
     source_material?: string;
     thumbnails?: any[];
     to?: Record<string, any>;
-    total_count?: number;
     tracking_events?: any[];
     tracking_number?: string;
     url?: string;
@@ -211,8 +178,6 @@ export interface BookletListMatch {
 export interface BookletCreateData {
     idempotency_key?: string;
     carrier?: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
@@ -223,17 +188,14 @@ export interface BookletCreateData {
     mail_type?: string;
     merge_variables?: Record<string, any>;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
     pages?: number;
-    previous_url?: string;
     send_date?: string;
     size?: string;
     sla?: string;
     source_material?: string;
     thumbnails?: any[];
     to?: Record<string, any>;
-    total_count?: number;
     tracking_events?: any[];
     tracking_number?: string;
     url?: string;
@@ -249,8 +211,6 @@ export interface Buckslip {
     available_quantity: number;
     back_original_url: string;
     buckslip_orders: any[];
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -259,11 +219,9 @@ export interface Buckslip {
     front_original_url: string;
     id: string;
     mode?: string;
-    next_url?: string;
     object: string;
     onhand_quantity: number;
     pending_quantity: number;
-    previous_url?: string;
     projected_quantity: number;
     raw_url: string;
     reorder_quantity: number;
@@ -273,7 +231,6 @@ export interface Buckslip {
     stock: string;
     threshold_amount: number;
     thumbnails: any[];
-    total_count?: number;
     url: string;
     weight: string;
 }
@@ -292,8 +249,6 @@ export interface BuckslipCreateData {
     available_quantity: number;
     back_original_url: string;
     buckslip_orders: any[];
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -302,11 +257,9 @@ export interface BuckslipCreateData {
     front_original_url: string;
     id: string;
     mode?: string;
-    next_url?: string;
     object: string;
     onhand_quantity: number;
     pending_quantity: number;
-    previous_url?: string;
     projected_quantity: number;
     raw_url: string;
     reorder_quantity: number;
@@ -316,7 +269,6 @@ export interface BuckslipCreateData {
     stock: string;
     threshold_amount: number;
     thumbnails: any[];
-    total_count?: number;
     url: string;
     weight: string;
 }
@@ -328,8 +280,6 @@ export interface BuckslipUpdateData {
     available_quantity?: number;
     back_original_url?: string;
     buckslip_orders?: any[];
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -337,11 +287,9 @@ export interface BuckslipUpdateData {
     finish?: string;
     front_original_url?: string;
     mode?: string;
-    next_url?: string;
     object?: string;
     onhand_quantity?: number;
     pending_quantity?: number;
-    previous_url?: string;
     projected_quantity?: number;
     raw_url?: string;
     reorder_quantity?: number;
@@ -351,7 +299,6 @@ export interface BuckslipUpdateData {
     stock?: string;
     threshold_amount?: number;
     thumbnails?: any[];
-    total_count?: number;
     url?: string;
     weight?: string;
 }
@@ -359,14 +306,20 @@ export interface BuckslipRemoveMatch {
     id: string;
 }
 export interface BuckslipOrder {
-    count?: number;
-    data?: any[];
+    availability_date?: string;
+    buckslip_id?: string;
+    cancelled_reason?: string;
+    date_created: string;
+    date_modified: string;
+    deleted?: boolean;
+    expected_availability_date?: string;
     id?: string;
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
+    inventory?: number;
+    object: string;
     quantity: number;
-    total_count?: number;
+    quantity_ordered?: number;
+    status?: string;
+    unit_price?: number;
 }
 export interface BuckslipOrderListMatch {
     id: string;
@@ -375,21 +328,25 @@ export interface BuckslipOrderListMatch {
 }
 export interface BuckslipOrderCreateData {
     id: string;
-    count?: number;
-    data?: any[];
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
+    availability_date?: string;
+    buckslip_id?: string;
+    cancelled_reason?: string;
+    date_created: string;
+    date_modified: string;
+    deleted?: boolean;
+    expected_availability_date?: string;
+    inventory?: number;
+    object: string;
     quantity: number;
-    total_count?: number;
+    quantity_ordered?: number;
+    status?: string;
+    unit_price?: number;
 }
 export interface Campaign {
     auto_cancel_if_ncoa?: boolean;
     billing_group_id?: string;
     cancel_window_campaign_minutes?: number;
-    count?: number;
     creatives: any[];
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -398,14 +355,11 @@ export interface Campaign {
     is_draft: boolean;
     metadata?: Record<string, any>;
     name: string;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     print_speed?: string;
     schedule_type: string;
     send_date?: string;
     target_delivery_date?: string;
-    total_count?: number;
     uploads: any[];
     use_type: string;
 }
@@ -421,9 +375,7 @@ export interface CampaignCreateData {
     auto_cancel_if_ncoa?: boolean;
     billing_group_id?: string;
     cancel_window_campaign_minutes?: number;
-    count?: number;
     creatives: any[];
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -432,14 +384,11 @@ export interface CampaignCreateData {
     is_draft: boolean;
     metadata?: Record<string, any>;
     name: string;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     print_speed?: string;
     schedule_type: string;
     send_date?: string;
     target_delivery_date?: string;
-    total_count?: number;
     uploads: any[];
     use_type: string;
     $action?: string;
@@ -450,9 +399,7 @@ export interface CampaignUpdateData {
     auto_cancel_if_ncoa?: boolean;
     billing_group_id?: string;
     cancel_window_campaign_minutes?: number;
-    count?: number;
     creatives?: any[];
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -460,14 +407,11 @@ export interface CampaignUpdateData {
     is_draft?: boolean;
     metadata?: Record<string, any>;
     name?: string;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     print_speed?: string;
     schedule_type?: string;
     send_date?: string;
     target_delivery_date?: string;
-    total_count?: number;
     uploads?: any[];
     use_type?: string;
 }
@@ -479,9 +423,7 @@ export interface Card {
     auto_reorder: boolean;
     available_quantity: number;
     back_original_url: string;
-    count?: number;
     countries?: string;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -489,11 +431,9 @@ export interface Card {
     front_original_url: string;
     id: string;
     mode?: string;
-    next_url?: string;
     object: string;
     orientation: string;
     pending_quantity: number;
-    previous_url?: string;
     raw_url: string;
     reorder_quantity: number;
     send_date?: string;
@@ -501,7 +441,6 @@ export interface Card {
     status: string;
     threshold_amount: number;
     thumbnails: any[];
-    total_count?: number;
     url: string;
 }
 export interface CardLoadMatch {
@@ -518,20 +457,16 @@ export interface CardCreateData {
     auto_reorder: boolean;
     available_quantity: number;
     back_original_url: string;
-    count?: number;
     countries?: string;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
     description?: string;
     front_original_url: string;
     mode?: string;
-    next_url?: string;
     object: string;
     orientation: string;
     pending_quantity: number;
-    previous_url?: string;
     raw_url: string;
     reorder_quantity: number;
     send_date?: string;
@@ -539,21 +474,26 @@ export interface CardCreateData {
     status: string;
     threshold_amount: number;
     thumbnails: any[];
-    total_count?: number;
     url: string;
 }
 export interface CardRemoveMatch {
     id: string;
 }
 export interface CardOrder {
-    count?: number;
-    data?: any[];
+    availability_date?: string;
+    cancelled_reason?: string;
+    card_id?: string;
+    date_created: string;
+    date_modified: string;
+    deleted?: boolean;
+    expected_availability_date?: string;
     id?: string;
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
+    inventory?: number;
+    object: string;
     quantity: number;
-    total_count?: number;
+    quantity_ordered?: number;
+    status?: string;
+    unit_price?: number;
 }
 export interface CardOrderListMatch {
     id: string;
@@ -562,13 +502,19 @@ export interface CardOrderListMatch {
 }
 export interface CardOrderCreateData {
     id: string;
-    count?: number;
-    data?: any[];
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
+    availability_date?: string;
+    cancelled_reason?: string;
+    card_id?: string;
+    date_created: string;
+    date_modified: string;
+    deleted?: boolean;
+    expected_availability_date?: string;
+    inventory?: number;
+    object: string;
     quantity: number;
-    total_count?: number;
+    quantity_ordered?: number;
+    status?: string;
+    unit_price?: number;
 }
 export interface Check {
     amount: number;
@@ -579,8 +525,6 @@ export interface Check {
     check_bottom_template_id?: string;
     check_bottom_template_version_id?: string;
     check_number?: number;
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -594,15 +538,12 @@ export interface Check {
     merge_variables?: Record<string, any>;
     message?: string;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     send_date?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type: string;
@@ -632,8 +573,6 @@ export interface CheckCreateData {
     check_bottom_template_id?: string;
     check_bottom_template_version_id?: string;
     check_number?: number;
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -647,15 +586,12 @@ export interface CheckCreateData {
     merge_variables?: Record<string, any>;
     message?: string;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     send_date?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type: string;
@@ -712,17 +648,11 @@ export interface CreativeUpdateData {
     template_previews?: any[];
 }
 export interface Domain {
-    count?: number;
     created_at?: string;
-    data?: any[];
     domain?: string;
     error_redirect_link?: string;
     id?: string;
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
     status?: string;
-    total_count?: number;
     updated_at?: string;
 }
 export interface DomainLoadMatch {
@@ -734,17 +664,11 @@ export interface DomainListMatch {
     status?: string;
 }
 export interface DomainCreateData {
-    count?: number;
     created_at?: string;
-    data?: any[];
     domain?: string;
     error_redirect_link?: string;
     id?: string;
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
     status?: string;
-    total_count?: number;
     updated_at?: string;
 }
 export interface DomainRemoveMatch {
@@ -807,9 +731,7 @@ export interface Letter {
     cards?: any[];
     carrier?: string;
     color?: boolean;
-    count?: number;
     custom_envelope?: string;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
@@ -822,16 +744,15 @@ export interface Letter {
     mail_type?: string;
     merge_variables?: Record<string, any>;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
     perforated_page?: string;
-    previous_url?: string;
     return_envelope?: boolean;
     send_date?: string;
     sla?: string;
+    template_id?: string;
+    template_version_id?: string;
     thumbnails?: any[];
     to?: Record<string, any>;
-    total_count?: number;
     tracking_events?: any[];
     tracking_number?: string;
     url?: string;
@@ -860,9 +781,7 @@ export interface LetterCreateData {
     cards?: any[];
     carrier?: string;
     color?: boolean;
-    count?: number;
     custom_envelope?: string;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     description?: string;
@@ -875,16 +794,15 @@ export interface LetterCreateData {
     mail_type?: string;
     merge_variables?: Record<string, any>;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
     perforated_page?: string;
-    previous_url?: string;
     return_envelope?: boolean;
     send_date?: string;
     sla?: string;
+    template_id?: string;
+    template_version_id?: string;
     thumbnails?: any[];
     to?: Record<string, any>;
-    total_count?: number;
     tracking_events?: any[];
     tracking_number?: string;
     url?: string;
@@ -894,18 +812,16 @@ export interface LetterRemoveMatch {
     id: string;
 }
 export interface Link {
-    count?: number;
-    data?: any[];
+    created_at?: string;
     domain?: string;
+    domain_id?: string;
     id?: string;
     metadata?: Record<string, any>;
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
-    redirect_link: string;
+    redirect_link?: string;
+    short_link?: string;
     slug?: string;
     title?: string;
-    total_count?: number;
+    updated_at?: string;
 }
 export interface LinkLoadMatch {
     id: string;
@@ -917,32 +833,28 @@ export interface LinkListMatch {
     limit?: number;
 }
 export interface LinkCreateData {
-    count?: number;
-    data?: any[];
+    created_at?: string;
     domain?: string;
+    domain_id?: string;
     id?: string;
     metadata?: Record<string, any>;
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
-    redirect_link: string;
+    redirect_link?: string;
+    short_link?: string;
     slug?: string;
     title?: string;
-    total_count?: number;
+    updated_at?: string;
 }
 export interface LinkUpdateData {
     id: string;
-    count?: number;
-    data?: any[];
+    created_at?: string;
     domain?: string;
+    domain_id?: string;
     metadata?: Record<string, any>;
-    next_url?: string;
-    object?: string;
-    previous_url?: string;
     redirect_link?: string;
+    short_link?: string;
     slug?: string;
     title?: string;
-    total_count?: number;
+    updated_at?: string;
 }
 export interface LinkRemoveMatch {
     id: string;
@@ -958,8 +870,6 @@ export interface Postcard {
     back_template_version_id?: string;
     campaign_id?: string;
     carrier: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -972,15 +882,12 @@ export interface Postcard {
     fsc?: boolean;
     id: string;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     send_date?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type?: string;
@@ -1008,8 +915,6 @@ export interface PostcardCreateData {
     back_template_version_id?: string;
     campaign_id?: string;
     carrier: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1022,15 +927,12 @@ export interface PostcardCreateData {
     fsc?: boolean;
     id: string;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     send_date?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type?: string;
@@ -1039,11 +941,10 @@ export interface PostcardRemoveMatch {
     id: string;
 }
 export interface QrCode {
-    count?: number;
-    data?: any[];
-    object?: string;
-    scanned_count?: number;
-    total_count?: number;
+    date_created?: string;
+    number_of_scans?: number;
+    resource_id?: string;
+    scans?: any[];
 }
 export interface QrCodeListMatch {
     date_created?: Record<string, any>;
@@ -1096,8 +997,6 @@ export interface Response {
     account_id: string;
     brand_name?: string;
     campaign_code: string;
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted: boolean;
@@ -1106,9 +1005,7 @@ export interface Response {
     id: string;
     lob_campaign_id?: string;
     mode: string;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     quantity?: number;
     representative_image_s3_link: string;
     ride_along_image_s3_link: string;
@@ -1117,7 +1014,6 @@ export interface Response {
     start_date?: string;
     start_serial: number;
     status?: string;
-    total_count?: number;
     usps_campaign_id: string;
     usps_title?: string;
 }
@@ -1128,8 +1024,6 @@ export interface ResponseListMatch {
     account_id?: string;
     brand_name?: string;
     campaign_code?: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1138,9 +1032,7 @@ export interface ResponseListMatch {
     id?: string;
     lob_campaign_id?: string;
     mode?: string;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     quantity?: number;
     representative_image_s3_link?: string;
     ride_along_image_s3_link?: string;
@@ -1149,7 +1041,6 @@ export interface ResponseListMatch {
     start_date?: string;
     start_serial?: number;
     status?: string;
-    total_count?: number;
     usps_campaign_id?: string;
     usps_title?: string;
 }
@@ -1157,8 +1048,6 @@ export interface ResponseCreateData {
     account_id: string;
     brand_name?: string;
     campaign_code: string;
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted: boolean;
@@ -1167,9 +1056,7 @@ export interface ResponseCreateData {
     id: string;
     lob_campaign_id?: string;
     mode: string;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     quantity?: number;
     representative_image_s3_link: string;
     ride_along_image_s3_link: string;
@@ -1178,7 +1065,6 @@ export interface ResponseCreateData {
     start_date?: string;
     start_serial: number;
     status?: string;
-    total_count?: number;
     usps_campaign_id: string;
     usps_title?: string;
 }
@@ -1187,8 +1073,6 @@ export interface ResponseUpdateData {
     account_id?: string;
     brand_name?: string;
     campaign_code?: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1197,9 +1081,7 @@ export interface ResponseUpdateData {
     id?: string;
     lob_campaign_id?: string;
     mode?: string;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     quantity?: number;
     representative_image_s3_link?: string;
     ride_along_image_s3_link?: string;
@@ -1208,7 +1090,6 @@ export interface ResponseUpdateData {
     start_date?: string;
     start_serial?: number;
     status?: string;
-    total_count?: number;
     usps_title?: string;
 }
 export interface ReverseGeocode {
@@ -1229,8 +1110,6 @@ export interface ReverseGeocodeCreateData {
 export interface SelfMailer {
     campaign_id?: string;
     carrier: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1245,18 +1124,15 @@ export interface SelfMailer {
     mail_type?: string;
     merge_variables?: Record<string, any>;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
     outside_template_id?: string;
     outside_template_version_id?: string;
-    previous_url?: string;
     send_date?: string;
     size?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type: string;
@@ -1282,8 +1158,6 @@ export interface SelfMailerCreateData {
     idempotency_key?: string;
     campaign_id?: string;
     carrier: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1298,18 +1172,15 @@ export interface SelfMailerCreateData {
     mail_type?: string;
     merge_variables?: Record<string, any>;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
     outside_template_id?: string;
     outside_template_version_id?: string;
-    previous_url?: string;
     send_date?: string;
     size?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type: string;
@@ -1321,8 +1192,6 @@ export interface SnapPack {
     campaign_id?: string;
     carrier: string;
     color?: boolean;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1336,18 +1205,15 @@ export interface SnapPack {
     inside_template_version_id?: string;
     mail_type?: string;
     merge_variables?: Record<string, any>;
-    next_url?: string;
     object?: string;
     outside_template_id?: string;
     outside_template_version_id?: string;
-    previous_url?: string;
     send_date?: string;
     size?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type: string;
@@ -1372,8 +1238,6 @@ export interface SnapPackCreateData {
     campaign_id?: string;
     carrier: string;
     color?: boolean;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1387,18 +1251,15 @@ export interface SnapPackCreateData {
     inside_template_version_id?: string;
     mail_type?: string;
     merge_variables?: Record<string, any>;
-    next_url?: string;
     object?: string;
     outside_template_id?: string;
     outside_template_version_id?: string;
-    previous_url?: string;
     send_date?: string;
     size?: string;
     sla?: string;
     status?: string;
     thumbnails?: any[];
     to: any;
-    total_count?: number;
     tracking_events?: any[];
     url: string;
     use_type: string;
@@ -1407,8 +1268,6 @@ export interface SnapPackRemoveMatch {
     id: string;
 }
 export interface Template {
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1417,12 +1276,9 @@ export interface Template {
     html: string;
     id: string;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     published_version: any;
     required_vars?: any[];
-    total_count?: number;
     versions: any[];
 }
 export interface TemplateLoadMatch {
@@ -1437,8 +1293,6 @@ export interface TemplateListMatch {
 }
 export interface TemplateCreateData {
     id: string;
-    count?: number;
-    data?: any[];
     date_created?: string;
     date_modified?: string;
     deleted?: boolean;
@@ -1446,20 +1300,15 @@ export interface TemplateCreateData {
     engine?: string;
     html: string;
     metadata?: Record<string, any>;
-    next_url?: string;
     object?: string;
-    previous_url?: string;
     published_version: any;
     required_vars?: any[];
-    total_count?: number;
     versions: any[];
 }
 export interface TemplateRemoveMatch {
     id: string;
 }
 export interface TemplateVersion {
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -1468,12 +1317,9 @@ export interface TemplateVersion {
     html: string;
     id: string;
     merge_variables?: Record<string, any>;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     required_vars?: any[];
     suggest_json_editor?: boolean;
-    total_count?: number;
 }
 export interface TemplateVersionLoadMatch {
     id: string;
@@ -1489,8 +1335,6 @@ export interface TemplateVersionListMatch {
 export interface TemplateVersionCreateData {
     id: string;
     template_id?: string;
-    count?: number;
-    data?: any[];
     date_created: string;
     date_modified: string;
     deleted?: boolean;
@@ -1498,12 +1342,9 @@ export interface TemplateVersionCreateData {
     engine?: string;
     html: string;
     merge_variables?: Record<string, any>;
-    next_url?: string;
     object: string;
-    previous_url?: string;
     required_vars?: any[];
     suggest_json_editor?: boolean;
-    total_count?: number;
 }
 export interface TemplateVersionDeletion {
 }

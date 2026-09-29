@@ -26,13 +26,6 @@ main: kit: entity: campaign: {
       sh: "A window, in minutes, within which the campaign can be canceled."
       t: "`$INTEGER`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
     creatives: {
       h: "Creatives"
       n: "creatives"
@@ -43,18 +36,6 @@ main: kit: entity: campaign: {
         branches: 3
         count: 6
         depth: 15
-      }
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of campaigns"
-      t: "`$ARRAY`"
-      union: {
-        branches: 3
-        count: 6
-        depth: 20
       }
     }
     date_created: {
@@ -127,31 +108,11 @@ main: kit: entity: campaign: {
       sh: "Name of the campaign."
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
-      op: {
-        list: {
-          req: false
-          type: "`$STRING`"
-        }
-      }
       r: true
       sh: "Value is resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     print_speed: {
@@ -189,13 +150,6 @@ main: kit: entity: campaign: {
       r: false
       sh: "If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign."
       t: "`$STRING`"
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     uploads: {
       h: "Uploads"
@@ -286,7 +240,7 @@ main: kit: entity: campaign: {
               {
                 k: "header"
                 n: "x_lang_output"
-                or: "x_lang_output"
+                or: "x-lang-output"
                 r: false
                 t: "`$STRING`"
               }
@@ -362,7 +316,7 @@ main: kit: entity: campaign: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

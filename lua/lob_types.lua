@@ -10,11 +10,10 @@
 ---@field address_city? string
 ---@field address_country? string
 ---@field address_line1? string
+---@field address_line2? string
 ---@field address_state? string
 ---@field address_zip? string
 ---@field company? string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
@@ -22,11 +21,8 @@
 ---@field id? string
 ---@field metadata? table
 ---@field name? string
----@field next_url? string
 ---@field object? string
 ---@field phone? string
----@field previous_url? string
----@field total_count? number
 
 ---@class AddressLoadMatch
 ---@field id string
@@ -42,11 +38,10 @@
 ---@field address_city? string
 ---@field address_country? string
 ---@field address_line1? string
+---@field address_line2? string
 ---@field address_state? string
 ---@field address_zip? string
 ---@field company? string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
@@ -54,11 +49,8 @@
 ---@field id? string
 ---@field metadata? table
 ---@field name? string
----@field next_url? string
 ---@field object? string
 ---@field phone? string
----@field previous_url? string
----@field total_count? number
 
 ---@class AddressRemoveMatch
 ---@field id string
@@ -69,8 +61,6 @@
 ---@field bank_name? string
 ---@field check_template? string
 ---@field city? string
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -79,14 +69,11 @@
 ---@field id string
 ---@field metadata? table
 ---@field microdeposit_type? string
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field routing_number string
 ---@field signatory string
 ---@field signature_url? any
 ---@field state? string
----@field total_count? number
 ---@field verified? boolean
 ---@field zipcode? string
 
@@ -106,8 +93,6 @@
 ---@field bank_name? string
 ---@field check_template? string
 ---@field city? string
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -116,14 +101,11 @@
 ---@field id string
 ---@field metadata? table
 ---@field microdeposit_type? string
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field routing_number string
 ---@field signatory string
 ---@field signature_url? any
 ---@field state? string
----@field total_count? number
 ---@field verified? boolean
 ---@field zipcode? string
 
@@ -133,17 +115,12 @@
 ---@field bank_id string
 
 ---@class BillingGroup
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
 ---@field id? string
 ---@field name? string
----@field next_url? string
 ---@field object? string
----@field previous_url? string
----@field total_count? number
 
 ---@class BillingGroupLoadMatch
 ---@field id string
@@ -158,21 +135,14 @@
 
 ---@class BillingGroupCreateData
 ---@field id string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
 ---@field name? string
----@field next_url? string
 ---@field object? string
----@field previous_url? string
----@field total_count? number
 
 ---@class Booklet
 ---@field carrier? string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
@@ -183,17 +153,14 @@
 ---@field mail_type? string
 ---@field merge_variables? table
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
 ---@field pages? number
----@field previous_url? string
 ---@field send_date? string
 ---@field size? string
 ---@field sla? string
 ---@field source_material? string
 ---@field thumbnails? table
 ---@field to? table
----@field total_count? number
 ---@field tracking_events? table
 ---@field tracking_number? string
 ---@field url? string
@@ -217,8 +184,6 @@
 ---@class BookletCreateData
 ---@field idempotency_key? string
 ---@field carrier? string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
@@ -229,17 +194,14 @@
 ---@field mail_type? string
 ---@field merge_variables? table
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
 ---@field pages? number
----@field previous_url? string
 ---@field send_date? string
 ---@field size? string
 ---@field sla? string
 ---@field source_material? string
 ---@field thumbnails? table
 ---@field to? table
----@field total_count? number
 ---@field tracking_events? table
 ---@field tracking_number? string
 ---@field url? string
@@ -255,8 +217,6 @@
 ---@field available_quantity number
 ---@field back_original_url string
 ---@field buckslip_orders table
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -265,11 +225,9 @@
 ---@field front_original_url string
 ---@field id string
 ---@field mode? string
----@field next_url? string
 ---@field object string
 ---@field onhand_quantity number
 ---@field pending_quantity number
----@field previous_url? string
 ---@field projected_quantity number
 ---@field raw_url string
 ---@field reorder_quantity number
@@ -279,7 +237,6 @@
 ---@field stock string
 ---@field threshold_amount number
 ---@field thumbnails table
----@field total_count? number
 ---@field url string
 ---@field weight string
 
@@ -298,8 +255,6 @@
 ---@field available_quantity number
 ---@field back_original_url string
 ---@field buckslip_orders table
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -308,11 +263,9 @@
 ---@field front_original_url string
 ---@field id string
 ---@field mode? string
----@field next_url? string
 ---@field object string
 ---@field onhand_quantity number
 ---@field pending_quantity number
----@field previous_url? string
 ---@field projected_quantity number
 ---@field raw_url string
 ---@field reorder_quantity number
@@ -322,7 +275,6 @@
 ---@field stock string
 ---@field threshold_amount number
 ---@field thumbnails table
----@field total_count? number
 ---@field url string
 ---@field weight string
 
@@ -334,8 +286,6 @@
 ---@field available_quantity? number
 ---@field back_original_url? string
 ---@field buckslip_orders? table
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -343,11 +293,9 @@
 ---@field finish? string
 ---@field front_original_url? string
 ---@field mode? string
----@field next_url? string
 ---@field object? string
 ---@field onhand_quantity? number
 ---@field pending_quantity? number
----@field previous_url? string
 ---@field projected_quantity? number
 ---@field raw_url? string
 ---@field reorder_quantity? number
@@ -357,7 +305,6 @@
 ---@field stock? string
 ---@field threshold_amount? number
 ---@field thumbnails? table
----@field total_count? number
 ---@field url? string
 ---@field weight? string
 
@@ -365,14 +312,20 @@
 ---@field id string
 
 ---@class BuckslipOrder
----@field count? number
----@field data? table
+---@field availability_date? string
+---@field buckslip_id? string
+---@field cancelled_reason? string
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field expected_availability_date? string
 ---@field id? string
----@field next_url? string
----@field object? string
----@field previous_url? string
+---@field inventory? number
+---@field object string
 ---@field quantity number
----@field total_count? number
+---@field quantity_ordered? number
+---@field status? string
+---@field unit_price? number
 
 ---@class BuckslipOrderListMatch
 ---@field id string
@@ -381,21 +334,25 @@
 
 ---@class BuckslipOrderCreateData
 ---@field id string
----@field count? number
----@field data? table
----@field next_url? string
----@field object? string
----@field previous_url? string
+---@field availability_date? string
+---@field buckslip_id? string
+---@field cancelled_reason? string
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field expected_availability_date? string
+---@field inventory? number
+---@field object string
 ---@field quantity number
----@field total_count? number
+---@field quantity_ordered? number
+---@field status? string
+---@field unit_price? number
 
 ---@class Campaign
 ---@field auto_cancel_if_ncoa? boolean
 ---@field billing_group_id? string
 ---@field cancel_window_campaign_minutes? number
----@field count? number
 ---@field creatives table
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -404,14 +361,11 @@
 ---@field is_draft boolean
 ---@field metadata? table
 ---@field name string
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field print_speed? string
 ---@field schedule_type string
 ---@field send_date? string
 ---@field target_delivery_date? string
----@field total_count? number
 ---@field uploads table
 ---@field use_type string
 
@@ -427,9 +381,7 @@
 ---@field auto_cancel_if_ncoa? boolean
 ---@field billing_group_id? string
 ---@field cancel_window_campaign_minutes? number
----@field count? number
 ---@field creatives table
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -438,14 +390,11 @@
 ---@field is_draft boolean
 ---@field metadata? table
 ---@field name string
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field print_speed? string
 ---@field schedule_type string
 ---@field send_date? string
 ---@field target_delivery_date? string
----@field total_count? number
 ---@field uploads table
 ---@field use_type string
 
@@ -454,9 +403,7 @@
 ---@field auto_cancel_if_ncoa? boolean
 ---@field billing_group_id? string
 ---@field cancel_window_campaign_minutes? number
----@field count? number
 ---@field creatives? table
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -464,14 +411,11 @@
 ---@field is_draft? boolean
 ---@field metadata? table
 ---@field name? string
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field print_speed? string
 ---@field schedule_type? string
 ---@field send_date? string
 ---@field target_delivery_date? string
----@field total_count? number
 ---@field uploads? table
 ---@field use_type? string
 
@@ -483,9 +427,7 @@
 ---@field auto_reorder boolean
 ---@field available_quantity number
 ---@field back_original_url string
----@field count? number
 ---@field countries? string
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -493,11 +435,9 @@
 ---@field front_original_url string
 ---@field id string
 ---@field mode? string
----@field next_url? string
 ---@field object string
 ---@field orientation string
 ---@field pending_quantity number
----@field previous_url? string
 ---@field raw_url string
 ---@field reorder_quantity number
 ---@field send_date? string
@@ -505,7 +445,6 @@
 ---@field status string
 ---@field threshold_amount number
 ---@field thumbnails table
----@field total_count? number
 ---@field url string
 
 ---@class CardLoadMatch
@@ -522,20 +461,16 @@
 ---@field auto_reorder boolean
 ---@field available_quantity number
 ---@field back_original_url string
----@field count? number
 ---@field countries? string
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
 ---@field description? string
 ---@field front_original_url string
 ---@field mode? string
----@field next_url? string
 ---@field object string
 ---@field orientation string
 ---@field pending_quantity number
----@field previous_url? string
 ---@field raw_url string
 ---@field reorder_quantity number
 ---@field send_date? string
@@ -543,21 +478,26 @@
 ---@field status string
 ---@field threshold_amount number
 ---@field thumbnails table
----@field total_count? number
 ---@field url string
 
 ---@class CardRemoveMatch
 ---@field id string
 
 ---@class CardOrder
----@field count? number
----@field data? table
+---@field availability_date? string
+---@field cancelled_reason? string
+---@field card_id? string
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field expected_availability_date? string
 ---@field id? string
----@field next_url? string
----@field object? string
----@field previous_url? string
+---@field inventory? number
+---@field object string
 ---@field quantity number
----@field total_count? number
+---@field quantity_ordered? number
+---@field status? string
+---@field unit_price? number
 
 ---@class CardOrderListMatch
 ---@field id string
@@ -566,13 +506,19 @@
 
 ---@class CardOrderCreateData
 ---@field id string
----@field count? number
----@field data? table
----@field next_url? string
----@field object? string
----@field previous_url? string
+---@field availability_date? string
+---@field cancelled_reason? string
+---@field card_id? string
+---@field date_created string
+---@field date_modified string
+---@field deleted? boolean
+---@field expected_availability_date? string
+---@field inventory? number
+---@field object string
 ---@field quantity number
----@field total_count? number
+---@field quantity_ordered? number
+---@field status? string
+---@field unit_price? number
 
 ---@class Check
 ---@field amount number
@@ -583,8 +529,6 @@
 ---@field check_bottom_template_id? string
 ---@field check_bottom_template_version_id? string
 ---@field check_number? number
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -598,15 +542,12 @@
 ---@field merge_variables? table
 ---@field message? string
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field send_date? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type string
@@ -636,8 +577,6 @@
 ---@field check_bottom_template_id? string
 ---@field check_bottom_template_version_id? string
 ---@field check_number? number
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -651,15 +590,12 @@
 ---@field merge_variables? table
 ---@field message? string
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field send_date? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type string
@@ -716,17 +652,11 @@
 ---@field template_previews? table
 
 ---@class Domain
----@field count? number
 ---@field created_at? string
----@field data? table
 ---@field domain? string
 ---@field error_redirect_link? string
 ---@field id? string
----@field next_url? string
----@field object? string
----@field previous_url? string
 ---@field status? string
----@field total_count? number
 ---@field updated_at? string
 
 ---@class DomainLoadMatch
@@ -738,17 +668,11 @@
 ---@field status? string
 
 ---@class DomainCreateData
----@field count? number
 ---@field created_at? string
----@field data? table
 ---@field domain? string
 ---@field error_redirect_link? string
 ---@field id? string
----@field next_url? string
----@field object? string
----@field previous_url? string
 ---@field status? string
----@field total_count? number
 ---@field updated_at? string
 
 ---@class DomainRemoveMatch
@@ -811,9 +735,7 @@
 ---@field cards? table
 ---@field carrier? string
 ---@field color? boolean
----@field count? number
 ---@field custom_envelope? string
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
@@ -826,16 +748,15 @@
 ---@field mail_type? string
 ---@field merge_variables? table
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
 ---@field perforated_page? string
----@field previous_url? string
 ---@field return_envelope? boolean
 ---@field send_date? string
 ---@field sla? string
+---@field template_id? string
+---@field template_version_id? string
 ---@field thumbnails? table
 ---@field to? table
----@field total_count? number
 ---@field tracking_events? table
 ---@field tracking_number? string
 ---@field url? string
@@ -864,9 +785,7 @@
 ---@field cards? table
 ---@field carrier? string
 ---@field color? boolean
----@field count? number
 ---@field custom_envelope? string
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field description? string
@@ -879,16 +798,15 @@
 ---@field mail_type? string
 ---@field merge_variables? table
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
 ---@field perforated_page? string
----@field previous_url? string
 ---@field return_envelope? boolean
 ---@field send_date? string
 ---@field sla? string
+---@field template_id? string
+---@field template_version_id? string
 ---@field thumbnails? table
 ---@field to? table
----@field total_count? number
 ---@field tracking_events? table
 ---@field tracking_number? string
 ---@field url? string
@@ -898,18 +816,16 @@
 ---@field id string
 
 ---@class Link
----@field count? number
----@field data? table
+---@field created_at? string
 ---@field domain? string
+---@field domain_id? string
 ---@field id? string
 ---@field metadata? table
----@field next_url? string
----@field object? string
----@field previous_url? string
----@field redirect_link string
+---@field redirect_link? string
+---@field short_link? string
 ---@field slug? string
 ---@field title? string
----@field total_count? number
+---@field updated_at? string
 
 ---@class LinkLoadMatch
 ---@field id string
@@ -921,32 +837,28 @@
 ---@field limit? number
 
 ---@class LinkCreateData
----@field count? number
----@field data? table
+---@field created_at? string
 ---@field domain? string
+---@field domain_id? string
 ---@field id? string
 ---@field metadata? table
----@field next_url? string
----@field object? string
----@field previous_url? string
----@field redirect_link string
+---@field redirect_link? string
+---@field short_link? string
 ---@field slug? string
 ---@field title? string
----@field total_count? number
+---@field updated_at? string
 
 ---@class LinkUpdateData
 ---@field id string
----@field count? number
----@field data? table
+---@field created_at? string
 ---@field domain? string
+---@field domain_id? string
 ---@field metadata? table
----@field next_url? string
----@field object? string
----@field previous_url? string
 ---@field redirect_link? string
+---@field short_link? string
 ---@field slug? string
 ---@field title? string
----@field total_count? number
+---@field updated_at? string
 
 ---@class LinkRemoveMatch
 ---@field id string
@@ -962,8 +874,6 @@
 ---@field back_template_version_id? string
 ---@field campaign_id? string
 ---@field carrier string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -976,15 +886,12 @@
 ---@field fsc? boolean
 ---@field id string
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field send_date? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type? string
@@ -1012,8 +919,6 @@
 ---@field back_template_version_id? string
 ---@field campaign_id? string
 ---@field carrier string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1026,15 +931,12 @@
 ---@field fsc? boolean
 ---@field id string
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field send_date? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type? string
@@ -1043,11 +945,10 @@
 ---@field id string
 
 ---@class QrCode
----@field count? number
----@field data? table
----@field object? string
----@field scanned_count? number
----@field total_count? number
+---@field date_created? string
+---@field number_of_scans? number
+---@field resource_id? string
+---@field scans? table
 
 ---@class QrCodeListMatch
 ---@field date_created? table
@@ -1100,8 +1001,6 @@
 ---@field account_id string
 ---@field brand_name? string
 ---@field campaign_code string
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted boolean
@@ -1110,9 +1009,7 @@
 ---@field id string
 ---@field lob_campaign_id? string
 ---@field mode string
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field quantity? number
 ---@field representative_image_s3_link string
 ---@field ride_along_image_s3_link string
@@ -1121,7 +1018,6 @@
 ---@field start_date? string
 ---@field start_serial number
 ---@field status? string
----@field total_count? number
 ---@field usps_campaign_id string
 ---@field usps_title? string
 
@@ -1132,8 +1028,6 @@
 ---@field account_id? string
 ---@field brand_name? string
 ---@field campaign_code? string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1142,9 +1036,7 @@
 ---@field id? string
 ---@field lob_campaign_id? string
 ---@field mode? string
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field quantity? number
 ---@field representative_image_s3_link? string
 ---@field ride_along_image_s3_link? string
@@ -1153,7 +1045,6 @@
 ---@field start_date? string
 ---@field start_serial? number
 ---@field status? string
----@field total_count? number
 ---@field usps_campaign_id? string
 ---@field usps_title? string
 
@@ -1161,8 +1052,6 @@
 ---@field account_id string
 ---@field brand_name? string
 ---@field campaign_code string
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted boolean
@@ -1171,9 +1060,7 @@
 ---@field id string
 ---@field lob_campaign_id? string
 ---@field mode string
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field quantity? number
 ---@field representative_image_s3_link string
 ---@field ride_along_image_s3_link string
@@ -1182,7 +1069,6 @@
 ---@field start_date? string
 ---@field start_serial number
 ---@field status? string
----@field total_count? number
 ---@field usps_campaign_id string
 ---@field usps_title? string
 
@@ -1191,8 +1077,6 @@
 ---@field account_id? string
 ---@field brand_name? string
 ---@field campaign_code? string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1201,9 +1085,7 @@
 ---@field id? string
 ---@field lob_campaign_id? string
 ---@field mode? string
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field quantity? number
 ---@field representative_image_s3_link? string
 ---@field ride_along_image_s3_link? string
@@ -1212,7 +1094,6 @@
 ---@field start_date? string
 ---@field start_serial? number
 ---@field status? string
----@field total_count? number
 ---@field usps_title? string
 
 ---@class ReverseGeocode
@@ -1233,8 +1114,6 @@
 ---@class SelfMailer
 ---@field campaign_id? string
 ---@field carrier string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1249,18 +1128,15 @@
 ---@field mail_type? string
 ---@field merge_variables? table
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
 ---@field outside_template_id? string
 ---@field outside_template_version_id? string
----@field previous_url? string
 ---@field send_date? string
 ---@field size? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type string
@@ -1286,8 +1162,6 @@
 ---@field idempotency_key? string
 ---@field campaign_id? string
 ---@field carrier string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1302,18 +1176,15 @@
 ---@field mail_type? string
 ---@field merge_variables? table
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
 ---@field outside_template_id? string
 ---@field outside_template_version_id? string
----@field previous_url? string
 ---@field send_date? string
 ---@field size? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type string
@@ -1325,8 +1196,6 @@
 ---@field campaign_id? string
 ---@field carrier string
 ---@field color? boolean
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1340,18 +1209,15 @@
 ---@field inside_template_version_id? string
 ---@field mail_type? string
 ---@field merge_variables? table
----@field next_url? string
 ---@field object? string
 ---@field outside_template_id? string
 ---@field outside_template_version_id? string
----@field previous_url? string
 ---@field send_date? string
 ---@field size? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type string
@@ -1376,8 +1242,6 @@
 ---@field campaign_id? string
 ---@field carrier string
 ---@field color? boolean
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1391,18 +1255,15 @@
 ---@field inside_template_version_id? string
 ---@field mail_type? string
 ---@field merge_variables? table
----@field next_url? string
 ---@field object? string
 ---@field outside_template_id? string
 ---@field outside_template_version_id? string
----@field previous_url? string
 ---@field send_date? string
 ---@field size? string
 ---@field sla? string
 ---@field status? string
 ---@field thumbnails? table
 ---@field to any
----@field total_count? number
 ---@field tracking_events? table
 ---@field url string
 ---@field use_type string
@@ -1411,8 +1272,6 @@
 ---@field id string
 
 ---@class Template
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1421,12 +1280,9 @@
 ---@field html string
 ---@field id string
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field published_version any
 ---@field required_vars? table
----@field total_count? number
 ---@field versions table
 
 ---@class TemplateLoadMatch
@@ -1441,8 +1297,6 @@
 
 ---@class TemplateCreateData
 ---@field id string
----@field count? number
----@field data? table
 ---@field date_created? string
 ---@field date_modified? string
 ---@field deleted? boolean
@@ -1450,20 +1304,15 @@
 ---@field engine? string
 ---@field html string
 ---@field metadata? table
----@field next_url? string
 ---@field object? string
----@field previous_url? string
 ---@field published_version any
 ---@field required_vars? table
----@field total_count? number
 ---@field versions table
 
 ---@class TemplateRemoveMatch
 ---@field id string
 
 ---@class TemplateVersion
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -1472,12 +1321,9 @@
 ---@field html string
 ---@field id string
 ---@field merge_variables? table
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field required_vars? table
 ---@field suggest_json_editor? boolean
----@field total_count? number
 
 ---@class TemplateVersionLoadMatch
 ---@field id string
@@ -1493,8 +1339,6 @@
 ---@class TemplateVersionCreateData
 ---@field id string
 ---@field template_id? string
----@field count? number
----@field data? table
 ---@field date_created string
 ---@field date_modified string
 ---@field deleted? boolean
@@ -1502,12 +1346,9 @@
 ---@field engine? string
 ---@field html string
 ---@field merge_variables? table
----@field next_url? string
 ---@field object string
----@field previous_url? string
 ---@field required_vars? table
 ---@field suggest_json_editor? boolean
----@field total_count? number
 
 ---@class TemplateVersionDeletion
 

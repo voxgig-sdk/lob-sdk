@@ -210,6 +210,11 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"name": "address_line2",
+						"title": "Address Line2",
+						"type": "`$STRING`",
+					},
+					map[string]any{
 						"name": "address_state",
 						"title": "Address State",
 						"type": "`$STRING`",
@@ -223,18 +228,6 @@ func MakeConfig() map[string]any {
 						"name": "company",
 						"title": "Company",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of addresses",
 					},
 					map[string]any{
 						"name": "date_created",
@@ -272,33 +265,14 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
-						"short": "Value is resource type.",
 					},
 					map[string]any{
 						"name": "phone",
 						"title": "Phone",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 				},
 				"id": map[string]any{
@@ -352,7 +326,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -536,18 +510,6 @@ func MakeConfig() map[string]any {
 						"short": "The city associated with your home bank account.",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of bank_accounts",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -600,12 +562,6 @@ func MakeConfig() map[string]any {
 						"short": "The type of microdeposit verification required for this bank account.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
@@ -622,12 +578,6 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "routing_number",
@@ -653,12 +603,6 @@ func MakeConfig() map[string]any {
 						"title": "State",
 						"type": "`$STRING`",
 						"short": "The state associated with your home bank account.",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "verified",
@@ -771,7 +715,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -900,7 +844,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.id`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -932,18 +876,6 @@ func MakeConfig() map[string]any {
 			},
 			"billing_group": map[string]any{
 				"fields": []any{
-					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of billing_groups",
-					},
 					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
@@ -977,28 +909,10 @@ func MakeConfig() map[string]any {
 						"short": "Name of the billing group.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 				},
 				"id": map[string]any{
@@ -1094,7 +1008,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -1212,18 +1126,6 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of booklets",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -1278,27 +1180,14 @@ func MakeConfig() map[string]any {
 						"short": "Use metadata to store custom information for tagging and labeling back to your internal systems.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
-						"short": "Value is resource type.",
 					},
 					map[string]any{
 						"name": "pages",
 						"title": "Pages",
 						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "send_date",
@@ -1330,12 +1219,6 @@ func MakeConfig() map[string]any {
 						"name": "to",
 						"title": "To",
 						"type": "`$OBJECT`",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "tracking_events",
@@ -1390,7 +1273,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "idempotency_key",
-											"orig": "idempotency_key",
+											"orig": "Idempotency-Key",
 											"type": "`$STRING`",
 											"kind": "header",
 											"example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
@@ -1433,7 +1316,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -1691,18 +1574,6 @@ func MakeConfig() map[string]any {
 						"short": "An array of buckslip orders that are associated with the buckslip.",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of buckslips",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -1782,21 +1653,12 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
 						"req": true,
 						"op": map[string]any{
 							"create": map[string]any{
-								"type": "`$STRING`",
-							},
-							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
@@ -1825,12 +1687,6 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"short": "The pending quantity of buckslips.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "projected_quantity",
@@ -1929,12 +1785,6 @@ func MakeConfig() map[string]any {
 						},
 					},
 					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
-					},
-					map[string]any{
 						"name": "url",
 						"title": "Url",
 						"type": "`$STRING`",
@@ -2010,7 +1860,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -2197,39 +2047,71 @@ func MakeConfig() map[string]any {
 			"buckslip_order": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
+						"name": "availability_date",
+						"title": "Availability Date",
+						"type": "`$STRING`",
+						"short": "A timestamp in ISO 8601 format of the date the resource was created.",
+						"format": "date-time",
 					},
 					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "List of buckslip orders",
+						"name": "buckslip_id",
+						"title": "Buckslip Id",
+						"type": "`$STRING`",
+						"short": "Unique identifier prefixed with `bck_`.",
+					},
+					map[string]any{
+						"name": "cancelled_reason",
+						"title": "Cancelled Reason",
+						"type": "`$STRING`",
+						"short": "The reason for cancellation.",
+					},
+					map[string]any{
+						"name": "date_created",
+						"title": "Date Created",
+						"type": "`$STRING`",
+						"req": true,
+						"short": "A timestamp in ISO 8601 format of the date the resource was created.",
+						"format": "date-time",
+					},
+					map[string]any{
+						"name": "date_modified",
+						"title": "Date Modified",
+						"type": "`$STRING`",
+						"req": true,
+						"short": "A timestamp in ISO 8601 format of the date the resource was last modified.",
+						"format": "date-time",
+					},
+					map[string]any{
+						"name": "deleted",
+						"title": "Deleted",
+						"type": "`$BOOLEAN`",
+						"short": "Only returned if the resource has been successfully deleted.",
+					},
+					map[string]any{
+						"name": "expected_availability_date",
+						"title": "Expected Availability Date",
+						"type": "`$STRING`",
+						"short": "The fixed deadline for the buckslips to be printed.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "id",
 						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier prefixed with `bo_`.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
+						"name": "inventory",
+						"title": "Inventory",
+						"type": "`$NUMBER`",
+						"short": "The inventory of the buckslip order.",
 					},
 					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
+						"req": true,
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "quantity",
@@ -2239,10 +2121,22 @@ func MakeConfig() map[string]any {
 						"short": "The quantity of buckslips in the order (minimum 5,000).",
 					},
 					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
+						"name": "quantity_ordered",
+						"title": "Quantity Ordered",
+						"type": "`$NUMBER`",
+						"short": "The quantity of buckslips ordered.",
+					},
+					map[string]any{
+						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
+						"short": "The status of the buckslip order.",
+					},
+					map[string]any{
+						"name": "unit_price",
+						"title": "Unit Price",
+						"type": "`$NUMBER`",
+						"short": "The unit price for the buckslip order.",
 					},
 				},
 				"id": map[string]any{
@@ -2334,7 +2228,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -2399,23 +2293,11 @@ func MakeConfig() map[string]any {
 						"short": "A window, in minutes, within which the campaign can be canceled.",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
 						"name": "creatives",
 						"title": "Creatives",
 						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of creatives that have been associated with this campaign.",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of campaigns",
 					},
 					map[string]any{
 						"name": "date_created",
@@ -2483,28 +2365,11 @@ func MakeConfig() map[string]any {
 						"short": "Name of the campaign.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
 						"req": true,
-						"op": map[string]any{
-							"list": map[string]any{
-								"type": "`$STRING`",
-							},
-						},
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "print_speed",
@@ -2537,12 +2402,6 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 						"short": "If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign.",
 						"format": "date-time",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "uploads",
@@ -2642,7 +2501,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "x_lang_output",
-											"orig": "x_lang_output",
+											"orig": "x-lang-output",
 											"type": "`$STRING`",
 											"kind": "header",
 										},
@@ -2675,7 +2534,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -2904,21 +2763,9 @@ func MakeConfig() map[string]any {
 						"format": "uri",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
 						"name": "countries",
 						"title": "Countries",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of cards",
 					},
 					map[string]any{
 						"name": "date_created",
@@ -2989,21 +2836,12 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
 						"req": true,
 						"op": map[string]any{
 							"create": map[string]any{
-								"type": "`$STRING`",
-							},
-							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
@@ -3032,12 +2870,6 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"short": "The pending quantity of cards.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "raw_url",
@@ -3108,12 +2940,6 @@ func MakeConfig() map[string]any {
 								"type": "`$ARRAY`",
 							},
 						},
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "url",
@@ -3222,7 +3048,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -3361,39 +3187,71 @@ func MakeConfig() map[string]any {
 			"card_order": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
+						"name": "availability_date",
+						"title": "Availability Date",
+						"type": "`$STRING`",
+						"short": "A timestamp in ISO 8601 format of the date the resource was created.",
+						"format": "date-time",
 					},
 					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "List of card orders",
+						"name": "cancelled_reason",
+						"title": "Cancelled Reason",
+						"type": "`$STRING`",
+						"short": "The reason for cancellation.",
+					},
+					map[string]any{
+						"name": "card_id",
+						"title": "Card Id",
+						"type": "`$STRING`",
+						"short": "Unique identifier prefixed with `card_`.",
+					},
+					map[string]any{
+						"name": "date_created",
+						"title": "Date Created",
+						"type": "`$STRING`",
+						"req": true,
+						"short": "A timestamp in ISO 8601 format of the date the resource was created.",
+						"format": "date-time",
+					},
+					map[string]any{
+						"name": "date_modified",
+						"title": "Date Modified",
+						"type": "`$STRING`",
+						"req": true,
+						"short": "A timestamp in ISO 8601 format of the date the resource was last modified.",
+						"format": "date-time",
+					},
+					map[string]any{
+						"name": "deleted",
+						"title": "Deleted",
+						"type": "`$BOOLEAN`",
+						"short": "Only returned if the resource has been successfully deleted.",
+					},
+					map[string]any{
+						"name": "expected_availability_date",
+						"title": "Expected Availability Date",
+						"type": "`$STRING`",
+						"short": "The fixed deadline for the cards to be printed.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "id",
 						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier prefixed with `co_`.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
+						"name": "inventory",
+						"title": "Inventory",
+						"type": "`$NUMBER`",
+						"short": "The inventory of the card order.",
 					},
 					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
+						"req": true,
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "quantity",
@@ -3403,10 +3261,22 @@ func MakeConfig() map[string]any {
 						"short": "The quantity of cards in the order (minimum 10,000).",
 					},
 					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
+						"name": "quantity_ordered",
+						"title": "Quantity Ordered",
+						"type": "`$NUMBER`",
+						"short": "The quantity of cards ordered",
+					},
+					map[string]any{
+						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
+						"short": "The status of the card order.",
+					},
+					map[string]any{
+						"name": "unit_price",
+						"title": "Unit Price",
+						"type": "`$NUMBER`",
+						"short": "The unit price for the card order.",
 					},
 				},
 				"id": map[string]any{
@@ -3498,7 +3368,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -3605,18 +3475,6 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of checks",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -3708,22 +3566,10 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "send_date",
@@ -3756,12 +3602,6 @@ func MakeConfig() map[string]any {
 								"type": "`$OBJECT`",
 							},
 						},
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "tracking_events",
@@ -3825,7 +3665,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "idempotency_key",
-											"orig": "idempotency_key",
+											"orig": "Idempotency-Key",
 											"type": "`$STRING`",
 											"kind": "header",
 											"example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
@@ -3868,7 +3708,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -4214,7 +4054,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "x_lang_output",
-											"orig": "x_lang_output",
+											"orig": "x-lang-output",
 											"type": "`$STRING`",
 											"kind": "header",
 										},
@@ -4334,22 +4174,10 @@ func MakeConfig() map[string]any {
 			"domain": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
 						"name": "created_at",
 						"title": "Created At",
 						"type": "`$STRING`",
 						"short": "The date and time the domain was created.",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "List of domains.",
 					},
 					map[string]any{
 						"name": "domain",
@@ -4376,34 +4204,10 @@ func MakeConfig() map[string]any {
 						"short": "Unique identifier for a domain.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
-						"name": "object",
-						"title": "Object",
-						"type": "`$STRING`",
-						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
-					},
-					map[string]any{
 						"name": "status",
 						"title": "Status",
 						"type": "`$STRING`",
 						"short": "The configuration status of the domain.",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "updated_at",
@@ -4436,9 +4240,7 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"domain": "`reqdata`",
-									},
+									"req": "`reqdata`",
 									"res": "`body`",
 								},
 								"args": map[string]any{},
@@ -4465,7 +4267,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -4788,7 +4590,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "x_lang_output",
-											"orig": "x_lang_output",
+											"orig": "x-lang-output",
 											"type": "`$STRING`",
 											"kind": "header",
 										},
@@ -4854,21 +4656,9 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
 						"name": "custom_envelope",
 						"title": "Custom Envelope",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of letters",
 					},
 					map[string]any{
 						"name": "date_created",
@@ -4931,27 +4721,14 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
-						"short": "Value is resource type.",
 					},
 					map[string]any{
 						"name": "perforated_page",
 						"title": "Perforated Page",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "return_envelope",
@@ -4969,6 +4746,16 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"name": "template_id",
+						"title": "Template Id",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "template_version_id",
+						"title": "Template Version Id",
+						"type": "`$STRING`",
+					},
+					map[string]any{
 						"name": "thumbnails",
 						"title": "Thumbnails",
 						"type": "`$ARRAY`",
@@ -4977,12 +4764,6 @@ func MakeConfig() map[string]any {
 						"name": "to",
 						"title": "To",
 						"type": "`$OBJECT`",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "tracking_events",
@@ -5036,14 +4817,14 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "idempotency_key",
-											"orig": "idempotency_key",
+											"orig": "Idempotency-Key",
 											"type": "`$STRING`",
 											"kind": "header",
 											"example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
 										},
 										map[string]any{
 											"name": "lob_version",
-											"orig": "lob_version",
+											"orig": "Lob-Version",
 											"type": "`$STRING`",
 											"kind": "header",
 											"example": "2024-01-01",
@@ -5087,7 +4868,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -5290,16 +5071,10 @@ func MakeConfig() map[string]any {
 			"link": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "List of links",
+						"name": "created_at",
+						"title": "Created At",
+						"type": "`$STRING`",
+						"short": "The date and time the link was created.",
 					},
 					map[string]any{
 						"name": "domain",
@@ -5308,9 +5083,16 @@ func MakeConfig() map[string]any {
 						"short": "The registered domain to be used for the short URL.",
 					},
 					map[string]any{
+						"name": "domain_id",
+						"title": "Domain Id",
+						"type": "`$STRING`",
+						"short": "A unique identifier for the registered domain.",
+					},
+					map[string]any{
 						"name": "id",
 						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier prefixed with `lnk_`.",
 					},
 					map[string]any{
 						"name": "metadata",
@@ -5319,29 +5101,26 @@ func MakeConfig() map[string]any {
 						"short": "Use metadata to store custom information for tagging and labeling back to your internal systems.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
-						"name": "object",
-						"title": "Object",
-						"type": "`$STRING`",
-						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
-					},
-					map[string]any{
 						"name": "redirect_link",
 						"title": "Redirect Link",
 						"type": "`$STRING`",
-						"req": true,
+						"op": map[string]any{
+							"create": map[string]any{
+								"req": true,
+								"type": "`$STRING`",
+							},
+							"update": map[string]any{
+								"req": true,
+								"type": "`$STRING`",
+							},
+						},
 						"short": "The original target URL.",
+					},
+					map[string]any{
+						"name": "short_link",
+						"title": "Short Link",
+						"type": "`$STRING`",
+						"short": "The shortened URL for the associated original URL.",
 					},
 					map[string]any{
 						"name": "slug",
@@ -5356,10 +5135,10 @@ func MakeConfig() map[string]any {
 						"short": "The title of the URL.",
 					},
 					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
+						"name": "updated_at",
+						"title": "Updated At",
+						"type": "`$STRING`",
+						"short": "The date and time the link was last updated.",
 					},
 				},
 				"id": map[string]any{
@@ -5387,7 +5166,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.metadata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{},
@@ -5413,7 +5192,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -5482,7 +5261,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.metadata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -5578,7 +5357,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.metadata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -5685,18 +5464,6 @@ func MakeConfig() map[string]any {
 						},
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of postcards",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -5780,22 +5547,10 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "send_date",
@@ -5828,12 +5583,6 @@ func MakeConfig() map[string]any {
 								"type": "`$OBJECT`",
 							},
 						},
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "tracking_events",
@@ -5891,7 +5640,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "idempotency_key",
-											"orig": "idempotency_key",
+											"orig": "Idempotency-Key",
 											"type": "`$STRING`",
 											"kind": "header",
 											"example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
@@ -5934,7 +5683,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -6137,34 +5886,29 @@ func MakeConfig() map[string]any {
 			"qr_code": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "List of QR code analytics",
-					},
-					map[string]any{
-						"name": "object",
-						"title": "Object",
+						"name": "date_created",
+						"title": "Date Created",
 						"type": "`$STRING`",
-						"short": "Value is resource type.",
+						"short": "A timestamp in ISO 8601 format of the date the resource was created.",
+						"format": "date-time",
 					},
 					map[string]any{
-						"name": "scanned_count",
-						"title": "Scanned Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the number of QR Codes out of `count` that were scanned atleast once.",
+						"name": "number_of_scans",
+						"title": "Number Of Scans",
+						"type": "`$NUMBER`",
+						"short": "Number of times the QR Code associated with this mail piece was scanned.",
 					},
 					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
+						"name": "resource_id",
+						"title": "Resource Id",
+						"type": "`$STRING`",
+						"short": "Unique identifier for each mail piece.",
+					},
+					map[string]any{
+						"name": "scans",
+						"title": "Scans",
+						"type": "`$ARRAY`",
+						"short": "Detailed scan information associated with each mail piece.",
 					},
 				},
 				"name": "qr_code",
@@ -6188,7 +5932,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -6220,7 +5964,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "resource_id",
-											"orig": "resource_id",
+											"orig": "resource_ids",
 											"type": "`$ARRAY`",
 											"kind": "query",
 										},
@@ -6510,18 +6254,6 @@ func MakeConfig() map[string]any {
 						"short": "The campaign code associated with the Informed Delivery campaign.",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of Informed Delivery campaigns",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -6635,12 +6367,6 @@ func MakeConfig() map[string]any {
 						"short": "The mode of the Informed Delivery campaign.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
@@ -6649,20 +6375,11 @@ func MakeConfig() map[string]any {
 							"create": map[string]any{
 								"type": "`$STRING`",
 							},
-							"list": map[string]any{
-								"type": "`$STRING`",
-							},
 							"update": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
 						"short": "Value is the resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "quantity",
@@ -6745,12 +6462,6 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
-					},
-					map[string]any{
 						"name": "usps_campaign_id",
 						"title": "Usps Campaign Id",
 						"type": "`$STRING`",
@@ -6822,7 +6533,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{},
@@ -7032,18 +6743,6 @@ func MakeConfig() map[string]any {
 						},
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of self_mailers",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -7131,12 +6830,6 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
@@ -7153,12 +6846,6 @@ func MakeConfig() map[string]any {
 						"title": "Outside Template Version Id",
 						"type": "`$STRING`",
 						"short": "The unique ID of the specific version of the HTML template used for the outside of the self mailer.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "send_date",
@@ -7196,12 +6883,6 @@ func MakeConfig() map[string]any {
 								"type": "`$OBJECT`",
 							},
 						},
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "tracking_events",
@@ -7265,7 +6946,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "idempotency_key",
-											"orig": "idempotency_key",
+											"orig": "Idempotency-Key",
 											"type": "`$STRING`",
 											"kind": "header",
 											"example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
@@ -7308,7 +6989,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -7534,18 +7215,6 @@ func MakeConfig() map[string]any {
 						"short": "Set this key to `true` if you would like to print in color.",
 					},
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of snap_packs",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -7628,12 +7297,6 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
@@ -7650,12 +7313,6 @@ func MakeConfig() map[string]any {
 						"title": "Outside Template Version Id",
 						"type": "`$STRING`",
 						"short": "The unique ID of the specific version of the HTML template used for the outside of the snap pack.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "send_date",
@@ -7693,12 +7350,6 @@ func MakeConfig() map[string]any {
 								"type": "`$OBJECT`",
 							},
 						},
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "tracking_events",
@@ -7762,7 +7413,7 @@ func MakeConfig() map[string]any {
 									"header": []any{
 										map[string]any{
 											"name": "idempotency_key",
-											"orig": "idempotency_key",
+											"orig": "Idempotency-Key",
 											"type": "`$STRING`",
 											"kind": "header",
 											"example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5",
@@ -7805,7 +7456,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -7994,18 +7645,6 @@ func MakeConfig() map[string]any {
 			"template": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of templates",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -8058,22 +7697,10 @@ func MakeConfig() map[string]any {
 						"short": "Use metadata to store custom information for tagging and labeling back to your internal systems.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
 						"short": "Value is resource type.",
-					},
-					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
 					},
 					map[string]any{
 						"name": "published_version",
@@ -8091,12 +7718,6 @@ func MakeConfig() map[string]any {
 						"title": "Required Vars",
 						"type": "`$ARRAY`",
 						"short": "An array of required variables to be used in a template.",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 					map[string]any{
 						"name": "versions",
@@ -8199,7 +7820,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -8352,18 +7973,6 @@ func MakeConfig() map[string]any {
 			"template_version": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "count",
-						"title": "Count",
-						"type": "`$INTEGER`",
-						"short": "number of resources in a set",
-					},
-					map[string]any{
-						"name": "data",
-						"title": "Data",
-						"type": "`$ARRAY`",
-						"short": "list of template versions",
-					},
-					map[string]any{
 						"name": "date_created",
 						"title": "Date Created",
 						"type": "`$STRING`",
@@ -8418,12 +8027,6 @@ func MakeConfig() map[string]any {
 						"short": "Object representing the keys of every merge variable present in the template.",
 					},
 					map[string]any{
-						"name": "next_url",
-						"title": "Next Url",
-						"type": "`$STRING`",
-						"short": "Url of next page of items in list.",
-					},
-					map[string]any{
 						"name": "object",
 						"title": "Object",
 						"type": "`$STRING`",
@@ -8439,12 +8042,6 @@ func MakeConfig() map[string]any {
 						"short": "Value is resource type.",
 					},
 					map[string]any{
-						"name": "previous_url",
-						"title": "Previous Url",
-						"type": "`$STRING`",
-						"short": "Url of previous page of items in list.",
-					},
-					map[string]any{
 						"name": "required_vars",
 						"title": "Required Vars",
 						"type": "`$ARRAY`",
@@ -8455,12 +8052,6 @@ func MakeConfig() map[string]any {
 						"title": "Suggest Json Editor",
 						"type": "`$BOOLEAN`",
 						"short": "Used by frontend, true if the template uses advanced features.",
-					},
-					map[string]any{
-						"name": "total_count",
-						"title": "Total Count",
-						"type": "`$INTEGER`",
-						"short": "Indicates the total number of records.",
 					},
 				},
 				"id": map[string]any{
@@ -8611,7 +8202,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -9138,7 +8729,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "campaign_id",
-											"orig": "campaign_id",
+											"orig": "campaignId",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
@@ -9537,7 +9128,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "valid_address",
-											"orig": "valid_address",
+											"orig": "valid_addresses",
 											"type": "`$BOOLEAN`",
 											"kind": "query",
 											"example": false,

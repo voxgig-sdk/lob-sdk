@@ -77,7 +77,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local addresss, err = client:Address():list()
+local campaigns, err = client:Campaign():list()
 if err then error(err) end
 ```
 
@@ -135,7 +135,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Address():list()
+local result, err = client:Campaign():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -296,11 +296,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `address_city` |  |
 | `address_country` |  |
 | `address_line1` |  |
+| `address_line2` |  |
 | `address_state` |  |
 | `address_zip` |  |
 | `company` |  |
-| `count` | number of resources in a set |
-| `data` | list of addresses |
 | `date_created` |  |
 | `date_modified` |  |
 | `description` |  |
@@ -308,11 +307,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `id` |  |
 | `metadata` |  |
 | `name` |  |
-| `next_url` | Url of next page of items in list. |
-| `object` | Value is resource type. |
+| `object` |  |
 | `phone` |  |
-| `previous_url` | Url of previous page of items in list. |
-| `total_count` | Indicates the total number of records. |
 
 Operations: Create, List, Load, Remove.
 
@@ -327,8 +323,6 @@ API path: `/addresses`
 | `bank_name` | The name of the bank based on the provided routing number, e.g. |
 | `check_template` | The check template used for printing. |
 | `city` | The city associated with your home bank account. |
-| `count` | number of resources in a set |
-| `data` | list of bank_accounts |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -337,14 +331,11 @@ API path: `/addresses`
 | `id` |  |
 | `metadata` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `microdeposit_type` | The type of microdeposit verification required for this bank account. |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `routing_number` | Must be a <a href="https://www.frbservices.org/index.html" target="_blank">valid US routing number</a>. |
 | `signatory` | The signatory associated with your account. |
 | `signature_url` |  |
 | `state` | The state associated with your home bank account. |
-| `total_count` | Indicates the total number of records. |
 | `verified` | A bank account must be verified before a check can be created. |
 | `zipcode` | The zipcode associated with your home bank account. |
 
@@ -365,17 +356,12 @@ API path: `/bank_accounts/{bank_id}`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
-| `data` | list of billing_groups |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `description` | Description of the billing group. |
 | `id` | Unique identifier prefixed with `bg_`. |
 | `name` | Name of the billing group. |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
-| `total_count` | Indicates the total number of records. |
 
 Operations: Create, List, Load.
 
@@ -386,8 +372,6 @@ API path: `/billing_groups/{bg_id}`
 | Field | Description |
 | --- | --- |
 | `carrier` |  |
-| `count` | number of resources in a set |
-| `data` | list of booklets |
 | `date_created` |  |
 | `date_modified` |  |
 | `description` | An internal description that identifies this resource. |
@@ -398,17 +382,14 @@ API path: `/billing_groups/{bg_id}`
 | `mail_type` | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a <a href="https://lob.com/pricing/print-mail#compare" target="_blank">cheaper option</a> which is less predictable and takes longer to delive… |
 | `merge_variables` | You can input a merge variable payload object to your template or QR code redirect URLs to render dynamic content. |
 | `metadata` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | Url of next page of items in list. |
-| `object` | Value is resource type. |
+| `object` |  |
 | `pages` |  |
-| `previous_url` | Url of previous page of items in list. |
 | `send_date` | A timestamp in ISO 8601 format which specifies a date after the current time and up to 180 days in the future to send the letter off for production. |
 | `size` |  |
 | `sla` |  |
 | `source_material` |  |
 | `thumbnails` |  |
 | `to` |  |
-| `total_count` | Indicates the total number of records. |
 | `tracking_events` | An array of tracking events ordered by ascending `time`. |
 | `tracking_number` |  |
 | `url` |  |
@@ -428,8 +409,6 @@ API path: `/booklets`
 | `available_quantity` | The available quantity of buckslips. |
 | `back_original_url` | The original URL of the back template. |
 | `buckslip_orders` | An array of buckslip orders that are associated with the buckslip. |
-| `count` | number of resources in a set |
-| `data` | list of buckslips |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -438,11 +417,9 @@ API path: `/booklets`
 | `front_original_url` | The original URL of the front template. |
 | `id` | Unique identifier prefixed with `bck_`. |
 | `mode` |  |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
 | `onhand_quantity` | The onhand quantity of buckslips. |
 | `pending_quantity` | The pending quantity of buckslips. |
-| `previous_url` | Url of previous page of items in list. |
 | `projected_quantity` | The sum of pending and onhand quantities of buckslips. |
 | `raw_url` | The raw URL of the buckslip. |
 | `reorder_quantity` | The number of buckslips to be reordered. |
@@ -452,7 +429,6 @@ API path: `/booklets`
 | `stock` |  |
 | `threshold_amount` | The threshold amount of the buckslip |
 | `thumbnails` |  |
-| `total_count` | Indicates the total number of records. |
 | `url` | The signed link for the buckslip. |
 | `weight` |  |
 
@@ -464,14 +440,20 @@ API path: `/buckslips`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
-| `data` | List of buckslip orders |
-| `id` |  |
-| `next_url` | Url of next page of items in list. |
+| `availability_date` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `buckslip_id` | Unique identifier prefixed with `bck_`. |
+| `cancelled_reason` | The reason for cancellation. |
+| `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | The fixed deadline for the buckslips to be printed. |
+| `id` | Unique identifier prefixed with `bo_`. |
+| `inventory` | The inventory of the buckslip order. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `quantity` | The quantity of buckslips in the order (minimum 5,000). |
-| `total_count` | Indicates the total number of records. |
+| `quantity_ordered` | The quantity of buckslips ordered. |
+| `status` | The status of the buckslip order. |
+| `unit_price` | The unit price for the buckslip order. |
 
 Operations: Create, List.
 
@@ -484,9 +466,7 @@ API path: `/buckslips/{buckslip_id}/orders`
 | `auto_cancel_if_ncoa` | Whether or not a mail piece should be automatically canceled and not sent if the address is updated via NCOA. |
 | `billing_group_id` | Unique identifier prefixed with `bg_`. |
 | `cancel_window_campaign_minutes` | A window, in minutes, within which the campaign can be canceled. |
-| `count` | number of resources in a set |
 | `creatives` | An array of creatives that have been associated with this campaign. |
-| `data` | list of campaigns |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -495,14 +475,11 @@ API path: `/buckslips/{buckslip_id}/orders`
 | `is_draft` | Whether or not the campaign is still a draft. |
 | `metadata` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `name` | Name of the campaign. |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `print_speed` | A string designating the mail speed type: * `core` - 2 production business days |
 | `schedule_type` | How the campaign should be scheduled. |
 | `send_date` | If `schedule_type` is `scheduled_send_date`, provide a date to send this campaign. |
 | `target_delivery_date` | If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign. |
-| `total_count` | Indicates the total number of records. |
 | `uploads` | A single-element array containing the upload object that is assocated with this campaign. |
 | `use_type` | The use type for each mailpiece. |
 
@@ -518,9 +495,7 @@ API path: `/campaigns/{cmp_id}/send`
 | `auto_reorder` | True if the cards should be auto-reordered. |
 | `available_quantity` | The available quantity of cards. |
 | `back_original_url` | The original URL of the back template. |
-| `count` | number of resources in a set |
 | `countries` |  |
-| `data` | list of cards |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -528,11 +503,9 @@ API path: `/campaigns/{cmp_id}/send`
 | `front_original_url` | The original URL of the front template. |
 | `id` | Unique identifier prefixed with `card_`. |
 | `mode` |  |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
 | `orientation` | The orientation of the card. |
 | `pending_quantity` | The pending quantity of cards. |
-| `previous_url` | Url of previous page of items in list. |
 | `raw_url` | The raw URL of the card. |
 | `reorder_quantity` | The number of cards to be reordered. |
 | `send_date` |  |
@@ -540,7 +513,6 @@ API path: `/campaigns/{cmp_id}/send`
 | `status` |  |
 | `threshold_amount` | The threshold amount of the card |
 | `thumbnails` |  |
-| `total_count` | Indicates the total number of records. |
 | `url` | The signed link for the card. |
 
 Operations: Create, List, Load, Remove.
@@ -551,14 +523,20 @@ API path: `/cards/{card_id}`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
-| `data` | List of card orders |
-| `id` |  |
-| `next_url` | Url of next page of items in list. |
+| `availability_date` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `cancelled_reason` | The reason for cancellation. |
+| `card_id` | Unique identifier prefixed with `card_`. |
+| `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | The fixed deadline for the cards to be printed. |
+| `id` | Unique identifier prefixed with `co_`. |
+| `inventory` | The inventory of the card order. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `quantity` | The quantity of cards in the order (minimum 10,000). |
-| `total_count` | Indicates the total number of records. |
+| `quantity_ordered` | The quantity of cards ordered |
+| `status` | The status of the card order. |
+| `unit_price` | The unit price for the card order. |
 
 Operations: Create, List.
 
@@ -576,8 +554,6 @@ API path: `/cards/{card_id}/orders`
 | `check_bottom_template_id` |  |
 | `check_bottom_template_version_id` |  |
 | `check_number` |  |
-| `count` | number of resources in a set |
-| `data` | list of checks |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -591,15 +567,12 @@ API path: `/cards/{card_id}/orders`
 | `merge_variables` |  |
 | `message` |  |
 | `metadata` |  |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `send_date` |  |
 | `sla` |  |
 | `status` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` |  |
 | `to` |  |
-| `total_count` | Indicates the total number of records. |
 | `tracking_events` | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | TThe use type for each mailpiece. |
@@ -634,17 +607,11 @@ API path: `/creatives`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
 | `created_at` | The date and time the domain was created. |
-| `data` | List of domains. |
 | `domain` | The registered domain/hostname. |
 | `error_redirect_link` | URL to redirect customers if a short link is broken or inactive. |
 | `id` | Unique identifier for a domain. |
-| `next_url` | Url of next page of items in list. |
-| `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `status` | The configuration status of the domain. |
-| `total_count` | Indicates the total number of records. |
 | `updated_at` | The date and time the domain was last updated. |
 
 Operations: Create, List, Load, Remove.
@@ -699,9 +666,7 @@ API path: `/intl_verifications`
 | `cards` |  |
 | `carrier` |  |
 | `color` |  |
-| `count` | number of resources in a set |
 | `custom_envelope` |  |
-| `data` | list of letters |
 | `date_created` |  |
 | `date_modified` |  |
 | `description` |  |
@@ -714,16 +679,15 @@ API path: `/intl_verifications`
 | `mail_type` |  |
 | `merge_variables` |  |
 | `metadata` |  |
-| `next_url` | Url of next page of items in list. |
-| `object` | Value is resource type. |
+| `object` |  |
 | `perforated_page` |  |
-| `previous_url` | Url of previous page of items in list. |
 | `return_envelope` |  |
 | `send_date` |  |
 | `sla` |  |
+| `template_id` |  |
+| `template_version_id` |  |
 | `thumbnails` |  |
 | `to` |  |
-| `total_count` | Indicates the total number of records. |
 | `tracking_events` |  |
 | `tracking_number` |  |
 | `url` |  |
@@ -737,18 +701,16 @@ API path: `/letters`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
-| `data` | List of links |
+| `created_at` | The date and time the link was created. |
 | `domain` | The registered domain to be used for the short URL. |
-| `id` |  |
+| `domain_id` | A unique identifier for the registered domain. |
+| `id` | Unique identifier prefixed with `lnk_`. |
 | `metadata` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | Url of next page of items in list. |
-| `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `redirect_link` | The original target URL. |
+| `short_link` | The shortened URL for the associated original URL. |
 | `slug` | The unique path for the shortened URL, if empty a unique path will be used. |
 | `title` | The title of the URL. |
-| `total_count` | Indicates the total number of records. |
+| `updated_at` | The date and time the link was last updated. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -772,8 +734,6 @@ API path: `/accounts`
 | `back_template_version_id` | The unique ID of the specific version of the HTML template used for the back of the postcard. |
 | `campaign_id` | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` |  |
-| `count` | number of resources in a set |
-| `data` | list of postcards |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -786,15 +746,12 @@ API path: `/accounts`
 | `fsc` | This is in beta. |
 | `id` | Unique identifier prefixed with `psc_`. |
 | `metadata` |  |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `send_date` |  |
 | `sla` |  |
 | `status` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` |  |
 | `to` |  |
-| `total_count` | Indicates the total number of records. |
 | `tracking_events` | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | The use type for each mailpiece. |
@@ -807,11 +764,10 @@ API path: `/postcards`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
-| `data` | List of QR code analytics |
-| `object` | Value is resource type. |
-| `scanned_count` | Indicates the number of QR Codes out of `count` that were scanned atleast once. |
-| `total_count` | Indicates the total number of records. |
+| `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `number_of_scans` | Number of times the QR Code associated with this mail piece was scanned. |
+| `resource_id` | Unique identifier for each mail piece. |
+| `scans` | Detailed scan information associated with each mail piece. |
 
 Operations: List.
 
@@ -843,8 +799,6 @@ API path: `/resource_proofs`
 | `account_id` | Your Lob account id. |
 | `brand_name` |  |
 | `campaign_code` | The campaign code associated with the Informed Delivery campaign. |
-| `count` | number of resources in a set |
-| `data` | list of Informed Delivery campaigns |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Whether the resource has been deleted. |
@@ -853,9 +807,7 @@ API path: `/resource_proofs`
 | `id` | Unique identifier prefixed with `infd_`. |
 | `lob_campaign_id` |  |
 | `mode` | The mode of the Informed Delivery campaign. |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is the resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `quantity` |  |
 | `representative_image_s3_link` | A URL link to the campaigns representative image. |
 | `ride_along_image_s3_link` | A URL link to the campaigns ride along image. |
@@ -864,7 +816,6 @@ API path: `/resource_proofs`
 | `start_date` |  |
 | `start_serial` | The first serial number in the range of serial numbers for this campaign. |
 | `status` |  |
-| `total_count` | Indicates the total number of records. |
 | `usps_campaign_id` | A numberical string up to 12 characters long. |
 | `usps_title` |  |
 
@@ -892,8 +843,6 @@ API path: `/us_reverse_geocode_lookups`
 | --- | --- |
 | `campaign_id` | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` |  |
-| `count` | number of resources in a set |
-| `data` | list of self_mailers |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -908,18 +857,15 @@ API path: `/us_reverse_geocode_lookups`
 | `mail_type` |  |
 | `merge_variables` |  |
 | `metadata` |  |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
 | `outside_template_id` | The unique ID of the HTML template used for the outside of the self mailer. |
 | `outside_template_version_id` | The unique ID of the specific version of the HTML template used for the outside of the self mailer. |
-| `previous_url` | Url of previous page of items in list. |
 | `send_date` |  |
 | `size` |  |
 | `sla` |  |
 | `status` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` |  |
 | `to` |  |
-| `total_count` | Indicates the total number of records. |
 | `tracking_events` | An array of certified tracking events ordered by ascending `time`. |
 | `url` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | The use type for each mailpiece. |
@@ -935,8 +881,6 @@ API path: `/self_mailers`
 | `campaign_id` | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` |  |
 | `color` | Set this key to `true` if you would like to print in color. |
-| `count` | number of resources in a set |
-| `data` | list of snap_packs |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -950,18 +894,15 @@ API path: `/self_mailers`
 | `inside_template_version_id` | The unique ID of the specific version of the HTML template used for the inside of the snap pack. |
 | `mail_type` |  |
 | `merge_variables` |  |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
 | `outside_template_id` | The unique ID of the HTML template used for the outside of the snap pack. |
 | `outside_template_version_id` | The unique ID of the specific version of the HTML template used for the outside of the snap pack. |
-| `previous_url` | Url of previous page of items in list. |
 | `send_date` |  |
 | `size` |  |
 | `sla` |  |
 | `status` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` |  |
 | `to` |  |
-| `total_count` | Indicates the total number of records. |
 | `tracking_events` | An array of tracking events ordered by ascending `time`. |
 | `url` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | The use type for each mailpiece. |
@@ -974,8 +915,6 @@ API path: `/snap_packs`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
-| `data` | list of templates |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -984,12 +923,9 @@ API path: `/snap_packs`
 | `html` | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | Unique identifier prefixed with `tmpl_`. |
 | `metadata` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `published_version` |  |
 | `required_vars` | An array of required variables to be used in a template. |
-| `total_count` | Indicates the total number of records. |
 | `versions` | An array of all non-deleted [version objects](#tag/Template-Versions) associated with the template. |
 
 Operations: Create, List, Load, Remove.
@@ -1000,8 +936,6 @@ API path: `/templates/{tmpl_id}`
 
 | Field | Description |
 | --- | --- |
-| `count` | number of resources in a set |
-| `data` | list of template versions |
 | `date_created` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | Only returned if the resource has been successfully deleted. |
@@ -1010,12 +944,9 @@ API path: `/templates/{tmpl_id}`
 | `html` | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | Unique identifier prefixed with `vrsn_`. |
 | `merge_variables` | Object representing the keys of every merge variable present in the template. |
-| `next_url` | Url of next page of items in list. |
 | `object` | Value is resource type. |
-| `previous_url` | Url of previous page of items in list. |
 | `required_vars` | An array of required variables to be used in a template. |
 | `suggest_json_editor` | Used by frontend, true if the template uses advanced features. |
-| `total_count` | Indicates the total number of records. |
 
 Operations: Create, List, Load.
 
@@ -1148,11 +1079,10 @@ Create an instance: `local address = client:Address(nil)`
 | `address_city` | `string` |  |
 | `address_country` | `string` |  |
 | `address_line1` | `string` |  |
+| `address_line2` | `string` |  |
 | `address_state` | `string` |  |
 | `address_zip` | `string` |  |
 | `company` | `string` |  |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of addresses |
 | `date_created` | `string` |  |
 | `date_modified` | `string` |  |
 | `description` | `string` |  |
@@ -1160,11 +1090,8 @@ Create an instance: `local address = client:Address(nil)`
 | `id` | `string` |  |
 | `metadata` | `table` |  |
 | `name` | `string` |  |
-| `next_url` | `string` | Url of next page of items in list. |
-| `object` | `string` | Value is resource type. |
+| `object` | `string` |  |
 | `phone` | `string` |  |
-| `previous_url` | `string` | Url of previous page of items in list. |
-| `total_count` | `number` | Indicates the total number of records. |
 
 #### Example: Load
 
@@ -1207,8 +1134,6 @@ Create an instance: `local bank_account = client:BankAccount(nil)`
 | `bank_name` | `string` | The name of the bank based on the provided routing number, e.g. |
 | `check_template` | `string` | The check template used for printing. |
 | `city` | `string` | The city associated with your home bank account. |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of bank_accounts |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -1217,14 +1142,11 @@ Create an instance: `local bank_account = client:BankAccount(nil)`
 | `id` | `string` |  |
 | `metadata` | `table` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `microdeposit_type` | `string` | The type of microdeposit verification required for this bank account. |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `routing_number` | `string` | Must be a <a href="https://www.frbservices.org/index.html" target="_blank">valid US routing number</a>. |
 | `signatory` | `string` | The signatory associated with your account. |
 | `signature_url` | `any` |  |
 | `state` | `string` | The state associated with your home bank account. |
-| `total_count` | `number` | Indicates the total number of records. |
 | `verified` | `boolean` | A bank account must be verified before a check can be created. |
 | `zipcode` | `string` | The zipcode associated with your home bank account. |
 
@@ -1283,17 +1205,12 @@ Create an instance: `local billing_group = client:BillingGroup(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of billing_groups |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `description` | `string` | Description of the billing group. |
 | `id` | `string` | Unique identifier prefixed with `bg_`. |
 | `name` | `string` | Name of the billing group. |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
-| `total_count` | `number` | Indicates the total number of records. |
 
 #### Example: Load
 
@@ -1334,8 +1251,6 @@ Create an instance: `local booklet = client:Booklet(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `carrier` | `string` |  |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of booklets |
 | `date_created` | `string` |  |
 | `date_modified` | `string` |  |
 | `description` | `string` | An internal description that identifies this resource. |
@@ -1346,17 +1261,14 @@ Create an instance: `local booklet = client:Booklet(nil)`
 | `mail_type` | `string` | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a <a href="https://lob.com/pricing/print-mail#compare" target="_blank">cheaper option</a> which is less predictable and takes longer to delive… |
 | `merge_variables` | `table` | You can input a merge variable payload object to your template or QR code redirect URLs to render dynamic content. |
 | `metadata` | `table` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `string` | Url of next page of items in list. |
-| `object` | `string` | Value is resource type. |
+| `object` | `string` |  |
 | `pages` | `number` |  |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `send_date` | `string` | A timestamp in ISO 8601 format which specifies a date after the current time and up to 180 days in the future to send the letter off for production. |
 | `size` | `string` |  |
 | `sla` | `string` |  |
 | `source_material` | `string` |  |
 | `thumbnails` | `table` |  |
 | `to` | `table` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `tracking_events` | `table` | An array of tracking events ordered by ascending `time`. |
 | `tracking_number` | `string` |  |
 | `url` | `string` |  |
@@ -1406,8 +1318,6 @@ Create an instance: `local buckslip = client:Buckslip(nil)`
 | `available_quantity` | `number` | The available quantity of buckslips. |
 | `back_original_url` | `string` | The original URL of the back template. |
 | `buckslip_orders` | `table` | An array of buckslip orders that are associated with the buckslip. |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of buckslips |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -1416,11 +1326,9 @@ Create an instance: `local buckslip = client:Buckslip(nil)`
 | `front_original_url` | `string` | The original URL of the front template. |
 | `id` | `string` | Unique identifier prefixed with `bck_`. |
 | `mode` | `string` |  |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
 | `onhand_quantity` | `number` | The onhand quantity of buckslips. |
 | `pending_quantity` | `number` | The pending quantity of buckslips. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `projected_quantity` | `number` | The sum of pending and onhand quantities of buckslips. |
 | `raw_url` | `string` | The raw URL of the buckslip. |
 | `reorder_quantity` | `number` | The number of buckslips to be reordered. |
@@ -1430,7 +1338,6 @@ Create an instance: `local buckslip = client:Buckslip(nil)`
 | `stock` | `string` |  |
 | `threshold_amount` | `number` | The threshold amount of the buckslip |
 | `thumbnails` | `table` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `url` | `string` | The signed link for the buckslip. |
 | `weight` | `string` |  |
 
@@ -1491,14 +1398,20 @@ Create an instance: `local buckslip_order = client:BuckslipOrder(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | List of buckslip orders |
-| `id` | `string` |  |
-| `next_url` | `string` | Url of next page of items in list. |
+| `availability_date` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `buckslip_id` | `string` | Unique identifier prefixed with `bck_`. |
+| `cancelled_reason` | `string` | The reason for cancellation. |
+| `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | `string` | The fixed deadline for the buckslips to be printed. |
+| `id` | `string` | Unique identifier prefixed with `bo_`. |
+| `inventory` | `number` | The inventory of the buckslip order. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `quantity` | `number` | The quantity of buckslips in the order (minimum 5,000). |
-| `total_count` | `number` | Indicates the total number of records. |
+| `quantity_ordered` | `number` | The quantity of buckslips ordered. |
+| `status` | `string` | The status of the buckslip order. |
+| `unit_price` | `number` | The unit price for the buckslip order. |
 
 #### Example: List
 
@@ -1511,6 +1424,9 @@ local buckslip_orders, err = client:BuckslipOrder():list()
 ```lua
 local buckslip_order, err = client:BuckslipOrder():create({
   id = "example_id", -- string
+  date_created = "example_date_created", -- string
+  date_modified = "example_date_modified", -- string
+  object = "example_object", -- string
   quantity = 1, -- number
 })
 ```
@@ -1537,9 +1453,7 @@ Create an instance: `local campaign = client:Campaign(nil)`
 | `auto_cancel_if_ncoa` | `boolean` | Whether or not a mail piece should be automatically canceled and not sent if the address is updated via NCOA. |
 | `billing_group_id` | `string` | Unique identifier prefixed with `bg_`. |
 | `cancel_window_campaign_minutes` | `number` | A window, in minutes, within which the campaign can be canceled. |
-| `count` | `number` | number of resources in a set |
 | `creatives` | `table` | An array of creatives that have been associated with this campaign. |
-| `data` | `table` | list of campaigns |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -1548,14 +1462,11 @@ Create an instance: `local campaign = client:Campaign(nil)`
 | `is_draft` | `boolean` | Whether or not the campaign is still a draft. |
 | `metadata` | `table` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
 | `name` | `string` | Name of the campaign. |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `print_speed` | `string` | A string designating the mail speed type: * `core` - 2 production business days |
 | `schedule_type` | `string` | How the campaign should be scheduled. |
 | `send_date` | `string` | If `schedule_type` is `scheduled_send_date`, provide a date to send this campaign. |
 | `target_delivery_date` | `string` | If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign. |
-| `total_count` | `number` | Indicates the total number of records. |
 | `uploads` | `table` | A single-element array containing the upload object that is assocated with this campaign. |
 | `use_type` | `string` | The use type for each mailpiece. |
 
@@ -1610,9 +1521,7 @@ Create an instance: `local card = client:Card(nil)`
 | `auto_reorder` | `boolean` | True if the cards should be auto-reordered. |
 | `available_quantity` | `number` | The available quantity of cards. |
 | `back_original_url` | `string` | The original URL of the back template. |
-| `count` | `number` | number of resources in a set |
 | `countries` | `string` |  |
-| `data` | `table` | list of cards |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -1620,11 +1529,9 @@ Create an instance: `local card = client:Card(nil)`
 | `front_original_url` | `string` | The original URL of the front template. |
 | `id` | `string` | Unique identifier prefixed with `card_`. |
 | `mode` | `string` |  |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
 | `orientation` | `string` | The orientation of the card. |
 | `pending_quantity` | `number` | The pending quantity of cards. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `raw_url` | `string` | The raw URL of the card. |
 | `reorder_quantity` | `number` | The number of cards to be reordered. |
 | `send_date` | `string` |  |
@@ -1632,7 +1539,6 @@ Create an instance: `local card = client:Card(nil)`
 | `status` | `string` |  |
 | `threshold_amount` | `number` | The threshold amount of the card |
 | `thumbnails` | `table` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `url` | `string` | The signed link for the card. |
 
 #### Example: Load
@@ -1686,14 +1592,20 @@ Create an instance: `local card_order = client:CardOrder(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | List of card orders |
-| `id` | `string` |  |
-| `next_url` | `string` | Url of next page of items in list. |
+| `availability_date` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `cancelled_reason` | `string` | The reason for cancellation. |
+| `card_id` | `string` | Unique identifier prefixed with `card_`. |
+| `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
+| `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
+| `expected_availability_date` | `string` | The fixed deadline for the cards to be printed. |
+| `id` | `string` | Unique identifier prefixed with `co_`. |
+| `inventory` | `number` | The inventory of the card order. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `quantity` | `number` | The quantity of cards in the order (minimum 10,000). |
-| `total_count` | `number` | Indicates the total number of records. |
+| `quantity_ordered` | `number` | The quantity of cards ordered |
+| `status` | `string` | The status of the card order. |
+| `unit_price` | `number` | The unit price for the card order. |
 
 #### Example: List
 
@@ -1706,6 +1618,9 @@ local card_orders, err = client:CardOrder():list()
 ```lua
 local card_order, err = client:CardOrder():create({
   id = "example_id", -- string
+  date_created = "example_date_created", -- string
+  date_modified = "example_date_modified", -- string
+  object = "example_object", -- string
   quantity = 1, -- number
 })
 ```
@@ -1736,8 +1651,6 @@ Create an instance: `local check = client:Check(nil)`
 | `check_bottom_template_id` | `string` |  |
 | `check_bottom_template_version_id` | `string` |  |
 | `check_number` | `number` |  |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of checks |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -1751,15 +1664,12 @@ Create an instance: `local check = client:Check(nil)`
 | `merge_variables` | `table` |  |
 | `message` | `string` |  |
 | `metadata` | `table` |  |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `send_date` | `string` |  |
 | `sla` | `string` |  |
 | `status` | `string` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` |  |
 | `to` | `any` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `tracking_events` | `table` | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | `string` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | TThe use type for each mailpiece. |
@@ -1861,17 +1771,11 @@ Create an instance: `local domain = client:Domain(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
 | `created_at` | `string` | The date and time the domain was created. |
-| `data` | `table` | List of domains. |
 | `domain` | `string` | The registered domain/hostname. |
 | `error_redirect_link` | `string` | URL to redirect customers if a short link is broken or inactive. |
 | `id` | `string` | Unique identifier for a domain. |
-| `next_url` | `string` | Url of next page of items in list. |
-| `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `status` | `string` | The configuration status of the domain. |
-| `total_count` | `number` | Indicates the total number of records. |
 | `updated_at` | `string` | The date and time the domain was last updated. |
 
 #### Example: Load
@@ -1985,9 +1889,7 @@ Create an instance: `local letter = client:Letter(nil)`
 | `cards` | `table` |  |
 | `carrier` | `string` |  |
 | `color` | `boolean` |  |
-| `count` | `number` | number of resources in a set |
 | `custom_envelope` | `string` |  |
-| `data` | `table` | list of letters |
 | `date_created` | `string` |  |
 | `date_modified` | `string` |  |
 | `description` | `string` |  |
@@ -2000,16 +1902,15 @@ Create an instance: `local letter = client:Letter(nil)`
 | `mail_type` | `string` |  |
 | `merge_variables` | `table` |  |
 | `metadata` | `table` |  |
-| `next_url` | `string` | Url of next page of items in list. |
-| `object` | `string` | Value is resource type. |
+| `object` | `string` |  |
 | `perforated_page` | `string` |  |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `return_envelope` | `boolean` |  |
 | `send_date` | `string` |  |
 | `sla` | `string` |  |
+| `template_id` | `string` |  |
+| `template_version_id` | `string` |  |
 | `thumbnails` | `table` |  |
 | `to` | `table` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `tracking_events` | `table` |  |
 | `tracking_number` | `string` |  |
 | `url` | `string` |  |
@@ -2053,18 +1954,16 @@ Create an instance: `local link = client:Link(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | List of links |
+| `created_at` | `string` | The date and time the link was created. |
 | `domain` | `string` | The registered domain to be used for the short URL. |
-| `id` | `string` |  |
+| `domain_id` | `string` | A unique identifier for the registered domain. |
+| `id` | `string` | Unique identifier prefixed with `lnk_`. |
 | `metadata` | `table` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `string` | Url of next page of items in list. |
-| `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `redirect_link` | `string` | The original target URL. |
+| `short_link` | `string` | The shortened URL for the associated original URL. |
 | `slug` | `string` | The unique path for the shortened URL, if empty a unique path will be used. |
 | `title` | `string` | The title of the URL. |
-| `total_count` | `number` | Indicates the total number of records. |
+| `updated_at` | `string` | The date and time the link was last updated. |
 
 #### Example: Load
 
@@ -2082,7 +1981,6 @@ local links, err = client:Link():list()
 
 ```lua
 local link, err = client:Link():create({
-  redirect_link = "example_redirect_link", -- string
 })
 ```
 
@@ -2131,8 +2029,6 @@ Create an instance: `local postcard = client:Postcard(nil)`
 | `back_template_version_id` | `string` | The unique ID of the specific version of the HTML template used for the back of the postcard. |
 | `campaign_id` | `string` | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `string` |  |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of postcards |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -2145,15 +2041,12 @@ Create an instance: `local postcard = client:Postcard(nil)`
 | `fsc` | `boolean` | This is in beta. |
 | `id` | `string` | Unique identifier prefixed with `psc_`. |
 | `metadata` | `table` |  |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `send_date` | `string` |  |
 | `sla` | `string` |  |
 | `status` | `string` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` |  |
 | `to` | `any` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `tracking_events` | `table` | An array of tracking_event objects ordered by ascending `time`. |
 | `url` | `string` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | The use type for each mailpiece. |
@@ -2198,11 +2091,10 @@ Create an instance: `local qr_code = client:QrCode(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | List of QR code analytics |
-| `object` | `string` | Value is resource type. |
-| `scanned_count` | `number` | Indicates the number of QR Codes out of `count` that were scanned atleast once. |
-| `total_count` | `number` | Indicates the total number of records. |
+| `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
+| `number_of_scans` | `number` | Number of times the QR Code associated with this mail piece was scanned. |
+| `resource_id` | `string` | Unique identifier for each mail piece. |
+| `scans` | `table` | Detailed scan information associated with each mail piece. |
 
 #### Example: List
 
@@ -2276,8 +2168,6 @@ Create an instance: `local response = client:Response(nil)`
 | `account_id` | `string` | Your Lob account id. |
 | `brand_name` | `string` |  |
 | `campaign_code` | `string` | The campaign code associated with the Informed Delivery campaign. |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of Informed Delivery campaigns |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Whether the resource has been deleted. |
@@ -2286,9 +2176,7 @@ Create an instance: `local response = client:Response(nil)`
 | `id` | `string` | Unique identifier prefixed with `infd_`. |
 | `lob_campaign_id` | `string` |  |
 | `mode` | `string` | The mode of the Informed Delivery campaign. |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is the resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `quantity` | `number` |  |
 | `representative_image_s3_link` | `string` | A URL link to the campaigns representative image. |
 | `ride_along_image_s3_link` | `string` | A URL link to the campaigns ride along image. |
@@ -2297,7 +2185,6 @@ Create an instance: `local response = client:Response(nil)`
 | `start_date` | `string` |  |
 | `start_serial` | `number` | The first serial number in the range of serial numbers for this campaign. |
 | `status` | `string` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `usps_campaign_id` | `string` | A numberical string up to 12 characters long. |
 | `usps_title` | `string` |  |
 
@@ -2385,8 +2272,6 @@ Create an instance: `local self_mailer = client:SelfMailer(nil)`
 | --- | --- | --- |
 | `campaign_id` | `string` | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `string` |  |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of self_mailers |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -2401,18 +2286,15 @@ Create an instance: `local self_mailer = client:SelfMailer(nil)`
 | `mail_type` | `string` |  |
 | `merge_variables` | `table` |  |
 | `metadata` | `table` |  |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
 | `outside_template_id` | `string` | The unique ID of the HTML template used for the outside of the self mailer. |
 | `outside_template_version_id` | `string` | The unique ID of the specific version of the HTML template used for the outside of the self mailer. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `send_date` | `string` |  |
 | `size` | `string` |  |
 | `sla` | `string` |  |
 | `status` | `string` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` |  |
 | `to` | `any` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `tracking_events` | `table` | An array of certified tracking events ordered by ascending `time`. |
 | `url` | `string` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | The use type for each mailpiece. |
@@ -2462,8 +2344,6 @@ Create an instance: `local snap_pack = client:SnapPack(nil)`
 | `campaign_id` | `string` | Denotes resources created by the provided campaign id, prefixed with `cmp_`. |
 | `carrier` | `string` |  |
 | `color` | `boolean` | Set this key to `true` if you would like to print in color. |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of snap_packs |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -2477,18 +2357,15 @@ Create an instance: `local snap_pack = client:SnapPack(nil)`
 | `inside_template_version_id` | `string` | The unique ID of the specific version of the HTML template used for the inside of the snap pack. |
 | `mail_type` | `string` |  |
 | `merge_variables` | `table` |  |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
 | `outside_template_id` | `string` | The unique ID of the HTML template used for the outside of the snap pack. |
 | `outside_template_version_id` | `string` | The unique ID of the specific version of the HTML template used for the outside of the snap pack. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `send_date` | `string` |  |
 | `size` | `string` |  |
 | `sla` | `string` |  |
 | `status` | `string` | A string describing the PDF render status: * `processed` - the rendering process is currently in progress. |
 | `thumbnails` | `table` |  |
 | `to` | `any` |  |
-| `total_count` | `number` | Indicates the total number of records. |
 | `tracking_events` | `table` | An array of tracking events ordered by ascending `time`. |
 | `url` | `string` | A [signed link](#section/Asset-URLs) served over HTTPS. |
 | `use_type` | `string` | The use type for each mailpiece. |
@@ -2535,8 +2412,6 @@ Create an instance: `local template = client:Template(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of templates |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -2545,12 +2420,9 @@ Create an instance: `local template = client:Template(nil)`
 | `html` | `string` | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | `string` | Unique identifier prefixed with `tmpl_`. |
 | `metadata` | `table` | Use metadata to store custom information for tagging and labeling back to your internal systems. |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `published_version` | `any` |  |
 | `required_vars` | `table` | An array of required variables to be used in a template. |
-| `total_count` | `number` | Indicates the total number of records. |
 | `versions` | `table` | An array of all non-deleted [version objects](#tag/Template-Versions) associated with the template. |
 
 #### Example: Load
@@ -2593,8 +2465,6 @@ Create an instance: `local template_version = client:TemplateVersion(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` | number of resources in a set |
-| `data` | `table` | list of template versions |
 | `date_created` | `string` | A timestamp in ISO 8601 format of the date the resource was created. |
 | `date_modified` | `string` | A timestamp in ISO 8601 format of the date the resource was last modified. |
 | `deleted` | `boolean` | Only returned if the resource has been successfully deleted. |
@@ -2603,12 +2473,9 @@ Create an instance: `local template_version = client:TemplateVersion(nil)`
 | `html` | `string` | An HTML string of less than 100,000 characters to be used as the `published_version` of this template. |
 | `id` | `string` | Unique identifier prefixed with `vrsn_`. |
 | `merge_variables` | `table` | Object representing the keys of every merge variable present in the template. |
-| `next_url` | `string` | Url of next page of items in list. |
 | `object` | `string` | Value is resource type. |
-| `previous_url` | `string` | Url of previous page of items in list. |
 | `required_vars` | `table` | An array of required variables to be used in a template. |
 | `suggest_json_editor` | `boolean` | Used by frontend, true if the template uses advanced features. |
-| `total_count` | `number` | Indicates the total number of records. |
 
 #### Example: Load
 
@@ -2991,9 +2858,9 @@ activated earlier.
 
 ## Open types
 
-3 fields are carried as open values rather than typed structures.
+1 field is carried as open values rather than typed structures.
 This follows from the API definition, not from a gap in this SDK: the
-definition describes them with untagged unions —
+definition describes it with untagged unions —
 `oneOf`/`anyOf` branches with no `discriminator` — so it never states which
 variant a given value is. Nothing can select a branch reliably, so the SDK
 passes the value through unchanged rather than assert a shape the API does not
@@ -3002,8 +2869,6 @@ guarantee.
 | Entity | Field | Variants | Nesting |
 | --- | --- | --- | --- |
 | `campaign` | `creatives` | 3 | 15 levels |
-| `campaign` | `data` | 3 | 20 levels |
-| `letter` | `data` | 3 | 17 levels |
 
 These values round-trip unchanged — read them, modify them, send them back. If
 the API adds a `discriminator` to the definition, regenerating will type them.
@@ -3093,11 +2958,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local address = client:Address()
-address:list()
+local campaign = client:Campaign()
+campaign:list()
 
--- address:data_get() now returns the address data from the last list
--- address:match_get() returns the last match criteria
+-- campaign:data_get() now returns the campaign data from the last list
+-- campaign:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

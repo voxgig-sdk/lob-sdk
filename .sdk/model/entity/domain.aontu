@@ -5,26 +5,12 @@ main: kit: entity: domain: {
   alias: field: {}
 
   fields: {
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
     created_at: {
       h: "Created At"
       n: "created_at"
       r: false
       sh: "The date and time the domain was created."
       t: "`$STRING`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "List of domains."
-      t: "`$ARRAY`"
     }
     domain: {
       h: "Domain"
@@ -53,40 +39,12 @@ main: kit: entity: domain: {
       sh: "Unique identifier for a domain."
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
-    object: {
-      h: "Object"
-      n: "object"
-      r: false
-      sh: "Value is resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
-      t: "`$STRING`"
-    }
     status: {
       h: "Status"
       n: "status"
       r: false
       sh: "The configuration status of the domain."
       t: "`$STRING`"
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     updated_at: {
       h: "Updated At"
@@ -121,9 +79,7 @@ main: kit: entity: domain: {
             }
           ]
           t: {
-            req: {
-              domain: "`reqdata`"
-            }
+            req: "`reqdata`"
             res: "`body`"
           }
         }
@@ -180,7 +136,7 @@ main: kit: entity: domain: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

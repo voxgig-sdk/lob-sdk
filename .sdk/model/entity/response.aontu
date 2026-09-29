@@ -45,20 +45,6 @@ main: kit: entity: response: {
       sh: "The campaign code associated with the Informed Delivery campaign."
       t: "`$STRING`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of Informed Delivery campaigns"
-      t: "`$ARRAY`"
-    }
     date_created: {
       fo: "date-time"
       h: "Date Created"
@@ -187,22 +173,11 @@ main: kit: entity: response: {
       sh: "The mode of the Informed Delivery campaign."
       t: "`$STRING`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
       op: {
         create: {
-          req: false
-          type: "`$STRING`"
-        }
-        list: {
           req: false
           type: "`$STRING`"
         }
@@ -213,13 +188,6 @@ main: kit: entity: response: {
       }
       r: true
       sh: "Value is the resource type."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     quantity: {
@@ -314,13 +282,6 @@ main: kit: entity: response: {
       r: false
       t: "`$STRING`"
     }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
-    }
     usps_campaign_id: {
       h: "Usps Campaign Id"
       n: "usps_campaign_id"
@@ -394,7 +355,7 @@ main: kit: entity: response: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

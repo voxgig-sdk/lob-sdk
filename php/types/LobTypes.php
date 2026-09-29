@@ -18,11 +18,10 @@ class Address
     public ?string $address_city = null;
     public ?string $address_country = null;
     public ?string $address_line1 = null;
+    public ?string $address_line2 = null;
     public ?string $address_state = null;
     public ?string $address_zip = null;
     public ?string $company = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
@@ -30,11 +29,8 @@ class Address
     public ?string $id = null;
     public ?array $metadata = null;
     public ?string $name = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $phone = null;
-    public ?string $previous_url = null;
-    public ?int $total_count = null;
 }
 
 /** Request payload for Address#load. */
@@ -58,11 +54,10 @@ class AddressCreateData
     public ?string $address_city = null;
     public ?string $address_country = null;
     public ?string $address_line1 = null;
+    public ?string $address_line2 = null;
     public ?string $address_state = null;
     public ?string $address_zip = null;
     public ?string $company = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
@@ -70,11 +65,8 @@ class AddressCreateData
     public ?string $id = null;
     public ?array $metadata = null;
     public ?string $name = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $phone = null;
-    public ?string $previous_url = null;
-    public ?int $total_count = null;
 }
 
 /** Request payload for Address#remove. */
@@ -91,8 +83,6 @@ class BankAccount
     public ?string $bank_name = null;
     public ?string $check_template = null;
     public ?string $city = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -101,14 +91,11 @@ class BankAccount
     public string $id;
     public ?array $metadata = null;
     public ?string $microdeposit_type = null;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public string $routing_number;
     public string $signatory;
     public mixed $signature_url = null;
     public ?string $state = null;
-    public ?int $total_count = null;
     public ?bool $verified = null;
     public ?string $zipcode = null;
 }
@@ -136,8 +123,6 @@ class BankAccountCreateData
     public ?string $bank_name = null;
     public ?string $check_template = null;
     public ?string $city = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -146,14 +131,11 @@ class BankAccountCreateData
     public string $id;
     public ?array $metadata = null;
     public ?string $microdeposit_type = null;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public string $routing_number;
     public string $signatory;
     public mixed $signature_url = null;
     public ?string $state = null;
-    public ?int $total_count = null;
     public ?bool $verified = null;
     public ?string $zipcode = null;
 }
@@ -172,17 +154,12 @@ class BankDeletionRemoveMatch
 /** BillingGroup entity data model. */
 class BillingGroup
 {
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
     public ?string $id = null;
     public ?string $name = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
-    public ?int $total_count = null;
 }
 
 /** Request payload for BillingGroup#load. */
@@ -206,24 +183,17 @@ class BillingGroupListMatch
 class BillingGroupCreateData
 {
     public string $id;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
     public ?string $name = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
-    public ?int $total_count = null;
 }
 
 /** Booklet entity data model. */
 class Booklet
 {
     public ?string $carrier = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
@@ -234,17 +204,14 @@ class Booklet
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?int $pages = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $size = null;
     public ?string $sla = null;
     public ?string $source_material = null;
     public ?array $thumbnails = null;
     public ?array $to = null;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public ?string $tracking_number = null;
     public ?string $url = null;
@@ -276,8 +243,6 @@ class BookletCreateData
 {
     public ?string $idempotency_key = null;
     public ?string $carrier = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
@@ -288,17 +253,14 @@ class BookletCreateData
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?int $pages = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $size = null;
     public ?string $sla = null;
     public ?string $source_material = null;
     public ?array $thumbnails = null;
     public ?array $to = null;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public ?string $tracking_number = null;
     public ?string $url = null;
@@ -320,8 +282,6 @@ class Buckslip
     public float $available_quantity;
     public string $back_original_url;
     public array $buckslip_orders;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -330,11 +290,9 @@ class Buckslip
     public string $front_original_url;
     public string $id;
     public ?string $mode = null;
-    public ?string $next_url = null;
     public string $object;
     public float $onhand_quantity;
     public float $pending_quantity;
-    public ?string $previous_url = null;
     public float $projected_quantity;
     public string $raw_url;
     public int $reorder_quantity;
@@ -344,7 +302,6 @@ class Buckslip
     public string $stock;
     public int $threshold_amount;
     public array $thumbnails;
-    public ?int $total_count = null;
     public string $url;
     public string $weight;
 }
@@ -371,8 +328,6 @@ class BuckslipCreateData
     public float $available_quantity;
     public string $back_original_url;
     public array $buckslip_orders;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -381,11 +336,9 @@ class BuckslipCreateData
     public string $front_original_url;
     public string $id;
     public ?string $mode = null;
-    public ?string $next_url = null;
     public string $object;
     public float $onhand_quantity;
     public float $pending_quantity;
-    public ?string $previous_url = null;
     public float $projected_quantity;
     public string $raw_url;
     public int $reorder_quantity;
@@ -395,7 +348,6 @@ class BuckslipCreateData
     public string $stock;
     public int $threshold_amount;
     public array $thumbnails;
-    public ?int $total_count = null;
     public string $url;
     public string $weight;
 }
@@ -410,8 +362,6 @@ class BuckslipUpdateData
     public ?float $available_quantity = null;
     public ?string $back_original_url = null;
     public ?array $buckslip_orders = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -419,11 +369,9 @@ class BuckslipUpdateData
     public ?string $finish = null;
     public ?string $front_original_url = null;
     public ?string $mode = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?float $onhand_quantity = null;
     public ?float $pending_quantity = null;
-    public ?string $previous_url = null;
     public ?float $projected_quantity = null;
     public ?string $raw_url = null;
     public ?int $reorder_quantity = null;
@@ -433,7 +381,6 @@ class BuckslipUpdateData
     public ?string $stock = null;
     public ?int $threshold_amount = null;
     public ?array $thumbnails = null;
-    public ?int $total_count = null;
     public ?string $url = null;
     public ?string $weight = null;
 }
@@ -447,14 +394,20 @@ class BuckslipRemoveMatch
 /** BuckslipOrder entity data model. */
 class BuckslipOrder
 {
-    public ?int $count = null;
-    public ?array $data = null;
+    public ?string $availability_date = null;
+    public ?string $buckslip_id = null;
+    public ?string $cancelled_reason = null;
+    public string $date_created;
+    public string $date_modified;
+    public ?bool $deleted = null;
+    public ?string $expected_availability_date = null;
     public ?string $id = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
+    public ?float $inventory = null;
+    public string $object;
     public int $quantity;
-    public ?int $total_count = null;
+    public ?float $quantity_ordered = null;
+    public ?string $status = null;
+    public ?float $unit_price = null;
 }
 
 /** Request payload for BuckslipOrder#list. */
@@ -469,13 +422,19 @@ class BuckslipOrderListMatch
 class BuckslipOrderCreateData
 {
     public string $id;
-    public ?int $count = null;
-    public ?array $data = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
+    public ?string $availability_date = null;
+    public ?string $buckslip_id = null;
+    public ?string $cancelled_reason = null;
+    public string $date_created;
+    public string $date_modified;
+    public ?bool $deleted = null;
+    public ?string $expected_availability_date = null;
+    public ?float $inventory = null;
+    public string $object;
     public int $quantity;
-    public ?int $total_count = null;
+    public ?float $quantity_ordered = null;
+    public ?string $status = null;
+    public ?float $unit_price = null;
 }
 
 /** Campaign entity data model. */
@@ -484,9 +443,7 @@ class Campaign
     public ?bool $auto_cancel_if_ncoa = null;
     public ?string $billing_group_id = null;
     public ?int $cancel_window_campaign_minutes = null;
-    public ?int $count = null;
     public array $creatives;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -495,14 +452,11 @@ class Campaign
     public bool $is_draft;
     public ?array $metadata = null;
     public string $name;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public ?string $print_speed = null;
     public string $schedule_type;
     public ?string $send_date = null;
     public ?string $target_delivery_date = null;
-    public ?int $total_count = null;
     public array $uploads;
     public string $use_type;
 }
@@ -526,9 +480,7 @@ class CampaignCreateData
     public ?bool $auto_cancel_if_ncoa = null;
     public ?string $billing_group_id = null;
     public ?int $cancel_window_campaign_minutes = null;
-    public ?int $count = null;
     public array $creatives;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -537,14 +489,11 @@ class CampaignCreateData
     public bool $is_draft;
     public ?array $metadata = null;
     public string $name;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public ?string $print_speed = null;
     public string $schedule_type;
     public ?string $send_date = null;
     public ?string $target_delivery_date = null;
-    public ?int $total_count = null;
     public array $uploads;
     public string $use_type;
 }
@@ -556,9 +505,7 @@ class CampaignUpdateData
     public ?bool $auto_cancel_if_ncoa = null;
     public ?string $billing_group_id = null;
     public ?int $cancel_window_campaign_minutes = null;
-    public ?int $count = null;
     public ?array $creatives = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -566,14 +513,11 @@ class CampaignUpdateData
     public ?bool $is_draft = null;
     public ?array $metadata = null;
     public ?string $name = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $print_speed = null;
     public ?string $schedule_type = null;
     public ?string $send_date = null;
     public ?string $target_delivery_date = null;
-    public ?int $total_count = null;
     public ?array $uploads = null;
     public ?string $use_type = null;
 }
@@ -591,9 +535,7 @@ class Card
     public bool $auto_reorder;
     public int $available_quantity;
     public string $back_original_url;
-    public ?int $count = null;
     public ?string $countries = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -601,11 +543,9 @@ class Card
     public string $front_original_url;
     public string $id;
     public ?string $mode = null;
-    public ?string $next_url = null;
     public string $object;
     public string $orientation;
     public int $pending_quantity;
-    public ?string $previous_url = null;
     public string $raw_url;
     public int $reorder_quantity;
     public ?string $send_date = null;
@@ -613,7 +553,6 @@ class Card
     public string $status;
     public int $threshold_amount;
     public array $thumbnails;
-    public ?int $total_count = null;
     public string $url;
 }
 
@@ -638,20 +577,16 @@ class CardCreateData
     public bool $auto_reorder;
     public int $available_quantity;
     public string $back_original_url;
-    public ?int $count = null;
     public ?string $countries = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
     public ?string $description = null;
     public string $front_original_url;
     public ?string $mode = null;
-    public ?string $next_url = null;
     public string $object;
     public string $orientation;
     public int $pending_quantity;
-    public ?string $previous_url = null;
     public string $raw_url;
     public int $reorder_quantity;
     public ?string $send_date = null;
@@ -659,7 +594,6 @@ class CardCreateData
     public string $status;
     public int $threshold_amount;
     public array $thumbnails;
-    public ?int $total_count = null;
     public string $url;
 }
 
@@ -672,14 +606,20 @@ class CardRemoveMatch
 /** CardOrder entity data model. */
 class CardOrder
 {
-    public ?int $count = null;
-    public ?array $data = null;
+    public ?string $availability_date = null;
+    public ?string $cancelled_reason = null;
+    public ?string $card_id = null;
+    public string $date_created;
+    public string $date_modified;
+    public ?bool $deleted = null;
+    public ?string $expected_availability_date = null;
     public ?string $id = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
+    public ?float $inventory = null;
+    public string $object;
     public int $quantity;
-    public ?int $total_count = null;
+    public ?float $quantity_ordered = null;
+    public ?string $status = null;
+    public ?float $unit_price = null;
 }
 
 /** Request payload for CardOrder#list. */
@@ -694,13 +634,19 @@ class CardOrderListMatch
 class CardOrderCreateData
 {
     public string $id;
-    public ?int $count = null;
-    public ?array $data = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
+    public ?string $availability_date = null;
+    public ?string $cancelled_reason = null;
+    public ?string $card_id = null;
+    public string $date_created;
+    public string $date_modified;
+    public ?bool $deleted = null;
+    public ?string $expected_availability_date = null;
+    public ?float $inventory = null;
+    public string $object;
     public int $quantity;
-    public ?int $total_count = null;
+    public ?float $quantity_ordered = null;
+    public ?string $status = null;
+    public ?float $unit_price = null;
 }
 
 /** Check entity data model. */
@@ -714,8 +660,6 @@ class Check
     public ?string $check_bottom_template_id = null;
     public ?string $check_bottom_template_version_id = null;
     public ?int $check_number = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -729,15 +673,12 @@ class Check
     public ?array $merge_variables = null;
     public ?string $message = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public string $use_type;
@@ -775,8 +716,6 @@ class CheckCreateData
     public ?string $check_bottom_template_id = null;
     public ?string $check_bottom_template_version_id = null;
     public ?int $check_number = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -790,15 +729,12 @@ class CheckCreateData
     public ?array $merge_variables = null;
     public ?string $message = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public string $use_type;
@@ -873,17 +809,11 @@ class CreativeUpdateData
 /** Domain entity data model. */
 class Domain
 {
-    public ?int $count = null;
     public ?string $created_at = null;
-    public ?array $data = null;
     public ?string $domain = null;
     public ?string $error_redirect_link = null;
     public ?string $id = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $status = null;
-    public ?int $total_count = null;
     public ?string $updated_at = null;
 }
 
@@ -903,17 +833,11 @@ class DomainListMatch
 /** Request payload for Domain#create. */
 class DomainCreateData
 {
-    public ?int $count = null;
     public ?string $created_at = null;
-    public ?array $data = null;
     public ?string $domain = null;
     public ?string $error_redirect_link = null;
     public ?string $id = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $status = null;
-    public ?int $total_count = null;
     public ?string $updated_at = null;
 }
 
@@ -994,9 +918,7 @@ class Letter
     public ?array $cards = null;
     public ?string $carrier = null;
     public ?bool $color = null;
-    public ?int $count = null;
     public ?string $custom_envelope = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
@@ -1009,16 +931,15 @@ class Letter
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $perforated_page = null;
-    public ?string $previous_url = null;
     public ?bool $return_envelope = null;
     public ?string $send_date = null;
     public ?string $sla = null;
+    public ?string $template_id = null;
+    public ?string $template_version_id = null;
     public ?array $thumbnails = null;
     public ?array $to = null;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public ?string $tracking_number = null;
     public ?string $url = null;
@@ -1055,9 +976,7 @@ class LetterCreateData
     public ?array $cards = null;
     public ?string $carrier = null;
     public ?bool $color = null;
-    public ?int $count = null;
     public ?string $custom_envelope = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?string $description = null;
@@ -1070,16 +989,15 @@ class LetterCreateData
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $perforated_page = null;
-    public ?string $previous_url = null;
     public ?bool $return_envelope = null;
     public ?string $send_date = null;
     public ?string $sla = null;
+    public ?string $template_id = null;
+    public ?string $template_version_id = null;
     public ?array $thumbnails = null;
     public ?array $to = null;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public ?string $tracking_number = null;
     public ?string $url = null;
@@ -1095,18 +1013,16 @@ class LetterRemoveMatch
 /** Link entity data model. */
 class Link
 {
-    public ?int $count = null;
-    public ?array $data = null;
+    public ?string $created_at = null;
     public ?string $domain = null;
+    public ?string $domain_id = null;
     public ?string $id = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
-    public string $redirect_link;
+    public ?string $redirect_link = null;
+    public ?string $short_link = null;
     public ?string $slug = null;
     public ?string $title = null;
-    public ?int $total_count = null;
+    public ?string $updated_at = null;
 }
 
 /** Request payload for Link#load. */
@@ -1126,35 +1042,31 @@ class LinkListMatch
 /** Request payload for Link#create. */
 class LinkCreateData
 {
-    public ?int $count = null;
-    public ?array $data = null;
+    public ?string $created_at = null;
     public ?string $domain = null;
+    public ?string $domain_id = null;
     public ?string $id = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
-    public string $redirect_link;
+    public ?string $redirect_link = null;
+    public ?string $short_link = null;
     public ?string $slug = null;
     public ?string $title = null;
-    public ?int $total_count = null;
+    public ?string $updated_at = null;
 }
 
 /** Request payload for Link#update. */
 class LinkUpdateData
 {
     public string $id;
-    public ?int $count = null;
-    public ?array $data = null;
+    public ?string $created_at = null;
     public ?string $domain = null;
+    public ?string $domain_id = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
-    public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $redirect_link = null;
+    public ?string $short_link = null;
     public ?string $slug = null;
     public ?string $title = null;
-    public ?int $total_count = null;
+    public ?string $updated_at = null;
 }
 
 /** Request payload for Link#remove. */
@@ -1182,8 +1094,6 @@ class Postcard
     public ?string $back_template_version_id = null;
     public ?string $campaign_id = null;
     public string $carrier;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1196,15 +1106,12 @@ class Postcard
     public ?bool $fsc = null;
     public string $id;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public ?string $use_type = null;
@@ -1240,8 +1147,6 @@ class PostcardCreateData
     public ?string $back_template_version_id = null;
     public ?string $campaign_id = null;
     public string $carrier;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1254,15 +1159,12 @@ class PostcardCreateData
     public ?bool $fsc = null;
     public string $id;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public ?string $use_type = null;
@@ -1277,11 +1179,10 @@ class PostcardRemoveMatch
 /** QrCode entity data model. */
 class QrCode
 {
-    public ?int $count = null;
-    public ?array $data = null;
-    public ?string $object = null;
-    public ?int $scanned_count = null;
-    public ?int $total_count = null;
+    public ?string $date_created = null;
+    public ?float $number_of_scans = null;
+    public ?string $resource_id = null;
+    public ?array $scans = null;
 }
 
 /** Request payload for QrCode#list. */
@@ -1352,8 +1253,6 @@ class Response
     public string $account_id;
     public ?string $brand_name = null;
     public string $campaign_code;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public bool $deleted;
@@ -1362,9 +1261,7 @@ class Response
     public string $id;
     public ?string $lob_campaign_id = null;
     public string $mode;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public ?int $quantity = null;
     public string $representative_image_s3_link;
     public string $ride_along_image_s3_link;
@@ -1373,7 +1270,6 @@ class Response
     public ?string $start_date = null;
     public int $start_serial;
     public ?string $status = null;
-    public ?int $total_count = null;
     public string $usps_campaign_id;
     public ?string $usps_title = null;
 }
@@ -1390,8 +1286,6 @@ class ResponseListMatch
     public ?string $account_id = null;
     public ?string $brand_name = null;
     public ?string $campaign_code = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1400,9 +1294,7 @@ class ResponseListMatch
     public ?string $id = null;
     public ?string $lob_campaign_id = null;
     public ?string $mode = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public ?int $quantity = null;
     public ?string $representative_image_s3_link = null;
     public ?string $ride_along_image_s3_link = null;
@@ -1411,7 +1303,6 @@ class ResponseListMatch
     public ?string $start_date = null;
     public ?int $start_serial = null;
     public ?string $status = null;
-    public ?int $total_count = null;
     public ?string $usps_campaign_id = null;
     public ?string $usps_title = null;
 }
@@ -1422,8 +1313,6 @@ class ResponseCreateData
     public string $account_id;
     public ?string $brand_name = null;
     public string $campaign_code;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public bool $deleted;
@@ -1432,9 +1321,7 @@ class ResponseCreateData
     public string $id;
     public ?string $lob_campaign_id = null;
     public string $mode;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public ?int $quantity = null;
     public string $representative_image_s3_link;
     public string $ride_along_image_s3_link;
@@ -1443,7 +1330,6 @@ class ResponseCreateData
     public ?string $start_date = null;
     public int $start_serial;
     public ?string $status = null;
-    public ?int $total_count = null;
     public string $usps_campaign_id;
     public ?string $usps_title = null;
 }
@@ -1455,8 +1341,6 @@ class ResponseUpdateData
     public ?string $account_id = null;
     public ?string $brand_name = null;
     public ?string $campaign_code = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1465,9 +1349,7 @@ class ResponseUpdateData
     public ?string $id = null;
     public ?string $lob_campaign_id = null;
     public ?string $mode = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public ?int $quantity = null;
     public ?string $representative_image_s3_link = null;
     public ?string $ride_along_image_s3_link = null;
@@ -1476,7 +1358,6 @@ class ResponseUpdateData
     public ?string $start_date = null;
     public ?int $start_serial = null;
     public ?string $status = null;
-    public ?int $total_count = null;
     public ?string $usps_title = null;
 }
 
@@ -1506,8 +1387,6 @@ class SelfMailer
 {
     public ?string $campaign_id = null;
     public string $carrier;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1522,18 +1401,15 @@ class SelfMailer
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $outside_template_id = null;
     public ?string $outside_template_version_id = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $size = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public string $use_type;
@@ -1567,8 +1443,6 @@ class SelfMailerCreateData
     public ?string $idempotency_key = null;
     public ?string $campaign_id = null;
     public string $carrier;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1583,18 +1457,15 @@ class SelfMailerCreateData
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $outside_template_id = null;
     public ?string $outside_template_version_id = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $size = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public string $use_type;
@@ -1612,8 +1483,6 @@ class SnapPack
     public ?string $campaign_id = null;
     public string $carrier;
     public ?bool $color = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1627,18 +1496,15 @@ class SnapPack
     public ?string $inside_template_version_id = null;
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $outside_template_id = null;
     public ?string $outside_template_version_id = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $size = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public string $use_type;
@@ -1671,8 +1537,6 @@ class SnapPackCreateData
     public ?string $campaign_id = null;
     public string $carrier;
     public ?bool $color = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1686,18 +1550,15 @@ class SnapPackCreateData
     public ?string $inside_template_version_id = null;
     public ?string $mail_type = null;
     public ?array $merge_variables = null;
-    public ?string $next_url = null;
     public ?string $object = null;
     public ?string $outside_template_id = null;
     public ?string $outside_template_version_id = null;
-    public ?string $previous_url = null;
     public ?string $send_date = null;
     public ?string $size = null;
     public ?string $sla = null;
     public ?string $status = null;
     public ?array $thumbnails = null;
     public mixed $to;
-    public ?int $total_count = null;
     public ?array $tracking_events = null;
     public string $url;
     public string $use_type;
@@ -1712,8 +1573,6 @@ class SnapPackRemoveMatch
 /** Template entity data model. */
 class Template
 {
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1722,12 +1581,9 @@ class Template
     public string $html;
     public string $id;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public mixed $published_version;
     public ?array $required_vars = null;
-    public ?int $total_count = null;
     public array $versions;
 }
 
@@ -1750,8 +1606,6 @@ class TemplateListMatch
 class TemplateCreateData
 {
     public string $id;
-    public ?int $count = null;
-    public ?array $data = null;
     public ?string $date_created = null;
     public ?string $date_modified = null;
     public ?bool $deleted = null;
@@ -1759,12 +1613,9 @@ class TemplateCreateData
     public ?string $engine = null;
     public string $html;
     public ?array $metadata = null;
-    public ?string $next_url = null;
     public ?string $object = null;
-    public ?string $previous_url = null;
     public mixed $published_version;
     public ?array $required_vars = null;
-    public ?int $total_count = null;
     public array $versions;
 }
 
@@ -1777,8 +1628,6 @@ class TemplateRemoveMatch
 /** TemplateVersion entity data model. */
 class TemplateVersion
 {
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -1787,12 +1636,9 @@ class TemplateVersion
     public string $html;
     public string $id;
     public ?array $merge_variables = null;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public ?array $required_vars = null;
     public ?bool $suggest_json_editor = null;
-    public ?int $total_count = null;
 }
 
 /** Request payload for TemplateVersion#load. */
@@ -1816,8 +1662,6 @@ class TemplateVersionCreateData
 {
     public string $id;
     public ?string $template_id = null;
-    public ?int $count = null;
-    public ?array $data = null;
     public string $date_created;
     public string $date_modified;
     public ?bool $deleted = null;
@@ -1825,12 +1669,9 @@ class TemplateVersionCreateData
     public ?string $engine = null;
     public string $html;
     public ?array $merge_variables = null;
-    public ?string $next_url = null;
     public string $object;
-    public ?string $previous_url = null;
     public ?array $required_vars = null;
     public ?bool $suggest_json_editor = null;
-    public ?int $total_count = null;
 }
 
 /** TemplateVersionDeletion entity data model. */

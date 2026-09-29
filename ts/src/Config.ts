@@ -325,6 +325,11 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "name": "address_line2",
+          "title": "Address Line2",
+          "type": "`$STRING`"
+        },
+        {
           "name": "address_state",
           "title": "Address State",
           "type": "`$STRING`"
@@ -338,18 +343,6 @@ class Config {
           "name": "company",
           "title": "Company",
           "type": "`$STRING`"
-        },
-        {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of addresses"
         },
         {
           "name": "date_created",
@@ -387,33 +380,14 @@ class Config {
           "type": "`$STRING`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
-          "type": "`$STRING`",
-          "short": "Value is resource type."
+          "type": "`$STRING`"
         },
         {
           "name": "phone",
           "title": "Phone",
           "type": "`$STRING`"
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         }
       ],
       "id": {
@@ -467,7 +441,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -651,18 +625,6 @@ class Config {
           "short": "The city associated with your home bank account."
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of bank_accounts"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -715,12 +677,6 @@ class Config {
           "short": "The type of microdeposit verification required for this bank account."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
@@ -737,12 +693,6 @@ class Config {
             }
           },
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "routing_number",
@@ -768,12 +718,6 @@ class Config {
           "title": "State",
           "type": "`$STRING`",
           "short": "The state associated with your home bank account."
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "verified",
@@ -886,7 +830,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -1015,7 +959,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body.id`"
+                "res": "`body`"
               },
               "args": {
                 "params": [
@@ -1047,18 +991,6 @@ class Config {
     },
     "billing_group": {
       "fields": [
-        {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of billing_groups"
-        },
         {
           "name": "date_created",
           "title": "Date Created",
@@ -1092,28 +1024,10 @@ class Config {
           "short": "Name of the billing group."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         }
       ],
       "id": {
@@ -1209,7 +1123,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -1327,18 +1241,6 @@ class Config {
           "type": "`$STRING`"
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of booklets"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`"
@@ -1393,27 +1295,14 @@ class Config {
           "short": "Use metadata to store custom information for tagging and labeling back to your internal systems."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
-          "type": "`$STRING`",
-          "short": "Value is resource type."
+          "type": "`$STRING`"
         },
         {
           "name": "pages",
           "title": "Pages",
           "type": "`$INTEGER`"
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "send_date",
@@ -1445,12 +1334,6 @@ class Config {
           "name": "to",
           "title": "To",
           "type": "`$OBJECT`"
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "tracking_events",
@@ -1505,7 +1388,7 @@ class Config {
                 "header": [
                   {
                     "name": "idempotency_key",
-                    "orig": "idempotency_key",
+                    "orig": "Idempotency-Key",
                     "type": "`$STRING`",
                     "kind": "header",
                     "example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
@@ -1548,7 +1431,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -1806,18 +1689,6 @@ class Config {
           "short": "An array of buckslip orders that are associated with the buckslip."
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of buckslips"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -1897,21 +1768,12 @@ class Config {
           "type": "`$STRING`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
           "req": true,
           "op": {
             "create": {
-              "type": "`$STRING`"
-            },
-            "list": {
               "type": "`$STRING`"
             }
           },
@@ -1940,12 +1802,6 @@ class Config {
             }
           },
           "short": "The pending quantity of buckslips."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "projected_quantity",
@@ -2044,12 +1900,6 @@ class Config {
           }
         },
         {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
-        },
-        {
           "name": "url",
           "title": "Url",
           "type": "`$STRING`",
@@ -2125,7 +1975,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -2312,39 +2162,71 @@ class Config {
     "buckslip_order": {
       "fields": [
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
+          "name": "availability_date",
+          "title": "Availability Date",
+          "type": "`$STRING`",
+          "short": "A timestamp in ISO 8601 format of the date the resource was created.",
+          "format": "date-time"
         },
         {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "List of buckslip orders"
+          "name": "buckslip_id",
+          "title": "Buckslip Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier prefixed with `bck_`."
+        },
+        {
+          "name": "cancelled_reason",
+          "title": "Cancelled Reason",
+          "type": "`$STRING`",
+          "short": "The reason for cancellation."
+        },
+        {
+          "name": "date_created",
+          "title": "Date Created",
+          "type": "`$STRING`",
+          "req": true,
+          "short": "A timestamp in ISO 8601 format of the date the resource was created.",
+          "format": "date-time"
+        },
+        {
+          "name": "date_modified",
+          "title": "Date Modified",
+          "type": "`$STRING`",
+          "req": true,
+          "short": "A timestamp in ISO 8601 format of the date the resource was last modified.",
+          "format": "date-time"
+        },
+        {
+          "name": "deleted",
+          "title": "Deleted",
+          "type": "`$BOOLEAN`",
+          "short": "Only returned if the resource has been successfully deleted."
+        },
+        {
+          "name": "expected_availability_date",
+          "title": "Expected Availability Date",
+          "type": "`$STRING`",
+          "short": "The fixed deadline for the buckslips to be printed.",
+          "format": "date-time"
         },
         {
           "name": "id",
           "title": "Id",
-          "type": "`$STRING`"
+          "type": "`$STRING`",
+          "short": "Unique identifier prefixed with `bo_`."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
+          "name": "inventory",
+          "title": "Inventory",
+          "type": "`$NUMBER`",
+          "short": "The inventory of the buckslip order."
         },
         {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
+          "req": true,
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "quantity",
@@ -2354,10 +2236,22 @@ class Config {
           "short": "The quantity of buckslips in the order (minimum 5,000)."
         },
         {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
+          "name": "quantity_ordered",
+          "title": "Quantity Ordered",
+          "type": "`$NUMBER`",
+          "short": "The quantity of buckslips ordered."
+        },
+        {
+          "name": "status",
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "The status of the buckslip order."
+        },
+        {
+          "name": "unit_price",
+          "title": "Unit Price",
+          "type": "`$NUMBER`",
+          "short": "The unit price for the buckslip order."
         }
       ],
       "id": {
@@ -2449,7 +2343,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "params": [
@@ -2514,23 +2408,11 @@ class Config {
           "short": "A window, in minutes, within which the campaign can be canceled."
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
           "name": "creatives",
           "title": "Creatives",
           "type": "`$ARRAY`",
           "req": true,
           "short": "An array of creatives that have been associated with this campaign."
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of campaigns"
         },
         {
           "name": "date_created",
@@ -2598,28 +2480,11 @@ class Config {
           "short": "Name of the campaign."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
           "req": true,
-          "op": {
-            "list": {
-              "type": "`$STRING`"
-            }
-          },
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "print_speed",
@@ -2652,12 +2517,6 @@ class Config {
           "type": "`$STRING`",
           "short": "If `schedule_type` is `target_delivery_date`, provide a targeted delivery date for mail pieces in this campaign.",
           "format": "date-time"
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "uploads",
@@ -2757,7 +2616,7 @@ class Config {
                 "header": [
                   {
                     "name": "x_lang_output",
-                    "orig": "x_lang_output",
+                    "orig": "x-lang-output",
                     "type": "`$STRING`",
                     "kind": "header"
                   }
@@ -2790,7 +2649,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -3019,21 +2878,9 @@ class Config {
           "format": "uri"
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
           "name": "countries",
           "title": "Countries",
           "type": "`$STRING`"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of cards"
         },
         {
           "name": "date_created",
@@ -3104,21 +2951,12 @@ class Config {
           "type": "`$STRING`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
           "req": true,
           "op": {
             "create": {
-              "type": "`$STRING`"
-            },
-            "list": {
               "type": "`$STRING`"
             }
           },
@@ -3147,12 +2985,6 @@ class Config {
             }
           },
           "short": "The pending quantity of cards."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "raw_url",
@@ -3223,12 +3055,6 @@ class Config {
               "type": "`$ARRAY`"
             }
           }
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "url",
@@ -3337,7 +3163,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -3476,39 +3302,71 @@ class Config {
     "card_order": {
       "fields": [
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
+          "name": "availability_date",
+          "title": "Availability Date",
+          "type": "`$STRING`",
+          "short": "A timestamp in ISO 8601 format of the date the resource was created.",
+          "format": "date-time"
         },
         {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "List of card orders"
+          "name": "cancelled_reason",
+          "title": "Cancelled Reason",
+          "type": "`$STRING`",
+          "short": "The reason for cancellation."
+        },
+        {
+          "name": "card_id",
+          "title": "Card Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier prefixed with `card_`."
+        },
+        {
+          "name": "date_created",
+          "title": "Date Created",
+          "type": "`$STRING`",
+          "req": true,
+          "short": "A timestamp in ISO 8601 format of the date the resource was created.",
+          "format": "date-time"
+        },
+        {
+          "name": "date_modified",
+          "title": "Date Modified",
+          "type": "`$STRING`",
+          "req": true,
+          "short": "A timestamp in ISO 8601 format of the date the resource was last modified.",
+          "format": "date-time"
+        },
+        {
+          "name": "deleted",
+          "title": "Deleted",
+          "type": "`$BOOLEAN`",
+          "short": "Only returned if the resource has been successfully deleted."
+        },
+        {
+          "name": "expected_availability_date",
+          "title": "Expected Availability Date",
+          "type": "`$STRING`",
+          "short": "The fixed deadline for the cards to be printed.",
+          "format": "date-time"
         },
         {
           "name": "id",
           "title": "Id",
-          "type": "`$STRING`"
+          "type": "`$STRING`",
+          "short": "Unique identifier prefixed with `co_`."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
+          "name": "inventory",
+          "title": "Inventory",
+          "type": "`$NUMBER`",
+          "short": "The inventory of the card order."
         },
         {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
+          "req": true,
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "quantity",
@@ -3518,10 +3376,22 @@ class Config {
           "short": "The quantity of cards in the order (minimum 10,000)."
         },
         {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
+          "name": "quantity_ordered",
+          "title": "Quantity Ordered",
+          "type": "`$NUMBER`",
+          "short": "The quantity of cards ordered"
+        },
+        {
+          "name": "status",
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "The status of the card order."
+        },
+        {
+          "name": "unit_price",
+          "title": "Unit Price",
+          "type": "`$NUMBER`",
+          "short": "The unit price for the card order."
         }
       ],
       "id": {
@@ -3613,7 +3483,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "params": [
@@ -3720,18 +3590,6 @@ class Config {
           "type": "`$INTEGER`"
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of checks"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -3823,22 +3681,10 @@ class Config {
           "type": "`$OBJECT`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "send_date",
@@ -3871,12 +3717,6 @@ class Config {
               "type": "`$OBJECT`"
             }
           }
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "tracking_events",
@@ -3940,7 +3780,7 @@ class Config {
                 "header": [
                   {
                     "name": "idempotency_key",
-                    "orig": "idempotency_key",
+                    "orig": "Idempotency-Key",
                     "type": "`$STRING`",
                     "kind": "header",
                     "example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
@@ -3983,7 +3823,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -4329,7 +4169,7 @@ class Config {
                 "header": [
                   {
                     "name": "x_lang_output",
-                    "orig": "x_lang_output",
+                    "orig": "x-lang-output",
                     "type": "`$STRING`",
                     "kind": "header"
                   }
@@ -4449,22 +4289,10 @@ class Config {
     "domain": {
       "fields": [
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
           "name": "created_at",
           "title": "Created At",
           "type": "`$STRING`",
           "short": "The date and time the domain was created."
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "List of domains."
         },
         {
           "name": "domain",
@@ -4491,34 +4319,10 @@ class Config {
           "short": "Unique identifier for a domain."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
-          "name": "object",
-          "title": "Object",
-          "type": "`$STRING`",
-          "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
-        },
-        {
           "name": "status",
           "title": "Status",
           "type": "`$STRING`",
           "short": "The configuration status of the domain."
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "updated_at",
@@ -4551,9 +4355,7 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "domain": "`reqdata`"
-                },
+                "req": "`reqdata`",
                 "res": "`body`"
               },
               "args": {},
@@ -4580,7 +4382,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -4903,7 +4705,7 @@ class Config {
                 "header": [
                   {
                     "name": "x_lang_output",
-                    "orig": "x_lang_output",
+                    "orig": "x-lang-output",
                     "type": "`$STRING`",
                     "kind": "header"
                   }
@@ -4969,21 +4771,9 @@ class Config {
           "type": "`$BOOLEAN`"
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
           "name": "custom_envelope",
           "title": "Custom Envelope",
           "type": "`$STRING`"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of letters"
         },
         {
           "name": "date_created",
@@ -5046,27 +4836,14 @@ class Config {
           "type": "`$OBJECT`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
-          "type": "`$STRING`",
-          "short": "Value is resource type."
+          "type": "`$STRING`"
         },
         {
           "name": "perforated_page",
           "title": "Perforated Page",
           "type": "`$STRING`"
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "return_envelope",
@@ -5084,6 +4861,16 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "name": "template_id",
+          "title": "Template Id",
+          "type": "`$STRING`"
+        },
+        {
+          "name": "template_version_id",
+          "title": "Template Version Id",
+          "type": "`$STRING`"
+        },
+        {
           "name": "thumbnails",
           "title": "Thumbnails",
           "type": "`$ARRAY`"
@@ -5092,12 +4879,6 @@ class Config {
           "name": "to",
           "title": "To",
           "type": "`$OBJECT`"
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "tracking_events",
@@ -5151,14 +4932,14 @@ class Config {
                 "header": [
                   {
                     "name": "idempotency_key",
-                    "orig": "idempotency_key",
+                    "orig": "Idempotency-Key",
                     "type": "`$STRING`",
                     "kind": "header",
                     "example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
                   },
                   {
                     "name": "lob_version",
-                    "orig": "lob_version",
+                    "orig": "Lob-Version",
                     "type": "`$STRING`",
                     "kind": "header",
                     "example": "2024-01-01"
@@ -5202,7 +4983,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -5405,16 +5186,10 @@ class Config {
     "link": {
       "fields": [
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "List of links"
+          "name": "created_at",
+          "title": "Created At",
+          "type": "`$STRING`",
+          "short": "The date and time the link was created."
         },
         {
           "name": "domain",
@@ -5423,9 +5198,16 @@ class Config {
           "short": "The registered domain to be used for the short URL."
         },
         {
+          "name": "domain_id",
+          "title": "Domain Id",
+          "type": "`$STRING`",
+          "short": "A unique identifier for the registered domain."
+        },
+        {
           "name": "id",
           "title": "Id",
-          "type": "`$STRING`"
+          "type": "`$STRING`",
+          "short": "Unique identifier prefixed with `lnk_`."
         },
         {
           "name": "metadata",
@@ -5434,29 +5216,26 @@ class Config {
           "short": "Use metadata to store custom information for tagging and labeling back to your internal systems."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
-          "name": "object",
-          "title": "Object",
-          "type": "`$STRING`",
-          "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
-        },
-        {
           "name": "redirect_link",
           "title": "Redirect Link",
           "type": "`$STRING`",
-          "req": true,
+          "op": {
+            "create": {
+              "req": true,
+              "type": "`$STRING`"
+            },
+            "update": {
+              "req": true,
+              "type": "`$STRING`"
+            }
+          },
           "short": "The original target URL."
+        },
+        {
+          "name": "short_link",
+          "title": "Short Link",
+          "type": "`$STRING`",
+          "short": "The shortened URL for the associated original URL."
         },
         {
           "name": "slug",
@@ -5471,10 +5250,10 @@ class Config {
           "short": "The title of the URL."
         },
         {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
+          "name": "updated_at",
+          "title": "Updated At",
+          "type": "`$STRING`",
+          "short": "The date and time the link was last updated."
         }
       ],
       "id": {
@@ -5502,7 +5281,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body.metadata`"
+                "res": "`body`"
               },
               "args": {},
               "select": {}
@@ -5528,7 +5307,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -5597,7 +5376,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body.metadata`"
+                "res": "`body`"
               },
               "args": {
                 "params": [
@@ -5693,7 +5472,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body.metadata`"
+                "res": "`body`"
               },
               "args": {
                 "params": [
@@ -5800,18 +5579,6 @@ class Config {
           }
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of postcards"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -5895,22 +5662,10 @@ class Config {
           "type": "`$OBJECT`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "send_date",
@@ -5943,12 +5698,6 @@ class Config {
               "type": "`$OBJECT`"
             }
           }
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "tracking_events",
@@ -6006,7 +5755,7 @@ class Config {
                 "header": [
                   {
                     "name": "idempotency_key",
-                    "orig": "idempotency_key",
+                    "orig": "Idempotency-Key",
                     "type": "`$STRING`",
                     "kind": "header",
                     "example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
@@ -6049,7 +5798,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -6252,34 +6001,29 @@ class Config {
     "qr_code": {
       "fields": [
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "List of QR code analytics"
-        },
-        {
-          "name": "object",
-          "title": "Object",
+          "name": "date_created",
+          "title": "Date Created",
           "type": "`$STRING`",
-          "short": "Value is resource type."
+          "short": "A timestamp in ISO 8601 format of the date the resource was created.",
+          "format": "date-time"
         },
         {
-          "name": "scanned_count",
-          "title": "Scanned Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the number of QR Codes out of `count` that were scanned atleast once."
+          "name": "number_of_scans",
+          "title": "Number Of Scans",
+          "type": "`$NUMBER`",
+          "short": "Number of times the QR Code associated with this mail piece was scanned."
         },
         {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
+          "name": "resource_id",
+          "title": "Resource Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for each mail piece."
+        },
+        {
+          "name": "scans",
+          "title": "Scans",
+          "type": "`$ARRAY`",
+          "short": "Detailed scan information associated with each mail piece."
         }
       ],
       "name": "qr_code",
@@ -6303,7 +6047,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -6335,7 +6079,7 @@ class Config {
                   },
                   {
                     "name": "resource_id",
-                    "orig": "resource_id",
+                    "orig": "resource_ids",
                     "type": "`$ARRAY`",
                     "kind": "query"
                   },
@@ -6625,18 +6369,6 @@ class Config {
           "short": "The campaign code associated with the Informed Delivery campaign."
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of Informed Delivery campaigns"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -6750,12 +6482,6 @@ class Config {
           "short": "The mode of the Informed Delivery campaign."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
@@ -6764,20 +6490,11 @@ class Config {
             "create": {
               "type": "`$STRING`"
             },
-            "list": {
-              "type": "`$STRING`"
-            },
             "update": {
               "type": "`$STRING`"
             }
           },
           "short": "Value is the resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "quantity",
@@ -6860,12 +6577,6 @@ class Config {
           "type": "`$STRING`"
         },
         {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
-        },
-        {
           "name": "usps_campaign_id",
           "title": "Usps Campaign Id",
           "type": "`$STRING`",
@@ -6937,7 +6648,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {},
               "select": {}
@@ -7147,18 +6858,6 @@ class Config {
           }
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of self_mailers"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -7246,12 +6945,6 @@ class Config {
           "type": "`$OBJECT`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
@@ -7268,12 +6961,6 @@ class Config {
           "title": "Outside Template Version Id",
           "type": "`$STRING`",
           "short": "The unique ID of the specific version of the HTML template used for the outside of the self mailer."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "send_date",
@@ -7311,12 +6998,6 @@ class Config {
               "type": "`$OBJECT`"
             }
           }
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "tracking_events",
@@ -7380,7 +7061,7 @@ class Config {
                 "header": [
                   {
                     "name": "idempotency_key",
-                    "orig": "idempotency_key",
+                    "orig": "Idempotency-Key",
                     "type": "`$STRING`",
                     "kind": "header",
                     "example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
@@ -7423,7 +7104,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -7649,18 +7330,6 @@ class Config {
           "short": "Set this key to `true` if you would like to print in color."
         },
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of snap_packs"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -7743,12 +7412,6 @@ class Config {
           "type": "`$OBJECT`"
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
@@ -7765,12 +7428,6 @@ class Config {
           "title": "Outside Template Version Id",
           "type": "`$STRING`",
           "short": "The unique ID of the specific version of the HTML template used for the outside of the snap pack."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "send_date",
@@ -7808,12 +7465,6 @@ class Config {
               "type": "`$OBJECT`"
             }
           }
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "tracking_events",
@@ -7877,7 +7528,7 @@ class Config {
                 "header": [
                   {
                     "name": "idempotency_key",
-                    "orig": "idempotency_key",
+                    "orig": "Idempotency-Key",
                     "type": "`$STRING`",
                     "kind": "header",
                     "example": "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
@@ -7920,7 +7571,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -8109,18 +7760,6 @@ class Config {
     "template": {
       "fields": [
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of templates"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -8173,22 +7812,10 @@ class Config {
           "short": "Use metadata to store custom information for tagging and labeling back to your internal systems."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
           "short": "Value is resource type."
-        },
-        {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
         },
         {
           "name": "published_version",
@@ -8206,12 +7833,6 @@ class Config {
           "title": "Required Vars",
           "type": "`$ARRAY`",
           "short": "An array of required variables to be used in a template."
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         },
         {
           "name": "versions",
@@ -8314,7 +7935,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -8467,18 +8088,6 @@ class Config {
     "template_version": {
       "fields": [
         {
-          "name": "count",
-          "title": "Count",
-          "type": "`$INTEGER`",
-          "short": "number of resources in a set"
-        },
-        {
-          "name": "data",
-          "title": "Data",
-          "type": "`$ARRAY`",
-          "short": "list of template versions"
-        },
-        {
           "name": "date_created",
           "title": "Date Created",
           "type": "`$STRING`",
@@ -8533,12 +8142,6 @@ class Config {
           "short": "Object representing the keys of every merge variable present in the template."
         },
         {
-          "name": "next_url",
-          "title": "Next Url",
-          "type": "`$STRING`",
-          "short": "Url of next page of items in list."
-        },
-        {
           "name": "object",
           "title": "Object",
           "type": "`$STRING`",
@@ -8554,12 +8157,6 @@ class Config {
           "short": "Value is resource type."
         },
         {
-          "name": "previous_url",
-          "title": "Previous Url",
-          "type": "`$STRING`",
-          "short": "Url of previous page of items in list."
-        },
-        {
           "name": "required_vars",
           "title": "Required Vars",
           "type": "`$ARRAY`",
@@ -8570,12 +8167,6 @@ class Config {
           "title": "Suggest Json Editor",
           "type": "`$BOOLEAN`",
           "short": "Used by frontend, true if the template uses advanced features."
-        },
-        {
-          "name": "total_count",
-          "title": "Total Count",
-          "type": "`$INTEGER`",
-          "short": "Indicates the total number of records."
         }
       ],
       "id": {
@@ -8726,7 +8317,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "params": [
@@ -9253,7 +8844,7 @@ class Config {
                 "query": [
                   {
                     "name": "campaign_id",
-                    "orig": "campaign_id",
+                    "orig": "campaignId",
                     "type": "`$STRING`",
                     "kind": "query"
                   }
@@ -9652,7 +9243,7 @@ class Config {
                   },
                   {
                     "name": "valid_address",
-                    "orig": "valid_address",
+                    "orig": "valid_addresses",
                     "type": "`$BOOLEAN`",
                     "kind": "query",
                     "example": false

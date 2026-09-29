@@ -24,25 +24,6 @@ main: kit: entity: self_mailer: {
       r: true
       t: "`$STRING`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of self_mailers"
-      t: "`$ARRAY`"
-      union: {
-        branches: 2
-        count: 5
-        depth: 9
-      }
-    }
     date_created: {
       fo: "date-time"
       h: "Date Created"
@@ -149,13 +130,6 @@ main: kit: entity: self_mailer: {
       r: false
       t: "`$OBJECT`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
@@ -175,13 +149,6 @@ main: kit: entity: self_mailer: {
       n: "outside_template_version_id"
       r: false
       sh: "The unique ID of the specific version of the HTML template used for the outside of the self mailer."
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     send_date: {
@@ -231,13 +198,6 @@ main: kit: entity: self_mailer: {
         count: 3
         depth: 4
       }
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     tracking_events: {
       h: "Tracking Events"
@@ -296,7 +256,7 @@ main: kit: entity: self_mailer: {
                 ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
                 k: "header"
                 n: "idempotency_key"
-                or: "idempotency_key"
+                or: "Idempotency-Key"
                 r: false
                 t: "`$STRING`"
               }
@@ -455,7 +415,7 @@ main: kit: entity: self_mailer: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

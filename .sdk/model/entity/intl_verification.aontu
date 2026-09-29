@@ -112,7 +112,7 @@ main: kit: entity: intl_verification: {
               {
                 k: "header"
                 n: "x_lang_output"
-                or: "x_lang_output"
+                or: "x-lang-output"
                 r: false
                 t: "`$STRING`"
               }

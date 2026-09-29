@@ -29,30 +29,11 @@ main: kit: entity: letter: {
       r: false
       t: "`$BOOLEAN`"
     }
-    count: {
-      h: "Count"
-      n: "count"
-      r: false
-      sh: "number of resources in a set"
-      t: "`$INTEGER`"
-    }
     custom_envelope: {
       h: "Custom Envelope"
       n: "custom_envelope"
       r: false
       t: "`$STRING`"
-    }
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      sh: "list of letters"
-      t: "`$ARRAY`"
-      union: {
-        branches: 3
-        count: 34
-        depth: 17
-      }
     }
     date_created: {
       h: "Date Created"
@@ -126,31 +107,16 @@ main: kit: entity: letter: {
       r: false
       t: "`$OBJECT`"
     }
-    next_url: {
-      h: "Next Url"
-      n: "next_url"
-      r: false
-      sh: "Url of next page of items in list."
-      t: "`$STRING`"
-    }
     object: {
       h: "Object"
       n: "object"
       r: false
-      sh: "Value is resource type."
       t: "`$STRING`"
     }
     perforated_page: {
       h: "Perforated Page"
       n: "perforated_page"
       r: false
-      t: "`$STRING`"
-    }
-    previous_url: {
-      h: "Previous Url"
-      n: "previous_url"
-      r: false
-      sh: "Url of previous page of items in list."
       t: "`$STRING`"
     }
     return_envelope: {
@@ -171,6 +137,18 @@ main: kit: entity: letter: {
       r: false
       t: "`$STRING`"
     }
+    template_id: {
+      h: "Template Id"
+      n: "template_id"
+      r: false
+      t: "`$STRING`"
+    }
+    template_version_id: {
+      h: "Template Version Id"
+      n: "template_version_id"
+      r: false
+      t: "`$STRING`"
+    }
     thumbnails: {
       h: "Thumbnails"
       n: "thumbnails"
@@ -182,13 +160,6 @@ main: kit: entity: letter: {
       n: "to"
       r: false
       t: "`$OBJECT`"
-    }
-    total_count: {
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      sh: "Indicates the total number of records."
-      t: "`$INTEGER`"
     }
     tracking_events: {
       h: "Tracking Events"
@@ -238,7 +209,7 @@ main: kit: entity: letter: {
                 ex: "026e7634-24d7-486c-a0bb-4a17fd0eebc5"
                 k: "header"
                 n: "idempotency_key"
-                or: "idempotency_key"
+                or: "Idempotency-Key"
                 r: false
                 t: "`$STRING`"
               }
@@ -246,7 +217,7 @@ main: kit: entity: letter: {
                 ex: "2024-01-01"
                 k: "header"
                 n: "lob_version"
-                or: "lob_version"
+                or: "Lob-Version"
                 r: false
                 t: "`$STRING`"
               }
@@ -406,7 +377,7 @@ main: kit: entity: letter: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]
